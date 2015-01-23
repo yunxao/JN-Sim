@@ -1,6 +1,6 @@
 # JN-Sim
 
-JN-Sim is a adaption of the J-Sim simulator (v1.3) This version add BGP-4 functionality
+JN-Sim is a fork of the [J-Sim simulator](https://sites.google.com/site/jsimofficial/) (v1.3). JN-Sim adds the ability to simulate bgp-4
 
 This simulator is my degree project. Finished in 2010. 
 
