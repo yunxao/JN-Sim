@@ -1,0 +1,67 @@
+<JSimConfig>
+
+<debug debugFlag="disable" errorFlag="disable" trace_dir="trace"/>
+
+<protocol type="bgp 4">
+	<parameters rtlog="enable" dbglog="enable" tracelog="enable" fsmlog="enable"
+		tie_breaking="default" default_local_pref="90" med="default"
+		routes_compare_level="level 5" default_port="169"/>
+</protocol>
+
+<protocol type="mp bgp">
+	<parameters rtlog="enable" dbglog="enable" tracelog="enable" fsmlog="enable"
+	mp_type="AF_INET" mp_bfd="disabled" mp_bfd_poll_interval="default"/>
+</protocol>
+
+<components>
+	<router id="router1" >
+		<topology>
+			<link id=".link1_2"/>
+			<link id=".link1_3"/>
+		</topology>
+		<interface name="principal" address="10.0.1.1"/>
+		<session type="bgp 4">
+			<parameters as="1" port="170" interface="principal" />
+			<network address="180.2.0.0/20"/>
+			<neighbour IP="10.0.2.1" remote-as="2" />
+			<neighbour IP="10.0.3.1" remote-as="3" />
+		</session>
+	</router>
+	<router id="router2" >
+		<topology>
+			<link id=".link1_2"/>
+			<link id=".link2_4"/>
+		</topology>
+		<interface name="principal" address="10.0.2.1"/>
+		<session type="bgp 4">
+			<parameters as="2" port="170" interface="principal" />
+			<neighbour IP="10.0.1.1" remote-as="1" />
+			<neighbour IP="10.0.4.1" remote-as="4" />
+		</session>
+	</router>
+	<router id="router3" >
+		<topology>
+			<link id=".link1_3"/>
+			<link id=".link3_4"/>
+		</topology>
+		<interface name="principal" address="10.0.3.1"/>
+		<session type="bgp 4">
+			<parameters as="3" port="170" interface="principal"/>
+			<neighbour IP="10.0.1.1" remote-as="1" />
+			<neighbour IP="10.0.4.1" remote-as="4" />
+		</session>
+	</router>
+	<router id="router4" >
+		<topology>
+			<link id=".link2_4"/>
+			<link id=".link3_4"/>
+		</topology>
+		<interface name="principal" address="10.0.4.1"/>
+		<session type="bgp 4">
+			<parameters as="4" port="170" interface="principal"/>
+			<neighbour IP="10.0.2.1" remote-as="2" />
+			<neighbour IP="10.0.3.1" remote-as="3" />
+		</session>
+	</router><!-- FIN AS4637 -->
+</components>
+</JSimConfig>

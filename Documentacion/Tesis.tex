@@ -1,0 +1,255 @@
+%----------------------------------------------------------------------
+%
+%                          ManualTeXiS.tex
+%
+%----------------------------------------------------------------------
+%
+% ManualTeXiS.tex
+% Copyright 2009 Marco Antonio Gomez-Martin, Pedro Pablo Gomez-Martin
+%
+% This file belongs to the TeXiS manual, a LaTeX template for writting
+% Thesis and other documents. The complete last TeXiS package can
+% be obtained from http://gaia.fdi.ucm.es/projects/texis/
+%
+% Although the TeXiS template itself is distributed under the 
+% conditions of the LaTeX Project Public License
+% (http://www.latex-project.org/lppl.txt), the manual content
+% uses the CC-BY-SA license that stays that you are free:
+%
+%    - to share & to copy, distribute and transmit the work
+%    - to remix and to adapt the work
+%
+% under the following conditions:
+%
+%    - Attribution: you must attribute the work in the manner
+%      specified by the author or licensor (but not in any way that
+%      suggests that they endorse you or your use of the work).
+%    - Share Alike: if you alter, transform, or build upon this
+%      work, you may distribute the resulting work only under the
+%      same, similar or a compatible license.
+%
+% The complete license is available in
+% http://creativecommons.org/licenses/by-sa/3.0/legalcode
+%
+%---------------------------------------------------------------------
+%
+% Este fichero contiene el "documento maestro" del manual. Lo único
+% que hace es configurar el entorno LaTeX e incluir los ficheros .tex
+% que contienen cada sección.
+%
+%----------------------------------------------------------------------
+%
+% Los ficheros necesarios para este documento son:
+%
+%       TeXiS/* : ficheros de la plantilla TeXiS.
+%       Cascaras/* : ficheros con las partes del documento que no
+%          son capítulos ni apéndices (portada, agradecimientos, etc.)
+%       Capitulos/*.tex : capítulos de la tesis
+%       Apendices/*.tex: apéndices de la tesis
+%       constantes.tex: constantes LaTeX
+%       config.tex : configuración de la "compilación" del documento
+%       guionado.tex : palabras con guiones
+%
+% Para la bibliografía, además, se necesitan:
+%
+%       *.bib : ficheros con la información de las referencias
+%
+% ---------------------------------------------------------------------
+
+\documentclass[11pt,a4paper,twoside]{book}
+
+%
+% Definimos  el   comando  \compilaCapitulo,  que   luego  se  utiliza
+% (opcionalmente) en config.tex. Quedaría  mejor si también se definiera
+% en  ese fichero,  pero por  el modo  en el  que funciona  eso  no es
+% posible. Puedes consultar la documentación de ese fichero para tener
+% más  información. Definimos también  \compilaApendice, que  tiene el
+% mismo  cometido, pero  que se  utiliza para  compilar  únicamente un
+% apéndice.
+%
+%
+% Si  queremos   compilar  solo   una  parte  del   documento  podemos
+% especificar mediante  \includeonly{...} qué ficheros  son los únicos
+% que queremos  que se incluyan.  Esto  es útil por  ejemplo para sólo
+% compilar un capítulo.
+%
+% El problema es que todos aquellos  ficheros que NO estén en la lista
+% NO   se  incluirán...  y   eso  también   afecta  a   ficheros  de
+% la plantilla...
+%
+% Total,  que definimos  una constante  con los  ficheros  que siempre
+% vamos a querer compilar  (aquellos relacionados con configuración) y
+% luego definimos \compilaCapitulo.
+\newcommand{\ficherosBasicosTeXiS}{%
+TeXiS/TeXiS_pream,TeXiS/TeXiS_cab,TeXiS/TeXiS_bib,TeXiS/TeXiS_cover,%
+TeXiS/TeXiS_part%
+}
+\newcommand{\ficherosBasicosTexto}{%
+constantes,guionado,Cascaras/bibliografia,config%
+}
+\newcommand{\compilaCapitulo}[1]{%
+\includeonly{\ficherosBasicosTeXiS,\ficherosBasicosTexto,Capitulos/#1}%
+}
+
+\newcommand{\compilaApendice}[1]{%
+\includeonly{\ficherosBasicosTeXiS,\ficherosBasicosTexto,Apendices/#1}%
+}
+
+%- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Comandos añadidos Por Francisco Huertas Ferrer
+%- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+\newcommand{\labelEq}	[1]	{\label{eq:#1}}
+\newcommand{\labelFig}	[1]	{\label{fig:#1}}
+\newcommand{\labelTab}	[1]	{\label{tab:#1}}
+\newcommand{\labelSec}	[1]	{\label{sec:#1}}
+\newcommand{\refEq}	[1]	{{Ecuación~\ref{eq:#1}}}
+\newcommand{\refFig}	[1]	{{Figura~\ref{fig:#1}}}
+\newcommand{\refTab}	[1]	{{Tabla~\ref{tab:#1}}}
+\newcommand{\refSec}	[1]	{{Sección~\ref{sec:#1}}}
+\newcommand{\cod}	[1]	{{\tt #1}}
+\newcommand{\angl}	[1]	{{\em #1}}
+
+
+\newcommand{\newFig}[2] {
+\begin{figure}[ht]
+\centering
+\includegraphics [width=0.80\textwidth] {Imagenes/Fuentes/#1}
+\caption {#2}
+\labelFig{#1}
+\end{figure}
+}
+
+\newcommand{\newFigSize}[3] {
+\begin{figure}[ht]
+\centering
+\includegraphics [width=#3\textwidth] {Imagenes/Fuentes/#1}
+\caption {#2}
+\labelFig{#1}
+\end{figure}
+}
+
+%- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%            Preámbulo del documento. Configuraciones varias
+%- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+% Define  el  tipo  de  compilación que  estamos  haciendo.   Contiene
+% definiciones  de  constantes que  cambian  el  comportamiento de  la
+% compilación. Debe incluirse antes del paquete TeXiS/TeXiS.sty
+\include{config}
+
+% Paquete de la plantilla
+\usepackage{TeXiS/TeXiS}
+
+% Incluimos el fichero con comandos de constantes
+\include{constantes}
+
+% Sacamos en el log de la compilación el copyright
+% \typeout{Copyright Marco Antonio and Pedro Pablo Gomez Martin}
+
+%
+% "Metadatos" para el PDF
+%
+\ifpdf\hypersetup{%
+    pdftitle = {\titulo},
+    pdfsubject = {},
+    pdfkeywords = {\keywords, \keywordsEs, \keywordsEn},
+    pdfauthor = {\textcopyright\ \autor},
+    pdfcreator = {\LaTeX\ con el paquete \flqq hyperref\frqq},
+    pdfproducer = {pdfeTeX-0.\the\pdftexversion\pdftexrevision},
+    }
+    \pdfinfo{/CreationDate (\today)}
+\fi
+
+
+%- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+%                        Documento
+%- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+\begin{document}
+
+% Incluimos el  fichero de definición de guionado  de algunas palabras
+% que LaTeX no ha dividido como debería
+\input{guionado}
+
+% Marcamos  el inicio  del  documento para  la  numeración de  páginas
+% (usando números romanos para esta primera fase).
+\frontmatter
+
+\include{Cascaras/cover}
+
+\include{Cascaras/dedicatoria}
+
+\include{Cascaras/agradecimientos}
+
+\include{Cascaras/resumen}
+
+\include{Cascaras/resumenEn}
+
+\ifx\generatoc\undefined
+\else
+\include{TeXiS/TeXiS_toc}
+\fi
+
+% Marcamos el  comienzo de  los capítulos (para  la numeración  de las
+% páginas) y ponemos la cabecera normal
+\mainmatter
+\restauraCabecera
+
+\include{Capitulos/01Introduccion}
+\include{Capitulos/02Simulador}
+\include{Capitulos/03Simulaciones}
+\include{Capitulos/04EstudioBGP}
+\include{Capitulos/05Conclusion}
+
+% Apéndices
+\appendix
+\include{Apendices/A1UsoSimulador}
+\include{Apendices/A2Configuraciones}
+
+\backmatter
+
+%
+% Bibliografía
+%
+
+\include{Cascaras/bibliografia}
+
+%
+% Índice de palabras
+%
+
+% Sólo  la   generamos  si  está   declarada  \generaindice.  Consulta
+% TeXiS.sty para más información.
+
+% En realidad, el soporte para la generación de índices de palabras
+% en TeXiS no está documentada en el manual, porque no ha sido usada
+% "en producción". Por tanto, el fichero que genera el índice
+% *no* se incluye aquí (está comentado). Consulta la documentación
+% en TeXiS_pream.tex para más información.
+\ifx\generaindice\undefined
+\else
+%\include{TeXiS/TeXiS_indice}
+\fi
+
+%
+% Lista de acrónimos
+%
+
+% Sólo  lo  generamos  si  está declarada  \generaacronimos.  Consulta
+% TeXiS.sty para más información.
+
+
+\ifx\generaacronimos\undefined
+\else
+\include{acronimos}
+%\include{TeXiS/TeXiS_acron}
+\fi
+
+%
+% Final
+%
+\include{Cascaras/fin}
+
+\end{document}
+
+

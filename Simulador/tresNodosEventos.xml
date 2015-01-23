@@ -1,0 +1,12 @@
+<JSimConfig>
+	<events>
+		<event type="INCORRECT_BGPUPDATE_MSG" id="event1"
+			message="Test a incorrect update msg recived">
+			<parameters node="Router1" destiny="10.0.2.2" />
+		</event>
+
+	</events>
+	<simulation time="10000">
+		<execute id="event1" time="1000" />
+	</simulation>
+</JSimConfig>

@@ -1,0 +1,15 @@
+<!--
+SIMULATION (unique): 
+	- time: Simulate duration.
+	ENVENT (list) Events must be sorted by time!!!
+		-type: type of the event. Values DOWN and UP
+		-time: moment of the event
+		-message(optional): message for the event
+-->
+<JSimConfig >
+<events>
+</events>
+<simulation time="7000">
+
+</simulation>
+</JSimConfig>

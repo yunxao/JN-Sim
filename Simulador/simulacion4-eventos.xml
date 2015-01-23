@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JSimConfig>
+	<events>
+		<event type="DOWN" id="Down1013-2009"
+			message="Cortando la comunicacion entre Los sistemas autonomos 1013 y 2009">
+			<component id=".link_nodo1013_8-nodo2009_5" />
+		</event>
+		<event type="UP" id="Up1013-2009"
+			message="Recuperando la comunicacion entre Los sistemas autonomos 1013 y 2009">
+			<component id=".link_nodo1013_8-nodo2009_5" />
+		</event>
+		<event type="DOWN" id="Down1011-2002"
+			message="Cortando la comunicacion entre Los sistemas autonomos 1011 y 2002">
+			<component id=".link_nodo1011_2-nodo2002_3" />
+		</event>
+		<event type="UP" id="Up1011-2002"
+			message="Recuperando la comunicacion entre Los sistemas autonomos 1011 y 2002">
+			<component id=".link_nodo1011_2-nodo2002_3" />
+		</event>
+		<event type="DOWN" id="Down3002-3012"
+			message="Cortando la comunicacion entre Los sistemas autonomos 3002 y 3012">
+			<component id=".link_nodo3002_2-nodo3012_3" />
+		</event>
+		<event type="UP" id="Up3002-3012"
+			message="Recuperando la comunicacion entre Los sistemas autonomos 3002 y 3012">
+			<component id=".link_nodo3002_2-nodo3012_3" />
+		</event>
+		<event type="DOWN" id="Down3001-3011"
+			message="Cortando la comunicacion entre Los sistemas autonomos 3001 y 3011">
+			<component id=".link_nodo3001_1-nodo3011_1" />
+		</event>
+		<event type="UP" id="Up3001-3011"
+			message="Recuperando la comunicacion entre Los sistemas autonomos 3001 y 3011">
+			<component id=".link_nodo3001_1-nodo3011_1" />
+		</event>
+		<event type="DOWN" id="Down2013-3002"
+			message="Cortando la comunicacion entre Los sistemas autonomos 2013 y 3002">
+			<component id=".link_nodo2013_5-nodo3002_2" />
+		</event>
+		<event type="UP" id="Up2013-3002"
+			message="Recuperando la comunicacion entre Los sistemas autonomos 2013 y 3002">
+			<component id=".link_nodo2013_5-nodo3002_2" />
+		</event>		
+	</events>
+	<simulation time="10000">
+		<execute id="Down1013-2009" time="1000"/>
+		<execute id="Up1013-2009" time="2000"/>
+		<execute id="Down1011-2002" time="3000"/>
+		<execute id="Up1011-2002" time="4000"/>
+		<execute id="Down3002-3012" time="5000"/>
+		<execute id="Down3001-3011" time="6000"/>
+		<execute id="Down2013-3002" time="7000"/>
+		<execute id="Up3002-3012" time="7750"/>
+		<execute id="Up3001-3011" time="8500"/>
+		<execute id="Up2013-3002" time="9250"/>
+	</simulation>
+</JSimConfig>

@@ -1,0 +1,22 @@
+<!--
+SIMULATION (unique): 
+	- time: Simulate duration.
+	ENVENT (list) Events must be sorted by time!!!
+		-type: type of the event. Values DOWN and UP
+		-time: moment of the event
+		-message(optional): message for the event
+-->
+<JSimConfig >
+<events>
+	<event type="DOWN" id="down" message="Tirando linea">
+		<component id=".link23"/>
+	</event>
+	<event type="UP" id="up" message="Subiendo linea">
+		<component id=".link23"/>
+	</event>
+</events>
+<simulation time="10000">
+	<execute id="down" time="1000"/>
+	<execute id="up" time="2000"/>
+</simulation>
+</JSimConfig>

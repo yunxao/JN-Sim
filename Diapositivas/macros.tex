@@ -1,0 +1,85 @@
+% Copyright (c)  2005  Luis Fernando Llana Díaz
+% Se otorga permiso para copiar, distribuir y/o modificar este documento
+% bajo los términos de la Licencia de Documentación Libre GNU, Versión 1.2 
+% o cualquier otra versión posterior publicada por la Free Software Foundation;
+% sin partes invariantes, sin portadas ni contraportadas
+% Una copia de la licencia es incluida en el fichero "LICENSE.txt"
+
+% Permission is granted to copy, distribute and/or modify this document
+% under the terms of the GNU Free Documentation License, Version 1.2
+% or any later version published by the Free Software Foundation;
+% with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+% A copy of the license is included in the file "LICENSE.txt"
+% $Id: macros.tex,v 1.2 2008-10-13 09:27:01 luis Exp $
+\usepackage{pstricks}
+\usepackage[latin9]{inputenc}
+\usepackage[spanish]{babel}
+%\usepackage{indentfirst}
+\usepackage{eurosym}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{trees}
+\def\fontList{\fontsize{10}{11}\selectfont\ttfamily\black}
+\author{Francisco Huertas Ferrer}
+\institute{Universidad Complutense de Madrid}
+\newcounter{contador}
+\setcounter{contador}{1}
+\newcounter{memoria}
+\def\ponContador{\Roman{contador}\stepcounter{contador}}
+
+\def\fontList{\fontsize{6}{7}\selectfont\ttfamily\black}
+\def\fontInline{\normalsize\ttfamily}
+\def\codigo{\lstinline[basicstyle=\fontInline]}
+\def\codigoaux#1{\texttt{\red #1}}
+\def\poner#1\enX#2\enY#3\fponer{
+  \vbox to 0pt{\kern#3\hbox to 0pt{\kern#2#1\hss}\vss}
+}
+\lstdefinelanguage[mio]{HTML}[]{HTML}{morekeywords={button,label,q,span,col,
+tbody,tr,th,td}}
+% \lstset{language=[mio]HTML,
+%         identifierstyle={},
+%         keywordstyle=\bfseries\red,
+%         numbers=none,
+%         basicstyle=\fontList,
+%         framerule=0pt,frame=single,backgroundcolor=\yellow,
+%frame=trBL,frameround=ftttm,
+%         lineskip=0pt,
+%         emptylines=1,
+%         showstringspaces=false
+% }
+\lstdefinelanguage[mio]{Java}[]{Java}{morekeywords=procedure}
+\lstset{language=[mio]Java,
+        identifierstyle=\red,
+        numbers=right,
+        basicstyle=\fontList,
+        framerule=0pt,frame=single,backgroundcolor=\yellow,
+%frame=trBL,frameround=ftttm,
+        lineskip=0pt,
+        emptylines=1,
+        showstringspaces=false,
+        escapechar=·
+}
+
+\lstdefinelanguage{plain}{}
+
+\newcounter{guideline}
+\def\theguideline{\arabic{guideline}}
+\newcounter{checkpoint}[guideline]
+\def\thecheckpoint{\theguideline.\arabic{checkpoint}}
+\newenvironment{checkpoints}{%
+ 
+\begin{list}{\thecheckpoint}{\usecounter{checkpoint}\setcounter{checkpoint}{1}}}
+{\end{list}}
+\newenvironment{miEnumerate}{%
+  \begin{enumerate}\setcounter{enumi}{\arabic{memoria}}
+}{
+  \setcounter{memoria}{\arabic{enumi}}\end{enumerate}
+}
+
+\def\prioridad#1{{\red [Prioridad #1]}}
+\def\colorA{\red}
+\def\emph#1{\textit{\red #1}}
+\def\mio#1{\psframebox[linestyle=none,fillcolor=yellow,fillstyle=solid]{#1}}
+

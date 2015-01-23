@@ -1,0 +1,81 @@
+<JSimConfig>
+
+<protocol type="bgp 4">
+	<parameters rtlog="enable" dbglog="disable" tracelog="disable" fsmlog="disable" default_port="500"/>
+</protocol>
+<protocol type="gp_bgp">
+	<parameters rtlog="enable" dbglog="enable" tracelog="enable" fsmlog="enable" default_port="2500"/>
+</protocol>
+<protocol type="TrafficInspectionTool">
+	<parameters consoleEnable="enable"/>
+</protocol>
+
+<debug debugFlag="disable" errorFlag="enable" trace_dir="trace"/>
+<topology nodesPerLink="2"/>
+<components>
+	<router id="Router1_1">
+		<topology>
+			<link id=".link12"/>
+		</topology>
+		<interface type="physical" name="principal" address="192.168.1.1"/>
+		<interface type="virtual multipoint" name="vi" address="10.0.1.1" baseInterface="principal"/>
+		<session type="tcp_full"/>
+		<session type="bgp 4">
+			<parameters as="1001" interface="principal"/>
+			<neighbour IP="192.168.1.2" remote-as="1002"/>
+			<network address="192.168.1.1/32"/>
+		</session>
+		<session type="gp_bgp">
+			<parameters as="32001" interface="vi"/>
+			<neighbour virtualAddress="10.0.1.4" hostAddress="192.168.1.4" remote-as="32004"/>
+			<network address="87.12.23.0/24"/>
+		</session>
+	</router>
+
+	<router id="Router1_2">
+		<topology>
+			<link id=".link12"/>
+			<link id=".link23"/>
+		</topology>
+		<interface name="principal" type="physical" address="192.168.1.2"/>
+		<session type="tcp_full"/>
+		<session type="bgp 4">
+			<parameters as="1002" interface="principal"/>
+			<neighbour IP="192.168.1.1" remote-as="1001"/>
+			<neighbour IP="192.168.1.3" remote-as="1003"/>
+		</session>
+	</router>
+
+	<router id="Router1_3">
+		<topology>
+			<link id=".link23"/>
+			<link id=".link34"/>
+		</topology>
+		<interface type="physical" name="principal" address="192.168.1.3"/>
+		<session type="tcp_full"/>
+		<session type="bgp 4">
+			<parameters as="1003" interface="principal"/>
+			<neighbour IP="192.168.1.2" remote-as="1002"/>
+			<neighbour IP="192.168.1.4" remote-as="1004"/>
+		</session>
+	</router>
+	<router id="Router1_4">
+		<topology>
+			<link id=".link34"/>
+		</topology>
+		<interface type="physical" name="principal" address="192.168.1.4"/>
+		<interface type="virtual multipoint" name="vi" address="10.0.1.4" baseInterface="principal"/>
+		<session type="tcp_full"/>
+		<session type="bgp 4">
+			<parameters as="1004" interface="principal"/>
+			<neighbour IP="192.168.1.3" remote-as="1003"/>
+			<network address="192.168.1.4/32"/>
+		</session>
+		<session type="gp_bgp">
+			<parameters as="32004" interface="vi"/>
+			<neighbour  virtualAddress="10.0.1.1" hostAddress="192.168.1.1" remote-as="32001"/>
+			<network address="130.34.230.0/24"/>
+		</session>
+	</router>
+</components>
+</JSimConfig>

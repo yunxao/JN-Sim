@@ -1,0 +1,99 @@
+<JSimConfig>
+
+	<protocol type="bgp 4">
+		<parameters rtlog="enable" dbglog="enable" tracelog="enable"
+			fsmlog="enable" default_port="500" />
+	</protocol>
+
+	<debug debugFlag="disable" errorFlag="enable" trace_dir="trace" />
+	<topology nodesPerLink="2" />
+	<components>
+		<router id="Router1">
+			<topology>
+				<link id=".link12" />
+				<link id=".link13" />
+			</topology>
+			<interface type="physical" name="principal" address="10.0.1.1" />
+			<session type="tcp_full" />
+			<session type="bgp 4">
+				<parameters as="1001" interface="principal" />
+				<neighbour IP="10.0.1.2" remote-as="1001" />
+				<neighbour IP="10.0.2.3" remote-as="1002" />
+				<network address="1.0.0.0/8" />
+			</session>
+		</router>
+		<router id="Router2">
+			<topology>
+				<link id=".link12" />
+				<link id=".link26" />
+			</topology>
+			<interface type="physical" name="principal" address="10.0.1.2" />
+			<session type="tcp_full" />
+			<session type="bgp 4">
+				<parameters as="1001" interface="principal" />
+				<neighbour IP="10.0.1.1" remote-as="1001" />
+				<neighbour IP="10.0.3.6" remote-as="1003" />
+			</session>
+		</router>
+		<router id="Router3">
+			<topology>
+				<link id=".link13" />
+				<link id=".link34" />
+				<link id=".link35" />
+			</topology>
+			<interface type="physical" name="principal" address="10.0.2.3" />
+			<session type="tcp_full" />
+			<session type="bgp 4">
+				<parameters as="1002" interface="principal" />
+				<neighbour IP="10.0.1.1" remote-as="1001" />
+				<neighbour IP="10.0.2.4" remote-as="1002" />
+				<neighbour IP="10.0.2.5" remote-as="1002" />
+			</session>
+		</router>
+		<router id="Router4">
+			<topology>
+				<link id=".link34" />
+				<link id=".link45" />
+			</topology>
+			<interface type="physical" name="principal" address="10.0.2.4" />
+			<session type="tcp_full" />
+			<session type="bgp 4">
+				<parameters as="1002" interface="principal" />
+				<neighbour IP="10.0.2.3" remote-as="1002" />
+				<neighbour IP="10.0.2.5" remote-as="1002" />
+				<network address="2.4.0.0/16" />
+			</session>
+		</router>
+		<router id="Router5">
+			<topology>
+				<link id=".link35" />
+				<link id=".link45" />
+				<link id=".link56" />
+			</topology>
+			<interface type="physical" name="principal" address="10.0.2.5" />
+			<session type="tcp_full" />
+			<session type="bgp 4">
+				<parameters as="1002" interface="principal" />
+				<neighbour IP="10.0.2.3" remote-as="1002" />
+				<neighbour IP="10.0.2.4" remote-as="1002" />
+				<neighbour IP="10.0.3.6" remote-as="1003" />
+				<network address="2.5.0.0/16" />
+			</session>
+		</router>
+		<router id="Router6">
+			<topology>
+				<link id=".link26" />
+				<link id=".link56" />
+			</topology>
+			<interface type="physical" name="principal" address="10.0.3.6" />
+			<session type="tcp_full" />
+			<session type="bgp 4">
+				<parameters as="1003" interface="principal" />
+				<neighbour IP="10.0.1.2" remote-as="1001" />
+				<neighbour IP="10.0.2.5" remote-as="1002" />
+				<network address="3.4.6.0/24" />
+				<network address="3.5.6.0/24" />
+			</session>
+		</router>
+	</components>
+</JSimConfig>

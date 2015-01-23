@@ -1,0 +1,2524 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<base target="_top">
+<style type="text/css">
+  
+
+/* default css */
+
+table {
+  font-size: 1em;
+  line-height: inherit;
+  border-collapse: collapse;
+}
+
+
+tr {
+  
+  text-align: left;
+  
+}
+
+
+div, address, ol, ul, li, option, select {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p {
+  margin: 0px;
+}
+
+
+pre {
+  font-family: Courier New;
+  white-space: pre-wrap;
+  margin:0;
+}
+
+body {
+  margin: 6px;
+  padding: 0px;
+  font-family: Verdana, sans-serif;
+  font-size: 10pt;
+  background-color: #ffffff;
+  color: #000;
+}
+
+
+img {
+  -moz-force-broken-image-icon: 1;
+}
+
+@media screen {
+  html.pageview {
+    background-color: #f3f3f3 !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  
+
+  body {
+    min-height: 1100px;
+    
+    counter-reset: __goog_page__;
+  }
+  
+  * html body {
+    height: 1100px;
+  }
+  /* Prevent repaint errors when scrolling in Safari. This "Star-7" css hack
+     targets Safari 3.1, but not WebKit nightlies and presumably Safari 4.
+     That's OK because this bug is fixed in WebKit nightlies/Safari 4 :-). */
+  html*#wys_frame::before {
+    content: '\A0';
+    position: fixed;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+  }
+  
+  .pageview body {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 2px solid #bbb;
+    border-bottom: 2px solid #bbb;
+    width: 648px !important;
+    margin: 15px auto 25px;
+    padding: 40px 50px;
+  }
+  /* IE6 */
+  * html {
+    overflow-y: scroll;
+  }
+  * html.pageview body {
+    overflow-x: auto;
+  }
+  
+
+  
+    
+    
+    .writely-callout-data {
+      display: inline-block;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      margin-left: -1px;
+    }
+    
+
+    .writely-footnote-marker {
+      background-image: url('MISSING');
+      background-color: transparent;
+      background-repeat: no-repeat;
+      width: 7px;
+      overflow: hidden;
+      height: 16px;
+      vertical-align: top;
+
+      
+      -moz-user-select: none;
+    }
+    .editor .writely-footnote-marker {
+      cursor: move;
+    }
+    .writely-footnote-marker-highlight {
+      background-position: -15px 0;
+      -moz-user-select: text;
+    }
+    .writely-footnote-hide-selection ::-moz-selection, .writely-footnote-hide-selection::-moz-selection {
+      background: transparent;
+    }
+    .writely-footnote-hide-selection ::selection, .writely-footnote-hide-selection::selection {
+      background: transparent;
+    }
+    .writely-footnote-hide-selection {
+      cursor: move;
+    }
+
+    /* Comments */
+    .writely-comment-yellow {
+      background-color: #ffffd7;
+    }
+    .writely-comment-orange {
+      background-color: #ffe3c0;
+    }
+    .writely-comment-pink {
+      background-color: #ffd7ff;
+    }
+    .writely-comment-green {
+      background-color: #d7ffd7;
+    }
+    .writely-comment-blue {
+      background-color: #d7ffff;
+    }
+    .writely-comment-purple {
+      background-color: #eed7ff;
+    }
+
+  
+
+
+  
+  .br_fix span+br:not(:-moz-last-node) {
+    
+    position:relative;
+    
+    left: -1ex
+    
+  }
+
+  
+  #cb-p-tgt {
+    font-size: 8pt;
+    padding: .4em;
+    background-color: #ddd;
+    color: #333;
+  }
+  #cb-p-tgt-can {
+    text-decoration: underline;
+    color: #36c;
+    font-weight: bold;
+    margin-left: 2em;
+  }
+  #cb-p-tgt .spin {
+    width: 16px;
+    height: 16px;
+    background: url(//ssl.gstatic.com/docs/clipboard/spin_16o.gif) no-repeat;
+  }
+}
+
+h6 { font-size: 8pt }
+h5 { font-size: 8pt }
+h4 { font-size: 10pt }
+h3 { font-size: 12pt }
+h2 { font-size: 14pt }
+h1 { font-size: 18pt }
+
+blockquote {padding: 10px; border: 1px #DDD dashed }
+
+.webkit-indent-blockquote { border: none; }
+
+a img {border: 0}
+
+.pb {
+  border-width: 0;
+  page-break-after: always;
+  /* We don't want this to be resizeable, so enforce a width and height
+     using !important */
+  height: 1px !important;
+  width: 100% !important;
+}
+
+.editor .pb {
+  border-top: 1px dashed #C0C0C0;
+  border-bottom: 1px dashed #C0C0C0;
+}
+
+div.google_header, div.google_footer {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+/* Table of contents */
+.editor div.writely-toc {
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+}
+.writely-toc > ol {
+  padding-left: 3em;
+  font-weight: bold;
+}
+ol.writely-toc-subheading {
+  padding-left: 1em;
+  font-weight: normal;
+}
+/* IE6 only */
+* html writely-toc ol {
+  list-style-position: inside;
+}
+.writely-toc-none {
+  list-style-type: none;
+}
+.writely-toc-decimal {
+  list-style-type: decimal;
+}
+.writely-toc-upper-alpha {
+  list-style-type: upper-alpha;
+}
+.writely-toc-lower-alpha {
+  list-style-type: lower-alpha;
+}
+.writely-toc-upper-roman {
+  list-style-type: upper-roman;
+}
+.writely-toc-lower-roman {
+  list-style-type: lower-roman;
+}
+.writely-toc-disc {
+  list-style-type: disc;
+}
+
+/* Ordered lists converted to numbered lists can preserve ordered types, and
+   vice versa. This is confusing, so disallow it */
+ul[type="i"], ul[type="I"], ul[type="1"], ul[type="a"], ul[type="A"] {
+  list-style-type: disc;
+}
+
+ol[type="disc"], ol[type="circle"], ol[type="square"] {
+  list-style-type: decimal;
+}
+
+/* end default css */
+
+
+  /* default print css */
+  @media print {
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    div.google_header, div.google_footer {
+      display: block;
+      min-height: 0;
+      border: none;
+    }
+
+    div.google_header {
+      flow: static(header);
+    }
+
+    /* used to insert page numbers */
+    div.google_header::before, div.google_footer::before {
+      position: absolute;
+      top: 0;
+    }
+
+    div.google_footer {
+      flow: static(footer);
+    }
+
+    /* always consider this element at the start of the doc */
+    div#google_footer {
+      flow: static(footer, start);
+    }
+
+    span.google_pagenumber {
+      content: counter(page);
+    }
+
+    span.google_pagecount {
+      content: counter(pages);
+    }
+
+    .endnotes {
+      page: endnote;
+    }
+
+    /* MLA specifies that endnotes title should be 1" margin from the top of the page. */
+    @page endnote {
+      margin-top: 1in;
+    }
+
+    callout.google_footnote {
+      
+      display: prince-footnote;
+      footnote-style-position: inside;
+      /* These styles keep the footnote from taking on the style of the text
+         surrounding the footnote marker. They can be overridden in the
+         document CSS. */
+      color: #000;
+      font-family: Verdana;
+      font-size: 10.0pt;
+      font-weight: normal;
+    }
+
+    /* Table of contents */
+    #WritelyTableOfContents a::after {
+      content: leader('.') target-counter(attr(href), page);
+    }
+
+    #WritelyTableOfContents a {
+      text-decoration: none;
+      color: black;
+    }
+
+    /* Comments */
+    .writely-comment-yellow {
+      background-color: #ffffd7;
+    }
+    .writely-comment-orange {
+      background-color: #ffe3c0;
+    }
+    .writely-comment-pink {
+      background-color: #ffd7ff;
+    }
+    .writely-comment-green {
+      background-color: #d7ffd7;
+    }
+    .writely-comment-blue {
+      background-color: #d7ffff;
+    }
+    .writely-comment-purple {
+      background-color: #eed7ff;
+    }
+  }
+
+  @page {
+    @top {
+      content: flow(header);
+    }
+    @bottom {
+      content: flow(footer);
+    }
+    @footnotes {
+      border-top: solid black thin;
+      padding-top: 8pt;
+    }
+  }
+  /* end default print css */
+
+
+/* custom css */
+
+
+/* end custom css */
+
+/* ui edited css */
+
+body {
+  font-family: Verdana;
+  
+  font-size: 10.0pt;
+  line-height: normal;
+  background-color: #ffffff;
+}
+/* end ui edited css */
+
+
+/* editor CSS */
+.editor a:visited {color: #551A8B}
+.editor table.zeroBorder {border: 1px dotted gray}
+.editor table.zeroBorder td {border: 1px dotted gray}
+.editor table.zeroBorder th {border: 1px dotted gray}
+
+
+.editor div.google_header, .editor div.google_footer {
+  border: 2px #DDDDDD dashed;
+  position: static;
+  width: 100%;
+  min-height: 2em;
+}
+
+.editor .misspell {background-color: yellow}
+
+.editor .writely-comment {
+  font-size: 9pt;
+  line-height: 1.4;
+  padding: 1px;
+  border: 1px dashed #C0C0C0
+}
+
+
+/* end editor CSS */
+
+</style>
+
+  
+  <title>J Sim log español</title>
+
+</head>
+
+<body 
+    
+    >
+    
+    
+    
+<h2>
+  Versión 10:
+</h2>
+<div>
+  Cambios sobre:&nbsp;
+</div>
+<div>
+  /src/infonet/javasim/bgp4/comm/UpdateMessage.java
+</div>
+<div>
+  /src/infonet/javasim/bgp4/Path/Atributte.java
+</div>
+<div>
+  /src/infonet/javasim/bgp4/Path/OriginatorID.java
+</div>
+<div>
+  * agregado en la factoria de atributos que hay en la clase Path.Attribute para que cree tambien el atributo OriginatoID
+</div>
+<div>
+  * Creado constructor de OriginatorID(byte[] bytes)
+</div>
+<div>
+  Esta version tiene muchos System.out.println
+</div>
+<h2>
+  Versión 11:
+</h2>
+<div>
+  A &nbsp; &nbsp;src/infonet/javasim/bgp4/comm/IOBGPMessage.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/comm/UpdateMessage.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/comm/BGPMessage.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/Attribute.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/OriginatorID.java
+</div>
+<div>
+  infonet.javasim.bgp4.comm
+</div>
+<div>
+  * BGPMessage. Nada relevante en esta revision
+</div>
+<div>
+  * IOBGPMessage&nbsp;
+</div>
+<div>
+  ** Añadidido esta clase que añade funcionalidad a la hora de copiar desde o a un buffer de char. Esta clase aun no esta colocada en la zona que deberÃ­a
+</div>
+<div>
+  * UpdateMessage
+</div>
+<div>
+  ** Quitadas lineas de debug
+</div>
+<div>
+  infonet.javasim.bgp4.path
+</div>
+<div>
+  * Atribute. Nada relevante
+</div>
+<div>
+  * OriginatorID.&nbsp;
+</div>
+<div>
+  ** Añadida fromBytes y toBytes, las cuales reimplementan los metodos necesarios para que estos objetos sean BGPSerializables. El tema del tamaÃ±o el mensaje aun esta en el aire.
+</div>
+<h2>
+  Versión 12:
+</h2>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/LocRIB.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/comm/IOBGPMessage.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/comm/UpdateMessage.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/BGPSession.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/Segment.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/Attribute.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/MED.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/LocalPref.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/ExtendedCommunities.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/ClusterList.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/ASpath.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/Aggregator.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/TBID.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/AtomicAggregate.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/Community.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/NextHop.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/Origin.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/OriginatorID.java
+</div>
+<div>
+  = infonet.javasim.bgp4
+</div>
+<div>
+  * BGPSession
+</div>
+<div>
+  ** Cambios no importanes
+</div>
+<div>
+  * LocRib
+</div>
+<div>
+  ** Cambios no relevantes
+</div>
+<div>
+  = infonet.javasim.bgp4.comm
+</div>
+<div>
+  * IOBGPMessage
+</div>
+<div>
+  ** Añadidos comentarios
+</div>
+<div>
+  * UpdateMessage
+</div>
+<div>
+  ** Comentados println
+</div>
+<div>
+  = infonet.javasim.bgp4.path
+</div>
+<div>
+  * Attribute
+</div>
+<div>
+  ** Se ha creado un metodo virtual puro que obliga a las clases a dar su tipo
+</div>
+<div>
+  ** Se ha implementado en todas las clases ese metodo
+</div>
+<h2>
+  Version 13:
+</h2>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/Utils.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/BGPSession.java
+</div>
+<h2>
+  Versión 14:
+</h2>
+<div>
+  U &nbsp; &nbsp;bin/infonet/javasim/bgp4/BGPSession.class
+</div>
+<h2>
+  Versión 15
+</h2>
+<div>
+  U &nbsp; &nbsp;config.tcl
+</div>
+<div>
+  * Un script que funciona correctamente
+</div>
+<h2>
+  Versión 16:
+</h2>
+<div>
+  U &nbsp; &nbsp;config.tcl
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/Utils.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/BGPSession.java
+</div>
+<div>
+  A &nbsp; &nbsp;test4.tcl
+</div>
+<div>
+  A &nbsp; &nbsp;b+o.tcl
+</div>
+<div>
+  Hay un nuevo formato para el string de configuracion (mirar config.tcl) y se han adaptado las funciones de addPeer y config de BGPSession. Las funciones de crear la variable de configuracion se ha reducido a dos y ahora se llama doConfig
+</div>
+<br>
+<div>
+  Se ha observado que parte de las IP en BGPSession no están con InetAddress si no con IPAddress
+</div>
+<h2>
+  Versión17:
+</h2>
+<div>
+  U &nbsp; &nbsp;config.tcl
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/Utils.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/BGPSession.java
+</div>
+<div>
+  He solucionado dos bugs.
+</div>
+<div>
+  1º No estaba configurado correctamente para que cogiera el RRC o RR
+</div>
+<div>
+  2º No hacia bien la topologia en estatico. Corregido
+</div>
+<h2>
+  Versión 18:
+</h2>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/comm/BGPMessage.javaA &nbsp; &nbsp;src/infonet/javasim/bgp4/XMLUtils.java
+</div>
+<h2>
+  Versión 19:
+</h2>
+<div>
+  A &nbsp; &nbsp;src/utils
+</div>
+<div>
+  A &nbsp; &nbsp;src/utils/BytesUtils.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/util/IPaddress.java
+</div>
+<div>
+  Añadida la clase byte utils que contiene metodos estaticos para tratar bytes.
+</div>
+<br>
+<div>
+  Se ha modificado la clase IPaddress para que funcione con InetAddress en vez de con long.
+</div>
+<br>
+<div>
+  hay funciones que no funcionan correctamente o han cambiado su comportamiento. Mirar los TODO, FIXME y XXX
+</div>
+<h2>
+  Versión 20:
+</h2>
+<div>
+  U &nbsp; &nbsp;src/utils/BytesUtils.javaU &nbsp; &nbsp;src/infonet/javasim/util/IPaddress.java
+</div>
+<div>
+  Arreglados parte de los fallos de estas clases
+</div>
+<h2>
+  Version 21:
+</h2>
+<div>
+  U &nbsp; &nbsp;src/utils/BytesUtils.java
+</div>
+<div>
+  A &nbsp; &nbsp;src/pruebas/PruebaIPAddress.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/util/IPaddress.java
+</div>
+<div>
+  Revision 2 de IPaddress. se ha comprobado que funcione todo con el archivo pruebas/PruebaIPaddress. Hay funciones que han cambiado el funcionamiento (coprobar otras revisiones del archivo) y algunos procedimientos se han cambiado de tal manera que lancen una excepción porque no se sabe muy bien lo que hacen y en que formato(bytes2ipprefix y ipprefix2bytes)
+</div>
+<br>
+<div>
+  Se han corregido y añadido tambien algunas gunciones a utils/BytesUtils como la de girar un array
+</div>
+<h2>
+  Versión 22:
+</h2>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/RouteInfo.javaU &nbsp; &nbsp;src/infonet/javasim/bgp4/PeerConnection.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/comm/OpenMessage.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/comm/UpdateMessage.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/BGPSession.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/Aggregator.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/NextHop.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/OriginatorID.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/PeerEntry.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/util/IPaddress.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/util/Logger.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/drcl/inet/data/RTKey.java
+</div>
+<div>
+  = drcl.inet.data.RTKey
+</div>
+<div>
+  * Se ha empezado a hacer modificaciones en para la transformacion de long a InetAddress
+</div>
+<br>
+<div>
+  = infonet.javasim.bgp4.BGPSession
+</div>
+<div>
+  * Se han hecho modificaciones para adaptar la clase al cambio de la Clase IPaddress
+</div>
+<div>
+  * El cambio a afectado a las llamadas para la tabla de rutas y estos cambios no se han contemplado aun y la clase no compila, al igual que el tema de sockets de javasim
+</div>
+<br>
+<div>
+  = infonet.javasim.bgp4.comm
+</div>
+<div>
+  * Se han actualizado los mensajes de OpenMessage y UpdateMessage para que envian y reciban ip de versiones variables, UpdateMessage hay que revisarlo porque no queda claro que este correcto
+</div>
+<br>
+<div>
+  = infonet.javasim.bgp4.path
+</div>
+<div>
+  * Se han actualizado los atributos de los mensajes para que tenga soporte para ip variables al igual que los mensaje. En concreto se ha hecho para los atributos "Agreggator", "NextHop" y "OriginatorID"
+</div>
+<div>
+  * PUNTO CRÍTICO: ¡¡¡¡ Se debe comprobar la lectura/escritura de los atributos se hace correctamente!!!!&nbsp;
+</div>
+<br>
+<div>
+  = package infonet.javasim.bgp4.PeerEntry
+</div>
+<div>
+  * adaptacion de la clase a InetAddress en vez de long. Comprobado solo en los casos en que hay conflictos con IPaddress
+</div>
+<br>
+<div>
+  = package infonet.javasim.bgp4.RouteInfo
+</div>
+<div>
+  * adaptacion de la clase a InetAddress en vez de long. Comprobado solo en los casos en que hay conflictos con IPaddress
+</div>
+<br>
+<div>
+  = infonet.javasim.util.IPaddress
+</div>
+<div>
+  * la clase ahora implementa Comparable con lo que dispone un metodo CompareTo
+</div>
+<div>
+  * Añadidos algunos constructores nuevos desde InetAddress con y sin prefijo
+</div>
+<div>
+  * Antecedente y mutador de version
+</div>
+<br>
+<div>
+  = CAmbios no relevantes
+</div>
+<div>
+  * infonet.javasim.bgp4.PeerConnection
+</div>
+<div>
+  * infonet.javasim.util.Logger
+</div>
+<h2>
+  Versión 23:
+</h2>
+<div>
+  U &nbsp; &nbsp;src/utils/BytesUtils.javaU &nbsp; &nbsp;src/pruebas/PruebaIPAddress.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/LocRIB.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/PeerConnection.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/comm/OpenMessage.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/BGPSession.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/Debug.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/util/IPaddress.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/drcl/inet/data/RTKey.java
+</div>
+<div>
+  Version descontinuada en la que se estaban modificando long por inetAdrress, en esta revision se eliminan las referencias a InetAddress en todo lo que no sea bgp4
+</div>
+<h2>
+  Versión 24:
+</h2>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/RouteInfo.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/LocRIB.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/PeerConnection.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/comm/OpenMessage.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/comm/UpdateMessage.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/comm/BGPMessage.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/BGPSession.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/Aggregator.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/NextHop.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/OriginatorID.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/PeerEntry.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/Debug.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/util/IPaddress.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/util/Logger.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/drcl/inet/Node.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/drcl/inet/data/RTKey.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/drcl/inet/InetUtil.java
+</div>
+<div>
+  U &nbsp; &nbsp;script/drcl/inet/wireless/mobility/PositionReportConvert.class
+</div>
+<div>
+  Version recuperada apartir de la revision 17 (y alguna otra clase de versiones posteriores
+</div>
+<h2>
+  Versión 25:
+</h2>
+<div>
+  D &nbsp; &nbsp;src/pruebas/PruebaIPAddress.java
+</div>
+<div>
+  D &nbsp; &nbsp;src/infonet/javasim/bgp4/XMLUtils.java
+</div>
+<div>
+  última versión antes de empezar con las modificaciones en el algoritmo de decisión
+</div>
+<h2>
+  Versión 26:
+</h2>
+<div>
+  A &nbsp; &nbsp;src/infonet/javasim/bgp4/XMLUtils.java
+</div>
+<div>
+  añadida de nuevo la clase XMLUtil que habia desaparecido en la anterior revisión al vover a una versión anterior
+</div>
+<h2>
+  Versión 27:
+</h2>
+<div>
+  A &nbsp; &nbsp;lib/jdom.jar
+</div>
+<div>
+  Version con JDOM
+</div>
+<div>
+  Mirar revision 31
+</div>
+<h2>
+  Versión 28:
+</h2>
+<div>
+  A &nbsp; &nbsp;config0.xml
+</div>
+<div>
+  Mirar revision 31
+</div>
+<h2>
+  Versión 29:
+</h2>
+<div>
+  U &nbsp; &nbsp;src/utils/BytesUtils.java
+</div>
+<div>
+  A &nbsp; &nbsp;src/pruebas/XMLMain.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/BGPSession.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/XMLUtils.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/ConfigBGP.java
+</div>
+<div>
+  Mirar revision 31
+</div>
+<h2>
+  Versión 30:
+</h2>
+<div>
+  U &nbsp; &nbsp;config0.xml
+</div>
+<div>
+  A &nbsp; &nbsp;configXML.tcl
+</div>
+<div>
+  A &nbsp; &nbsp;prubaxml.tcl
+</div>
+<div>
+  A &nbsp; &nbsp;jars/jdom.jar
+</div>
+<div>
+  Mirar revision 31
+</div>
+<h2>
+  Versión 31:
+</h2>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/XMLUtils.java
+</div>
+<div>
+  Version funcional! Versiones 28-31
+</div>
+<br>
+<div>
+  Añadido: XMLMain. Archivo de prueba para doConfig de XMLUtils
+</div>
+<div>
+  Añadido: config0.xml como ejemplo de nueva configuracion.
+</div>
+<div>
+  Añadido: configXML.tcl como ejemplo de script funcinoal
+</div>
+<div>
+  Añadido: Libreria jdom para manejar los xml
+</div>
+<div>
+  Modificado: ahora las configuraciones se deben hacer con el archivo xml y el doConfig de XMLUtils. El archivo Utils ha quedado desactualizado y no crea correctamente el archivo de configuracion.
+</div>
+<div>
+  Modificado/Arreglado: Antes a la hora de indicar si un nodo es cliente de un reflector de rutas, se indicaba en el propio router, esto causaba varios problemas, como que si existian dos reflectores de rutas y un nodo solo era cliente de uno no podia hacerse. Se ha modificado y es mas parecido a como se configuran los ruters ciscos, de tal manera que un reflector de rutas es que tiene la información de cuales son sus clientes.&nbsp;
+</div>
+<div>
+  Arreglado: BytesUtils. Ahora copia correctamente los objetos a array de bytes, de tal manera que el byte mas significativo
+</div>
+<div>
+  Modificado/arreglado: ConfigBGP ahora si no existe una clave devuelve null en vez de una excepción
+</div>
+<div>
+  Nota: el autoconfig demomento se pone siempre a true, no esta testeado si funciona con enuncios de rutas dinamicos como OSPF
+</div>
+<h2>
+  Versión 32:
+</h2>
+<div>
+  D &nbsp; &nbsp;redBGP.tclD &nbsp; &nbsp;ex_helloworld.tcl
+</div>
+<div>
+  D &nbsp; &nbsp;bgptest.tcl
+</div>
+<div>
+  D &nbsp; &nbsp;Cambios.txt
+</div>
+<div>
+  D &nbsp; &nbsp;ex_tcljava.tcl
+</div>
+<div>
+  D &nbsp; &nbsp;prubaxml.tcl
+</div>
+<div>
+  D &nbsp; &nbsp;test4.tcl
+</div>
+<div>
+  D &nbsp; &nbsp;CHANGES.txt
+</div>
+<div>
+  D &nbsp; &nbsp;b+o.tcl
+</div>
+<div>
+  D &nbsp; &nbsp;basura.tcl
+</div>
+<div>
+  D &nbsp; &nbsp;configDML
+</div>
+<div>
+  D &nbsp; &nbsp;redBGP._anterior.tcl
+</div>
+<div>
+  D &nbsp; &nbsp;exec.tcl
+</div>
+<div>
+  U &nbsp; &nbsp;.project
+</div>
+<div>
+  A &nbsp; &nbsp;config1.xml
+</div>
+<div>
+  U &nbsp; &nbsp;src/pruebas/XMLMain.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/Utils.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/timing/EventTimer.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/timing/MRAITimer.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/timing/MRAIPerPeerTimer.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/comm/UpdateMessage.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/comm/BGPMessage.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/BGPSession.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/ASpath.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/Aggregator.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/NextHop.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/path/OriginatorID.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/policy/Clause.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/policy/RouteMap.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/XMLUtils.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/Route.java
+</div>
+<div>
+  A &nbsp; &nbsp;configDemo.tcl
+</div>
+<div>
+  U &nbsp; &nbsp;.classpath
+</div>
+<div>
+  A &nbsp; &nbsp;.umlproject
+</div>
+<div>
+  A &nbsp; &nbsp;.euml2
+</div>
+<div>
+  U &nbsp; &nbsp;configXML.tcl
+</div>
+<div>
+  A &nbsp; &nbsp;configDemo.xml
+</div>
+<div>
+  Version funcional
+</div>
+<br>
+<div>
+  Añadida: (BGPSession)Nueva funcion que añade un prefix (192.168.1.0/24) apartir de un string
+</div>
+<div>
+  Modificado: (BGPSession) Ahora las rutas se propagan tambien internamente (ver lina aprox 2454)
+</div>
+<div>
+  Corregido: (BGPSession) ahora se crea el array de IPs al pricipio de la configuracion para que exista siempre y no halla problemas con ciertos procedimientos que intentaban acceder sin haber entrado ningun prefix
+</div>
+<div>
+  Modificado: (BGPSession) No salta execipcion si un nodo no tiene una ruta para anunciar
+</div>
+<div>
+  Arreglado: (ASPath) No se comprobaba que este atributo tuviera creado un ArrayList de segmentos
+</div>
+<div>
+  Modificado/Arreglado: Antes el orden en los que los vecinos eran colocados en el archivo XML era importante, de tal manera que se debían poner en orden creciente. Ahora no es necesario
+</div>
+<div>
+  Eliminado: doConfig de Utils,ahora solo esta doConfigde XMLUtils
+</div>
+<br>
+<div>
+  Añadidas dos configuraciones config0.xml y config1.xml
+</div>
+<div>
+  Añadido un script configDemo preparado para con config1.xml
+</div>
+<div>
+  Se ha limpiado la raiz del proyecto para que no tenga tantos archivos basura
+</div>
+<br>
+<div>
+  NOTAS: Cuando un ruter es levantado envia comunicados a los que tienen un id mayor, de tal manera que si se levanta por ultimo lugar un router con un id menor, no funciona correctamente. Idea: Marcas temporales
+</div>
+<div>
+  Los cambios sobre las tablas de rutas posteriores a poner en marcha un nodo no quedan registrados. Idea: Enviar cuando un flag este a true
+</div>
+<div>
+  Es dificil ver como enviar&nbsp;
+</div>
+<h2>
+  Versión 33:
+</h2>
+<div>
+  D &nbsp; &nbsp;config0.xml
+</div>
+<div>
+  D &nbsp; &nbsp;config.tcl
+</div>
+<div>
+  D &nbsp; &nbsp;configDemo.tcl
+</div>
+<div>
+  D &nbsp; &nbsp;configXML.tcl
+</div>
+<div>
+  D &nbsp; &nbsp;configDemo.xml
+</div>
+<div>
+  U &nbsp; &nbsp;config1.xml
+</div>
+<div>
+  D &nbsp; &nbsp;src/infonet/javasim/bgp4/Utils.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/BGPSession.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/PeerEntry.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/XMLUtils.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/ConfigBGP.java
+</div>
+<div>
+  A &nbsp; &nbsp;src/drcl/inet/TopologyTable.java
+</div>
+<div>
+  A &nbsp; &nbsp;src/drcl/inet/TopologyTableNode.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/drcl/inet/InetUtil.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/drcl/comp/Port.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/drcl/comp/lib/bytestream/ByteStreamPeer.java
+</div>
+<div>
+  A &nbsp; &nbsp;little.xml
+</div>
+<div>
+  A &nbsp; &nbsp;Cambios del J-Sim con respecto a la version orignal
+</div>
+<div>
+  A &nbsp; &nbsp;configDemo2.tcl
+</div>
+<div>
+  Version Funcional
+</div>
+<div>
+  Modificado: Drcl.comp.lib Port.java. Ahora cuando, si hay algun error en enviar algo, lanza un mensaje en vez de una excepcion y Drcl.comp.lib.byteStreamPeer, recoge la salida de la funcion anterior y no realiza nada
+</div>
+<div>
+  Añadido: drcl.inet.InetUtil. procedimientos que desconectas un link una fuente o los enlaces entre dos fuentes dadas (Disconnect)
+</div>
+<div>
+  Añadido: drcl.inet.InetUtil: Procedimiento que reconecta dos nodos. Este procedimiento reconecta los nodos dejando la situacion igual que como estaba antes de conectar (el mismo nombre de link y los mismos puertos), pero no relanza las sesiones de bgp perdidas.
+</div>
+<div>
+  Añadido: drcl.inet.TopologyTable y TopologyTableNode. Estructura mayormente estatica que guarda la informacion de los nodos y las conexiones que existen entre ellos mediante TopologyTableNode. Guarda por cada nodo el nombre del link, el puerto en el nodo y el link y el estado (ON o OFF). Es necesario invocar al procedimiento doTable para inicializar
+</div>
+<div>
+  Eliminado: infonet.javasim.bgp4.Utils.java y todas las referecias a esta clase. Las que era necesario se han sustituifo pot XMLUtils
+</div>
+<h2>
+  Versión 34:
+</h2>
+<div>
+  U &nbsp; &nbsp;config1.xml
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/Global.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/RouteInfo.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/BGPSession.java
+</div>
+<div>
+  U &nbsp; &nbsp;src/infonet/javasim/bgp4/XMLUtils.java
+</div>
+<div>
+  U &nbsp; &nbsp;Cambios del J-Sim con respecto a la version orignal
+</div>
+<div>
+  U &nbsp; &nbsp;configDemo2.tcl
+</div>
+<br>
+<div>
+  Añadidas: infonet.javasim.bgp4.Global Nuevas constantes y banderas para la el uso de med y el local preference
+</div>
+<div>
+  Modificado: infonet.javasim.bgp4.RouteInfo compare. Ahora si no hay local_pref se toma el valor por defecto en las variables globales. y si son iguales se compara el dop. Tambien se ha modificado para que admita la bandera always_comare_med
+</div>
+<br>
+<div>
+  Eliminadas: infonet.javasim.bgp4.XMLUtils Constantes que ya no se utilizaban que venian de las versiones anteriores
+</div>
+<div>
+  MOdificado: infonet.javasim.bgp4.XMLUtils doConfig: Ahora lee los parametros de configuracion de tie_breaking default_local_pref med&nbsp;
+</div>
+<div>
+  Modificado: infonet.javasim.bgp4.BGPSession dop: Ahora solo calcula el peso por medio de el numero de saltos. No se tiene en cuenta para esto el local_preference puesto que en el proceso de decision se ha cambiado esto
+</div>
+<h2>
+  Versión 35:
+</h2>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/fhf/workspace/JSIM
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/fhf/workspace/JSIM/Cambios del J-Sim con respecto a la version orignal
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/fhf/workspace/JSIM/config.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/fhf/workspace/JSIM/config1.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/fhf/workspace/JSIM/configDemo2.tcl
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/fhf/workspace/JSIM/emulation1.tcl
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/fhf/workspace/JSIM/emulation2.tcl
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/fhf/workspace/JSIM/events.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/fhf/workspace/JSIM/log.tid
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/fhf/workspace/JSIM/src/drcl/Enviroment.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/fhf/workspace/JSIM/src/drcl/inet/Event.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/fhf/workspace/JSIM/src/drcl/inet/EventBuilder.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/fhf/workspace/JSIM/src/drcl/inet/InetUtil.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/fhf/workspace/JSIM/src/drcl/inet/TopologyTable.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/fhf/workspace/JSIM/src/infonet/javasim/bgp4/XMLUtils.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/fhf/workspace/JSIM/src/pruebas
+</div>
+<div>
+  Modificado: Ahora los scripts validos son emulation1 y emulation2. La diferencia entre ambos es que uno usa eventos y otro no. Tambien se ha moficado el fichero con configuracion standar de config1.xml a config.xml
+</div>
+<div>
+  Añadido: Events.xml con ejemplos de eventos
+</div>
+<div>
+  Añadido: drcl.Enviroment con parametros de una simulacion
+</div>
+<div>
+  Añadido: drcl.inet.Event Clase que contiene la descripcion de un evento
+</div>
+<div>
+  Añadido: drcl.inet.EventBuilder Hace un vector de eventos apartir de un archivo y confugura varialbles de la simulacion de Enviroment
+</div>
+<div>
+  Modificado: drcl.inet.TopologyTable Ahora los nodos se almacenan con string y no como id, el string es n+el numero para ser coherentes con J-Sim.
+</div>
+<div>
+  Modificado: drcl.inet.InetUtil se han adaptados los procedimientos a la nueva estructura de TopologyTable
+</div>
+<h2>
+  Versión 36:
+</h2>
+<div>
+  Modificado: Event.java: Ahora DOWN_COMPONENT desconectara todos los elementos del array en vez de solo uno
+</div>
+<div>
+  Modificado: Adaptado XMLConfig al nuevo archivo config.xml
+</div>
+<div>
+  Añadido. NTTable. Una estructura que alamcena los alias de asignados a los componentes, al desconecntar y conectar se pueden usar estos alias
+</div>
+<div>
+  Modificado: Archivo de script a run.tcl.&nbsp;
+</div>
+<div>
+  Modificado: config.xml. Una nueva configuracion. Cambios:
+</div>
+<div>
+  &nbsp;- En la etiqueta router se puede añadir el atributo id para asignar un alias a ese router
+</div>
+<div>
+  &nbsp;- Ahora estan aqui tambien los eventos
+</div>
+<h2>
+  Versión 37:
+</h2>
+<div>
+  Modificado: drcl.inet.Event.java y drcl.inet.InetUtil.java. Se ha cambiado para que las comprobaciones sobre la NTTable se hagan en las funciones que realicen las operaciones de componentes (reConnect y disconnect) y no en el evento
+</div>
+<div>
+  Modificado: drcl.inet.InetUtil. Ahora los reConnect funcionan correctamente y utilizan una funcion auxiliar llamada reConnectTo que conecta solo en una dirección. La reconexion se hace tambien sobre protocolos soportados. Es decir que si el nodo tiene un protocolo y esta soportado para la reconexion, se relanzara ese protocolo. El unico protocolo soportado por el momento es BGP4
+</div>
+<div>
+  Añadido: drcl.inet.Event.java Se han implementado las opciones de UP_COMPONENTE (para nodo y link) y UP_LINK
+</div>
+<div>
+  Modificado: infonet.javasim.bgp4.XMLUtils, drcl.inet.TopologyTable y drcl.inet.TopologyTableNode Ahora lee y almacena los protocolos que tienen los nodos. Funcionalidad añadida para reConnect
+</div>
+<div>
+  Añadida: infonet.javasim.bgp4.BGPSession Funcionalidad que relanza las conexiones BGP
+</div>
+<div>
+  Se ha limpiado un poco el codigo de infonet.javasim.bgp4.BGPSession
+</div>
+<br>
+<br>
+<div>
+  Nota: Nunca se tira un sentido de la conexion, siempre dos, en un futuro esto puede no ser bueno
+</div>
+<h2>
+  Versión 38:
+</h2>
+<div>
+  Modificado: Ahora el script de ejecicion se llama run.tcl
+</div>
+<div>
+  Modificado: se han quitado los otros xmls Se ha dejado solo config.xml y little.xml que corresponde a una configuracion normal y a una configuracion basica. El que se usa por defecto es config.xml
+</div>
+<div>
+  Modificado: El nombre de los Readme
+</div>
+<div>
+  Modoficado: Se ha eliminado la carpeta bin con los .class
+</div>
+<div>
+  Arreglado: El proyecto no limpiaba bien las clases y quedaban restos de la antigual clas infonet.javasim.bgp4.Utils. Se han quitado dichas referencias y se han añadido las funciones necesiarias en XMLUtils.java (Thanks Ville Petteri Pöyhönen)
+</div>
+<h2>
+  Versión 39:
+</h2>
+<div>
+  Se han movido todos los cambios sobre j-sim a un paquete aparte (tid) excepto correcciones de procedimientos y lo correspodiente al paquete de infonet
+</div>
+<div>
+  Esto incluye:
+</div>
+<div>
+  drcl.Enviroment--&gt;tid.enviroment
+</div>
+<div>
+  drcl.inet.Event--&gt;tid.events.Event
+</div>
+<div>
+  drcl.inet.EventBuilder--&gt;tid.events.EventBuilder
+</div>
+<div>
+  drcl.inet.NTTable--&gt;tid.inet.NTTable
+</div>
+<div>
+  drcl.inet.TopologyTable--&gt;tid.inet.TopologyTable
+</div>
+<div>
+  drcl.inet.TopologyTableNode--&gt;tid.inet.TopologyTableNode
+</div>
+<div>
+  utils--&gt;tid.utils
+</div>
+<div>
+  funciones de&nbsp;
+</div>
+<div>
+  drcl.inet.InetUtil--&gt;tid.inet.InetUtil
+</div>
+<div>
+  reConnectTo
+</div>
+<div>
+  reConnect
+</div>
+<div>
+  disconnect
+</div>
+<h2>
+  Versión 40:
+</h2>
+<div>
+  Añadido: Version en ingles del log
+</div>
+<h2>
+  Versión 41:
+</h2>
+<div>
+  añadido/modificado: Se han añadido y mejorado las funcionalidades de tie_breakin, always compare med y routes_compare_level.
+</div>
+<div>
+  modificado: tie breaking ahora tiene solo dos opciones: random o preferentemente menor id. Para activarlo hay que poner en el fichero de configuracion en la parte de bgp (general o especifica de cada router) tie_breaking: "random" o "default"&nbsp;
+</div>
+<div>
+  añadido: routes_compare_level: Indica hasta donde quieres llegar comparando en el proceso de seleccion de que ruta es mejor. Actualmente hay 6 niveles&nbsp;
+</div>
+<div>
+  "level 0": no comprara nada, todas las rutas son iguales
+</div>
+<div>
+  "level 1": compara las local_preferences
+</div>
+<div>
+  "level 2": Comprar numero de as que atraviela
+</div>
+<div>
+  "level 3": Compara los meds
+</div>
+<div>
+  "level 4": BGPi sobre BGPe
+</div>
+<div>
+  "level 5": tie_breaking (a este nivel nunca hay dos rutas iguales)
+</div>
+<div>
+  modificado: med, ahora este valor puede leerse correctamente desde el fichero de configuracion con los valores "always_compare_med" o "default".&nbsp;
+</div>
+<div>
+  modificado: infonet.javasim.bgp4.BGPSession (handle_update y decision_process_2) ahora si dos rutas son iguales tambien la introduce en la tabla de rutas. No funciona correctamente.
+</div>
+<div>
+  modificado: infonet.javasim.bgp4.BGPSession (logRT) añadido para que muestre tambien la ruta de as que tiene
+</div>
+<br>
+<div>
+  Añadido: infonet.javasim.bgp4.Global: variables para los valores por defecto de always compare med, nivel de comparacion de rutas y tie breaking, y las costantes de los string que identifican los valores para el fichero de configuracion (ROUTES_COMPARE_LEVELS, STRING_LEVELS, STRING_ALWAYS_COMPARE_MED, STRING_RANDOM_TIE_BREAKING)
+</div>
+<br>
+<div>
+  Modificado: infonet.javasim.bgp4.LocRib (add) semiimplementado el tema de doble ruta
+</div>
+<br>
+<div>
+  Modificado:infonet.javasim.bgp4.RouteInfo (compare) se ha modificado la funcion para que pare dependiendo el nivel
+</div>
+<br>
+<div>
+  No funciona correctamente: Asignar valores de local_preference y med a las rutas o nodos. Añadir dobles entradas para las tablas no funcinoa bien por el tema del arbol radix. Abrá que cambiar los nodos del arbol a un vector para poder añadirlo
+</div>
+<h2>
+  Versión 42:
+</h2>
+<div>
+  Novedades cambios:
+</div>
+<div>
+  Arreglado ahora funcionan correctamente las variables de local_prefenrece y med.
+</div>
+<div>
+  Novedad: Ahora, dependiendo del nivel de comparacion de rutas, puede darse que dos rutas sean iguales. En ese caso ambas se añaden la tabla de rutas
+</div>
+<div>
+  Modificado: El fichero de configuracion xml ha cambiado un poco en el formato
+</div>
+<div>
+  Cambios a nivel de codigo:&nbsp;
+</div>
+<div>
+  Modificado: Las estructuras RIBElements (Con sus clases heredadas: AdjRIBIn, AdjRIBOut, LocRIB) han cambiado su forma de alamcenar. Ahora en el arbol radix se guarda un vector con todas las "RoutesInfos". Al igual que el comportamiento de las funcion agregar (add) que ahora no elimina lo que habia antes. la funcion de reemplazamiento se ha eliminado porque no tenia sentido. El cambio ha hecho que las clases AdjRIBIn y AdjRIBOut sean iguales, se ha segudo manteniendo las clases para que se mantenga la coerencia con las antiguas versiones.
+</div>
+<div>
+  Modificado (General en varias clases): Se han instanciado gran parte de los "ArrayList" y "Vector" en el paquete de infonet.&nbsp;
+</div>
+<div>
+  Modificado: Los withdraws ahora no son solo una direccion de red (puesto que puede haber varias), ahora son una ruta y asi son almacenados enviados y modificados. Era necesario para poder discriminar las rutas a eliminar segun la ruta en si y no solo por la ruta anunciada.
+</div>
+<div>
+  Añadido: Route y IPaddress para poder enviar las rutas por los mensajes se han hecho "serializables", esto es, que tengan un fromBytes un toBytes y byteSize
+</div>
+<div>
+  Modificado: La clase Pair ahora se puede instanciar
+</div>
+<h2>
+  Versión 43:
+</h2>
+<div>
+  Modificado: ahora las local preferences se leen en la ruta
+</div>
+<div>
+  Arreglado: Local preference no funcionaba correctamente
+</div>
+<div>
+  Arreglado: Errores de la version anterior a la hora de comprar rutas y el proceso de seleccion
+</div>
+<br>
+<div>
+  Cambios en&nbsp;
+</div>
+<div>
+  /config-1.xml
+</div>
+<div>
+  /config.xml
+</div>
+<div>
+  /log.tid
+</div>
+<div>
+  /src/infonet/javasim/bgp4/AdjRIBIn.java
+</div>
+<div>
+  /src/infonet/javasim/bgp4/BGPSession.java
+</div>
+<div>
+  /src/infonet/javasim/bgp4/PeerEntry.java
+</div>
+<div>
+  /src/infonet/javasim/bgp4/RIBElement.java
+</div>
+<div>
+  /src/infonet/javasim/bgp4/Route.java
+</div>
+<div>
+  /src/infonet/javasim/bgp4/RouteInfo.java
+</div>
+<div>
+  /src/infonet/javasim/bgp4/XMLUtils.java
+</div>
+<div>
+  /src/infonet/javasim/bgp4/path/LocalPref.java
+</div>
+<div>
+  /src/tcl/lang/Var.java
+</div>
+<div>
+  /src/tid/inet/InetUtil.java
+</div>
+<h2>
+  Version 154 (44):&nbsp;
+</h2>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/.classpath</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/Cambios_JSIM</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/ChangeLog</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/Changes_JSim</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/J_Sim_Log_English.html</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/J_Sim_log_espanol.html</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/bin</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/build.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/cambiosJsim</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/classes</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/config-1.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/config.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/config_basic_gp_islands.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/events.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/forward</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/lib/dml.jar</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/little.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/log-en.tid</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/log.tid</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/run.tcl</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&amp;nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/2_nodes_2_Session_manual.tcl</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/2_nodes_manual_test.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/3_nodes_2_Session_manual.tcl</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/3_nodes_manual_test.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/3_routes_manual_correct.tcl</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/3_routes_manual_correct.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/config-1.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/config.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/config_basic_gp_islands.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/config_ext_p2p_simple.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/config_ext_p2p_test.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/little.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/test_2.tcl</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/drcl/comp/Port.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/BGPSession.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/ConfigBGP.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/Global.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/PeerConnection.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/PeerEntry.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/RIBElement.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/RouteInfo.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/XMLUtils.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/comm/OpenMessage.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/pruebas/XMLMain.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/tid/Enviroment.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/comp</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/comp/Utils.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/tid/events/Event.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/tid/events/EventBuilder.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/tid/inet/InetUtil.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/TopologyTable.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/TopologyTableNode.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/protocols</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/protocols/GeneralParametersFactory.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/protocols/Protocol.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/protocols/Util.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/protocols/doConfigFactory.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/protocols/logsFactory.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/protocols/mapStringFactory.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/utils/Config.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/utils/Utils.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/utils/XMLUtils.java</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/utils</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_1.tcl</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_1_config.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_1_events.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_2.tcl</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_2_config.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_2_events.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_3.tcl</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_3_config.xml</font>
+</div>
+<div>
+  <font style=BACKGROUND-COLOR:#ffffff>&nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_3_events.xml</font>
+</div>
+<br>
+<div>
+  Funcionalidades
+</div>
+<div>
+  - Ahora hay soporte de varios protocolos en un mismo nodo. Los protocolos pueden ser del mismo tipo si utilizan distinto puerto TCP
+</div>
+<div>
+  - Soporte de puertos para los distintos protocolos
+</div>
+<div>
+  - Para añadir un protocolo/sesion distinto al bgp al entorno de simulación hay que seguir los siguientes pasos
+</div>
+<div>
+  que la clase implemente la interfaz tid.inet.protocols.protocol.java
+</div>
+<div>
+  añadir el string identificativo en la interfaz protocol
+</div>
+<div>
+  en la clase tid.inet.protocols.Factory.java añadir las factorias correspondientes a las siguientes clases&nbsp;
+</div>
+<div>
+  GeneralParametersFactory
+</div>
+<div>
+  doConfigFactory
+</div>
+<div>
+  logsFactory
+</div>
+<div>
+  mapStringFactory
+</div>
+<div>
+  - Soporte para varias interfaces (direcciones IP) por nodo.
+</div>
+<div>
+  - Soporte para varios nodos por link
+</div>
+<br>
+<div>
+  - El protocolo "bgp 4" ahora pueden utilizar un puerto distinto del que estaba por defecto.
+</div>
+<div>
+  - El protocolo "bgp 4" cualquiera (pero solo una), de las interfaces que tiene un nodo
+</div>
+<div>
+  - Solo hay funcionalidad para los eventos "DOWN"
+</div>
+<div>
+  - Las topologias físicas ahora no son creadas automaticamente. Tienen que ser especificadas en el fichero xml
+</div>
+<div>
+  - Ahora pueden activarse y desactivarse las salidas de error y debug de la consola por un flag en los ficheros xml
+</div>
+<div>
+  - Ficheros de configuracion xml.
+</div>
+<div>
+  Se han separado en dos. fichero con parametros de configuracion (i.e: test_1_config.xml) y simulacion (test_1_events.xml)
+</div>
+<br>
+<br>
+<div>
+  El formato del fichero de configuración se ha modificado con nuevos parametros. (ver ejemplo xml) añadiendo nuevas funcionalidades.
+</div>
+<div>
+  Changelog
+</div>
+<div>
+  Modificado: drcl.comp.Port los mensajes de error no salen por consola si no esta habilitada la opcion
+</div>
+<div>
+  Modificado: infonet.javasim..bgp4.BGPSession, eliminadas variables privadas que no se usaban
+</div>
+<div>
+  Modificado: infonet.javasim..bgp4.BGPSession ahora implementa interfaz tid.inet.protocols.protocol
+</div>
+<div>
+  Modificado: infonet.javasim..bgp4.BGPSession el puerto ahora se guarda aquí (defalut: PORT_NUM &amp; used value: port)
+</div>
+<div>
+  Modificado: infonet.javasim..bgp4.BGPSession se ha limpiado un poco el codigo
+</div>
+<div>
+  Modificado: infonet.javasim..bgp4.BGPSession ciertos mensajes solo se muestran si esta habilitada la opcion de debugEnable
+</div>
+<div>
+  Modificado: infonet.javasim..bgp4.BGPSession La opción de habilitar los logs (rt, fsm, dbg y msg) ha cambiado y es unica para BGP. antes la compartia con todos
+</div>
+<div>
+  Arreglado: Ahora las fuentes se guardan con el id del BGP que las crea
+</div>
+<div>
+  Modificado: infonet.javasim.bgp4.ConfigBGP ha cambiado a tid.utils.Config
+</div>
+<div>
+  Añadido: infonet.javasim.Global: Añadidas constantes para los logs
+</div>
+<div>
+  Arreglado: infonet.javasim.bgp4.PeerEntry: uno de los constructores no inicializaba correctamente el valor de bgp_id
+</div>
+<div>
+  Modificado infonet.javasim.bjp4.UtilsXML ahora cambia a tid.utils.Utils, tid.utils.UtilsXML y ciertas funcionalidades pasan
+</div>
+<div>
+  Modificado tid.enviroment: Se han quitado las variables de logs de este aqui y sehan puesto en infonet.javasim.bgp4.BGPSession. Se ha añadido la variable que gestiona el numero de nodos por link
+</div>
+<div>
+  Modifcado: tid.events.Event: ahora solo hay dos tipos de eventos que se aplican indistintamente para todo tipo de componentes. UP y DOWN de los cuales solo funciona correctamente DOWN
+</div>
+<div>
+  Modificado: tid.events.EventBuilder: ahora la lectura de la configuracion de los logs no se hace aquí
+</div>
+<div>
+  Añadido: tid.inet.InetUtil CreateTopology. esta funcion realiza la misma funcion que la similar en drcl.inet.InetUtil pero apartir de diferentes parametros y con la funcionalidad añadida de varios nodos por link
+</div>
+<div>
+  Añadido: tid.inet.InetUtil Crea un mapa para la funcion segun el formato requerido de drcl.inet.NodeBuilder.build
+</div>
+<div>
+  Modificado: Las funciones de tid.inet.InetUtil reConnect reConnectTo en todas sus versiones no funcionan
+</div>
+<div>
+  Arreglado: &nbsp;tid.inet.InetUtil disconnect se ha arregaldo para que funcione concordando con las nuevas modificaciones
+</div>
+<div>
+  Añadido: tid.inet.InetUtil addAddress añade una direccion a un nodo. Tambien se encarga de añadirlo ESTATICAMENTE a las tablas de rutas de los nodos a los que esta conectado en ese momento
+</div>
+<div>
+  Añadido: tid.inet.InetUtil addAddresses realiza la funcion addAddress en una configuracion pasada por parametro
+</div>
+<div>
+  Añadido: paquete tid.protocols que gestiona que un protocolo sea compatible con el entorno de esta simulacion
+</div>
+<div>
+  Añadido: tid.inet.protocols.Protocol interfaz minima que debe implementar una clase para que pueda ser considerada un protocolo ejecutable por este entorno de simulacion
+</div>
+<div>
+  Añadido: tid.inet.protocols.Util funciones auxiliares de protocolos
+</div>
+<div>
+  Añadido: tid.inet.protocols doConfigFactory, fabrica el archivo de configuracion de un Protocolo, Hay que tener funciones privadas que concreticen cada uno de los protocolos
+</div>
+<div>
+  Añadido: tid.inet.protocols GeneralParametersFactory. Pone los parametros generales de un protocolo. Hay que tener funciones privadas que concreticen cada uno de los protocolos
+</div>
+<div>
+  Añadido: tid.inet.protocols logsFactory, configura los log de los distintos protocolos. Hay que tener funciones privadas que concreticen cada uno de los protocolos
+</div>
+<div>
+  Añadido: tid.inet.protocols mapStringFactory Fabrica el el substring necesario para hacerHay que tener funciones privadas que concreticen cada uno de los protocolos
+</div>
+<div>
+  Eliminado: Las estructuras antiguas de topologia &nbsp;ya no se usan (no son necesarias) tid.inet.TopologyTable y TopologyTableNode
+</div>
+<h2>
+  Version ?? (Repositorio 157 &amp; 158)
+</h2>
+<div>
+  Se ha añadido documentación en formato javadoc
+</div>
+<br>
+<div>
+  Changelog
+</div>
+<div>
+  Modificado: Ahora la variable infonet.javasim.BGPSession#cluster_num tiene por defecto el valor -1
+</div>
+<div>
+  Modificado: Ahora en la variable de configuración, el elemento que representa si es un reflector de rutas esta con la clave RR (antes RRC)
+</div>
+<div>
+  Eliminado: Paquete tid.comp
+</div>
+<h2>
+  Versión 46 (Repositorio 168)
+</h2>
+<h3>
+  Novedades:
+</h3>
+<ul>
+  <li>
+    Soporte mínimo para el protocolo bgp_ct.
+  </li>
+</ul>
+<br>
+<h3>
+  Change log:
+</h3>
+<ul>
+  <li>
+    Añadido: Paquete tid.inet.protocols.bgp_ct y la clase que implementa la interfaz Protocol
+  </li>
+  <li>
+    Añadido: Soporte para el nuevo protocolo en las clases factoría
+  </li>
+</ul>
+<br>
+<h2>
+  Version 47 (Repositorio 169)
+</h2>
+<h3>
+  <font size=3>Changelog:&nbsp;</font>
+</h3>
+<ul>
+  <li>
+    Fix: Some errors in tcl file are reaparated
+  </li>
+  <li>
+    Fix: Now disable errors and debug are disabled correctly (tid.Enviroment)
+  </li>
+  <li>
+    Added: XML manual reference in doc folder
+  </li>
+</ul>
+<h2>
+  Version 48 (Repositorio 170)
+</h2>
+<h3>
+  <font size=3>Changelog:</font>
+</h3>
+<ul>
+  <li>
+    fix: The route for the mp bgp now is correct (tid.inet.protocols.mapStringFactory)
+  </li>
+</ul>
+<br>
+<h2>
+  Versión 49 (Repositorio 180):
+</h2>
+<h3>
+  Novedades:
+</h3>
+<ul>
+  <li>
+    Soporte de politicas: Ahora se leen las políticas del archivo XML, las opciones para este campo se encuentran disponibles en
+  </li>
+</ul>
+<h3>
+  Change log:
+</h3>
+<ul>
+  <li>
+    Modificado: Ahora las rutas de un ruter no se propagan por IGP.&nbsp;
+  </li>
+  <li>
+    Arreglado: Las rutas se propagan correctamente en los reflectores de rutas.
+  </li>
+  <li>
+    Modificado: Se han hecho publicas algunas variables para que puedan ser visibles por mp bgpç
+  </li>
+  <li>
+    Modificado: Ahora una ruta espera a que este disponible en siguiente salto para escribirse en la tabla de rutas (HAY QUE CAMBIARLO)
+  </li>
+  <li>
+    Añadido: Un timer que ejecuta un código por nodo cada un tiempo especifico. Clase: BGPSession.eventsTimer. El primer uso de esta clase es comprobar si tenemos en siguiente salto de alguna ruta
+  </li>
+  <li>
+    arreglado: Algunas variables no se comprobaba correctamente si valían null en BGPSession
+  </li>
+  <li>
+    Añadido: En global: Lista de políticas. Estas son usadas posteriormente por la clase BGPSession si es posible
+  </li>
+  <li>
+    Arreglado: El atributo ClusterList no estaba implementado. Antes se consideraba un long tamaño de 4 bytes, ahora se hace segun la funcion sizeOfAElementOfAList() que en este caso el valor es 8 (el tamaño de un long).&nbsp;
+  </li>
+  <li>
+    Arreglado: En el atributo ClusterList ahora se guarda la lista de cluster, y se recupera también.
+  </li>
+  <li>
+    Arreglado: Se ha añadido soporte en el atributo comunity a los valores del tipo XXX:YYY, por ejemplo 1001:6300
+  </li>
+  <li>
+    Arreglado: Atributo MED, se guarda correctamente en el tamaño adecuado en toBytes
+  </li>
+  <li>
+    Arreglado: Ahora los sockets se biendan correctamente al valor Long de la direccion, antes lo hacían a un valor entero (y no siempre llegaba el rango)
+  </li>
+  <li>
+    Arreglado: ahora los mensajes son enviaedos por el socket con la info de la peerConnection (antes este valor tenia al valor null)
+  </li>
+  <li>
+    Añadido: Se ha añadido la opcion de SET en la politica de community.
+  </li>
+  <li>
+    Modificado: Ahora la clase RULE tiene un puntero a la clase BGPSession asociada para poder escribir en los logs posibles problemas de las mismas.
+  </li>
+  <li>
+    Arreglado: Ahora la doConfigFactory.factory contempla que no exista tipo en algun protocolo y lanza la pertinente excepción
+  </li>
+  <li>
+    Arreglado: Ahroa se lee correctamente el puerto por defecto si no existe ese atributo
+  </li>
+  <li>
+    Modificado: El nombre por defecto de las trazas bgp ha cambiado. Ahora es "ID del router"-"bgp 4"-"puerto". Evitando asi que si hay dos sesiones bgp corriendo con la misma ip y puerto pero en distinto nodo puedan molestarse
+  </li>
+  <li>
+    Modificado: Ahora si un ruter es reflector de rutas se guarda en el atributo RR y no en el RRC
+  </li>
+</ul>
+<h2>
+  Versión 50 (??)
+</h2>
+<h3>
+  Chanlog:
+</h3>
+<ul>
+  <li>
+    Arreglado: Originator ID ahora tiene el valor que le corresponde (y no la IP del reflector de rutas)
+  </li>
+  <li>
+    Arreglado: El parametro bgp_id de PeerEntry, ahora almacena la id de la sesión BGP destino.
+  </li>
+  <li>
+    Arreglado: Ahora las rutas se reflejan correctamente
+  </li>
+</ul>
+<br>
+<h2>
+  Version 51
+</h2>
+<div>
+  Cambios:&nbsp;
+</div>
+<p>
+</p>
+<ul>
+  <li>
+    Ha cambiado ligeramente el formato del archivo XML, ver el archivo adjunto para ver el formato
+  </li>
+  <li>
+    Soporte completo para las políticas tanto en el fichero XML como en el protocolo bgp 4
+  </li>
+  <li>
+    Soporte de eventos
+  </li>
+  <li>
+    Nueva funcionalidad en el simulador. TrafficInspectionTool donde estarán todas las herramientas de inspección de trafico. Por el momento solo hay implementado el traceRoute
+  </li>
+  <li>
+    Se ha añadido la aplicación GraphicInterpreter. No funciona correctamente porque utiliza el antiguo método de lectura mediante ficheros Configuration.&nbsp;
+  </li>
+  <li>
+    Ahora las interfaces pueden ir sobre todas las interfaces o ser accesible solo por una link. En un futuro podrán ir por varios links
+  </li>
+  <li>
+    Ahora la capa TCP tambien tiene que ser incluida en la topología, si no la incluimos, los protocolos que la utilicen no serán capaces de configurarse.
+  </li>
+</ul>
+<p>
+</p>
+<div>
+  Cambios de funcionalidad:
+</div>
+<ul>
+  <li>
+    Ahora los protocolos leen directamente los elementos xml eliminando la necesidad de los ficheros de configuración
+  </li>
+  <li>
+    Ahora existe una opción para, si los protocolos se han implementado así. intenten liberar la mayor cantidad de memoria y así intentar optimizar el navegador. Nota para el programador: booleanon que esta en tid.Enviroment.MEMORY_OPTIMIZATION
+  </li>
+  <li>
+    Ahora la simulacion crea unos componentes hijos de los nodos de tipo tid.inet.Iface que dan guardan información relativa a las interfaces que usa un nodo.
+  </li>
+  <li>
+    Ahora se pueden hacer de eventos de DOWN y UP. Para crear eventos nuevos hay que hacer que extiendan de tid.inet.events.Event y hay que añadir los eventos soportados en tid.inet.events.EventBuilder. Es necesario que el nombre del evento en el fichero XML sea el mismo que el nombre de la clase
+  </li>
+</ul>
+<div>
+  Change log:
+</div>
+<ul>
+  <li>
+    <br>
+  </li>
+  <li>
+    Añadido: (infonet.javasim.bgp4.BGPSession): Se han añadido y adaptados las funciones para que lean directamente el XML
+  </li>
+  <li>
+    Añadido: (infonet.javasim.bgp4.BGPSession): Soporte para el interprete gráfico de tolologías
+  </li>
+  <li>
+    Arreglado: (infonet.javasim.bgp4.BGPSession, infonet.javasim.bgp4.PeerEntry): El med no funcionaba correctamente
+  </li>
+  <li>
+    Arreglado: (infonet.javasim.bgp4.BGPSession): El uso de las local preferences ahora son mas fieles a al formato de utilizado por CISCO
+  </li>
+  <li>
+    Arregaldo: (infonet.javasim.bgp4.BGPSession): El autoreconectado global se ha desactivado ya que hacia que el programa fallara en mulitud de ocasiones
+  </li>
+  <li>
+    Arreglado: (infonet.javasim.bgp4.BGPSession): Las políticas de entrada no se ejecutaban en el momento correcto. Se ha arreglado en general el soporte de estas
+  </li>
+  <li>
+    Añadido: (infonet.javasim.bgp4.PeerEntry): Ahora tienes una funcion que te dice si un destino es accesible
+  </li>
+  <li>
+    Modificado: (infoent.javasim.policy.*): Ha habido modificaciones en las funciones de acceso de las politicas. No ha cambiado el proceso de aplicación de políticas.
+  </li>
+  <li>
+    Añadido: (tid.inet.Iface) la clase para guardar información de las interfaces
+  </li>
+  <li>
+    Añadido: (tid.inet.protocol.TrafficInspectionTool) todas las clases necesarias para que funcione el trace route.
+  </li>
+  <li>
+    Modificado (tid.inet.protocol.*): Se han limpiado las distintas factorías de creación de la simulación comentando las referencias al antiguo método por medio de las variables Configuration.&nbsp;
+  </li>
+  <li>
+    Añadido: (tid.inet.Util) soporte para el reinicio de los protocolos que implementen interfaz tid.inet.protocols.Protocol
+  </li>
+</ul>
+<div>
+  Change log en el simulador
+</div>
+<ul>
+  <li>
+    Arreglado: (drcl.inet.core.PktDispacher): habia un error en el proceso de movimiento del paquete, por el cual a veces no llegaba a su destino cuando se utilizaban interfaces virtuales. Se ha corregido y ahora parece que funciona&nbsp;
+  </li>
+  <li>
+    Arreglado: (drcl.inet.InetUtil): El id del protocolo de traceroute se ha puesto en todos lados a trace_rt, antes en en algunos lados estaba como trace-rt
+  </li>
+  <li>
+    correctamente
+  </li>
+  <li>
+    Modificado: Ahora la interfaz del core de red (CSL o CoreServideLayer) tiene una nueva función que te da todas las direcciones de un nodo
+  </li>
+</ul>
+<ul>
+  <li>
+    Modificado(drcl.inet.Node): Se han añadido tres funciones nuevas en el nodo para facilitar el acceso a los datos: getAllAddress() te da todas las direcciones de un nodo, isConnectedTo(long) te dice si esta conectado a otro nodo y nodesConnected() que te da todos los nodos conectados al mismo.
+  </li>
+  <br>
+</ul>
+Nota no se han registrado todos los cambios porque lleva tanto tiempo sin actualizarse que es practicamente imposible<br>
+<br>
+<h2>
+  Versión 52:
+</h2>
+<div>
+  Cambios
+</div>
+<ul>
+  <li>
+    Soporte para varios links por interfaz. Si no se especifica ninguna se publica por todas
+  </li>
+</ul>
+<div>
+  Change log:
+</div>
+<ul>
+  <li>
+    Arreglado: ahora se agregan bien las direcciones cuando se usan interfaces
+  </li>
+  <li>
+    Modificado: Ahora las interfaces (tanto fisica como la futura virutal) heredan tid.inet.NetworkInterface y esta a su vez de componente de tal manera que se pueden manejar todas las interfaces de una manera abstracta
+  </li>
+  <li>
+    Modificado: tif.inet.Iface se ha renombrado a tid.inet.PhysicalNetworkInterfaz
+  </li>
+</ul>
+<h2>
+  Versión 53:
+</h2>
+<div>
+  Cambios:
+</div>
+<ul>
+  <li>
+    Soporte de interfaces virtuales. El formato puede no ser definitivo. El tunel se crea entre dos nodos con direcciones virtuales, que se añaden a la tabla de rutas, y físicas. No se comprueba la integridad de las rutas virtuales.&nbsp;
+  </li>
+</ul>
+<div>
+  Changelog:&nbsp;
+</div>
+<ul>
+  <li>
+    Se han corregido ciertos sitios en donde se indicaba PhysicalNetworkInterface por NetworkInterface
+  </li>
+  <li>
+    Añadido (tid.inet.InetUtil): Ahora la elección de puertos para las interfaces se hace mediante la función "findFreeInterface", esta función solo funciona si no hay números de interfaces intermedios no ocupados (MAX(interfaces) &lt; numero de interfaces)
+  </li>
+  <li>
+    Modificado (tid.inet.VirtualNetworkInterface) ahora almacena toda la información necesaria para crear el tunel
+  </li>
+</ul>
+Extra:&nbsp;<br>
+<ul>
+  <li>
+    Ejemplo de una configuración con doble interfaz "2vi over vi.tcl"
+  </li>
+</ul>
+<h2>
+  Version 54:&nbsp;
+</h2>
+<h3>
+  Cambios
+</h3>
+<ul>
+  <li>
+    Ha dejado de existir interfaz virtual, y ahora hay dos tipos de interfaces virtuales o túneles. estático punto a punto o virtuales multipunto
+  </li>
+</ul>
+<h3>
+  Changelog:&nbsp;
+</h3>
+<ul>
+  <li>
+    Cambiado: La configuración del archivo XML a cambiado en lo referente a las interfaces. Ahora todos son interfaces y el atributo type determina el tipo de interfaz que es. Esta puede ser de tres tipos: "physcal" (físico), "virtual static point to point" (virtual punto a punto y estática), "virtual multipoint" (virtual multipoint)
+  </li>
+  <li>
+    Cambiado: (tid.inet.VirtualStatic2P2Interface) el nombre de esta clase antes era VirtualStaticInterface.
+  </li>
+  <li>
+    Añadido:(tid.inet.VirtualMultipointInterface) Clase correspondiente a la interfaz virtual multipunto
+  </li>
+  <li>
+    Cambiado: (tid.inet.InetUtil) se soporta correctamente los nuevos tipos y las nuevas formas de representar los ficheros de configuración
+  </li>
+  <li>
+    Añadido: &nbsp;(tid.inet.NetworkInterface) las cadenas identificativas de los tipos de interfaz
+  </li>
+</ul>
+<br>
+<br>
+<h2>
+  <font size=4>Version 55:</font>
+</h2>
+<ul>
+  <li>
+    Primera versión con soporte de GP_BGP. Hay ciertos problemas si las sincronizaciones de los protocolos inferiores no son simultaneas. La creacción de los tuneles son dinamicos, pero en la configuración hay que decir tanto la dirección virtual como la dirección de la interfaz base
+  </li>
+</ul>
+<h3>
+  <font size=3>Changelog:&nbsp;</font>
+</h3>
+<ul>
+  <li>
+    Arreglado: (infonet.javasim.bgp4.AdjRIBIn) antes para eliminar una ruta se comprobaba si era igual, comprobando la dirección de punteros y si el anuncio habia sido creado desde 0 no eliminaba nada. Ahora se comprueba el destino y el siguiente salto
+  </li>
+  <li>
+    Modificado: (infonet.javasim.bgp4.BGPSession) la función connect ha pasado a llamarse startConnection. connect se ha dejado para encapsular el proceso de conexión.
+  </li>
+  <li>
+    Modificado: (infonet.javasim.bgp4.BGPSession) se ha encapsulado el inicio de la conexión entre dos nodos en la funcion connect
+  </li>
+  <li>
+    Modificado: los ficheros de log ahora son por defecto de la siguiente forma para BGP 4: nodo-bgp_4-puerto.*
+  </li>
+  <li>
+    Modificado: los ficheros de log ahora son por defecto de la siguiente forma para GP_BGP 4: nodo-gp_bgp-puerto.*
+  </li>
+  <li>
+    Añadido: (tid.inet.InetUtil) funciones para configurar los túneles dinámicos
+  </li>
+  <li>
+    Arreglado: las funciones de factoría de bgp y gp-bgp para que no solapen atributos, fatla realizarlo para habilitar y deshabilitar los ficheros de log.
+  </li>
+</ul>
+<br>
+<br>
+<h2>
+  Version 56:
+</h2>
+<h3>
+  Cambios:
+</h3>
+<ul>
+  <li>
+    Ahora los protocolos que intentan reconectarse lo hacen con todos los que tengan como peer y no hay que pasarle el parametro
+  </li>
+</ul>
+<h3>
+  Changelog:
+</h3>
+<ul>
+  <li>
+    Cambiado: (infonet.javasim.bgp4.BGPSession), ahora restart se intenta conectar con todos los vecinos
+  </li>
+  <li>
+    Arreglado: (infonet.javasim.bgp4.BGPSession): ahora el nombre del log utiliza el puerto
+  </li>
+  <li>
+    Arreglado: (tid.protocols.gp_bgp.GP_BGPSession): Ahora los logs se hacen correctamente con los parametros de gp_bgp y no con los de bgp 4
+  </li>
+  <li>
+    Cambiado: (tid.protocols.Protocol): se ha cambiado ligeramente la interfaz para obligar a los protocolos reinicien la conexión sin importar con quien tiene que rehacer la conexión.
+  </li>
+  <li>
+    Arreglado: (tid.protocols.trafficInspectionTool): Ahora los logs funcionan correctamente
+  </li>
+  <li>
+    Cambiado: (tid.protocols.Util) se ha adaptado para el nuevo funcionamiento del reinicio de los protocolos
+  </li>
+</ul>
+<br>
+<h2>
+  Version 67:
+</h2>
+<h3>
+  Cambios:&nbsp;
+</h3>
+<ul>
+  <li>
+    Los protocolos no son relanzados desde el evento UP,&nbsp;
+  </li>
+  <li>
+    La funcionalidad de reconexión global de bgp ahora funciona correctamente
+  </li>
+  <li>
+    Se ha modificado baseScript.tcl para que te pregunte que archivos quieres cargar tanto en topología como en eventos.
+  </li>
+</ul>
+<h3>
+  Changelolog:
+</h3>
+<ul>
+  <li>
+    Cambiado: El gestor de paquetes (PktDispacher.java) ahora siempre tiene un gestor de paquetes virtuales aunque no existan interfaces virtuales
+  </li>
+  <li>
+    Cambiado: (infonet.javasim.bgp4.BGPSession) para que funcione correctamente la reconexión global de bgp, ahora si la maquina de estados de bgp pasa de connect a active por un fallo de en la apertura de conexión, vuelve a reintentar conectar, pasando de nuevo al estado connect. Esto ocurría cuando la tabla de rutas tenia una entrada que realmente no estaba accesible cuando ruter intermedio perdía el acceso al siguiente salto, pero no había llegado el anuncio aún
+  </li>
+</ul>
+<br></body>
+</html>

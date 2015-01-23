@@ -1,0 +1,752 @@
+<JSimConfig>
+
+<debug debugFlag="disable" errorFlag="disable" trace_dir="trace"/>
+
+<protocol type="bgp 4">
+	<parameters rtlog="enable" dbglog="enable" tracelog="enable" fsmlog="enable"
+		tie_breaking="default" default_local_pref="90" med="default"
+		routes_compare_level="level 5" default_port="169"/>
+</protocol>
+
+<protocol type="mp bgp">
+	<parameters rtlog="enable" dbglog="enable" tracelog="enable" fsmlog="enable"
+	mp_type="AF_INET" mp_bfd="disabled" mp_bfd_poll_interval="default"/>
+</protocol>
+
+<components>
+<!-- AS-1 -->
+	<router id="router-1">
+		<topology>
+			<link id=".link_-1_39202"/>
+			<link id=".link_-1_34245"/>
+			<link id=".link_-1_33970"/>
+			<link id=".link_-1_30844"/>
+			<link id=".link_-1_29636"/>
+			<link id=".link_-1_20485"/>
+			<link id=".link_-1_16034"/>
+			<link id=".link_-1_13237"/>
+			<link id=".link_-1_8468"/>
+			<link id=".link_-1_8419"/>
+			<link id=".link_-1_6762"/>
+			<link id=".link_-1_6067"/>
+			<link id=".link_-1_5511"/>
+			<link id=".link_-1_286"/>
+		</topology>
+		<interface name="principal" address="10.0.0.1"/>
+		<session type="bgp 4">
+			<parameters as="-1" port="170" interface="principal"/>
+			<network address="180.1.0.0/24"/>
+			<neighbour IP="10.0.0.2" remote-as="39202"/>
+			<neighbour IP="10.0.0.17" remote-as="34245"/>
+			<neighbour IP="10.0.0.12" remote-as="33970"/>
+			<neighbour IP="10.0.0.34" remote-as="30844"/>
+			<neighbour IP="10.0.0.11" remote-as="29636"/>
+			<neighbour IP="10.0.0.19" remote-as="20485"/>
+			<neighbour IP="10.0.0.22" remote-as="16034"/>
+			<neighbour IP="10.0.0.18" remote-as="13237"/>
+			<neighbour IP="10.0.0.7" remote-as="8468"/>
+			<neighbour IP="10.0.0.20" remote-as="8419"/>
+			<neighbour IP="10.0.0.31" remote-as="6762"/>
+			<neighbour IP="10.0.0.9" remote-as="6067"/>
+			<neighbour IP="10.0.0.27" remote-as="5511"/>
+			<neighbour IP="10.0.0.35" remote-as="286"/>
+		</session>
+	</router>
+<!-- FIN AS-1 -->
+<!-- AS39202 -->
+	<router id="router39202">
+		<topology>
+			<link id=".link_39202_33970"/>
+			<link id=".link_39202_25577"/>
+			<link id=".link_39202_3257"/>
+			<link id=".link_39202_174"/>
+			<link id=".link_-1_39202"/>
+		</topology>
+		<interface name="principal" address="10.0.0.2"/>
+		<session type="bgp 4">
+			<parameters as="39202" port="170" interface="principal"/>
+			<network address="180.2.0.0/20"/>
+			<neighbour IP="10.0.0.12" remote-as="33970"/>
+			<neighbour IP="10.0.0.25" remote-as="25577"/>
+			<neighbour IP="10.0.0.3" remote-as="3257"/>
+			<neighbour IP="10.0.0.6" remote-as="174"/>
+			<neighbour IP="10.0.0.1" remote-as="-1"/>
+		</session>
+	</router>
+<!-- FIN AS39202 -->
+<!-- AS3257 -->
+	<router id="router3257">
+		<topology>
+			<link id=".link_39202_3257"/>
+			<link id=".link_3257_29636"/>
+			<link id=".link_3257_7018"/>
+		</topology>
+		<interface name="principal" address="10.0.0.3"/>
+		<session type="bgp 4">
+			<parameters as="3257" port="170" interface="principal"/>
+			<network address="180.3.0.0/24"/>
+			<neighbour IP="10.0.0.2" remote-as="39202"/>
+			<neighbour IP="10.0.0.11" remote-as="29636"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+		</session>
+	</router>
+<!-- FIN AS3257 -->
+<!-- AS7018 -->
+	<router id="router7018">
+		<topology>
+			<link id=".link_7018_21703"/>
+			<link id=".link_7018_6762"/>
+			<link id=".link_7018_6461"/>
+			<link id=".link_7018_6453"/>
+			<link id=".link_7018_5511"/>
+			<link id=".link_7018_5400"/>
+			<link id=".link_7018_3561"/>
+			<link id=".link_7018_3549"/>
+			<link id=".link_7018_3356"/>
+			<link id=".link_3257_7018"/>
+			<link id=".link_7018_2914"/>
+			<link id=".link_7018_1668"/>
+			<link id=".link_7018_1299"/>
+			<link id=".link_7018_1239"/>
+			<link id=".link_7018_701"/>
+			<link id=".link_7018_174"/>
+		</topology>
+		<interface name="principal" address="10.0.0.4"/>
+		<session type="bgp 4">
+			<parameters as="7018" port="170" interface="principal"/>
+			<network address="180.4.0.0/19"/>
+			<neighbour IP="10.0.0.5" remote-as="21703"/>
+			<neighbour IP="10.0.0.31" remote-as="6762"/>
+			<neighbour IP="10.0.0.8" remote-as="6461"/>
+			<neighbour IP="10.0.0.32" remote-as="6453"/>
+			<neighbour IP="10.0.0.27" remote-as="5511"/>
+			<neighbour IP="10.0.0.21" remote-as="5400"/>
+			<neighbour IP="10.0.0.24" remote-as="3561"/>
+			<neighbour IP="10.0.0.23" remote-as="3549"/>
+			<neighbour IP="10.0.0.10" remote-as="3356"/>
+			<neighbour IP="10.0.0.3" remote-as="3257"/>
+			<neighbour IP="10.0.0.16" remote-as="2914"/>
+			<neighbour IP="10.0.0.36" remote-as="1668"/>
+			<neighbour IP="10.0.0.26" remote-as="1299"/>
+			<neighbour IP="10.0.0.33" remote-as="1239"/>
+			<neighbour IP="10.0.0.30" remote-as="701"/>
+			<neighbour IP="10.0.0.6" remote-as="174"/>
+		</session>
+	</router>
+<!-- FIN AS7018 -->
+<!-- AS21703 -->
+	<router id="router21703">
+		<topology>
+			<link id=".link_7018_21703"/>
+		</topology>
+		<interface name="principal" address="10.0.0.5"/>
+		<session type="bgp 4">
+			<parameters as="21703" port="170" interface="principal"/>
+			<network address="180.5.0.0/22"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+		</session>
+	</router>
+<!-- FIN AS21703 -->
+<!-- AS174 -->
+	<router id="router174">
+		<topology>
+			<link id=".link_39202_174"/>
+			<link id=".link_7018_174"/>
+			<link id=".link_174_6067"/>
+		</topology>
+		<interface name="principal" address="10.0.0.6"/>
+		<session type="bgp 4">
+			<parameters as="174" port="170" interface="principal"/>
+			<network address="180.6.0.0/21"/>
+			<neighbour IP="10.0.0.2" remote-as="39202"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+			<neighbour IP="10.0.0.9" remote-as="6067"/>
+		</session>
+	</router>
+<!-- FIN AS174 -->
+<!-- AS8468 -->
+	<router id="router8468">
+		<topology>
+			<link id=".link_8468_33970"/>
+			<link id=".link_8468_29636"/>
+			<link id=".link_8468_25577"/>
+			<link id=".link_8468_6461"/>
+			<link id=".link_8468_6453"/>
+			<link id=".link_8468_1299"/>
+			<link id=".link_-1_8468"/>
+		</topology>
+		<interface name="principal" address="10.0.0.7"/>
+		<session type="bgp 4">
+			<parameters as="8468" port="170" interface="principal"/>
+			<network address="180.7.0.0/24"/>
+			<neighbour IP="10.0.0.12" remote-as="33970"/>
+			<neighbour IP="10.0.0.11" remote-as="29636"/>
+			<neighbour IP="10.0.0.25" remote-as="25577"/>
+			<neighbour IP="10.0.0.8" remote-as="6461"/>
+			<neighbour IP="10.0.0.32" remote-as="6453"/>
+			<neighbour IP="10.0.0.26" remote-as="1299"/>
+			<neighbour IP="10.0.0.1" remote-as="-1"/>
+		</session>
+	</router>
+<!-- FIN AS8468 -->
+<!-- AS6461 -->
+	<router id="router6461">
+		<topology>
+			<link id=".link_6461_29636"/>
+			<link id=".link_8468_6461"/>
+			<link id=".link_7018_6461"/>
+		</topology>
+		<interface name="principal" address="10.0.0.8"/>
+		<session type="bgp 4">
+			<parameters as="6461" port="170" interface="principal"/>
+			<network address="180.8.0.0/19"/>
+			<neighbour IP="10.0.0.11" remote-as="29636"/>
+			<neighbour IP="10.0.0.7" remote-as="8468"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+		</session>
+	</router>
+<!-- FIN AS6461 -->
+<!-- AS6067 -->
+	<router id="router6067">
+		<topology>
+			<link id=".link_6067_6453"/>
+			<link id=".link_6067_3549"/>
+			<link id=".link_6067_3356"/>
+			<link id=".link_6067_286"/>
+			<link id=".link_174_6067"/>
+			<link id=".link_-1_6067"/>
+		</topology>
+		<interface name="principal" address="10.0.0.9"/>
+		<session type="bgp 4">
+			<parameters as="6067" port="170" interface="principal"/>
+			<network address="180.9.0.0/23"/>
+			<neighbour IP="10.0.0.32" remote-as="6453"/>
+			<neighbour IP="10.0.0.23" remote-as="3549"/>
+			<neighbour IP="10.0.0.10" remote-as="3356"/>
+			<neighbour IP="10.0.0.35" remote-as="286"/>
+			<neighbour IP="10.0.0.6" remote-as="174"/>
+			<neighbour IP="10.0.0.1" remote-as="-1"/>
+		</session>
+	</router>
+<!-- FIN AS6067 -->
+<!-- AS3356 -->
+	<router id="router3356">
+		<topology>
+			<link id=".link_3356_30844"/>
+			<link id=".link_7018_3356"/>
+			<link id=".link_6067_3356"/>
+			<link id=".link_3356_5400"/>
+			<link id=".link_3356_1273"/>
+		</topology>
+		<interface name="principal" address="10.0.0.10"/>
+		<session type="bgp 4">
+			<parameters as="3356" port="170" interface="principal"/>
+			<network address="180.10.0.0/19"/>
+			<neighbour IP="10.0.0.34" remote-as="30844"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+			<neighbour IP="10.0.0.9" remote-as="6067"/>
+			<neighbour IP="10.0.0.21" remote-as="5400"/>
+			<neighbour IP="10.0.0.28" remote-as="1273"/>
+		</session>
+	</router>
+<!-- FIN AS3356 -->
+<!-- AS29636 -->
+	<router id="router29636">
+		<topology>
+			<link id=".link_29636_33970"/>
+			<link id=".link_8468_29636"/>
+			<link id=".link_6461_29636"/>
+			<link id=".link_3257_29636"/>
+			<link id=".link_29636_2914"/>
+			<link id=".link_-1_29636"/>
+		</topology>
+		<interface name="principal" address="10.0.0.11"/>
+		<session type="bgp 4">
+			<parameters as="29636" port="170" interface="principal"/>
+			<network address="180.11.0.0/19"/>
+			<neighbour IP="10.0.0.12" remote-as="33970"/>
+			<neighbour IP="10.0.0.7" remote-as="8468"/>
+			<neighbour IP="10.0.0.8" remote-as="6461"/>
+			<neighbour IP="10.0.0.3" remote-as="3257"/>
+			<neighbour IP="10.0.0.16" remote-as="2914"/>
+			<neighbour IP="10.0.0.1" remote-as="-1"/>
+		</session>
+	</router>
+<!-- FIN AS29636 -->
+<!-- AS33970 -->
+	<router id="router33970">
+		<topology>
+			<link id=".link_39202_33970"/>
+			<link id=".link_33970_34245"/>
+			<link id=".link_29636_33970"/>
+			<link id=".link_33970_28956"/>
+			<link id=".link_33970_20485"/>
+			<link id=".link_33970_16034"/>
+			<link id=".link_33970_13237"/>
+			<link id=".link_8468_33970"/>
+			<link id=".link_-1_33970"/>
+		</topology>
+		<interface name="principal" address="10.0.0.12"/>
+		<session type="bgp 4">
+			<parameters as="33970" port="170" interface="principal"/>
+			<network address="180.12.0.0/24"/>
+			<neighbour IP="10.0.0.2" remote-as="39202"/>
+			<neighbour IP="10.0.0.17" remote-as="34245"/>
+			<neighbour IP="10.0.0.11" remote-as="29636"/>
+			<neighbour IP="10.0.0.13" remote-as="28956"/>
+			<neighbour IP="10.0.0.19" remote-as="20485"/>
+			<neighbour IP="10.0.0.22" remote-as="16034"/>
+			<neighbour IP="10.0.0.18" remote-as="13237"/>
+			<neighbour IP="10.0.0.7" remote-as="8468"/>
+			<neighbour IP="10.0.0.1" remote-as="-1"/>
+		</session>
+	</router>
+<!-- FIN AS33970 -->
+<!-- AS28956 -->
+	<router id="router28956">
+		<topology>
+			<link id=".link_28956_41400"/>
+			<link id=".link_33970_28956"/>
+		</topology>
+		<interface name="principal" address="10.0.0.13"/>
+		<session type="bgp 4">
+			<parameters as="28956" port="170" interface="principal"/>
+			<network address="180.13.0.0/22"/>
+			<neighbour IP="10.0.0.14" remote-as="41400"/>
+			<neighbour IP="10.0.0.12" remote-as="33970"/>
+		</session>
+	</router>
+<!-- FIN AS28956 -->
+<!-- AS41400 -->
+	<router id="router41400">
+		<topology>
+			<link id=".link_41400_31290"/>
+			<link id=".link_28956_41400"/>
+		</topology>
+		<interface name="principal" address="10.0.0.14"/>
+		<session type="bgp 4">
+			<parameters as="41400" port="170" interface="principal"/>
+			<network address="180.14.0.0/24"/>
+			<neighbour IP="10.0.0.15" remote-as="31290"/>
+			<neighbour IP="10.0.0.13" remote-as="28956"/>
+		</session>
+	</router>
+<!-- FIN AS41400 -->
+<!-- AS31290 -->
+	<router id="router31290">
+		<topology>
+			<link id=".link_41400_31290"/>
+			<link id=".link_31290_2914"/>
+		</topology>
+		<interface name="principal" address="10.0.0.15"/>
+		<session type="bgp 4">
+			<parameters as="31290" port="170" interface="principal"/>
+			<network address="180.15.0.0/24"/>
+			<neighbour IP="10.0.0.14" remote-as="41400"/>
+			<neighbour IP="10.0.0.16" remote-as="2914"/>
+		</session>
+	</router>
+<!-- FIN AS31290 -->
+<!-- AS2914 -->
+	<router id="router2914">
+		<topology>
+			<link id=".link_31290_2914"/>
+			<link id=".link_29636_2914"/>
+			<link id=".link_7018_2914"/>
+		</topology>
+		<interface name="principal" address="10.0.0.16"/>
+		<session type="bgp 4">
+			<parameters as="2914" port="170" interface="principal"/>
+			<network address="180.16.0.0/23"/>
+			<neighbour IP="10.0.0.15" remote-as="31290"/>
+			<neighbour IP="10.0.0.11" remote-as="29636"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+		</session>
+	</router>
+<!-- FIN AS2914 -->
+<!-- AS34245 -->
+	<router id="router34245">
+		<topology>
+			<link id=".link_33970_34245"/>
+			<link id=".link_-1_34245"/>
+		</topology>
+		<interface name="principal" address="10.0.0.17"/>
+		<session type="bgp 4">
+			<parameters as="34245" port="170" interface="principal"/>
+			<network address="180.17.0.0/24"/>
+			<neighbour IP="10.0.0.12" remote-as="33970"/>
+			<neighbour IP="10.0.0.1" remote-as="-1"/>
+		</session>
+	</router>
+<!-- FIN AS34245 -->
+<!-- AS13237 -->
+	<router id="router13237">
+		<topology>
+			<link id=".link_33970_13237"/>
+			<link id=".link_13237_3549"/>
+			<link id=".link_13237_1668"/>
+			<link id=".link_-1_13237"/>
+		</topology>
+		<interface name="principal" address="10.0.0.18"/>
+		<session type="bgp 4">
+			<parameters as="13237" port="170" interface="principal"/>
+			<network address="180.18.0.0/24"/>
+			<neighbour IP="10.0.0.12" remote-as="33970"/>
+			<neighbour IP="10.0.0.23" remote-as="3549"/>
+			<neighbour IP="10.0.0.36" remote-as="1668"/>
+			<neighbour IP="10.0.0.1" remote-as="-1"/>
+		</session>
+	</router>
+<!-- FIN AS13237 -->
+<!-- AS20485 -->
+	<router id="router20485">
+		<topology>
+			<link id=".link_33970_20485"/>
+			<link id=".link_20485_3561"/>
+			<link id=".link_20485_3491"/>
+			<link id=".link_20485_1299"/>
+			<link id=".link_20485_1273"/>
+			<link id=".link_20485_702"/>
+			<link id=".link_-1_20485"/>
+		</topology>
+		<interface name="principal" address="10.0.0.19"/>
+		<session type="bgp 4">
+			<parameters as="20485" port="170" interface="principal"/>
+			<network address="180.19.0.0/23"/>
+			<neighbour IP="10.0.0.12" remote-as="33970"/>
+			<neighbour IP="10.0.0.24" remote-as="3561"/>
+			<neighbour IP="10.0.0.37" remote-as="3491"/>
+			<neighbour IP="10.0.0.26" remote-as="1299"/>
+			<neighbour IP="10.0.0.28" remote-as="1273"/>
+			<neighbour IP="10.0.0.29" remote-as="702"/>
+			<neighbour IP="10.0.0.1" remote-as="-1"/>
+		</session>
+	</router>
+<!-- FIN AS20485 -->
+<!-- AS8419 -->
+	<router id="router8419">
+		<topology>
+			<link id=".link_8419_5400"/>
+			<link id=".link_-1_8419"/>
+		</topology>
+		<interface name="principal" address="10.0.0.20"/>
+		<session type="bgp 4">
+			<parameters as="8419" port="170" interface="principal"/>
+			<network address="180.20.0.0/24"/>
+			<neighbour IP="10.0.0.21" remote-as="5400"/>
+			<neighbour IP="10.0.0.1" remote-as="-1"/>
+		</session>
+	</router>
+<!-- FIN AS8419 -->
+<!-- AS5400 -->
+	<router id="router5400">
+		<topology>
+			<link id=".link_8419_5400"/>
+			<link id=".link_7018_5400"/>
+			<link id=".link_5400_3549"/>
+			<link id=".link_3356_5400"/>
+			<link id=".link_5400_1239"/>
+		</topology>
+		<interface name="principal" address="10.0.0.21"/>
+		<session type="bgp 4">
+			<parameters as="5400" port="170" interface="principal"/>
+			<network address="180.21.0.0/19"/>
+			<neighbour IP="10.0.0.20" remote-as="8419"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+			<neighbour IP="10.0.0.23" remote-as="3549"/>
+			<neighbour IP="10.0.0.10" remote-as="3356"/>
+			<neighbour IP="10.0.0.33" remote-as="1239"/>
+		</session>
+	</router>
+<!-- FIN AS5400 -->
+<!-- AS16034 -->
+	<router id="router16034">
+		<topology>
+			<link id=".link_33970_16034"/>
+			<link id=".link_-1_16034"/>
+		</topology>
+		<interface name="principal" address="10.0.0.22"/>
+		<session type="bgp 4">
+			<parameters as="16034" port="170" interface="principal"/>
+			<network address="180.22.0.0/24"/>
+			<neighbour IP="10.0.0.12" remote-as="33970"/>
+			<neighbour IP="10.0.0.1" remote-as="-1"/>
+		</session>
+	</router>
+<!-- FIN AS16034 -->
+<!-- AS3549 -->
+	<router id="router3549">
+		<topology>
+			<link id=".link_13237_3549"/>
+			<link id=".link_7018_3549"/>
+			<link id=".link_6067_3549"/>
+			<link id=".link_5400_3549"/>
+			<link id=".link_3549_3491"/>
+			<link id=".link_3549_286"/>
+		</topology>
+		<interface name="principal" address="10.0.0.23"/>
+		<session type="bgp 4">
+			<parameters as="3549" port="170" interface="principal"/>
+			<network address="180.23.0.0/20"/>
+			<neighbour IP="10.0.0.18" remote-as="13237"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+			<neighbour IP="10.0.0.9" remote-as="6067"/>
+			<neighbour IP="10.0.0.21" remote-as="5400"/>
+			<neighbour IP="10.0.0.37" remote-as="3491"/>
+			<neighbour IP="10.0.0.35" remote-as="286"/>
+		</session>
+	</router>
+<!-- FIN AS3549 -->
+<!-- AS3561 -->
+	<router id="router3561">
+		<topology>
+			<link id=".link_20485_3561"/>
+			<link id=".link_7018_3561"/>
+			<link id=".link_3561_3491"/>
+		</topology>
+		<interface name="principal" address="10.0.0.24"/>
+		<session type="bgp 4">
+			<parameters as="3561" port="170" interface="principal"/>
+			<network address="180.24.0.0/21"/>
+			<neighbour IP="10.0.0.19" remote-as="20485"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+			<neighbour IP="10.0.0.37" remote-as="3491"/>
+		</session>
+	</router>
+<!-- FIN AS3561 -->
+<!-- AS25577 -->
+	<router id="router25577">
+		<topology>
+			<link id=".link_39202_25577"/>
+			<link id=".link_8468_25577"/>
+		</topology>
+		<interface name="principal" address="10.0.0.25"/>
+		<session type="bgp 4">
+			<parameters as="25577" port="170" interface="principal"/>
+			<network address="180.25.0.0/24"/>
+			<neighbour IP="10.0.0.2" remote-as="39202"/>
+			<neighbour IP="10.0.0.7" remote-as="8468"/>
+		</session>
+	</router>
+<!-- FIN AS25577 -->
+<!-- AS1299 -->
+	<router id="router1299">
+		<topology>
+			<link id=".link_20485_1299"/>
+			<link id=".link_8468_1299"/>
+			<link id=".link_7018_1299"/>
+		</topology>
+		<interface name="principal" address="10.0.0.26"/>
+		<session type="bgp 4">
+			<parameters as="1299" port="170" interface="principal"/>
+			<network address="180.26.0.0/24"/>
+			<neighbour IP="10.0.0.19" remote-as="20485"/>
+			<neighbour IP="10.0.0.7" remote-as="8468"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+		</session>
+	</router>
+<!-- FIN AS1299 -->
+<!-- AS5511 -->
+	<router id="router5511">
+		<topology>
+			<link id=".link_7018_5511"/>
+			<link id=".link_5511_1239"/>
+			<link id=".link_-1_5511"/>
+		</topology>
+		<interface name="principal" address="10.0.0.27"/>
+		<session type="bgp 4">
+			<parameters as="5511" port="170" interface="principal"/>
+			<network address="180.27.0.0/24"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+			<neighbour IP="10.0.0.33" remote-as="1239"/>
+			<neighbour IP="10.0.0.1" remote-as="-1"/>
+		</session>
+	</router>
+<!-- FIN AS5511 -->
+<!-- AS1273 -->
+	<router id="router1273">
+		<topology>
+			<link id=".link_20485_1273"/>
+			<link id=".link_3356_1273"/>
+		</topology>
+		<interface name="principal" address="10.0.0.28"/>
+		<session type="bgp 4">
+			<parameters as="1273" port="170" interface="principal"/>
+			<network address="180.28.0.0/23"/>
+			<neighbour IP="10.0.0.19" remote-as="20485"/>
+			<neighbour IP="10.0.0.10" remote-as="3356"/>
+		</session>
+	</router>
+<!-- FIN AS1273 -->
+<!-- AS702 -->
+	<router id="router702">
+		<topology>
+			<link id=".link_20485_702"/>
+			<link id=".link_702_701"/>
+		</topology>
+		<interface name="principal" address="10.0.0.29"/>
+		<session type="bgp 4">
+			<parameters as="702" port="170" interface="principal"/>
+			<network address="180.29.0.0/21"/>
+			<neighbour IP="10.0.0.19" remote-as="20485"/>
+			<neighbour IP="10.0.0.30" remote-as="701"/>
+		</session>
+	</router>
+<!-- FIN AS702 -->
+<!-- AS701 -->
+	<router id="router701">
+		<topology>
+			<link id=".link_7018_701"/>
+			<link id=".link_702_701"/>
+		</topology>
+		<interface name="principal" address="10.0.0.30"/>
+		<session type="bgp 4">
+			<parameters as="701" port="170" interface="principal"/>
+			<network address="180.30.0.0/16"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+			<neighbour IP="10.0.0.29" remote-as="702"/>
+		</session>
+	</router>
+<!-- FIN AS701 -->
+<!-- AS6762 -->
+	<router id="router6762">
+		<topology>
+			<link id=".link_7018_6762"/>
+			<link id=".link_6762_1239"/>
+			<link id=".link_-1_6762"/>
+		</topology>
+		<interface name="principal" address="10.0.0.31"/>
+		<session type="bgp 4">
+			<parameters as="6762" port="170" interface="principal"/>
+			<network address="180.31.0.0/24"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+			<neighbour IP="10.0.0.33" remote-as="1239"/>
+			<neighbour IP="10.0.0.1" remote-as="-1"/>
+		</session>
+	</router>
+<!-- FIN AS6762 -->
+<!-- AS6453 -->
+	<router id="router6453">
+		<topology>
+			<link id=".link_8468_6453"/>
+			<link id=".link_7018_6453"/>
+			<link id=".link_6067_6453"/>
+		</topology>
+		<interface name="principal" address="10.0.0.32"/>
+		<session type="bgp 4">
+			<parameters as="6453" port="170" interface="principal"/>
+			<network address="180.32.0.0/23"/>
+			<neighbour IP="10.0.0.7" remote-as="8468"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+			<neighbour IP="10.0.0.9" remote-as="6067"/>
+		</session>
+	</router>
+<!-- FIN AS6453 -->
+<!-- AS1239 -->
+	<router id="router1239">
+		<topology>
+			<link id=".link_7018_1239"/>
+			<link id=".link_6762_1239"/>
+			<link id=".link_5511_1239"/>
+			<link id=".link_5400_1239"/>
+			<link id=".link_1239_286"/>
+		</topology>
+		<interface name="principal" address="10.0.0.33"/>
+		<session type="bgp 4">
+			<parameters as="1239" port="170" interface="principal"/>
+			<network address="180.33.0.0/23"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+			<neighbour IP="10.0.0.31" remote-as="6762"/>
+			<neighbour IP="10.0.0.27" remote-as="5511"/>
+			<neighbour IP="10.0.0.21" remote-as="5400"/>
+			<neighbour IP="10.0.0.35" remote-as="286"/>
+		</session>
+	</router>
+<!-- FIN AS1239 -->
+<!-- AS30844 -->
+	<router id="router30844">
+		<topology>
+			<link id=".link_30844_4637"/>
+			<link id=".link_3356_30844"/>
+			<link id=".link_-1_30844"/>
+		</topology>
+		<interface name="principal" address="10.0.0.34"/>
+		<session type="bgp 4">
+			<parameters as="30844" port="170" interface="principal"/>
+			<network address="180.34.0.0/24"/>
+			<neighbour IP="10.0.0.38" remote-as="4637"/>
+			<neighbour IP="10.0.0.10" remote-as="3356"/>
+			<neighbour IP="10.0.0.1" remote-as="-1"/>
+		</session>
+	</router>
+<!-- FIN AS30844 -->
+<!-- AS286 -->
+	<router id="router286">
+		<topology>
+			<link id=".link_6067_286"/>
+			<link id=".link_3549_286"/>
+			<link id=".link_1239_286"/>
+			<link id=".link_-1_286"/>
+		</topology>
+		<interface name="principal" address="10.0.0.35"/>
+		<session type="bgp 4">
+			<parameters as="286" port="170" interface="principal"/>
+			<network address="180.35.0.0/17"/>
+			<neighbour IP="10.0.0.9" remote-as="6067"/>
+			<neighbour IP="10.0.0.23" remote-as="3549"/>
+			<neighbour IP="10.0.0.33" remote-as="1239"/>
+			<neighbour IP="10.0.0.1" remote-as="-1"/>
+		</session>
+	</router>
+<!-- FIN AS286 -->
+<!-- AS1668 -->
+	<router id="router1668">
+		<topology>
+			<link id=".link_13237_1668"/>
+			<link id=".link_7018_1668"/>
+		</topology>
+		<interface name="principal" address="10.0.0.36"/>
+		<session type="bgp 4">
+			<parameters as="1668" port="170" interface="principal"/>
+			<network address="180.36.0.0/22"/>
+			<neighbour IP="10.0.0.18" remote-as="13237"/>
+			<neighbour IP="10.0.0.4" remote-as="7018"/>
+		</session>
+	</router>
+<!-- FIN AS1668 -->
+<!-- AS3491 -->
+	<router id="router3491">
+		<topology>
+			<link id=".link_20485_3491"/>
+			<link id=".link_3491_4637"/>
+			<link id=".link_3561_3491"/>
+			<link id=".link_3549_3491"/>
+		</topology>
+		<interface name="principal" address="10.0.0.37"/>
+		<session type="bgp 4">
+			<parameters as="3491" port="170" interface="principal"/>
+			<network address="180.37.0.0/24"/>
+			<neighbour IP="10.0.0.19" remote-as="20485"/>
+			<neighbour IP="10.0.0.38" remote-as="4637"/>
+			<neighbour IP="10.0.0.24" remote-as="3561"/>
+			<neighbour IP="10.0.0.23" remote-as="3549"/>
+		</session>
+	</router>
+<!-- FIN AS3491 -->
+<!-- AS4637 -->
+	<router id="router4637">
+		<topology>
+			<link id=".link_30844_4637"/>
+			<link id=".link_3491_4637"/>
+		</topology>
+		<interface name="principal" address="10.0.0.38"/>
+		<session type="bgp 4">
+			<parameters as="4637" port="170" interface="principal"/>
+			<network address="180.38.0.0/24"/>
+			<neighbour IP="10.0.0.34" remote-as="30844"/>
+			<neighbour IP="10.0.0.37" remote-as="3491"/>
+		</session>
+	</router>
+<!-- FIN AS4637 -->
+</components>
+</JSimConfig>

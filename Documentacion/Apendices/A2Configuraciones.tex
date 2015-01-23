@@ -1,0 +1,610 @@
+\chapter{Apendice: Configuraciones}
+
+\section{Escenarios \ac{BGP}}
+
+\subsection{Escenario básico\labelSec{apendiceEscenario1}}
+
+\subsubsection*{Topología}
+
+\newFig{simulacion1}{Ejemplo 1: Topología de un escenario básico.}
+
+\subsubsection*{Configuración}
+
+La configuración de los nodos es la siguiente. 
+
+\begin{verbatim}
+Router 1:
+  Interfaces:
+    - principal: 10.0.1.1
+  BGP:
+    - Interfaz: principal
+    - AS num =1001
+    - Neighbours: 
+      - Address = 10.0.1.2, Remote-As = 1001
+      - Address = 10.0.2.3, Remote-As = 1002
+    - Networks
+      - Network 1 = 1.0.0.0/8
+\end{verbatim} 
+
+\begin{verbatim}
+Router 2:
+  Interfaces:
+    - principal: 10.0.1.2
+  BGP:
+    - Interfaz: principal
+    - AS num =1001
+    - Neighbours: 
+      - Address = 10.0.1.1, Remote-As = 1001
+      - Address = 10.0.3.6, Remote-As = 1003
+\end{verbatim} 
+
+\begin{verbatim}
+Router 3:
+  Interfaces:
+    - principal: 10.0.2.3
+  BGP:
+    - Interfaz: principal
+    - AS num =1002
+    - Neighbours: 
+      - Address = 10.0.1.1, Remote-As = 1001
+      - Address = 10.0.2.4, Remote-As = 1002
+      - Address = 10.0.2.5, Remote-As = 1002
+\end{verbatim} 
+
+\begin{verbatim}
+Router 4:
+  Interfaces:
+    - principal: 10.0.2.4
+  BGP:
+    - Interfaz: principal
+    - AS num =1002
+    - Neighbours: 
+      - Address = 10.0.2.3, Remote-As = 1002
+      - Address = 10.0.2.5, Remote-As = 1002
+    - Networks
+      - Network 2 = 2.4.0.0/16
+\end{verbatim} 
+
+\begin{verbatim}
+Router 5:
+  Interfaces:
+    - principal: 10.0.2.5
+  BGP:
+    - Interfaz: principal
+    - AS num =1002
+    - Neighbours: 
+      - Address = 10.0.2.3, Remote-As = 1002
+      - Address = 10.0.2.4, Remote-As = 1002
+      - Address = 10.0.3.6, Remote-As = 1003
+    - Networks
+      - Network 3 = 2.5.0.0/16
+\end{verbatim} 
+
+\begin{verbatim}
+Router 6:
+  Interfaces:
+    - principal: 10.0.3.6
+  BGP:
+    - Interfaz: principal
+    - AS num =1002
+    - Neighbours: 
+      - Address = 10.0.2.5, Remote-As = 1002
+      - Address = 10.0.1.2, Remote-As = 1001
+    - Networks
+      - Network 4 = 3.4.6.0/24
+      - Network 5 = 3.5.6.0/24
+\end{verbatim}
+
+\begin{verbatim}
+Networks
+- Network 1 = 1.0.0.0/8
+- Network 2 = 2.4.0.0/16
+- Network 3 = 2.5.0.0/16
+- Network 4 = 3.4.6.0/24
+- Network 5 = 3.5.6.0/24
+\end{verbatim}
+
+\begin{verbatim}
+Time of simulation = 10000
+\end{verbatim}
+
+Tiempo simulado: 10000 segundos.
+
+\subsubsection*{Archivos de la simulación}
+
+\begin{itemize}
+ \item \cod{simluacion1-eventos.xml} Fichero de configuración de los eventos.
+ \item \cod{simulacion1-topologia.xml} Fichero de configuración de la topología.
+ \item \cod{simulacion1-script.tcl} Script TCL para lanzar la simulación.
+ \item \cod{trace1.tar.gz} Resultado de las trazas del simulador.
+ \item \cod{simulacion1.dia} Esquema de la topología.
+\end{itemize}
+\newpage 
+
+\subsection{Escenario avanzado\labelSec{apendiceEscenario2}}
+
+\subsubsection*{Topología}
+
+\newFig{simulacion2}{Ejemplo 2: Topología de un escenario
+avanzado.\labelFig{apendiceEscenarioAvanzado}}
+
+\subsubsection*{Configuración}
+
+La configuración consta de 21 nodos distribuidos en 5 sistemas autónomos según
+muestra la \refFig{apendiceEscenarioAvanzado}. 
+
+las configuraciones avanzadas para \ac{BGP}
+
+\begin{itemize}
+ \item Puerto por defecto: 5000
+ \item Nivel de comparación de rutas: 4
+ \item Opciones de \ac{MED}: \angl{Always Compare Med}
+ \item Valor del atributo \angl{local preference} por defecto: 80
+\end{itemize}
+
+Nodos con funcionalidad \ac{RR}:
+
+\begin{itemize}
+ \item \cod{Router1\_1}, Los \ac{RRC} son todos con todos los nodos
+del sistema autónomo.
+ \item \cod{Router2\_1}, Los \ac{RRC} son los nodos
+\cod{Router2\_2},\cod{Router2\_3} y \cod{Router2\_4}. 
+\end{itemize}
+
+Configuraciones particulares de los nodos
+
+\begin{itemize}
+ \item \cod{Router1\_3}: 
+	\begin{itemize}
+	 \item \angl{Local preference}: 110 para las rutas del vecino
+		\cod{Router3\_1}.
+	 \item \angl{\ac{MED}}: 300 para las rutas anunciadas a 
+		\cod{Router3\_1}.
+	\end{itemize}
+ \item \cod{Router3\_1} 
+	\begin{itemize}
+	 \item \angl{Local preference}: 100 para las rutas del vecino
+		\cod{Router1\_3}.
+	\end{itemize}
+ \item \cod{Router3\_4} 
+	\begin{itemize}
+	 \item \angl{Local preference}: valor 50 por defecto.
+	 \item \angl{Keep Alive Interval}: 400
+	\end{itemize}
+\end{itemize}
+
+Politicas aplicadas:
+\begin{itemize}
+ \item \cod{Router1\_5}: Política de entrada. Establece, para las
+rutas de \cod{Router2\_2} cuando el atributo \angl{AS-Path} contenga el valor 
+32080, el valor 60 para el atributo \angl{local preference}.
+ \item \cod{Router2\_4}: Política de entrada. Establece el atributo
+\angl{Community} a \cod{32:45} para las rutas del vecino \cod{Router180\_3}.
+\item \cod{Router2\_2}: Política de entrada. Descarta todas las rutas que
+tienen el atributo \angl{Community} con un valor de \cod{32:45} provenientes
+del nodo \cod{Router2\_1}.
+ \item \cod{Router180\_2}: Política de entrada. Establece, para las
+rutas de \cod{Router3\_4} cuando el atributo \angl{AS-Path} contenga el valor 
+32080, el valor 60 al atributo \angl{local preference}.
+\item \cod{Router1\_4} Política de salida. No publica las rutas que contienen
+en el atributo \angl{\acs{NLRI}} el valor \cod{230.*}; es decir, no publica las
+redes \cod{230.1.0.0/16}, \cod{230.2.0.0/16} y \cod{230.2.0.0/16}; al
+nodo \cod{Router3\_3}.
+\end{itemize}
+
+\subsubsection*{Eventos temporales}
+
+\begin{itemize}
+ \item \cod{T = 1000} Caída de la línea entre los nodos \cod{Router180\_2} y
+\cod{Router3\_4}.
+ \item \cod{T = 2000} Recuperación de la línea entre los nodos
+\cod{Router180\_2} y \cod{Router3\_4}. 
+ \item \cod{T = 3000} Caída de la línea entre los nodos \cod{Router1\_3} y
+\cod{Router3\_1}. 
+ \item \cod{T = 4000} Recuperación de la línea entre los nodos \cod{Router1\_3}
+y \cod{Router3\_1}.
+ \item \cod{T = 5000} Caída de la línea entre los nodos \cod{Router180\_2} y
+\cod{Router3\_4}.
+ \item \cod{T = 6000} Recuperación de la línea entre los nodos
+\cod{Router180\_2} y \cod{Router3\_4}.
+\end{itemize}
+
+Tiempo simulado: 10000 segundos.
+
+\subsubsection*{Archivos de la simulación}
+
+\begin{itemize}
+ \item \cod{simluacion2-eventos.xml} Fichero de configuración de los eventos.
+ \item \cod{simulacion2-topologia.xml} Fichero de configuración de la topología.
+ \item \cod{simulacion2-script.tcl} Script TCL para lanzar la simulación.
+ \item \cod{trace2.tar.gz} Resultado de las trazas del simulador.
+ \item \cod{simulacion2.dia} Esquema de la topología.
+\end{itemize}
+
+\newpage 
+
+\subsection{Escenario extenso 1\labelSec{apendiceEscenario3}}
+
+\newFig{simulacion3}{Ejemplo 3: Topología de un escenario
+de Grandes dimensiones}.
+
+\subsubsection*{Configuración}
+
+139 nodos distribuidos en 31 \aclp{AS}. 
+
+Los \aclp{AS} 1001, 1013 y 2004 tienen un reflector de rutas.
+
+Las redes anunciadas son:
+
+\begin{itemize}
+ \item Desde el \ac{AS} 1008 la red \cod{1.0.0.0/8}
+ \item Desde el \ac{AS} 1009 la red \cod{2.0.0.0/8}
+ \item Desde el \ac{AS} 2016 la red \cod{3.0.0.0/8}
+ \item Desde el \ac{AS} 2002 la red \cod{4.0.0.0/8}
+\end{itemize}
+
+La distribución de los \ac{AS} se puede ver en la \refFig{simulacion3}.
+
+\subsubsection*{Eventos temporales}
+
+\begin{itemize}
+ \item \cod{T = 2000} Caída de la línea entre los \acp{AS} \cod{1013} y
+\cod{2009}.
+ \item \cod{T = 4000} Recuperación de la línea entre los \acp{AS} \cod{1013} y
+\cod{2009}.
+ \item \cod{T = 6000} Caída de la línea entre los \acp{AS} \cod{1011} y
+\cod{2002}.
+ \item \cod{T = 8000} Recuperación de la línea entre los \acp{AS} \cod{1011} y
+\cod{2002}.
+\end{itemize}
+
+Tiempo simulado: 10000 segundos.
+
+\subsubsection*{Archivos de la simulación}
+
+\begin{itemize}
+ \item \cod{simluacion3-eventos.xml} Fichero de configuración de los eventos.
+ \item \cod{simulacion3-topologia.xml} Fichero de configuración de la topología.
+ \item \cod{trace3.tar.gz} Resultado de las trazas del simulador.
+ \item \cod{simulacion3.dia} Esquema de la topología.
+\end{itemize}
+
+\newpage 
+
+\subsection{Escenario extenso 2\labelSec{apendiceEscenario4}}
+
+\newFig{simulacion4}{Ejemplo 4: Topología de un escenario
+de Grandes dimensiones}.
+
+\subsubsection*{Configuración}
+
+207 nodos distribuidos en 57 \acp{AS}. 
+
+Los \acp{AS} 1001, 1013, 2004 y 3008 tienen un reflector de rutas
+
+Las redes anunciadas son:
+
+\begin{itemize}
+ \item Desde el \ac{AS} 1008 la red \cod{1.0.0.0/8}.
+ \item Desde el \ac{AS} 1009 la red \cod{2.0.0.0/8}.
+ \item Desde el \ac{AS} 2016 la red \cod{3.0.0.0/8}.
+ \item Desde el \ac{AS} 2002 la red \cod{4.0.0.0/8}.
+ \item Desde el \ac{AS} 3004 la red \cod{5.0.0.0/8} y la \cod{6.0.0.0/8} .
+ \item Desde el \ac{AS} 3008 la red \cod{7.0.0.0/8}.
+ \item Desde el \ac{AS} 3012 la red \cod{8.0.0.0/8}.
+\end{itemize}
+
+\subsubsection*{Eventos temporales}
+
+\begin{itemize}
+ \item \cod{T = 1000} Caída de la línea entre los \acp{AS} \cod{1013} y
+\cod{2009}.
+ \item \cod{T = 2000} Recuperación de la línea entre los \acp{AS} \cod{1013} y
+\cod{2009}.
+ \item \cod{T = 3000} Caída de la línea entre los \acp{AS} \cod{1011} y
+\cod{2002}.
+ \item \cod{T = 4000} Recuperación de la línea entre los \acp{AS} \cod{1011} y
+\cod{2002}.
+ \item \cod{T = 5000} Caída de la línea entre los \acp{AS} \cod{3002} y
+\cod{3012}.
+ \item \cod{T = 6000} Caída de la línea entre los \acp{AS} \cod{3001} y
+\cod{3011}.
+ \item \cod{T = 7000} Caída de la línea entre los \acp{AS} \cod{2013} y
+\cod{3002}.
+ \item \cod{T = 7750} Recuperación de la línea entre los \acp{AS} \cod{3002} y
+\cod{3012}.
+ \item \cod{T = 8500} Recuperación de la línea entre los \acp{AS} \cod{3001} y
+\cod{3011}.
+ \item \cod{T = 9250} Recuperación de la línea entre los \acp{AS} \cod{2013} y
+\cod{3002}.
+\end{itemize}
+
+\subsubsection*{Archivos de la simulación}
+
+\begin{itemize}
+ \item \cod{simluacion4-eventos.xml} Fichero de configuración de los eventos.
+ \item \cod{simulacion4-topologia.xml} Fichero de configuración de la topología.
+ \item \cod{trace4.tar.gz} Resultado de las trazas del simulador.
+ \item \cod{simulacion4.dia} Esquema de la topología.
+\end{itemize}
+
+\newpage 
+
+\subsection{Escenario que oscila: ejemplo 1\labelSec{apendiceEscenario5}}
+
+\newFigSize{ciclar1_bis}{Ejemplo 5: Topología de un escenario básico que
+oscila}{0.6}
+
+\subsubsection*{Configuración}
+
+Tres nodos en diferentes \acp{AS} conectados entre si. 
+
+Configuración específica de los nodos:
+
+\begin{itemize}
+ \item \cod{B}: \angl{Local preference}: 90 para las rutas del vecino \cod{A}.
+ \item \cod{C}: \angl{Local preference}: 90 para las rutas del vecino \cod{A}.
+\end{itemize}
+
+\subsubsection*{Eventos temporales}
+
+\begin{itemize}
+ \item \cod{T = 0} Caída de la línea entre los Nodos \cod{B} y \cod{C}.
+ \item \cod{T = 1000} Recuperación de la línea entre los Nodos \cod{B} y
+\cod{C}.
+\end{itemize}
+
+\subsubsection*{Archivos de la simulación}
+
+\begin{itemize}
+ \item \cod{ciclar1-eventos.xml} Fichero de configuración de los eventos.
+ \item \cod{ciclar1-topologia.xml} Fichero de configuración de la topología.
+ \item \cod{trace-ciclar.tar.gz} Resultado de las trazas del simulador.
+ \item \cod{ejemplo-ciclo-1.dia} Esquema de la topología.
+\end{itemize}
+
+\newpage 
+
+\subsection{Escenario que oscila: ejemplo 2\labelSec{apendiceEscenario6}}
+
+\newFigSize{ciclar2-1_bis}{Ejemplo 6: Topología de un escenario básico que
+oscila}{0.8}
+
+\subsubsection*{Configuración}
+
+Cuatro nodos nodos repartidos en tres \acp{AS}. 
+
+Configuración específica de los nodos:
+
+\begin{itemize}
+ \item \cod{B-1}: 
+	\begin{itemize}
+	 \item \angl{Local preference}: 90 para las rutas del vecino
+		\cod{A}.
+	\end{itemize}
+ \item \cod{C} 
+	\begin{itemize}
+	 \item \angl{Local preference}: 90 para las rutas del vecino
+		\cod{A}.
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{Eventos temporales}
+
+Tiempo de la simulación: 10.000 segundos
+\begin{itemize}
+ \item \cod{T = 0} Caída de la conexión entre \cod{B-2} y \cod{C} y entre
+\cod{B-1} y \cod{B-2}.
+ \item \cod{T = 1000} Recuperación de la conexión entre \cod{B-2} y \cod{C} y
+entre \cod{B-1} y \cod{B-2}.
+ \item \cod{T = 2000} Caída de la conexión entre \cod{B-2} y \cod{C} y entre
+\cod{B-1} y \cod{B-2}.
+ \item \cod{T = 3000} Recuperación de la conexión entre \cod{B-2} y \cod{C} y
+entre \cod{B-1} y \cod{B-2}.
+ \item \cod{T = 4000} Caída de la conexión entre \cod{B-2} y \cod{C} y entre
+\cod{B-1} y \cod{B-2}.
+ \item \cod{T = 5000} Recuperación de la conexión entre \cod{B-2} y \cod{C} y
+entre \cod{B-1} y \cod{B-2}.
+ \item \cod{T = 6000} Caída de la conexión entre \cod{B-2} y \cod{C} y entre
+\cod{B-1} y \cod{B-2}.
+ \item \cod{T = 7000} Recuperación de la conexión entre \cod{B-2} y \cod{C} y
+entre \cod{B-1} y \cod{B-2}.
+
+\end{itemize}
+
+\subsubsection*{Archivos de la simulación}
+
+\begin{itemize}
+ \item \cod{ciclar2-eventos.xml} Fichero de configuración de los eventos.
+ \item \cod{ciclar2-topologia.xml} Fichero de configuración de la topología.
+ \item \cod{trace-ciclar-2.tar.gz} Resultado de las trazas del simulador.
+ \item \cod{ejemplo-ciclo-2.dia} Esquema de la topología.
+\end{itemize}
+
+\newpage 
+
+\subsection{Escenario que oscila: ejemplo 3\labelSec{apendiceEscenario7}}
+
+\newFigSize{ciclar3-1_bis}{Ejemplo 7: Topología de un escenario avanzado que
+oscila}{0.8}
+
+\subsubsection*{Configuración}
+
+139 nodos repartidos en 31 \acp{AS}.
+
+Configuración específica de nodos:
+
+\begin{itemize}
+ \item \cod{nodo1001\_6}: \angl{Local preference}=90 para las rutas del vecino
+\cod{nodo1006\_1}.
+ \item \cod{nodo1004\_1}: \angl{Local preference}=90 para las rutas del vecino
+\cod{nodo1001\_4}.
+ \item \cod{nodo1005\_2}: \angl{Local preference}=90 para las rutas del vecino
+\cod{nodo1013\_8}.
+ \item \cod{nodo1007\_1}: \angl{Local preference}=90 para las rutas del vecino
+\cod{nodo1001\_7}.
+ \item \cod{nodo1008\_1}: \angl{Local preference}=90 para las rutas del vecino
+\cod{nodo1001\_8}.
+ \item \cod{nodo1009\_1}: \angl{Local preference}=90 para las rutas del vecino
+\cod{nodo1003\_3}.
+ \item \cod{nodo1013\_6}: \angl{Local preference}=90 para las rutas del vecino
+\cod{nodo1013\_3}.
+\end{itemize}
+
+\subsubsection*{Eventos temporales}
+
+Tiempo de la simulación: 10.000 segundos.
+
+\begin{itemize}
+ \item \cod{T = 1000} Caída de la conexión entre los \acp{AS} \cod{1007} y
+\cod{1008}.
+ \item \cod{T = 1000} Caída de la conexión entre los \acp{AS} \cod{1007} y
+\cod{1013}.
+ \item \cod{T = 2000} Recuperación de la conexión entre los \acp{AS} 
+\cod{1007} y \cod{1008}.
+ \item \cod{T = 2000} Recuperación de la conexión entre los \acp{AS} 
+\cod{1007} y \cod{1013}.
+ \item \cod{T = 2000} Caída de la conexión entre los \acp{AS} \cod{1001} y
+\cod{1005}.
+ \item \cod{T = 3000} Caída de la conexión entre los \acp{AS} \cod{2001} y
+\cod{2003}.
+ \item \cod{T = 3000} Recuperación de la conexión entre los \acp{AS} 
+\cod{1001} y \cod{1005}.
+ \item \cod{T = 4000} Caída de la conexión entre los \acp{AS} \cod{1004} y
+\cod{1009}.
+ \item \cod{T = 4000} Recuperación de la conexión entre los \acp{AS} 
+\cod{2001} y \cod{2003}.
+ \item \cod{T = 5000} Recuperación de la conexión entre los \acp{AS} 
+\cod{1004} y \cod{1009}.
+ \item \cod{T = 7000} Caída de la conexión entre los \acp{AS} \cod{1005} y
+\cod{1012}.
+ \item \cod{T = 7000} Caída de la conexión entre los \acp{AS} \cod{1007} y
+\cod{1008}.
+ \item \cod{T = 8000} Recuperación de la conexión entre los \acp{AS} 
+\cod{1005} y \cod{1012}.
+ \item \cod{T = 8000} Recuperación de la conexión entre los \acp{AS} 
+\cod{1007} y \cod{1008}.
+\end{itemize}
+
+\subsubsection*{Archivos de la simulación}
+
+\begin{itemize}
+ \item \cod{ciclar3-eventos.xml} Fichero de configuración de los eventos.
+ \item \cod{ciclar3-topologia.xml} Fichero de configuración de la topología.
+ \item \cod{trace-ciclar-3.tar.gz} Resultado de las trazas del simulador.
+ \item \cod{ejemplo-ciclo-3.dia} Esquema de la topología.
+\end{itemize}
+
+\newpage 
+
+\subsection{Escenario wedgie 3/4\labelSec{apendiceEscenario8}}
+
+\newFigSize{wedgie1_bis}{Ejemplo 8: Topología de un escenario que sufre
+\angl{wedgie 3/4}}{0.8}
+
+\subsubsection*{Configuración}
+
+La configuración consta de 21 nodos distribuidos en 5 sistemas
+autónomos.
+
+\begin{itemize}
+ \item \cod{Router1\_3}: \angl{Local preference}=110 para las rutas del vecino
+\cod{Router3\_1}.
+ \item \cod{Router1\_5}: \angl{Local preference}=90 para las rutas del vecino
+\cod{Router2\_2}.
+ \item \cod{Router3\_4}: \angl{Local preference}=50 para las rutas del vecino
+\cod{Router180\_2}.
+\end{itemize}
+
+\subsubsection*{Eventos temporales}
+
+Tiempo de la simulación: 10.000 segundos
+\begin{itemize}
+ \item \cod{T = 0} Caída de la conexión entre los nodos \cod{Router180\_2} y
+\cod{Router3\_4}.
+ \item \cod{T = 500} Recuperación de la conexión entre los nodos
+\cod{Router180\_2} y \cod{Router3\_4}.
+ \item \cod{T = 2000} Caída de la conexión entre los nodos \cod{Router180\_3} y
+\cod{Router2\_5}.
+ \item \cod{T = 3000} Recuperación de la conexión entre los nodos
+\cod{Router180\_3} y \cod{Router2\_5}.
+ \item \cod{T = 5000} Caída de la conexión entre los nodos \cod{Router180\_2} y
+\cod{Router3\_4}.
+ \item \cod{T = 6000} Recuperación de la conexión entre los nodos
+\cod{Router180\_2} y \cod{Router3\_4}.
+\end{itemize}
+
+\subsubsection*{Archivos de la simulación}
+
+\begin{itemize}
+ \item \cod{wedgie3\_4-eventos.xml} Fichero de configuración de los eventos.
+ \item \cod{wedgie3\_4-topologia.xml} Fichero de configuración de la topología.
+ \item \cod{trace-wedgie3\_4.tar.gz} Resultado de las trazas del simulador.
+ \item \cod{wedgie3\_4.dia} Esquema de la topología.
+\end{itemize}
+
+\newpage 
+
+\subsection{Escenario full wedgie\labelSec{apendiceEscenario9}}
+
+\newFigSize{wedgie2-1_bis}{Ejemplo 9: Topología de un escenario que sufre
+\angl{full wedgie}}{0.8}
+
+\subsubsection*{Configuración}
+
+Configuración específica de nodos:
+
+\begin{itemize}
+ \item \cod{Router1\_3}: \angl{Local preference}=110 para las rutas del vecino
+\cod{Router3\_1}.
+ \item \cod{Router1\_3}: \angl{Local preference}=110 para las rutas del vecino
+\cod{Router4\_2}.
+ \item \cod{Router1\_5}: \angl{Local preference}=90 para las rutas del vecino
+\cod{Router2\_2}.
+ \item \cod{Router3\_3}: \angl{Local preference}=40 para las rutas del vecino
+\cod{Router4\_1}.
+ \item \cod{Router3\_4}: \angl{Local preference}=50 para las rutas del vecino
+\cod{Router180\_2}.
+ \item \cod{Router4\_3}: \angl{Local preference}=50 para las rutas del vecino
+\cod{Router180\_1}.
+\end{itemize}
+
+\subsubsection*{Eventos temporales}
+
+Tiempo de la simulación: 10.000 segundos
+\begin{itemize}
+ \item \cod{T = 0} Caída de la conexión entre los nodos \cod{Router180\_2} y
+\cod{Router3\_4}.
+ \item \cod{T = 0} Caída de la conexión entre los nodos \cod{Router180\_1} y
+\cod{Router4\_3}.
+ \item \cod{T = 500} Recuperación de la conexión entre los nodos
+\cod{Router180\_2} y \cod{Router3\_4}.
+ \item \cod{T = 500} Recuperación de la conexión entre los nodos
+\cod{Router180\_1} y \cod{Router4\_3}.
+ \item \cod{T = 2000} Caída de la conexión entre los nodos \cod{Router180\_3} y
+\cod{Router2\_5}.
+ \item \cod{T = 3000} Recuperación de la conexión entre los nodos
+\cod{Router180\_3} y \cod{Router2\_5}.
+ \item \cod{T = 5000} Caída de la conexión entre los nodos \cod{Router180\_2} y
+\cod{Router3\_4}.
+ \item \cod{T = 6000} Recuperación de la conexión entre los nodos
+\cod{Router180\_2} y \cod{Router3\_4}.
+ \item \cod{T = 7000} Caída de la conexión entre los nodos \cod{Router180\_2} y
+\cod{Router3\_4}.
+ \item \cod{T = 7000} Caída de la conexión entre los nodos \cod{Router180\_1} y
+\cod{Router4\_3}.
+ \item \cod{T = 8000} Recuperación de la conexión entre los nodos
+\cod{Router180\_2} y \cod{Router3\_4}.
+ \item \cod{T = 8000} Recuperación de la conexión entre los nodos
+\cod{Router180\_1} y \cod{Router4\_3}.
+\end{itemize}
+
+\subsubsection*{Archivos de la simulación}
+
+\begin{itemize}
+ \item \cod{full\_wedgie-eventos.xml} Fichero de configuración de los eventos
+ \item \cod{full\_wedgie-topologia.xml} Fichero de configuración de la topología
+ \item \cod{trace-full\_wedgie.tar.gz} Resultado de las trazas del simulador
+ \item \cod{full\_wedgie.dia} Esquema de la topología
+\end{itemize}
+

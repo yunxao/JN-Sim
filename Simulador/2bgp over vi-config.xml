@@ -1,0 +1,52 @@
+<JSimConfig>
+
+
+
+<debug debugFlag="disable" errorFlag="disable" trace_dir="trace"/>
+<topology nodesPerLink="2"/>
+	<!-- AS 1001 Network=10.0.1.0/24-->
+	<components>
+		<router id="Router1_1">
+			<topology>
+				<link id=".link12"/>
+			</topology>
+			<interface type="physical" name="principal" address="10.0.1.1">
+<!--				<link id=".link12"/>-->
+			</interface>
+			<interface name="vi" type="virtual static point to point" address="192.168.1.1" baseInterface="principal" 
+				remoteHost="10.0.1.2" remoteAddress="192.168.1.2"/>
+			<session type="tcp_full"/>
+			<session type="bgp 4">
+				<parameters as="1" interface="vi"/>
+				<neighbour IP="192.168.1.2" remote-as="2"/>
+				<network address="83.1.1.0/24"/>
+			</session>
+			<session type="TrafficInspectionTool">
+				<parameters interface="vi"  consoleEnable="enable" periodicity="1000"/>
+				<traceRoute destiny="10.0.1.2"/>
+				<traceRoute destiny="192.168.1.2"/>
+			</session>
+		</router>
+		<router id="Router1_2">
+			<topology>
+				<link id=".link12"/>
+			</topology>
+			<interface name="principal" type="physical" address="10.0.1.2">
+				<link id=".link12"/>
+			</interface>
+			<interface name="vi" type="virtual static point to point" address="192.168.1.2" 
+				baseInterface="principal" remoteHost="10.0.1.1" remoteAddress="192.168.1.1"/>
+			<session type="TrafficInspectionTool">
+				<parameters interface="vi"  consoleEnable="enable" periodicity="1000"/>
+			</session>
+			<session type="tcp_full"/>
+			<session type="bgp 4">
+				<parameters as="1" interface="vi"/>
+				<neighbour IP="192.168.1.1" remote-as="1"/>
+				<network address="10.0.1.0/24"/>
+			</session>
+
+		</router>
+
+	</components>
+</JSimConfig>

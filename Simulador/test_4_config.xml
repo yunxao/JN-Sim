@@ -1,0 +1,116 @@
+<JSimConfig >
+<!--
+TOPOLOGY (unique - optional): 
+	- nodesPerLink (optional): number maximum of nodes per link (2 by default)
+
+
+DEBUG (unique, optional)
+	- debugFlag(optional): Enable/disable debug message 
+	- errorFlag(optional): Enable/disable error message
+	- trace_dir(optional): directory for the ouput log files 
+
+
+PROTOCOL  (list): general or by default parameter for the protocol
+	-type: type of protocol. i.e: "bgp 4"
+	PARAMETERS (unique): for bgp 4
+		-rtlog(optional): enable/disable route table log (optional)
+		-dbglog(optional): enable/disable debug log
+		-tracelog(optional): enable/diable message log
+		-fsmlog(optional): enable/diable finite state machine log
+		-tie_breaking(optional): defalut tie braking value or not
+		-default_local_pref(optional): value for the attribute
+		-med(optional): value for med attribute
+		-routes_compare_level(optional): level of this parameter (Level 5 by default)
+		-default_port(optional): 179 by default 
+		
+COMPONENTS (unique)
+	ROUTER (list)
+		TOPOLOGY (unique)
+			LINK (list)
+				-id, id of the link
+		INTERFACE (list)
+			name: name of interface
+			address: 
+		SESSION (list, optional)
+			PARAMETERS (unique): for bgp 4
+				-as:
+				-port(optional):
+				-interface: interface used by protocol
+				-log_file_name(optional): name of output file 
+				-tie_breaking(optional): defalut tie braking value or not
+				-default_local_pref(optional): value for the attribute
+				-med(optional): value for med attribute
+				-routes_compare_level(optional): level of this parameter
+				NETWORK (list): 
+					address
+				NEIGHBOUR (list):
+					IP
+					remote-as
+-->
+
+
+<!--
+
+-->
+<protocol type="bgp 4">
+	<parameters rtlog="enable" dbglog="enable" tracelog="enable" fsmlog="enable"
+		tie_breaking="default" default_local_pref="90" med="default" 
+		routes_compare_level="level 5" default_port="169"/>
+</protocol>
+<!--
+
+				
+-->
+<!-- AS1 -->
+<debug debugFlag="disable" errorFlag="disable" trace_dir="trace"/>
+<topology nodesPerLink="2"/>
+<components>
+	<router id="router1" >
+		<topology>
+			<link id=".link_1_2"/>
+		</topology>
+		<interface name="principal" address="10.0.1.1"/>
+		<interface name="secondary" address="20.0.1.1"/>
+		<session type="bgp 4">
+			<parameters as="1" port="170" interface="principal" 
+				log_file_name="1_1"/>
+			<network address="20.0.1.0/24"/>
+			<neighbour IP="10.0.2.1" remote-as="2" />
+		</session>
+	</router>
+	<!-- FIN AS1 -->
+
+	<!-- AS2 -->
+	<router id="router2">
+		<topology>
+			<link id=".link_1_2"/>
+			<link id=".link_2_3"/>
+		</topology>
+
+		<interface name="principal" address="10.0.2.1"/>
+		<session type="bgp 4">
+			<parameters as="2" port="170" interface="principal"/>
+			<neighbour IP="10.0.1.1" remote-as="1"/>
+			<neighbour IP="10.0.3.1" remote-as="3"/>
+		</session>
+	</router>
+	<!-- FIN AS2 -->
+
+	<!-- AS3 -->
+	<router id="router3">
+		<topology>
+			<link id=".link_2_3"/>
+		</topology>
+
+		<interface name="principal" address="10.0.3.1"/>
+		<interface name="secondary" address="20.0.3.1"/>
+		<session type="bgp 4">
+			<parameters as="3" port="170" interface="principal"/>
+			<network address="20.0.3.0/24"/>
+			<neighbour IP="10.0.2.1" remote-as="2"/>
+		</session>
+	</router>
+<!-- FIN AS3 -->
+</components>
+
+</JSimConfig>

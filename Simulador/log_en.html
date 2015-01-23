@@ -1,0 +1,2261 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<base target="_top">
+<style type="text/css">
+  
+
+/* default css */
+
+table {
+  font-size: 1em;
+  line-height: inherit;
+  border-collapse: collapse;
+}
+
+
+tr {
+  
+  text-align: left;
+  
+}
+
+
+div, address, ol, ul, li, option, select {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p {
+  margin: 0px;
+}
+
+
+pre {
+  font-family: Courier New;
+  white-space: pre-wrap;
+  margin:0;
+}
+
+body {
+  margin: 6px;
+  padding: 0px;
+  font-family: Verdana, sans-serif;
+  font-size: 10pt;
+  background-color: #ffffff;
+  color: #000;
+}
+
+
+img {
+  -moz-force-broken-image-icon: 1;
+}
+
+@media screen {
+  html.pageview {
+    background-color: #f3f3f3 !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  
+
+  body {
+    min-height: 1100px;
+    
+    counter-reset: __goog_page__;
+  }
+  
+  * html body {
+    height: 1100px;
+  }
+  /* Prevent repaint errors when scrolling in Safari. This "Star-7" css hack
+     targets Safari 3.1, but not WebKit nightlies and presumably Safari 4.
+     That's OK because this bug is fixed in WebKit nightlies/Safari 4 :-). */
+  html*#wys_frame::before {
+    content: '\A0';
+    position: fixed;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+  }
+  
+  .pageview body {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 2px solid #bbb;
+    border-bottom: 2px solid #bbb;
+    width: 648px !important;
+    margin: 15px auto 25px;
+    padding: 40px 50px;
+  }
+  /* IE6 */
+  * html {
+    overflow-y: scroll;
+  }
+  * html.pageview body {
+    overflow-x: auto;
+  }
+  
+
+  
+    
+    
+    .writely-callout-data {
+      display: inline-block;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      margin-left: -1px;
+    }
+    
+
+    .writely-footnote-marker {
+      background-image: url('MISSING');
+      background-color: transparent;
+      background-repeat: no-repeat;
+      width: 7px;
+      overflow: hidden;
+      height: 16px;
+      vertical-align: top;
+
+      
+      -moz-user-select: none;
+    }
+    .editor .writely-footnote-marker {
+      cursor: move;
+    }
+    .writely-footnote-marker-highlight {
+      background-position: -15px 0;
+      -moz-user-select: text;
+    }
+    .writely-footnote-hide-selection ::-moz-selection, .writely-footnote-hide-selection::-moz-selection {
+      background: transparent;
+    }
+    .writely-footnote-hide-selection ::selection, .writely-footnote-hide-selection::selection {
+      background: transparent;
+    }
+    .writely-footnote-hide-selection {
+      cursor: move;
+    }
+
+    /* Comments */
+    .writely-comment-yellow {
+      background-color: #ffffd7;
+    }
+    .writely-comment-orange {
+      background-color: #ffe3c0;
+    }
+    .writely-comment-pink {
+      background-color: #ffd7ff;
+    }
+    .writely-comment-green {
+      background-color: #d7ffd7;
+    }
+    .writely-comment-blue {
+      background-color: #d7ffff;
+    }
+    .writely-comment-purple {
+      background-color: #eed7ff;
+    }
+
+  
+
+
+  
+  .br_fix span+br:not(:-moz-last-node) {
+    
+    position:relative;
+    
+    left: -1ex
+    
+  }
+
+  
+  #cb-p-tgt {
+    font-size: 8pt;
+    padding: .4em;
+    background-color: #ddd;
+    color: #333;
+  }
+  #cb-p-tgt-can {
+    text-decoration: underline;
+    color: #36c;
+    font-weight: bold;
+    margin-left: 2em;
+  }
+  #cb-p-tgt .spin {
+    width: 16px;
+    height: 16px;
+    background: url(//ssl.gstatic.com/docs/clipboard/spin_16o.gif) no-repeat;
+  }
+}
+
+h6 { font-size: 8pt }
+h5 { font-size: 8pt }
+h4 { font-size: 10pt }
+h3 { font-size: 12pt }
+h2 { font-size: 14pt }
+h1 { font-size: 18pt }
+
+blockquote {padding: 10px; border: 1px #DDD dashed }
+
+.webkit-indent-blockquote { border: none; }
+
+a img {border: 0}
+
+.pb {
+  border-width: 0;
+  page-break-after: always;
+  /* We don't want this to be resizeable, so enforce a width and height
+     using !important */
+  height: 1px !important;
+  width: 100% !important;
+}
+
+.editor .pb {
+  border-top: 1px dashed #C0C0C0;
+  border-bottom: 1px dashed #C0C0C0;
+}
+
+div.google_header, div.google_footer {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+/* Table of contents */
+.editor div.writely-toc {
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+}
+.writely-toc > ol {
+  padding-left: 3em;
+  font-weight: bold;
+}
+ol.writely-toc-subheading {
+  padding-left: 1em;
+  font-weight: normal;
+}
+/* IE6 only */
+* html writely-toc ol {
+  list-style-position: inside;
+}
+.writely-toc-none {
+  list-style-type: none;
+}
+.writely-toc-decimal {
+  list-style-type: decimal;
+}
+.writely-toc-upper-alpha {
+  list-style-type: upper-alpha;
+}
+.writely-toc-lower-alpha {
+  list-style-type: lower-alpha;
+}
+.writely-toc-upper-roman {
+  list-style-type: upper-roman;
+}
+.writely-toc-lower-roman {
+  list-style-type: lower-roman;
+}
+.writely-toc-disc {
+  list-style-type: disc;
+}
+
+/* Ordered lists converted to numbered lists can preserve ordered types, and
+   vice versa. This is confusing, so disallow it */
+ul[type="i"], ul[type="I"], ul[type="1"], ul[type="a"], ul[type="A"] {
+  list-style-type: disc;
+}
+
+ol[type="disc"], ol[type="circle"], ol[type="square"] {
+  list-style-type: decimal;
+}
+
+/* end default css */
+
+
+  /* default print css */
+  @media print {
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    div.google_header, div.google_footer {
+      display: block;
+      min-height: 0;
+      border: none;
+    }
+
+    div.google_header {
+      flow: static(header);
+    }
+
+    /* used to insert page numbers */
+    div.google_header::before, div.google_footer::before {
+      position: absolute;
+      top: 0;
+    }
+
+    div.google_footer {
+      flow: static(footer);
+    }
+
+    /* always consider this element at the start of the doc */
+    div#google_footer {
+      flow: static(footer, start);
+    }
+
+    span.google_pagenumber {
+      content: counter(page);
+    }
+
+    span.google_pagecount {
+      content: counter(pages);
+    }
+
+    .endnotes {
+      page: endnote;
+    }
+
+    /* MLA specifies that endnotes title should be 1" margin from the top of the page. */
+    @page endnote {
+      margin-top: 1in;
+    }
+
+    callout.google_footnote {
+      
+      display: prince-footnote;
+      footnote-style-position: inside;
+      /* These styles keep the footnote from taking on the style of the text
+         surrounding the footnote marker. They can be overridden in the
+         document CSS. */
+      color: #000;
+      font-family: Verdana;
+      font-size: 10.0pt;
+      font-weight: normal;
+    }
+
+    /* Table of contents */
+    #WritelyTableOfContents a::after {
+      content: leader('.') target-counter(attr(href), page);
+    }
+
+    #WritelyTableOfContents a {
+      text-decoration: none;
+      color: black;
+    }
+
+    /* Comments */
+    .writely-comment-yellow {
+      background-color: #ffffd7;
+    }
+    .writely-comment-orange {
+      background-color: #ffe3c0;
+    }
+    .writely-comment-pink {
+      background-color: #ffd7ff;
+    }
+    .writely-comment-green {
+      background-color: #d7ffd7;
+    }
+    .writely-comment-blue {
+      background-color: #d7ffff;
+    }
+    .writely-comment-purple {
+      background-color: #eed7ff;
+    }
+  }
+
+  @page {
+    @top {
+      content: flow(header);
+    }
+    @bottom {
+      content: flow(footer);
+    }
+    @footnotes {
+      border-top: solid black thin;
+      padding-top: 8pt;
+    }
+  }
+  /* end default print css */
+
+
+/* custom css */
+
+
+/* end custom css */
+
+/* ui edited css */
+
+body {
+  font-family: Verdana;
+  
+  font-size: 10.0pt;
+  line-height: normal;
+  background-color: #ffffff;
+}
+/* end ui edited css */
+
+
+/* editor CSS */
+.editor a:visited {color: #551A8B}
+.editor table.zeroBorder {border: 1px dotted gray}
+.editor table.zeroBorder td {border: 1px dotted gray}
+.editor table.zeroBorder th {border: 1px dotted gray}
+
+
+.editor div.google_header, .editor div.google_footer {
+  border: 2px #DDDDDD dashed;
+  position: static;
+  width: 100%;
+  min-height: 2em;
+}
+
+.editor .misspell {background-color: yellow}
+
+.editor .writely-comment {
+  font-size: 9pt;
+  line-height: 1.4;
+  padding: 1px;
+  border: 1px dashed #C0C0C0
+}
+
+
+/* end editor CSS */
+
+</style>
+
+  
+  <title>J-Sim Log English</title>
+
+</head>
+
+<body 
+    
+    >
+    
+    
+    
+<p>
+  infonet.javasim.bgp.ConfigBGP is a implementation of Configuration (com.renesys.raceway.DML.Configuration)
+</p>
+<h2>
+  Version 10:
+</h2>
+<p>
+  <br>
+</p>
+<p>
+  /src/infonet/javasim/bgp4/comm/UpdateMessage.java
+</p>
+<p>
+  /src/infonet/javasim/bgp4/Path/Atributte.java
+</p>
+<p>
+  /src/infonet/javasim/bgp4/Path/OriginatorID.java
+</p>
+<p>
+  Added: In the atributte factory (Path.Atributte) OrigiantorID. It exist but not in the factory
+</p>
+<p>
+  Added: Contructor builder of OriginatorID(byte[] bytes)
+</p>
+<p>
+  This version have a lot ot System.out.println
+</p>
+<h2>
+  Version 11:
+</h2>
+<p>
+  A src/infonet/javasim/bgp4/comm/IOBGPMessage.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/comm/UpdateMessage.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/comm/BGPMessage.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/Attribute.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/OriginatorID.java
+</p>
+<p>
+  <br>
+</p>
+<p>
+  Added: infonet.javasim.bgp4.comm.IOBGPMessage: it has procedures that copy from bytes or to bytes. This class isn't in correct place
+</p>
+<p>
+  Changer: infonet.javasim.bgp4.comm.UpdateMessage&nbsp;
+</p>
+<p>
+  added: infonet.javasim.bgp4.path.OriginatorID: Procedures fromBytes and toBytes to make "serializable" the class. Maybe there is error on size of message.
+</p>
+<p>
+  <br>
+</p>
+<h2>
+  Version 12:
+</h2>
+<p>
+  U src/infonet/javasim/bgp4/LocRIB.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/comm/IOBGPMessage.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/comm/UpdateMessage.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/BGPSession.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/Segment.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/Attribute.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/MED.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/LocalPref.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/ExtendedCommunities.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/ClusterList.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/ASpath.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/Aggregator.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/TBID.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/AtomicAggregate.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/Community.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/NextHop.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/Origin.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/OriginatorID.java
+</p>
+<p>
+  <br>
+</p>
+<p>
+  added : In infonet.javasim.bgp4.path.Attribute: A abstract procedure getTypeCode. the class that extend of Attribute must implement it.&nbsp;
+</p>
+<p>
+  added: getTypeCode in the class that extend of Attribute
+</p>
+<h2>
+  Version 13:
+</h2>
+<p>
+  U src/infonet/javasim/bgp4/Utils.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/BGPSession.java
+</p>
+<h2>
+  Version 14:
+</h2>
+<p>
+  U bin/infonet/javasim/bgp4/BGPSession.class
+</p>
+<p>
+  <br>
+</p>
+<h2>
+  Version 15:
+</h2>
+<p>
+  U config.tcl
+</p>
+<h2>
+  Version 16:
+</h2>
+<p>
+  U config.tcl
+</p>
+<p>
+  U src/infonet/javasim/bgp4/Utils.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/BGPSession.java
+</p>
+<p>
+  A test4.tcl
+</p>
+<p>
+  A b+o.tcl
+</p>
+<p>
+  <br>
+  <font style=BACKGROUND-COLOR:#ffffff>There is a new format for the string configuration (see config.tcl) and adapted addPeer functions and config BGPSession. The functions to create the configuration variable is reduced to two and now called doconfig&nbsp;<br>
+  <font style=BACKGROUND-COLOR:#ffffff>It has been observed that some of the IP are not with BGPSession if not InetAddress IPAddress<br>
+  </font></font>
+</p>
+<h2>
+  Version 17:
+</h2>
+<p>
+  U config.tcl
+</p>
+<p>
+  U src/infonet/javasim/bgp4/Utils.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/BGPSession.java
+</p>
+<p>
+  <br>
+</p>
+<p>
+  Fix: Now take RRC or RR from configuration correctly
+</p>
+<p>
+  Fox: Now make topology Correctly
+</p>
+<p>
+  <br>
+</p>
+<p>
+  I haven't commented V18 to 23 because I return to version 17 en the version 24
+</p>
+<p>
+  <br>
+</p>
+<h2>
+  Version 24:
+</h2>
+<p>
+  U src/infonet/javasim/bgp4/RouteInfo.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/LocRIB.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/PeerConnection.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/comm/OpenMessage.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/comm/UpdateMessage.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/comm/BGPMessage.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/BGPSession.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/Aggregator.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/NextHop.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/OriginatorID.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/PeerEntry.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/Debug.java
+</p>
+<p>
+  U src/infonet/javasim/util/IPaddress.java
+</p>
+<p>
+  U src/infonet/javasim/util/Logger.java
+</p>
+<p>
+  U src/drcl/inet/Node.java
+</p>
+<p>
+  U src/drcl/inet/data/RTKey.java
+</p>
+<p>
+  U src/drcl/inet/InetUtil.java
+</p>
+<p>
+  U script/drcl/inet/wireless/mobility/PositionReportConvert.class
+</p>
+<p>
+  <br>
+</p>
+<p>
+  Return to revision17
+</p>
+<h2>
+  Version 25:
+</h2>
+<p>
+  D src/pruebas/PruebaIPAddress.java
+</p>
+<p>
+  D src/infonet/javasim/bgp4/XMLUtils.java
+</p>
+<h2>
+  Version 26:
+</h2>
+<p>
+  A src/infonet/javasim/bgp4/XMLUtils.java
+</p>
+<p>
+  <br>
+</p>
+<p>
+  añadida de nuevo la clase XMLUtil que habia desaparecido en la anterior revisión al vover a una versión anterior
+</p>
+<p>
+  Added: infonet.javasim.bgp.XMLUtils this will replace Utils.java
+</p>
+<p>
+  <br>
+</p>
+<h2>
+  Versions 27, 28, 29, 30:
+</h2>
+<p>
+  A lib/jdom.jar
+</p>
+<p>
+  A config0.xml
+</p>
+<p>
+</p>
+<p style=MARGIN-LEFT:0px;MARGIN-RIGHT:0px>
+  U src/utils/BytesUtils.java
+</p>
+<p style=MARGIN-LEFT:0px;MARGIN-RIGHT:0px>
+  A src/pruebas/XMLMain.java
+</p>
+<p style=MARGIN-LEFT:0px;MARGIN-RIGHT:0px>
+  U src/infonet/javasim/bgp4/BGPSession.java
+</p>
+<p style=MARGIN-LEFT:0px;MARGIN-RIGHT:0px>
+  U src/infonet/javasim/bgp4/XMLUtils.java
+</p>
+<p style=MARGIN-LEFT:0px;MARGIN-RIGHT:0px>
+  U src/infonet/javasim/bgp4/ConfigBGP.java
+</p>
+<p style=MARGIN-LEFT:0px;MARGIN-RIGHT:0px>
+</p>
+<p style=MARGIN-LEFT:0px;MARGIN-RIGHT:0px>
+  A configXML.tcl
+</p>
+<p style=MARGIN-LEFT:0px;MARGIN-RIGHT:0px>
+  A prubaxml.tcl
+</p>
+<p style=MARGIN-LEFT:0px;MARGIN-RIGHT:0px>
+  <br>
+</p>
+<h2>
+  Version 31:
+</h2>
+<p>
+  U src/infonet/javasim/bgp4/XMLUtils.java
+</p>
+<p>
+  <br>
+</p>
+<p>
+  funcional version! version 28-31
+</p>
+<p>
+  <br>
+</p>
+<p>
+  Added: XMLMain test doConfig of XMLUtils
+</p>
+<p>
+  added: config0.xml a example of a configuration
+</p>
+<p>
+  added: jdom library
+</p>
+<p>
+  Changed: Now configuration is in a XML file. Utils isn't correct
+</p>
+<p>
+  Changed/fix: Previously if a router was RRCliente, it's in the RRCliente configuration. Now is in Route Reflector configuration. Now a router is Reflector if it has a RRClient in its configuration hat it.
+</p>
+<p>
+  fix: BytesUtils. Now copy the Objects to arrays correctly.
+</p>
+<p>
+  Changed/fix: ConfigBGP. If not exist a key return null.
+</p>
+<p>
+  <br>
+</p>
+<p>
+  Autoconfig is always a true because it's not tested with dinamic routes
+</p>
+<h2>
+  Version 32:
+</h2>
+<p>
+  D redBGP.tcl
+</p>
+<p>
+  D ex_helloworld.tcl
+</p>
+<p>
+  D bgptest.tcl
+</p>
+<p>
+  D Cambios.txt
+</p>
+<p>
+  D ex_tcljava.tcl
+</p>
+<p>
+  D prubaxml.tcl
+</p>
+<p>
+  D test4.tcl
+</p>
+<p>
+  D CHANGES.txt
+</p>
+<p>
+  D b+o.tcl
+</p>
+<p>
+  D basura.tcl
+</p>
+<p>
+  D configDML
+</p>
+<p>
+  D redBGP._anterior.tcl
+</p>
+<p>
+  D exec.tcl
+</p>
+<p>
+  U .project
+</p>
+<p>
+  A config1.xml
+</p>
+<p>
+  U src/pruebas/XMLMain.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/Utils.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/timing/EventTimer.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/timing/MRAITimer.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/timing/MRAIPerPeerTimer.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/comm/UpdateMessage.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/comm/BGPMessage.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/BGPSession.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/ASpath.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/Aggregator.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/NextHop.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/path/OriginatorID.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/policy/Clause.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/policy/RouteMap.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/XMLUtils.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/Route.java
+</p>
+<p>
+  A configDemo.tcl
+</p>
+<p>
+  U .classpath
+</p>
+<p>
+  A .umlproject
+</p>
+<p>
+  A .euml2
+</p>
+<p>
+  U configXML.tcl
+</p>
+<p>
+  A configDemo.xml
+</p>
+<p>
+  <br>
+</p>
+<p>
+  Added: (infonet.javasim.bgp.BGPSession) Procedure that it add a prefix from string (i.e: 192.168.1.0/24)
+</p>
+<p>
+  Changed: (infonet.javasim.bgp.BGPSession)the routes are announced in iBGP. see line 2454 in BGPSession.
+</p>
+<p>
+  Fix: (infonet.javasim.bgp.BGPSession)Previusly, Array ASPrefixListNow was created when first prefix was added. It wasn't correct because sometimes could try to access to Array and not exist. Now it's created in config.&nbsp;
+</p>
+<p>
+  Changed: (infonet.javasim.bgp.BGPSession). If a node hasn't a route to announce, it don't send a exception,&nbsp;
+</p>
+<p>
+  Fix: (infonet.javasim.bgp.path.ASPath) There wasn't checked that ArrayList of segments exist. Now it's checked.
+</p>
+<p>
+  Changed/fix: (infonet.javasim.bgp.XMLUtils) Now, neighbour must be in order in xml file. Now it's not necesary
+</p>
+<p>
+  Eliminated: infonet.javasim.bgp.Utils doConfig.
+</p>
+<p>
+  Added: config0.xml and config1.xml two examples of configurations.
+</p>
+<p>
+  Added: A script example condigDemo.tcl
+</p>
+<h2>
+  Version 33:
+</h2>
+<p>
+  D config0.xml
+</p>
+<p>
+  D config.tcl
+</p>
+<p>
+  D configDemo.tcl
+</p>
+<p>
+  D configXML.tcl
+</p>
+<p>
+  D configDemo.xml
+</p>
+<p>
+  U config1.xml
+</p>
+<p>
+  D src/infonet/javasim/bgp4/Utils.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/BGPSession.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/PeerEntry.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/XMLUtils.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/ConfigBGP.java
+</p>
+<p>
+  A src/drcl/inet/TopologyTable.java
+</p>
+<p>
+  A src/drcl/inet/TopologyTableNode.java
+</p>
+<p>
+  U src/drcl/inet/InetUtil.java
+</p>
+<p>
+  U src/drcl/comp/Port.java
+</p>
+<p>
+  U src/drcl/comp/lib/bytestream/ByteStreamPeer.java
+</p>
+<p>
+  A little.xml
+</p>
+<p>
+  A Cambios del J-Sim con respecto a la version orignal
+</p>
+<p>
+  A configDemo2.tcl
+</p>
+<p>
+  <br>
+</p>
+<p>
+  Changed: Drcl.comp.lib Port if there are errors when somethins is sended, don't send a exception and send message and return -1
+</p>
+<p>
+  Added: drcl.inet.InetUtil disconnect. Procedures that disconnect
+</p>
+<p>
+  Added: drcl.inet.InetUtil reConnect. Reconect a link. With the same ports. It don't work corretly.&nbsp;
+</p>
+<p>
+  Deleted: infonet.javasim.bgp4.Utils. XMLUtils replace it
+</p>
+<h2>
+  Version 34
+</h2>
+<p>
+  U config1.xml
+</p>
+<p>
+  U src/infonet/javasim/bgp4/Global.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/RouteInfo.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/BGPSession.java
+</p>
+<p>
+  U src/infonet/javasim/bgp4/XMLUtils.java
+</p>
+<p>
+  U Cambios del J-Sim con respecto a la version orignal
+</p>
+<p>
+  U configDemo2.tcl
+</p>
+<p>
+  <br>
+</p>
+<p>
+  Added: infonet.javasim.bgp4.Global. Consants for med and local prefence
+</p>
+<p>
+  Changed: infonet.javasim.bgp4.RouteInfo compare. If there isn's local_pref, take default value (Global). If they has same value, compare dop value. Now always_comare_med is supported
+</p>
+<p>
+  Deleted: in infonet.javasim.bgp4.XMLUtils. Unused Constants.
+</p>
+<p>
+  Changed. infonet.javasim.bgp4.XMLUtils. Now read tie_breaking, default_local_pref and med from xml file
+</p>
+<p>
+  Changed: infonet.javasim.bgp4.BGPSession dop. Now calculate this value with number of jumps
+</p>
+<h2>
+  Version 35:
+</h2>
+<p>
+  Sending /home/fhf/workspace/JSIM
+</p>
+<p>
+  Sending /home/fhf/workspace/JSIM/Cambios del J-Sim con respecto a la version orignal
+</p>
+<p>
+  Adding /home/fhf/workspace/JSIM/config.xml
+</p>
+<p>
+  Deleting /home/fhf/workspace/JSIM/config1.xml
+</p>
+<p>
+  Deleting /home/fhf/workspace/JSIM/configDemo2.tcl
+</p>
+<p>
+  Adding /home/fhf/workspace/JSIM/emulation1.tcl
+</p>
+<p>
+  Adding /home/fhf/workspace/JSIM/emulation2.tcl
+</p>
+<p>
+  Adding /home/fhf/workspace/JSIM/events.xml
+</p>
+<p>
+  Adding /home/fhf/workspace/JSIM/log.tid
+</p>
+<p>
+  Adding /home/fhf/workspace/JSIM/src/drcl/Enviroment.java
+</p>
+<p>
+  Adding /home/fhf/workspace/JSIM/src/drcl/inet/Event.java
+</p>
+<p>
+  Adding /home/fhf/workspace/JSIM/src/drcl/inet/EventBuilder.java
+</p>
+<p>
+  Sending /home/fhf/workspace/JSIM/src/drcl/inet/InetUtil.java
+</p>
+<p>
+  Sending /home/fhf/workspace/JSIM/src/drcl/inet/TopologyTable.java
+</p>
+<p>
+  Sending /home/fhf/workspace/JSIM/src/infonet/javasim/bgp4/XMLUtils.java
+</p>
+<p>
+  Sending /home/fhf/workspace/JSIM/src/pruebas
+</p>
+<p>
+  <br>
+</p>
+<p>
+  Changed: emulation1 is a Script with events and emulation2 without events
+</p>
+<p>
+  Added: Events.xml. A xml file with events
+</p>
+<p>
+  Added: drcl.Enviroment. it has a simulation parameters.
+</p>
+<p>
+  Added: drcl.inet.Event. Class with a description of a event
+</p>
+<p>
+  Added: drcl.inet.EventBuilder. it make a Vector of events from xml file.
+</p>
+<p>
+  Changed: drcl.inet.TopologyTable. Now, the node are stored with a string key. String is a name of node in console (i.e: n166677734)
+</p>
+<p>
+  Changed: drcl.inet.InetUtil. Some procedures are adpated to changes in TopologyTable
+</p>
+<h2>
+  Version 36:
+</h2>
+<p>
+  Changed: Event. Now DOWN_COMPONENT disconnect all elements in the array.
+</p>
+<p>
+  Changed: Now only exist a xml file with all configuration (events too)
+</p>
+<p>
+  Changed: XMLConfig is adapted to now format of xml file configuration
+</p>
+<p>
+  Added: NTTable. A structure that store alias and nodes. Used to connect and disconnect.
+</p>
+<p>
+  Changed: Example escript is only run.tcl
+</p>
+<h2>
+  Version 37:
+</h2>
+<p>
+  Changed: drcl.inet.Event.java y drcl.inet.InetUtil.java. Now NTTable is used in InetUtil(reConnect and disconnect) and not in Event.
+</p>
+<p>
+  Fix: drcl.inet.InetUtil reConnect. it reconnnected corretly, but don't reboot protocols. Now reboot protocols too (only supported protocols, bgp). This procedure use reConnectTo that reConnect only in one direction.
+</p>
+<p>
+  Fix: drcl.inet.Event.java. Now UP_COMPONENT and UP_LINK work correctly
+</p>
+<p>
+  Changed: infonet.javasim.bgp4.XMLUtils, drcl.inet.TopologyTable y drcl.inet.TopologyTableNode. Now store the protocols too in the TopologyTable
+</p>
+<p>
+  Added: infonet.javasim.bgp4.BGPSession. sendRestart reboot bgp protocol.
+</p>
+<h2>
+  Version 38:
+</h2>
+<p>
+  Changed: now script is named run.tcl
+</p>
+<p>
+  Deleted: the others scritps
+</p>
+<p>
+  Changed: Name of Readme files
+</p>
+<p>
+  Fix: the proyect don't clean .class files. (Thanks Ville Petteri Pöyhönen)
+</p>
+<p>
+  Fix: References of class Utils.java (Thanks Ville Petteri Pöyhönen)
+</p>
+<h2>
+  Version 39:
+</h2>
+<p>
+  Some files are moved. they are the files that I have created to j-sim and funtions too. Except in the package infonet.*
+</p>
+<p>
+  Files:&nbsp;
+</p>
+<p>
+</p>
+<ul>
+  <li>
+    drcl.Enviroment--&gt;tid.enviroment
+  </li>
+  <li>
+    drcl.inet.Event--&gt;tid.events.Event
+  </li>
+  <li>
+    drcl.inet.EventBuilder--&gt;tid.events.EventBuilder
+  </li>
+  <li>
+    drcl.inet.NTTable--&gt;tid.inet.NTTable
+  </li>
+  <li>
+    drcl.inet.TopologyTable--&gt;tid.inet.TopologyTable
+  </li>
+  <li>
+    drcl.inet.TopologyTableNode--&gt;tid.inet.TopologyTableNode
+  </li>
+  <li>
+    utils--&gt;tid.utils
+  </li>
+</ul>
+<p>
+</p>
+<p>
+</p>
+<p>
+  Funtions:&nbsp;
+</p>
+<p>
+</p>
+<ul>
+  <li>
+    drcl.inet.InetUtil--&gt;tid.inet.InetUtil
+  </li>
+  <li>
+    reConnectTo
+  </li>
+  <li>
+    reConnect
+  </li>
+  <li>
+    disconnect
+  </li>
+</ul>
+<p>
+</p>
+<h2>
+  Version 40:
+</h2>
+<p>
+  Added english log (log-en.tid)
+</p>
+<h2>
+  Version 41:
+</h2>
+<p>
+  added/changed: tie_breaking, med and routes level comapre
+</p>
+<p>
+  Changed: tie_breaking. Now only has two options: "random" or "default" (less id is better)
+</p>
+<p>
+  Added: routes_compare_level indicate how level of comparation to do. There are six level.
+</p>
+<p>
+</p>
+<ul>
+  <li>
+    "level 0": Nothing is compared
+  </li>
+  <li>
+    "level 1": Compare Local Preference
+  </li>
+  <li>
+    "level 2": level 1 + number of distint as of the route
+  </li>
+  <li>
+    "level 3": level 2 + med
+  </li>
+  <li>
+    "level 4": level 3 + Prefenrence internal vs external
+  </li>
+  <li>
+    "level 5": level 4 + random or id (all)
+  </li>
+</ul>
+<p>
+</p>
+<p>
+  Changed: med, now only habe two values: "always compare med" or "default"
+</p>
+<p>
+  Changed: infonet.javasim.bgp4.BGPSession (handle_update y decision_process_2) Now two similar routes are added to de route table. Don't work correctly
+</p>
+<p>
+  Changed: infonet.javasim.bgp4.BGPSession (logRT) now show as route too
+</p>
+<p>
+  Added: infonet.javasim.bgp4.Global vars to default values of tie_breaking, med and routes_compare_level. And const with values of the string for it (ROUTES_COMPARE_LEVELS, STRING_LEVELS, STRING_ALWAYS_COMPARE_MED, STRING_RANDOM_TIE_BREAKING)
+</p>
+<p>
+  Changed: infonet.javasim.bgp4.LocRib (add) half implemented double route
+</p>
+<p>
+  Changed: infonet.javasim.bgp4.RouteInfo (compare) routes_compare_level indicate how level of comparation to do.
+</p>
+<h2>
+  Version 42:
+</h2>
+<p>
+  Fix: med var
+</p>
+<p>
+  New: now, if two routes are the same. they are added to route table
+</p>
+<p>
+  Changed: a bit Format of the xml file
+</p>
+<p>
+  log:&nbsp;
+</p>
+<p>
+  Changed: The structures of RIBElements, AdjRIBIn, AdjRIBOut, LocRIB. Now they saved vector of RoutesInfos (Before RoutesInfos). and i have eliminated some functions that they weren't necesary
+</p>
+<p>
+  Changed: Now, the "withdraws" save RouteInfo's (before only nlri). it's necesary for differenciate routes.
+</p>
+<p>
+  Added: toBytes and fromBytes in Route and IPaddress in order send them
+</p>
+<p>
+  Changed: Now, "Pair" can be instantiated
+</p>
+<h2>
+  Version 43:
+</h2>
+<p>
+  Changed: The local preference is readed in route (see config.xml)
+</p>
+<p>
+  Fix: Local preference work correctly
+</p>
+<p>
+  Fix: Some error of previous version
+</p>
+<p>
+  <br>
+</p>
+<h2>
+  Version 154(44):&nbsp;
+</h2>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/.classpath
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/Cambios_JSIM
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/ChangeLog
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/Changes_JSim
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/J_Sim_Log_English.html
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/J_Sim_log_espanol.html
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/bin
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/build.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &amp;nbsp; /home/pacohf/ws2/JSIM/cambiosJsim
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/classes
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/config-1.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/config.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/config_basic_gp_islands.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/events.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/forward
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/lib/dml.jar
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/little.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/log-en.tid
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/log.tid
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/run.tcl
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/2_nodes_2_Session_manual.tcl
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/2_nodes_manual_test.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/3_nodes_2_Session_manual.tcl
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/3_nodes_manual_test.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/3_routes_manual_correct.tcl
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/3_routes_manual_correct.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/config-1.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/config.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/config_basic_gp_islands.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/config_ext_p2p_simple.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/config_ext_p2p_test.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/old scripts/little.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/script/test_2.tcl
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/drcl/comp/Port.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/BGPSession.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/ConfigBGP.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/Global.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/PeerConnection.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/PeerEntry.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/RIBElement.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/RouteInfo.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/XMLUtils.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/infonet/javasim/bgp4/comm/OpenMessage.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/pruebas/XMLMain.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/tid/Enviroment.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/comp
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/comp/Utils.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/tid/events/Event.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/tid/events/EventBuilder.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Sending &nbsp; &nbsp; &nbsp; &nbsp;/home/pacohf/ws2/JSIM/src/tid/inet/InetUtil.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/TopologyTable.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/TopologyTableNode.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/protocols
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/protocols/GeneralParametersFactory.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/protocols/Protocol.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/protocols/Util.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/protocols/doConfigFactory.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/protocols/logsFactory.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/inet/protocols/mapStringFactory.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/utils/Config.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/utils/Utils.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/tid/utils/XMLUtils.java
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Deleting &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/src/utils
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_1.tcl
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_1_config.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_1_events.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_2.tcl
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_2_config.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_2_events.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_3.tcl
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_3_config.xml
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;Adding &nbsp; &nbsp; &nbsp; &nbsp; /home/pacohf/ws2/JSIM/test_3_events.xml
+</div>
+<br>
+<h3>
+  Features&nbsp;
+</h3>
+<p>
+</p>
+<ul>
+  <li>
+    There is now support multiple protocols in a single node. Protocols may be the same type if they use different TCP port&nbsp;
+  </li>
+  <li>
+    Support of ports for various protocols. The protocols must implement tid.inet.protocols.Protocol
+  </li>
+  <li>
+    To add a protocol / session bgp different simulation environment must take the following steps:&nbsp;
+  </li>
+</ul>
+<p>
+</p>
+<p>
+  <br>
+</p>
+<p>
+</p>
+<ol>
+  <ol>
+    <li>
+      class that implements the interface tid.inet.protocols.protocol.java&nbsp;
+    </li>
+    <li>
+      add the string identifier in the interface protocol&nbsp;
+    </li>
+    <li>
+      in class tid.inet.protocols.Factory.java add the factories for the following classes&nbsp;
+    </li>
+  </ol>
+</ol>
+<p>
+</p>
+<p>
+  <br>
+</p>
+<p>
+</p>
+<ul>
+  <ul>
+    <ul>
+      <li>
+        GeneralParametersFactory&nbsp;
+      </li>
+      <li>
+        doConfigFactory&nbsp;
+      </li>
+      <li>
+        logsFactory&nbsp;
+      </li>
+      <li>
+        mapStringFactory&nbsp;
+      </li>
+    </ul>
+  </ul>
+</ul>
+<p>
+</p>
+<p>
+  <br>
+</p>
+<p>
+</p>
+<ul>
+  <li>
+    Support for multiple interfaces (IP addresses) per node.&nbsp;
+  </li>
+  <li>
+    Support for multiple nodes per link&nbsp;
+  </li>
+  <li>
+    The protocol "BGP 4" can now use a port other than the default was.&nbsp;
+  </li>
+  <li>
+    The protocol "BGP 4" using any of the interfaces of a node (but only one)
+  </li>
+  <li>
+    Events: Only work event "DOWN"
+  </li>
+  <li>
+    The physical topologies now aren't created automatically. They have to be specified in the xml file&nbsp;
+  </li>
+  <li>
+    Now you can turn on and off the error and debug output from Console to a flag in xml files&nbsp;
+  </li>
+  <li>
+    XML configuration file.&nbsp;
+  </li>
+  <li>
+    There are two xml files. one with configuration parameters (ie: test_1_config.xml) and other with simulation (test_1_events.xml)&nbsp;
+  </li>
+  <li>
+    The configuration file format has changed with new parameters. (see xml example) by adding new features;
+  </li>
+</ul>
+<p>
+</p>
+<p>
+  <br>
+</p>
+<h3>
+  Changelog
+</h3>
+<p>
+</p>
+<ul>
+  <li>
+    Modified: drcl.comp.Port error messages aren't print in the console if the option is not enabled&nbsp;
+  </li>
+  <li>
+    Modified: infonet.javasim .. bgp4.BGPSession, deleted private variables that were not used
+  </li>
+  <li>
+    Modified: infonet.javasim .. bgp4.BGPSession now implements interface tid.inet.protocols.protocol&nbsp;
+  </li>
+  <li>
+    Modified: infonet.javasim .. bgp4.BGPSession port now housed here (defalut: port_num &amp; used value: port)&nbsp;
+  </li>
+  <li>
+    Modified: infonet.javasim .. bgp4.BGPSession been cleaned a bit the code&nbsp;
+  </li>
+  <li>
+    Modified: infonet.javasim .. bgp4.BGPSession certain messages are displayed only if the option is enabled debugEnable&nbsp;
+  </li>
+  <li>
+    Modified: infonet.javasim .. bgp4.BGPSession The option to enable the logs (rt, fsm, and dbg msg) has changed and is unique to BGP. before sharing it with all&nbsp;
+  </li>
+  <li>
+    Fixed: Now sources are stored with the id of BGP that creates&nbsp;
+  </li>
+  <li>
+    Modified: infonet.javasim.bgp4.ConfigBGP has changed tid.utils.Config&nbsp;
+  </li>
+  <li>
+    Added: infonet.javasim.Global: Added constant for logs&nbsp;
+  </li>
+  <li>
+    Fixed: infonet.javasim.bgp4.PeerEntry: one of the builders did not properly initialized the value of bgp_id&nbsp;
+  </li>
+  <li>
+    Modified: infonet.javasim.bjp4.UtilsXML now tid.utils.Utils changes, and certain functionality away tid.utils.UtilsXML&nbsp;
+  </li>
+  <li>
+    Modified: tid.enviroment: We have removed the logs of the variables here and put in infonet.javasim.bgp4.BGPSession Sehan. Variable was added that manages the number of nodes per link&nbsp;
+  </li>
+  <li>
+    Modified: tid.events.Event: now there are only two types of events that apply equally to all types of components. UP and DOWN which only works correctly DOWN&nbsp;
+  </li>
+  <li>
+    Modified: tid.events.EventBuilder: now reading the configuration of the logs is not here&nbsp;
+  </li>
+  <li>
+    Added: tid.inet.InetUtil CreateTopology. This function performs the same function that drcl.inet.InetUtil but otherwise similar in different parameters and with the added functionality of multiple nodes per link&nbsp;
+  </li>
+  <li>
+    Added: tid.inet.InetUtil create a map for the function according to the format required drcl.inet.NodeBuilder.build&nbsp;
+  </li>
+  <li>
+    Modified: tid.inet.InetUtil reconnect functions reConnectTo in all its versions do not work&nbsp;
+  </li>
+  <li>
+    Fixed: tid.inet.InetUtil disconnect has arregaldo agreeing to work with the new modifications&nbsp;
+  </li>
+  <li>
+    Added: tid.inet.InetUtil AddAddress add an address to a node. Also handles add static to route tables of the nodes to which is connected at this time&nbsp;
+  </li>
+  <li>
+    Added: tid.inet.InetUtil AddAddress AddAddress performs the function in a configuration parameter passed by&nbsp;
+  </li>
+  <li>
+    Added: tid.protocols package that manages a protocol that is compatible with the environment of this simulation&nbsp;
+  </li>
+  <li>
+    Added: tid.inet.protocols.Protocol minimum interface that a class must implement in order to be considered an executable protocol for this simulation environment&nbsp;
+  </li>
+  <li>
+    Added: tid.inet.protocols.Util protocol helper functions&nbsp;
+  </li>
+  <li>
+    Added: tid.inet.protocols doConfigFactory, makes the configuration file of a protocol, private functions must be taken to concretize each of the protocols&nbsp;
+  </li>
+  <li>
+    Added: tid.inet.protocols GeneralParametersFactory. Sets general parameters of a protocol. It should concretize private functions each of the protocols&nbsp;
+  </li>
+  <li>
+    Added: tid.inet.protocols logsFactory, set the log of the various protocols. It should concretize private functions each of the protocols&nbsp;
+  </li>
+  <li>
+    Added: Fabrica tid.inet.protocols mapStringFactory the need for the substring hacerHay to have private functions concretize each of the protocols&nbsp;
+  </li>
+  <li>
+    Eliminated: The old structures are no longer used topology (not necessary) tid.inet.TopologyTable and TopologyTableNode
+  </li>
+</ul>
+<br>
+<div>
+  Se ha añadido documentación en formato javadoc
+</div>
+<br>
+<h2>
+  Version ?? (45)
+</h2>
+<h3>
+  Features:
+</h3>
+<div>
+  Add javadoc documentation
+</div>
+<h3>
+  Change log:&nbsp;
+</h3>
+<ul>
+  <li>
+    <font style=BACKGROUND-COLOR:#ffffff>Modified: Now the infonet.javasim.BGPSession # cluster_num variable has a default value of -1&nbsp;</font>
+  </li>
+  <li>
+    <font style=BACKGROUND-COLOR:#ffffff>Modified: Now in the configuration variable, the element that represents is a reflector if this with the key routes RR (formerly RRC)&nbsp;</font>
+  </li>
+  <li>
+    <font style=BACKGROUND-COLOR:#ffffff>Eliminated: Package tid.comp</font>
+  </li>
+</ul>
+<h2>
+  Version 46
+</h2>
+<h3>
+  Features:
+</h3>
+<ul>
+  <li>
+    Add basic support for the bgp_ct protocol
+  </li>
+</ul>
+<h3>
+  Change log:
+</h3>
+<ul>
+  <li>
+    Add: Package tid.inet.protocols.bgp_ct and BGPCTSession that implements interface Protocol
+  </li>
+  <li>
+    Add: Support to the bgp_ct protocol in factories classes
+  </li>
+</ul>
+<h2>
+  Version 47
+</h2>
+<h3>
+  Changelog:&nbsp;
+</h3>
+<ul>
+  <li>
+    Fix: Some errors in tcl file are reaparated
+  </li>
+  <li>
+    Fix: Now disable errors and debug are disabled correctly (tid.Enviroment)
+  </li>
+  <li>
+    Added: XML manual reference in doc folder
+  </li>
+</ul>
+<h2>
+  Version 48 (170)
+</h2>
+<h3>
+  Changelog:
+</h3>
+<ul>
+  <li>
+    fix: The route for the mp bgp now is correct (tid.inet.protocols.mapStringFactory)
+  </li>
+</ul>
+<h2>
+  Version 49&nbsp;
+</h2>
+<h3>
+  New:&nbsp;
+</h3>
+<br>
+<ul>
+  <li>
+    Policy support: Now read the policies of the XML file, the options for this field are available in xml_files_manual.html&nbsp;
+  </li>
+</ul>
+<h3>
+  Change log:&nbsp;
+</h3>
+<br>
+<ul>
+  <li>
+    Modified: Now the routes are not propagated by IGP.&nbsp;
+  </li>
+  <li>
+    Fixed: The routes are propagated correctly by the route reflectors.&nbsp;
+  </li>
+  <li>
+    Modified: Some variables are done publics to be visible in bgp mp&nbsp;
+  </li>
+  <li>
+    Modified: Now if the next hop of a route is not available, the route is written in table a temporal table (Change) and waits to be the next hop
+  </li>
+  <li>
+    Added: A timer that executes a code for each node a specific time. Class: BGPSession.eventsTimer. The first use of this class is to check if exist the next hop of a route
+  </li>
+  <li>
+    Fixed: Some variables are not properly checked if it was null (BGPSession)&nbsp;
+  </li>
+  <li>
+    Added: In global: List of policies. These are used by the BGPSession class
+  </li>
+  <li>
+    Fixed: ClusterList attribute was not implemented. Size of the elements is changed to 8 (size of Long) and sizeOfAElementOfAList returns this value
+  </li>
+  <li>
+    Fixed: In the attribute ClusterList now keeps lists of cluster, and recovers well.&nbsp;
+  </li>
+  <li>
+    Fixed: Added support in the comunity attribute values of the type XXX: YYY, such 1001:6300&nbsp;
+  </li>
+  <li>
+    Fixed: Attribute MED saved correctly (size problem in ToByte)
+  </li>
+  <li>
+    Fixed: Now the socket is correctly by typing the address Long value, before they did it to an integer value (and not always got the range)&nbsp;
+  </li>
+  <li>
+    Fixed: now, messages are sent to the socket with the info of peerConnection (before this value had the value null)&nbsp;
+  </li>
+  <li>
+    Added: Added the option of SET in the politics of community.&nbsp;
+  </li>
+  <li>
+    Modified: Now the RULE class has a pointer to the BGPSession class associated to write in the logs of these potential problems.&nbsp;
+  </li>
+  <li>
+    Fixed: Now that there doConfigFactory.factory provided in any protocol type and sends the relevant exception&nbsp;
+  </li>
+  <li>
+    Fixed: Ahroa correctly reads the default port if no such attribute&nbsp;
+  </li>
+  <li>
+    Modified: The default name of the trace bgp has changed. Now is "router ID" - "bgp 4" - "port". Avoiding so if there are two bgp session running with the same ip and port but in a different node
+  </li>
+  <li>
+    Modified: Now if a route reflector router is stored in the attribute not in the RR and&nbsp;
+  </li>
+</ul>
+<h2>
+  Version 50:
+</h2>
+<h3>
+  Change log:
+</h3>
+<ul>
+  <li>
+    fix: Now OriginatorID has the correct value (before it had address of router reflector)
+  </li>
+  <li>
+    fix: bgp_id of PeerEntry has the correct value (destination BGPSession id)
+  </li>
+  <li>
+    fix: Now routes are correctly reflected
+  </li>
+</ul>
+<br>
+<br>
+<h2>
+  <font face="arial, sans-serif">Version 51</font>
+</h2>
+<br>
+<h3>
+  <font face="arial, sans-serif"><font style=BACKGROUND-COLOR:#ffffff>Changes:</font></font>
+</h3>
+<ul>
+  <li>
+    Has slightly changed the format of the XML file, see the attached file to see the format
+  </li>
+  <li>
+    Full support for policies both in the XML file as the protocol bgp 4
+  </li>
+  <li>
+    Event Support
+  </li>
+  <li>
+    New functionality in the simulator. TrafficInspectionTool where will all the traffic inspection tools.At the moment there is only implemented the traceroute
+  </li>
+  <li>
+    Application has been added GraphicInterpreter. It does not work properly because it uses the old method of reading using Configuration files.
+  </li>
+  <li>
+    Interfaces can now go on all interfaces or be accessible only by a link. In the future may go by various links
+  </li>
+  <li>
+    Now the TCP layer must also be included in the topology, if not included, the protocols used can not be configured.
+  </li>
+</ul>
+<h3>
+  Changes to Functionality:
+</h3>
+<ul>
+  <li>
+    Now read the protocols xml elements directly eliminating the need for configuration files
+  </li>
+  <li>
+    Now there is an option if the protocols are implemented well. try to release as much memory and thus try to optimize your browser. Note to developer: booleanon this in tid.Enviroment.MEMORY_OPTIMIZATION
+  </li>
+  <li>
+    Now the simulation component creates a child node of type tid.inet.Iface kept giving information on the interfaces using a node.
+  </li>
+  <li>
+    You can now make DOWN and UP events. To create new events to be done to extend the tid.inet.events.Event and they also supported in tid.inet.events.EventBuilder events. It is necessary that the event name in the XML file is the same as the name of the class
+  </li>
+</ul>
+<h3>
+  Change log:
+</h3>
+<ul>
+  <li>
+    Added: (infonet.javasim.bgp4.BGPSession) were added and adapted the functions to read directly the XML
+  </li>
+  <li>
+    Added: (infonet.javasim.bgp4.BGPSession): Support for graphic interpreter topologies
+  </li>
+  <li>
+    Fixed: (infonet.javasim.bgp4.BGPSession, infonet.javasim.bgp4.PeerEntry): The med was not working properly
+  </li>
+  <li>
+    Fixed: (infonet.javasim.bgp4.BGPSession): The use of local preferences are now more loyal to the format used by Cisco
+  </li>
+  <li>
+    Fixed: (infonet.javasim.bgp4.BGPSession): The global autoreconectado has been disabled because the program to fail a lot times
+  </li>
+  <li>
+    Fixed: (infonet.javasim.bgp4.BGPSession): no entry policies were implemented at the right time. Fixed generally support these
+  </li>
+  <li>
+    Added: (infonet.javasim.bgp4.PeerEntry): Now you have a function that tells you if the destination is accessible
+  </li>
+  <li>
+    Modified: (infoent.javasim.policy .*): There have been changes in the functions of access policies. It has not changed the policy implementation process.
+  </li>
+  <li>
+    Added: (tid.inet.Iface) class to store information of the interfaces
+  </li>
+  <li>
+    Added: (tid.inet.protocol.TrafficInspectionTool) all classes needed to run the trace route.
+  </li>
+  <li>
+    Modified (tid.inet.protocol .*): Cleaned up various factories to create the simulation commenting references to the old method through Configuration variables.
+  </li>
+  <li>
+    Added: (tid.inet.Util) support for the resumption of the protocols that implement interface tid.inet.protocols.Protocol
+  </li>
+</ul>
+<h3>
+  Change log in the simulator
+</h3>
+<ul>
+  <li>
+    Fixed: (drcl.inet.core.PktDispacher) had a bug in the process of movement of the package, which sometimes did not arrive at their destination when using virtual interfaces. It has been fixed and now it seems to work
+  </li>
+  <li>
+    Fixed: (drcl.inet.InetUtil): The id traceroute protocol has been everywhere to trace_rt, formerly in some places was as trace-rt correctly
+  </li>
+  <li>
+    Modified: Now the core network interface (or CoreServideLayer CSL) has a new feature that gives you all the addresses of a node
+  </li>
+  <li>
+    Modified (drcl.inet.Node): We have added three new features in the node to facilitate access to data: getAllAddress () gives you all the addresses of a node, isConnectedTo (long) tells if connected to another node and nodesConnected () that gives all nodes connected to it.
+  </li>
+</ul>
+Note: &nbsp;not all changes have been recorded because it takes so long without updating it is practically impossible<br>
+<h2>
+  Version 52:
+</h2>
+<h3>
+  Changes
+</h3>
+<ul>
+  <li>
+    Support for multiple links per interface. If none is specified is published for all
+  </li>
+</ul>
+<h3>
+  Change log:
+</h3>
+<ul>
+  <li>
+    Fixed: now added wrong directions when using interfaces
+  </li>
+  <li>
+    Modified: Now the interfaces (both physical and virutal future) inherit tid.inet.NetworkInterface and this in turn component so that it can handle all interfaces in an abstract way
+  </li>
+  <li>
+    Modified: tif.inet.Iface was renamed tid.inet.PhysicalNetworkInterfaz
+  </li>
+</ul>
+<h2>
+  Version 53:
+</h2>
+<h3>
+  Changes:
+</h3>
+<ul>
+  <li>
+    Support of virtual interfaces. The format can not be definitive. The tunnel is created between two nodes with virtual addresses, which are added to the routing table, and physical. It checks the integrity of virtual paths.
+  </li>
+</ul>
+<h3>
+  Changelog:
+</h3>
+<ul>
+  <li>
+    Fixed some places where PhysicalNetworkInterface indicated by NetworkInterface
+  </li>
+  <li>
+    Added (tid.inet.InetUtil): Now the choice of ports for interfaces is done using the "findFreeInterface", this feature only works if there is no number of unoccupied intermediate interfaces (MAX (interfaces) &lt;number of interfaces)
+  </li>
+  <li>
+    Modified (tid.inet.VirtualNetworkInterface) now stores all the information needed to create the tunnel
+  </li>
+</ul>
+<h3>
+  Extra:
+</h3>
+<ul>
+  <li>
+    Example of a configuration with dual interface "2vi over vi.tcl"
+  </li>
+</ul>
+<h2>
+  Version 54:
+</h2>
+<h3>
+  Changes:&nbsp;
+</h3>
+<ul>
+  <li>
+    The virtual interfaces has changed. Now there are two types, virtual static point to point and virtual multipoint
+  </li>
+</ul>
+<h3>
+  <b>Changelog:</b>
+</h3>
+<ul>
+  <li>
+    Changed: XML file has changed. Now there is not interfaceVirutal tag, there are virutal tags with type attribute. it's take the values: physisal, virtual static point to point and virtual multipoint.
+  </li>
+  <li>
+    Changed: tid.inet.VirtualStaticInterface to &nbsp;tid.inet.VirtualStatic2P2Interfacechanged&nbsp;
+  </li>
+  <li>
+    Changed: (tid.inet.InetUtil) Now, the new interfaces is supported
+  </li>
+  <li>
+    Added: virutal interface multipoint class (tid.inet.VirtualMultipointInterface)
+  </li>
+  <li>
+    added: (tid.inet.NetworkInterface) Constants with the id of the interfaces.
+  </li>
+</ul>
+<h2>
+  Version 55:
+</h2>
+<ul>
+  <li>
+    First version with GP_BGP support. There are some problems if the sincronization of bgp 4 is not in the same time. The pipe building is dynamic but in the xml file must be the virtual address and the host address
+  </li>
+</ul>
+<h3>
+  <font size=3>Changelog:&nbsp;</font>
+</h3>
+<ul>
+  <li>
+    Fix: (infonet.javasim.bgp4.AdjRIBIn) the elimination of the AdjRIBIn is done with the address of a object. Now it's done with destiny and next hop.
+  </li>
+  <li>
+    Changed: (infonet.javasim.bgp4.BGPSession): The funcition connect now is calling startConnection. connect function now encapsulate the process of connection between two nodes
+  </li>
+  <li>
+    Changed: file logs of bgp 4 and gp bgp now use the format: BGP 4=nodo-bgp_4-puerto.* GP_BGP= nodo-gp_bgp-puerto.*
+  </li>
+  <li>
+    Added: (tid.inet.InetUtil) functions to create dynamics pipes.
+  </li>
+  <li>
+    Fix: Factories to support of new protocol to avoid overlapping attributes.&nbsp;
+  </li>
+</ul>
+<br>
+<br>
+<h2>
+  Version 56:
+</h2>
+<h3>
+  <font face="arial, sans-serif">Changes:</font>
+</h3>
+<ul>
+  <li>
+    <font face="arial, sans-serif"><font style=BACKGROUND-COLOR:#ffffff>Now try to reconnect the protocols that they do with all those who have as their peer and not have to pass the parameter</font></font>
+  </li>
+</ul>
+<h3>
+  <font face="arial, sans-serif"><font style=BACKGROUND-COLOR:#ffffff>Changelog:</font></font>
+</h3>
+<ul>
+  <li>
+    <font face="arial, sans-serif"><font style=BACKGROUND-COLOR:#ffffff>Changed: (infonet.javasim.bgp4.BGPSession) restart now try to connect to all neighbors</font></font>
+  </li>
+  <li>
+    <font face="arial, sans-serif"><font style=BACKGROUND-COLOR:#ffffff>Fixed: (infonet.javasim.bgp4.BGPSession): the name of the log now uses port</font></font>
+  </li>
+  <li>
+    <font face="arial, sans-serif"><font style=BACKGROUND-COLOR:#ffffff>Fixed: (tid.protocols.gp_bgp.GP_BGPSession): logs are now correctly gp_bgp parameters and not with the bgp 4</font></font>
+  </li>
+  <li>
+    <font face="arial, sans-serif"><font style=BACKGROUND-COLOR:#ffffff>Changed: (tid.protocols.Protocol): Changed the interface slightly to force restart the connection protocols no matter who has to redo the connection.</font></font>
+  </li>
+  <li>
+    <font face="arial, sans-serif"><font style=BACKGROUND-COLOR:#ffffff>Fixed: (tid.protocols.trafficInspectionTool) now work correctly logs</font></font>
+  </li>
+  <li>
+    <font face="arial, sans-serif"><font style=BACKGROUND-COLOR:#ffffff>Changed: (tid.protocols.Util) has been adapted for the new resumption of operation of the protocols</font></font>
+  </li>
+</ul>
+<br>
+<h2>
+  Version 57:&nbsp;
+</h2>
+<h3>
+  Changes:
+</h3>
+<ul>
+  <li>
+    The protocols are not relaunched when the event UP is launched.
+  </li>
+  <li>
+    Global Reconnect of BGP 4 work correctly
+  </li>
+  <li>
+    There is a new scrip. This is baseScript and it requests to the event file and topology file.
+  </li>
+</ul>
+<h3>
+  Change log:
+</h3>
+<ul>
+  <li>
+    Changed: (drcl.inet.core.PktDispatcher) the Dispatcher or the packets has always a Dispatcher of the virtual packets
+  </li>
+  <li>
+    Changed: (infonet.javasim.bgp4.BGPSession) to work correctly global reconexion of BGP, now if the finite state machine change from connect to active, if this option is active, try to connect again. that's because when route exist in the table route but was down in a intermediate router (and the announced of the route has not been recieved yet), the connection was not done, and it was not try reconnect.
+  </li>
+</ul>
+<br>
+<br></body>
+</html>

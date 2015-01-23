@@ -1,0 +1,31 @@
+\chapter{Apendice: Uso del simulador}
+
+\section{Ejecución del simulador}
+
+Para ejecutar el simulador, basta con ejecutar el archivo ejecutable.
+
+Si se desea ejecutar desde el código, la clase principal donde se encuentra la
+consola del simulador es \cod{drcl.ruv.System}. 
+
+Opcionalmente existe una clase que te permite generar ficheros base para crear
+simulaciones. Esta clase se encuentra en \cod{tid.util.XMLGenerator}
+
+\section{Ejecución de simulaciones}
+
+Una vez arrancado el simulador se pueden cargar las simulaciones de los
+ficheros XML. Para hacerlo es necesario lanzar un script \ac{TCL}. El script
+\cod{baseScript.tcl} te solicita los ficheros de topología y eventos. 
+
+\section{Estructura de los ficheros XML\labelSec{estructuraXML}}
+
+La simulación consta de dos ficheros XML que almacenan lo necesario para la
+simulación. El fichero de la topología almacena la
+configuración de la red, los nodos y los protocolos usados. El fichero de
+eventos almacena la duración de la simulación y que ocurre durante la misma.
+
+El formato de los ficheros XML se pueden consultar en la web
+
+\begin{itemize}
+ \item Topología: http://www.xp-dev.com/wiki/79623/TopologyXML
+ \item Eventos: http://www.xp-dev.com/wiki/79623/EventsXML
+\end{itemize}

@@ -1,0 +1,115 @@
+\chapter{Introducción}
+
+\section{Qué es \ac{BGP}}
+
+\acl{BGP} es un protocolo de encaminamiento externo entre \acfp{AS}. Se utiliza
+para el intercambio de información de encaminamiento entre sistemas \ac{BGP}.
+Ésta incluye información de accesibilidad a las redes de los diferentes
+\aclp{AS}, así como la forma de llegar hasta ellos.
+
+Dicha información es suficiente para construir un grafo de conectividad en
+cuanto a esta accesibilidad, pudiendo podar bucles de encaminamiento y aplicar
+ciertas políticas de decisión a nivel de \ac{AS}.
+
+\ac{BGP} es el protocolo de encaminamiento más extendido entre los principales
+proveedores de Internet para intercambiar sus redes y así tener acceso a los
+contenidos que ofrecen y sus clientes. 
+
+\section{La red \ac{BGP}}
+
+\newFig{redBGP}{Ejemplo de una topología \ac{BGP}}
+
+La red o topología \ac{BGP} está compuesta por nodos o encaminadores que
+se agrupan en \acp{AS} como muestra la \refFig{redBGP}. Los nodos se
+conectan entre sí con sesiones \ac{BGP}. 
+
+Cuando la sesiones se mantienen entre nodos de distintos \acp{AS} se denomina
+\ac{EBGP} y los nodos reciben el nombre de nodos frontera. Cuando es entre
+nodos de un mismo \ac{AS} se denomina \ac{IBGP}. Las sesiones \ac{IBGP} pueden
+existir entre todos los componentes del \ac{AS} según muestra la
+\refFig{rediBGP_NO_RR} o, si existe un nodo con características de \ac{RR},
+únicamente entre éste y el resto de los nodos del \ac{AS} según muestra la
+\refFig{rediBGP_RR}.
+
+% \begin{figure}[!ht]
+%   \centering
+%   \subfigure[Topología sin \acl{RR}]{
+%     \includegraphics[width=0.4\textwidth]{Imagenes/Vectorial/rediBGP}
+%     \label{fig:rediBGP_NO_RR}
+%   }
+%   \subfigure[Topología usando \acl{RR}]{
+%     \includegraphics[width=0.4\textwidth]{Imagenes/Vectorial/rediBGP_RR}
+%     \label{fig:rediBGP_RR}
+%   }
+%   \label{fig:rediBGP}
+%   \caption[Red \ac{IBGP}]{Topologías de redes dentro de un \acl{AS}}
+% \end{figure}
+
+\begin{figure}[!ht]
+  \centering
+  \subfloat[Topología \acs{IBGP} sin \acl{RR}][Topología \acs{IBGP} sin
+\acl{RR}]{ 
+    \includegraphics[width=0.4\textwidth]{Imagenes/Fuentes/rediBGP}
+    \label{fig:rediBGP_NO_RR}
+  }
+  \subfloat[Topología \acs{IBGP} con \acl{RR}][Topología \acs{IBGP} con
+\acl{RR}]{ 
+    \includegraphics[width=0.4\textwidth]{Imagenes/Fuentes/rediBGP_RR}
+    \label{fig:rediBGP_RR}
+  }
+  \caption[Tipos de topologías \acs{IBGP}]{Tipos de topologías \acs{IBGP}}
+  \label{fig:rediBGP}
+\end{figure}
+
+\section{Requisitos para el estudio de \ac{BGP}}
+
+Para poder estudiar \ac{BGP} en profundidad es necesario entender y conocer
+el protocolo, disponer del código fuente. 
+
+\ac{BGP} es también, un protocolo usado en redes de gran tamaño como Internet.
+Poder analizar redes de estas características es otro requisitos que necesitamos
+para estudiar \ac{BGP}. 
+
+Una aspecto interesante para poder realizar el estudio, es que la forma en
+que se manejan los datos de configuración y resultados de simulación sean
+sencillos de entender y crear. 
+
+\section{Alternativas para el estudio de \ac{BGP}}
+
+Para realizar un estudio de \ac{BGP} existen varias alternativas:
+
+\begin{itemize}
+ \item La base de datos de \ac{RIPE}\cite{RIPE} contiene detalles de registro
+de direcciones IP y números \ac{AS}. Muestra la organización que mantienen los
+recursos, cuando fueron hechas las asignaciones, datos de las redes e
+información de encaminamiento. La información de encaminamiento puede ser
+utilizada para el estudio de intercambio de rutas \ac{BGP}.
+ \item Los sistemas de emulación copian todo el funcionamiento de un nodo
+  concreto. Se suele necesitar el \angl{firmware} del nodo que se desea 
+emular. Una emulación suele ser en tiempo real y son fieles a lo que el nodo
+emulado haría en la realidad, lo que proporciona datos muy fiables, similares
+a los reales. Sin embargo tienen grandes problemas de escalabilidad, debido
+  a la gran cantidad de recursos que consumen, y generalmente, al no tener
+  acceso al código original del  protocolo, es difícil detectar problemas
+  internos del protocolo emulado. Tampoco pueden utilizarse para la
+  implementación de nuevos protocolos basados en los antiguos debido a la
+  rigidez del sistema.
+ \item Los sistemas de simulación implementan las especificaciones teóricas de
+los elementos simulados. El realismo de los resultados obtenidos es menor y
+dependen de
+una correcta implementación del protocolo para obtener resultado fiables. No se
+busca detectar errores de implementación de protocolos en sistemas
+reales, sino comportamientos teóricos de elementos de red en topologías
+concretas. Otro de los usos de las herramientas de simulación es el estudio de
+nuevos protocolos y el posible impacto que pueda tener éste en la red. Los
+recursos necesarios para simular un entorno son mucho menores que los necesarios
+para emular el mismo entorno, por lo que pueden simular redes de mayores.
+Como consecuencia, los simuladores tienen mayor escalabilidad. Otra
+características interesante de los simuladores es la gran cantidad de recursos
+disponibles en la red.
+\end{itemize}
+
+Entre las alternativas el simulador es lo que mejor se amolda a los requisitos 
+necesarios. El simulador que utilizaremos será el \ac{JSIM}. Es un programa  
+de código abierto y dispone de una implementación incompleta de \ac{BGP}.
+

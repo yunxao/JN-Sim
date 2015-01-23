@@ -1,0 +1,54 @@
+\chapter{Conclusión}
+
+\section{Simulador}
+
+El protocolo \ac{BGP} es uno de los pilares que hace que Internet funcione
+correctamente. Su red abarca gran cantidad de nodos que comparten su
+información con el resto de nodos de la red.
+
+Sin embargo, pese a estar muy extendido, existen pocas herramientas que
+permitan estudiar el protocolo y las alternativas que existen son software
+propietario o son poco escalables.
+
+Uno de los objetivos del proyecto ha consistido en crear un entorno de
+simulación completo, escalable y de fácil uso para \ac{BGP}. Se ha integrando
+el lenguaje de marcas XML que permite usar herramientas para crear y
+automatizar la creación de topologías. 
+
+También se ha creado un sistema de trazas que facilitan el análisis del
+protocolo después de la simulación.
+
+El simulador se ha hecho más modular, lo que facilita la implementación
+de nuevos protocolos, para su validación, y herramientas para el simulador. La
+simulación de estos se benefician del uso del XML al igual que \ac{BGP}.
+
+El resultado ha sido un simulador fácil de usar y escalable. No se sacrifica la
+potencia del simulador y se mantiene la integración con el lenguaje de script
+\ac{TCL} lo que permite crear simulaciones más complejas. Gracias a la
+modularización del simulacor se pueden implementar nuevos protocolos y
+herramientas que usen las nuevas características y se beneficien de la potencia
+del mismo.
+
+\section{Estudio \ac{BGP}}
+
+La segunda parte ha consistido en, una vez desarrolladas las herramientas
+necesarias para el estudio de \ac{BGP}, utilizarlas para comprender mejor el
+protocolo. 
+
+Con los conocimientos adquiridos en el proyecto, el estudio se ha centrado
+en el proceso de decisión, que es el punto crítico de \ac{BGP} y donde se 
+registran la mayor cantidad de problemas.
+
+Se ha observado que los principales puntos conflictivos del proceso de decisión
+son el uso de políticas y atributos para calcular los pesos de las rutas de cara
+a su publicación a los nodos vecinos. 
+
+El uso de estas característica causa efectos no deseable son la aparición de
+oscilaciones y \angl{wedgies}. Estos fenómenos difíciles de prever en redes
+complejas. 
+
+Cuando redes de gran tamaño, como Internet, sufren oscilaciones y
+\angl{wedgies}, los problemas que éstas acarrean pueden derivar en pérdidas
+económicas en empresas del sector de la telecomunicación. 
+
+

@@ -1,0 +1,41 @@
+\frametitle {Atributos}
+  \codigo{src}, \codigo{href}, \codigo{alt}, \codigo{action}, \codigo{method}.
+  \begin{itemize}
+  \item Modifican el comportamiento de la marca.
+  \item El valor siempre debe ir entre comillas simples \texttt{'} o
+    comillas dobles \texttt{"}.
+  \item {\red Obsoleto:} \codigo{<body bgcolor="#cba">}.
+    Todo lo relativo a visualización: colores, tipos de letras,
+    posicionamiento, {se debe dejar en hojas de estilo separadas.}
+    \begin{lstlisting}
+<div id="izquierda" class="lateral">
+  <a class="noCSS" href="#contenido">saltar menú de navegación</a>
+  <p>Enlaces:</p>
+    <ul>
+        <li><a href="http://www.ucm.es">Universidad Complutense de
+Madrid</a></li>
+<li><a href="http://antares.sip.ucm.es/~luis">Página de Luis</a></li>
+<li><a href="http://www.w3.org">Página del W3C</a></li>
+      </ul>
+</div>
+    \end{lstlisting}
+  \end{itemize}
+  \newpage
+
+  Atributos \emph{interactivos}: \texttt{onclick},
+  \texttt{onmousedown}, \texttt{onmouseup},
+  \texttt{onmouseover}, \texttt{onmouseout},
+  \texttt{onkeypress}, \texttt{onkeydown}, ....
+
+  Invocan un \texttt{script} cuando algo ocurre. Esnecesario poner una
+  alternativa funcional en HTML.
+
+  Posibles problemas de accesiblidad:
+  \begin{itemize}
+  \item El formulario no se envía si no es a través del script; las
+    comprobaciones se deben hacer también en el servidor en caso de
+    que el usuario no tenga habilitado JavaScript.
+  \item Las páginas tiene información que sólo es accesible con
+    JavaScript, p.e., menús desplegables.
+  \end{itemize}
+  \emph{Siempre se pueden acceder las páginas accesibles.}

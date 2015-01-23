@@ -1,0 +1,55 @@
+%---------------------------------------------------------------------
+%
+%                      resumen.tex
+%
+%---------------------------------------------------------------------
+%
+% Contiene el capítulo del resumen.
+%
+% Se crea como un capítulo sin numeración.
+%
+%---------------------------------------------------------------------
+ 
+\chapter{Resumen}
+\cabeceraEspecial{Resumen}
+
+El \ac{BGP}\cite{rfc4271} es un protocolo de encaminamiento entre sistemas
+autónomos. 
+
+La función principal del sistema se comunica con \ac{BGP} es el intercambio de
+información de accesibilidad de la red con otros sistemas \ac{BGP}. Esta
+información de accesibilidad incluye información sobre la lista de Sistemas
+Autónomos que la información ha atravesado. Esta información es suficiente para
+construir el grafo que de acceso a la red, podar bucles de encaminamiento y
+aplicar políticas en el proceso de decisión a nivel de sistema autónomo. 
+
+\ac{BGP} es el protocolo de apoyo del proceso de decisión de encaminamiento de
+Internet y, como la mayoría de los proveedores de servicios de Internet deben
+utilizar \ac{BGP} para establecer rutas entre unos y otros, es uno de los
+protocolos más importantes de Internet.
+
+Actualmente el estudio de \ac{BGP} está muy limitado debido a que las
+herramientas que existen para analizar el protocolo son escasas y tienen
+problemas de escalabilidad, no están completamente implementadas o no permiten
+profundizar más en el comportamiento interno del protocolo debido a que son de
+software propietario.
+
+Los objetivos de este proyecto son:
+
+\begin{itemize}
+ \item Investigar y mejorar las herramientas disponibles para el estudio de
+\ac{BGP}.
+ \item Estudiar \ac{BGP} con las herramientas investigadas.
+%  \item Crear y verificar herramientas de protocolos nuevos
+\end{itemize}
+~\vfill
+{\bf Palabras Claves:} \parbox[t]{.75\textwidth}{\keywords, \keywordsEs}
+
+\endinput
+% Variable local para emacs, para  que encuentre el fichero maestro de
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Tesis.tex"
+%%% End:

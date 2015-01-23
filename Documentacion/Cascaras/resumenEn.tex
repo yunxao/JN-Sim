@@ -1,0 +1,54 @@
+%---------------------------------------------------------------------
+%
+%                      resumen.tex
+%
+%---------------------------------------------------------------------
+%
+% Contiene el capítulo del resumen.
+%
+% Se crea como un capítulo sin numeración.
+%
+%---------------------------------------------------------------------
+
+
+\chapter{Abstract}
+\cabeceraEspecial{Abstract}
+
+The Border Gateway Protocol (BGP-4)\cite{rfc4271} is an inter-Autonomous System
+routing protocol.
+
+The primary function of a \ac{BGP} speaking system is to exchange network   
+reachability information with other \ac{BGP} systems.  This network reachability
+information includes information on the list of Autonomous Systems that
+reachability information traverses. This information is sufficient for
+constructing a graph of AS connectivity for this reachability, from which
+routing loops may be pruned and, at the AS level, some policy decisions may
+be enforced.
+
+\acs{BGP} is the protocol backing the core routing decisions on the Internet
+and, since most Internet service providers must use \ac{BGP} to establish
+routing between one another, it is one of the most important protocols of the
+Internet.
+
+Nowadays, the study of \ac{BGP} is very limited because the tools available to
+analyze the protocol are limited and have scalability issues, are not fully
+implemented or do not allow to go in depth into the internal behavior of the
+protocol because they are proprietary software.
+
+The objectives of this project are:
+\begin{itemize}
+ \item Research and improve the tools available for studying \ac{BGP}.
+ \item Study the \ac{BGP} protocol with the researched tools.
+\end{itemize}
+
+~\vfill
+{\bf Keywords:} \parbox[t]{.75\textwidth}{\keywords, \keywordsEn}
+
+\endinput
+% Variable local para emacs, para  que encuentre el fichero maestro de
+% compilación y funcionen mejor algunas teclas rápidas de AucTeX
+%%%
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../Tesis.tex"
+%%% End:

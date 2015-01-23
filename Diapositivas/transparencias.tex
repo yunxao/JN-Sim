@@ -1,0 +1,474 @@
+% Copyright (c)  2005  Luis Fernando Llana Díaz
+% Se otorga permiso para copiar, distribuir y/o modificar este documento
+% bajo los términos de la Licencia de Documentación Libre GNU, Versión 1.2 
+% o cualquier otra versión posterior publicada por la Free Software Foundation;
+% sin partes invariantes, sin portadas ni contraportadas
+% Una copia de la licencia es incluida en el fichero "LICENSE.txt"
+
+% Permission is granted to copy, distribute and/or modify this document
+% under the terms of the GNU Free Documentation License, Version 1.2
+% or any later version published by the Free Software Foundation;
+% with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+% A copy of the license is included in the file "LICENSE.txt"
+% $Id: transparencias.tex,v 1.3 2008-10-08 20:56:41 luis Exp $
+
+\title{Redes Border Gateway Protocol (BGP-4)}
+\subtitle{Estudio y Simulación}
+
+\maketitle
+
+\begin{frame}
+\frametitle{Índice}
+\tableofcontents
+\end{frame}
+
+\section{Introducción a BGP-4}
+\begin{frame}
+\frametitle{Introducción a BGP-4}
+\tableofcontents[currentsection]
+\end{frame}
+\subsection{Qué es BGP-4} 
+\begin{frame}
+  \frametitle{Border Gateway Protocol (BGP-4)}
+  \begin{itemize}
+   \item BGP-4 es un Protocolo de encaminamiento externo.
+   \item Comparte información de encaminamiento entre conjuntos de encaminadores denominados 
+   sistemas autónomos.
+   \item Se complementa con protocolos de encaminamiento interno como OSPF y RIP. 
+  \end{itemize}
+\end{frame}
+
+\subsection{Estructura de BGP-4} 
+\begin{frame}[allowframebreaks]
+  \frametitle{Estructura de BGP-4}
+  \begin{itemize}
+   \item BGP-4 se organiza en sistemas autónomos. 
+   \item La comunicación en BGP-4 se realiza únicamente entre pares de encaminadores.
+   \item Las sesiones BGP entre encaminadores pueden ser:
+   \begin{itemize}
+    \item \textbf{Internas}: los encaminadores pertenecen al mismo sistema autónomo.
+    \item \textbf{Externas}: los encaminadores no pertenecen al mismo sistema autónomo.
+   \end{itemize}
+   \item La información compartida contiene rutas de encaminamiento y un conjunto atributos que
+   determina si la ruta es utilizada y publicada.
+  \end{itemize}
+  \begin{figure}
+   \centering
+   \includegraphics[width=.80\hsize]{Imagenes/redBGP}
+   \caption{Ejemplo de topología BGP-4}
+  \end{figure}
+
+\end{frame}
+
+\subsection{Importancia de BGP-4}
+\begin{frame}
+  \frametitle{Importancia de BGP-4}
+  \begin{itemize}
+   \item Optimiza el intercambio de información en redes de gran tamaño.
+   \item Es usado por la mayoría de los proveedores de Internet para publicar sus contenidos.
+   \item Es el responsable de garantizar a los usuarios de Internet el acceso a gran parte de los
+   contenidos 
+  \end{itemize}
+
+\end{frame}
+
+\section{Herramientas para su estudio}
+\begin{frame}
+\frametitle{Herramientas para su estudio}
+\tableofcontents[currentsection]
+\end{frame}
+\subsection{Estudio de BGP-4}
+\begin{frame}
+  \frametitle{Estudio de BGP-4}
+  \begin{itemize}
+   \item BGP-4 es un protocolo fundamental para el correcto funcionamiento de Internet.
+   \item Analizar la respuesta del protocolo en redes de poco tamaño es sencillo.
+   \item Predecir el comportamiento de grandes redes como Internet es prácticamente imposible.
+   \item Herramientas existentes para estudiar BGP-4 son: 
+   \begin{itemize}
+    \item \textbf{Registros Regionales de Internet}: Organizaciones como Réseaux IP Européens (RIPE)
+    registran todo el tráfico de BGP-4 de su zona.
+    \item \textbf{Simulación}: Imita el comportamiento de una red mediante implementaciones
+    teóricas de los elementos que componen la misma.
+    \item \textbf{Emulación}: Realiza una simulación imitando cada uno de los elementos de una red.
+   \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Simulación frente a Emulación}
+  \begin{itemize}
+   \item \textbf{Emulación}:
+     \begin{itemize}
+      \item Imita los elementos de la red.
+      \item Resultados muy fieles a lo que ocurriría en la realidad.
+      \item Sistemas poco flexibles. 
+      \item Necesita muchos recursos.
+     \end{itemize}
+   \item \textbf{Simulación}:
+     \begin{itemize}
+      \item Usa implementaciones de los elementos de la red.
+      \item Sistemas muy flexibles.
+      \item Dependiendo del simulador utilizado, el sistema puede ser muy escalable.
+      \item Consume menos recursos que una emulación.
+      \item Resultados menos fieles que los obtenidos en una emulación.
+     \end{itemize}
+   \item Existen herramientas que utilizan elementos simulados y emulados. 
+  \end{itemize}
+\end{frame}
+
+
+\subsection{J-Sim}
+
+\begin{frame}
+\frametitle{J-Sim}
+  \begin{itemize} 
+   \item Está implementado en Java e integra el lenguaje de script TCL para sus simulaciones.
+   \item Se basa en una arquitectura de capas y componentes anidados.
+   \item El programa está licenciado bajo BSD. 
+   \item Existe una implementación BGP-4 pero está incompleta.
+   \item Proyecto está abandonado.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Arquitectura del simulador}
+  \begin{figure}
+   \centering
+   \includegraphics[width=.80\hsize]{Imagenes/arqCapas}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Desarrollo sobre el simulador}
+  \begin{itemize}
+   \item Labores de mantenimiento del software.
+   \item Soporte de interfaces virtuales.
+   \item Capacidad de realizar simulaciones a partir de ficheros XML sin necesidad de usar
+   scripts TCL.
+   \item Implementación de una utilidad que permite conocer el camino que sigue un paquete hasta
+   llegar a su destino (\texttt{traceroute}).
+   \item Implementación de la especificación de un nuevo protocolo GP-BGP como soporte para el
+   proyecto 4Ward.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Simular BGP-4 en J-Sim}
+  \begin{itemize}
+   \item Existe una adaptación de la implementación realizada por SSFNet realizada por Infonet de
+   la Universidad de Illinois.
+   \item Contiene fallos en la implementación.
+   \item Carece las características avanzadas de BGP-4.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Desarrollo sobre BGP-4}
+  \begin{itemize}
+   \item Labores de mantenimiento de la implementación del protocolo.
+   \item Implementación de características avanzadas del protocolo: uso de reflexión de rutas,
+   configuración de atributos y aplicación de políticas.
+   \item Implementación de características experimentales: Soporte multipath y proceso de selección
+   selectivo.
+   \item Adaptación del protocolo a las simulaciones desde ficheros XML.
+  \end{itemize}
+\end{frame}
+
+
+
+\section{Estudio del protocolo}
+\begin{frame}
+\tableofcontents[currentsection]
+\end{frame}
+\subsection{Proceso de decisión}
+\begin{frame}[allowframebreaks]
+  \frametitle{Proceso de decisión}
+  \begin{itemize}
+    \item Es el encargado de decidir si la ruta que contiene la información recibida es implantada
+    en la tabla de rutas y publicada a encaminadores vecinos.
+    \item Es el punto crítico del protocolo y donde se producen mayores problemas.
+  \end{itemize}
+  Funcionamiento:  
+  \begin{itemize}
+    \item La decisión se toma basándose los atributos que contiene la información recibida y puede
+    ser modificada con políticas que el encaminador posee.
+    \item Los atributos que definen el peso de esta decisión son: Local Preference, AS PATH, MED,
+    Originator y Tie Breaking.
+  \end{itemize}
+  
+  \begin{figure}
+   \centering
+   \includegraphics[width=.60\hsize]{Imagenes/grafoCostes1}
+   \caption{Ejemplo de topología BGP}
+  \end{figure}
+   
+  \begin{figure}
+   \centering
+    \includegraphics[height=.60\vsize]{Imagenes/grafoCostes2}
+   \caption{Ejemplo de grafo de costes}
+  \end{figure}
+
+\end{frame}
+
+\subsection{Oscilaciones}
+\begin{frame}[allowframebreaks]
+\frametitle{Oscilaciones}
+  \begin{itemize}
+    \item Se producen cuando un sistema cambia entre varios estados intermitentemente. 
+    \item El sistema puede alcanzar un estado final estable o no alcanzarlo nunca.
+    \item Es consecuencia de tener un grafo de costes no creciente.
+    \item El efecto de las oscilaciones no se limita sólo a los nodos que oscilan, los nodos
+    vecinos también se ven afectados.
+    \item Cuando el sistema se estabiliza tiene varios estados finales posibles, es decir, 
+    no converge.
+  \end{itemize}
+
+ \begin{columns}[c]
+    \begin{column}{.5\textwidth}
+    Configuración inicial: 
+      \begin{itemize}
+       \item El atributo Local Preference indica que los nodos B y C prefieren las rutas anunciadas
+	entre ellos que la anunciadas anunciadas desde A.
+      \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{figure}
+	\centering
+	\includegraphics[width=1\hsize]{Imagenes/ciclar1}
+	\caption{Configuración que oscila}
+      \end{figure}
+    \end{column}
+  \end{columns}
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      Estado inicial:
+      \begin{itemize}
+       \item Las comunicación entre los nodos B y C está cortada.
+       \item El nodo A publica sus rutas.
+	\item Los nodos B y C acceden a la red a través del nodo A.
+      \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{figure}
+	\centering
+	\includegraphics[width=1\hsize]{Imagenes/ciclar2}
+	\caption{Estado inicial}
+      \end{figure}
+    \end{column}
+  \end{columns}
+
+ \begin{columns}
+    \begin{column}{.5\textwidth}
+      Comienza la comunicación: 
+      \begin{itemize}
+	\item Los nodos B y C anuncian su ruta a la red.
+      \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{figure}
+	\centering
+	\includegraphics[width=1\hsize]{Imagenes/ciclar3}
+	\caption{Anuncio de rutas}
+      \end{figure}
+    \end{column}
+  \end{columns}
+   \begin{columns}
+    \begin{column}{.5\textwidth}
+    Llegada de los anuncios a sus destinos: 
+      \begin{itemize}
+	\item Los anuncios son procesados por los nodos B y C.
+	\item Las nuevas rutas son preferidas y se sustituye en la tabla de rutas la información
+	antigua.
+      \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{figure}
+	\centering
+	\includegraphics[width=1\hsize]{Imagenes/ciclar4}
+	\caption{Sustitución de las antiguas rutas por la nueva información}
+      \end{figure}
+    \end{column}
+  \end{columns}
+   \newpage
+ 
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      Se comunica a los nodos vecinos las rutas que no son utilizadas:
+       \begin{itemize}
+	\item Se generan anuncios de retirada de ruta, en los nodos B y C a sus vecinos.
+      \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{figure}
+	\centering
+	\includegraphics[width=1\hsize]{Imagenes/ciclar5}
+	\caption{Envío de anuncios de retirada}
+      \end{figure}
+    \end{column}
+  \end{columns}
+
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+    Vuelta al estado inicial:
+      \begin{itemize}
+	\item Se restaura las rutas a través del nodo A.
+	\item BGP-4 vuelve al estado inicial.
+      \end{itemize}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{figure}
+	\centering
+	\includegraphics[width=1\hsize]{Imagenes/ciclar6}
+	\caption{Se restaura la ruta por el Nodo A en la tabla de rutas}
+      \end{figure}
+    \end{column}
+  \end{columns}
+
+   \begin{itemize}
+      \item Se alcanza un estado final cuando uno de los nodos tiene la información de las dos
+      rutas y el otro no.
+      \item Uno de los dos nodos decide la ruta a través de su compañero y no realizará su
+      anuncio.
+   \end{itemize}
+  
+  \begin{columns}
+    \begin{column}{.5\textwidth}
+      \begin{figure}
+	\centering
+	\includegraphics[width=1\hsize]{Imagenes/ciclar7}
+	\caption{Estado final 1}
+      \end{figure}
+    \end{column}
+    \begin{column}{.5\textwidth}
+      \begin{figure}
+	\centering
+	\includegraphics[width=1\hsize]{Imagenes/ciclar8}
+	\caption{Estado final 2}
+      \end{figure}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{BGP Wedgies}
+\begin{frame}[allowframebreaks]
+  \frametitle{BGP Wedgies}
+  \begin{itemize}
+   \item BGP-4 debería ser una herramienta determinista para compartir rutas.
+   \item Ciertos escenarios, sin embargo, poseen más de un posible estado final y pueden ser
+   alcanzados de manera no determinista. Estos estados son denominados BGP Wedgies.
+   \item Fueron detectadas por primera vez por T. Griffin (BGP Wedgies. RFC 4264).
+   \item Es consecuencia de tener un grafo de costes no creciente.
+  \end{itemize}
+  \begin{columns}
+   \begin{column}{.5\textwidth}
+       \begin{itemize}
+	\item Los atributos de los nodos Router1\_3, Router3\_1 y Router3\_4 producen un grafo de
+	costes no creciente.
+	\item El As-1001 Prefiere las rutas anunciadas por el As-32080.
+	\item El As-32080 Tiene un enlace de seguridad para mantener el acceso a las redes.
+       \end{itemize}
+   \end{column}
+   \begin{column}{.5\textwidth}
+      \begin{figure}
+	\centering
+	\includegraphics[width=1\hsize]{Imagenes/wedgie1}
+	\caption{Configuración que sufre BGP wedgies}
+      \end{figure}
+   \end{column}
+  \end{columns}
+  \begin{columns}
+   \begin{column}{.5\textwidth}
+       \begin{itemize}
+	\item Se utiliza el enlace principal para acceder a los contenidos
+	\item No se produce tráfico de datos por el enlace de seguridad.
+       \end{itemize}
+   \end{column}
+   \begin{column}{.5\textwidth}
+      \begin{figure}
+	\centering
+	\includegraphics[width=1\hsize]{Imagenes/wedgie2}
+	\caption{Estado inicial}
+      \end{figure}
+   \end{column}
+  \end{columns}
+  \begin{columns}
+   \begin{column}{.5\textwidth}
+       \begin{itemize}
+	\item Tras una caída del enlace principal el tráfico es redirigido por el enlace de
+	seguridad.
+       \end{itemize}
+   \end{column}
+   \begin{column}{.5\textwidth}
+      \begin{figure}
+	\centering
+	\includegraphics[width=1\hsize]{Imagenes/wedgie3}
+	\caption{Caída del enlace principal}
+      \end{figure}
+   \end{column}
+  \end{columns}
+  \begin{columns}
+   \begin{column}{.5\textwidth}
+       \begin{itemize}
+	\item Si se recupera la conexión, solo el As-6303 restablece el tráfico por el enlace
+	principal.
+	\item El As-1001 descarta la ruta porque tienen preferencia las rutas que son anunciadas por
+	el As-32080.
+       \end{itemize}
+   \end{column}
+   \begin{column}{.5\textwidth}
+      \begin{figure}
+	\centering
+	\includegraphics[width=1\hsize]{Imagenes/wedgie4}
+	\caption{Recuperación del enlace principal}
+      \end{figure}
+   \end{column}
+  \end{columns}
+  \begin{columns}
+   \begin{column}{.5\textwidth}
+       \begin{itemize}
+	\item El As-32080 corta la conexión con el enlace de seguridad eliminando los anuncios de
+	que utilizan ese camino.
+       \end{itemize}
+   \end{column}
+   \begin{column}{.5\textwidth}
+      \begin{figure}
+	\centering
+	\includegraphics[width=1\hsize]{Imagenes/wedgie5}
+	\caption{Caída del enlace de seguridad}
+      \end{figure}
+   \end{column}
+  \end{columns}
+ 
+\end{frame}
+
+\section{Conclusión}
+\begin{frame}
+\tableofcontents[currentsection]
+\end{frame}
+
+
+\subsection{Simulador J-Sim} 
+\begin{frame}
+\begin{itemize}
+ \item Se ha integrado el lenguaje de marcas XML al simulador J-Sim que permite usar herramientas
+para crear y automatizar simulaciones. 
+ \item El simulador mantiene la potencia y la integración con el lenguaje de script TCL.
+ \item Se ha completado la implementación de BGP-4.
+ \item Se ha integrado el protocolo en J-Sim, obteniendo un entorno de simulación completo,
+escalable y de fácil uso. 
+\end{itemize}
+\end{frame}
+
+\subsection{Estudio de BGP-4}
+\begin{frame}
+\begin{itemize}
+ \item El uso de políticas y atributos causa que el grafo de costes del proceso de decisión no sea
+ creciente.
+ \item La consecuencia de esto se traduce en efectos negativos como oscilaciones y wedgies que
+ producen un mal funcionamiento en el protocolo.
+
+\end{itemize}
+\end{frame}
+
+

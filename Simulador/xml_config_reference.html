@@ -1,0 +1,890 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<base target="_top">
+<style type="text/css">
+  
+
+/* default css */
+
+table {
+  font-size: 1em;
+  line-height: inherit;
+  border-collapse: collapse;
+}
+
+
+tr {
+  
+  text-align: left;
+  
+}
+
+
+div, address, ol, ul, li, option, select {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+p {
+  margin: 0px;
+}
+
+
+pre {
+  font-family: Courier New;
+  white-space: pre-wrap;
+  margin:0;
+}
+
+body {
+  margin: 6px;
+  padding: 0px;
+  font-family: Verdana, sans-serif;
+  font-size: 10pt;
+  background-color: #ffffff;
+  color: #000;
+}
+
+
+img {
+  -moz-force-broken-image-icon: 1;
+}
+
+@media screen {
+  html.pageview {
+    background-color: #f3f3f3 !important;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+
+  
+
+  body {
+    min-height: 1100px;
+    
+    counter-reset: __goog_page__;
+  }
+  
+  * html body {
+    height: 1100px;
+  }
+  /* Prevent repaint errors when scrolling in Safari. This "Star-7" css hack
+     targets Safari 3.1, but not WebKit nightlies and presumably Safari 4.
+     That's OK because this bug is fixed in WebKit nightlies/Safari 4 :-). */
+  html*#wys_frame::before {
+    content: '\A0';
+    position: fixed;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    top: 0;
+    left: 0;
+  }
+  
+  .pageview body {
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 2px solid #bbb;
+    border-bottom: 2px solid #bbb;
+    width: 648px !important;
+    margin: 15px auto 25px;
+    padding: 40px 50px;
+  }
+  /* IE6 */
+  * html {
+    overflow-y: scroll;
+  }
+  * html.pageview body {
+    overflow-x: auto;
+  }
+  
+
+  
+    
+    
+    .writely-callout-data {
+      display: inline-block;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      margin-left: -1px;
+    }
+    
+
+    .writely-footnote-marker {
+      background-image: url('MISSING');
+      background-color: transparent;
+      background-repeat: no-repeat;
+      width: 7px;
+      overflow: hidden;
+      height: 16px;
+      vertical-align: top;
+
+      
+      -moz-user-select: none;
+    }
+    .editor .writely-footnote-marker {
+      cursor: move;
+    }
+    .writely-footnote-marker-highlight {
+      background-position: -15px 0;
+      -moz-user-select: text;
+    }
+    .writely-footnote-hide-selection ::-moz-selection, .writely-footnote-hide-selection::-moz-selection {
+      background: transparent;
+    }
+    .writely-footnote-hide-selection ::selection, .writely-footnote-hide-selection::selection {
+      background: transparent;
+    }
+    .writely-footnote-hide-selection {
+      cursor: move;
+    }
+
+    /* Comments */
+    .writely-comment-yellow {
+      background-color: #ffffd7;
+    }
+    .writely-comment-orange {
+      background-color: #ffe3c0;
+    }
+    .writely-comment-pink {
+      background-color: #ffd7ff;
+    }
+    .writely-comment-green {
+      background-color: #d7ffd7;
+    }
+    .writely-comment-blue {
+      background-color: #d7ffff;
+    }
+    .writely-comment-purple {
+      background-color: #eed7ff;
+    }
+
+  
+
+
+  
+  .br_fix span+br:not(:-moz-last-node) {
+    
+    position:relative;
+    
+    left: -1ex
+    
+  }
+
+  
+  #cb-p-tgt {
+    font-size: 8pt;
+    padding: .4em;
+    background-color: #ddd;
+    color: #333;
+  }
+  #cb-p-tgt-can {
+    text-decoration: underline;
+    color: #36c;
+    font-weight: bold;
+    margin-left: 2em;
+  }
+  #cb-p-tgt .spin {
+    width: 16px;
+    height: 16px;
+    background: url(//ssl.gstatic.com/docs/clipboard/spin_16o.gif) no-repeat;
+  }
+}
+
+h6 { font-size: 8pt }
+h5 { font-size: 8pt }
+h4 { font-size: 10pt }
+h3 { font-size: 12pt }
+h2 { font-size: 14pt }
+h1 { font-size: 18pt }
+
+blockquote {padding: 10px; border: 1px #DDD dashed }
+
+.webkit-indent-blockquote { border: none; }
+
+a img {border: 0}
+
+.pb {
+  border-width: 0;
+  page-break-after: always;
+  /* We don't want this to be resizeable, so enforce a width and height
+     using !important */
+  height: 1px !important;
+  width: 100% !important;
+}
+
+.editor .pb {
+  border-top: 1px dashed #C0C0C0;
+  border-bottom: 1px dashed #C0C0C0;
+}
+
+div.google_header, div.google_footer {
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+/* Table of contents */
+.editor div.writely-toc {
+  background-color: #f3f3f3;
+  border: 1px solid #ccc;
+}
+.writely-toc > ol {
+  padding-left: 3em;
+  font-weight: bold;
+}
+ol.writely-toc-subheading {
+  padding-left: 1em;
+  font-weight: normal;
+}
+/* IE6 only */
+* html writely-toc ol {
+  list-style-position: inside;
+}
+.writely-toc-none {
+  list-style-type: none;
+}
+.writely-toc-decimal {
+  list-style-type: decimal;
+}
+.writely-toc-upper-alpha {
+  list-style-type: upper-alpha;
+}
+.writely-toc-lower-alpha {
+  list-style-type: lower-alpha;
+}
+.writely-toc-upper-roman {
+  list-style-type: upper-roman;
+}
+.writely-toc-lower-roman {
+  list-style-type: lower-roman;
+}
+.writely-toc-disc {
+  list-style-type: disc;
+}
+
+/* Ordered lists converted to numbered lists can preserve ordered types, and
+   vice versa. This is confusing, so disallow it */
+ul[type="i"], ul[type="I"], ul[type="1"], ul[type="a"], ul[type="A"] {
+  list-style-type: disc;
+}
+
+ol[type="disc"], ol[type="circle"], ol[type="square"] {
+  list-style-type: decimal;
+}
+
+/* end default css */
+
+
+  /* default print css */
+  @media print {
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    div.google_header, div.google_footer {
+      display: block;
+      min-height: 0;
+      border: none;
+    }
+
+    div.google_header {
+      flow: static(header);
+    }
+
+    /* used to insert page numbers */
+    div.google_header::before, div.google_footer::before {
+      position: absolute;
+      top: 0;
+    }
+
+    div.google_footer {
+      flow: static(footer);
+    }
+
+    /* always consider this element at the start of the doc */
+    div#google_footer {
+      flow: static(footer, start);
+    }
+
+    span.google_pagenumber {
+      content: counter(page);
+    }
+
+    span.google_pagecount {
+      content: counter(pages);
+    }
+
+    .endnotes {
+      page: endnote;
+    }
+
+    /* MLA specifies that endnotes title should be 1" margin from the top of the page. */
+    @page endnote {
+      margin-top: 1in;
+    }
+
+    callout.google_footnote {
+      
+      display: prince-footnote;
+      footnote-style-position: inside;
+      /* These styles keep the footnote from taking on the style of the text
+         surrounding the footnote marker. They can be overridden in the
+         document CSS. */
+      color: #000;
+      font-family: Verdana;
+      font-size: 10.0pt;
+      font-weight: normal;
+    }
+
+    /* Table of contents */
+    #WritelyTableOfContents a::after {
+      content: leader('.') target-counter(attr(href), page);
+    }
+
+    #WritelyTableOfContents a {
+      text-decoration: none;
+      color: black;
+    }
+
+    /* Comments */
+    .writely-comment-yellow {
+      background-color: #ffffd7;
+    }
+    .writely-comment-orange {
+      background-color: #ffe3c0;
+    }
+    .writely-comment-pink {
+      background-color: #ffd7ff;
+    }
+    .writely-comment-green {
+      background-color: #d7ffd7;
+    }
+    .writely-comment-blue {
+      background-color: #d7ffff;
+    }
+    .writely-comment-purple {
+      background-color: #eed7ff;
+    }
+  }
+
+  @page {
+    @top {
+      content: flow(header);
+    }
+    @bottom {
+      content: flow(footer);
+    }
+    @footnotes {
+      border-top: solid black thin;
+      padding-top: 8pt;
+    }
+  }
+  /* end default print css */
+
+
+/* custom css */
+
+
+/* end custom css */
+
+/* ui edited css */
+
+body {
+  font-family: Verdana;
+  
+  font-size: 10.0pt;
+  line-height: normal;
+  background-color: #ffffff;
+}
+/* end ui edited css */
+
+
+/* editor CSS */
+.editor a:visited {color: #551A8B}
+.editor table.zeroBorder {border: 1px dotted gray}
+.editor table.zeroBorder td {border: 1px dotted gray}
+.editor table.zeroBorder th {border: 1px dotted gray}
+
+
+.editor div.google_header, .editor div.google_footer {
+  border: 2px #DDDDDD dashed;
+  position: static;
+  width: 100%;
+  min-height: 2em;
+}
+
+.editor .misspell {background-color: yellow}
+
+.editor .writely-comment {
+  font-size: 9pt;
+  line-height: 1.4;
+  padding: 1px;
+  border: 1px dashed #C0C0C0
+}
+
+
+/* end editor CSS */
+
+</style>
+
+  
+  <title>XML marcados los cambios</title>
+
+</head>
+
+<body 
+    
+    >
+    
+    
+    
+<div>
+  <b>XML marcados los cambios</b>
+</div>
+<div>
+  en rojo los cambios que ha habido, además todo lo referido a políticas, aunque ya estaba en la versión anterior, no lo generaba, creo que realmente no necesita el crearlo pero así tiene como es el XML
+</div>
+<div>
+  en azul esta lo referente a lo que es del protocolo bgp 4
+</div>
+<br>
+<div>
+  <b>topology&nbsp;</b>(unique - optional):&nbsp;
+</div>
+<ul>
+  <li>
+    nodesPerLink (optional): number maximum of nodes per link (2 by default)
+  </li>
+</ul>
+<div>
+  <b>debug</b>&nbsp;(unique, optional)
+</div>
+<ul>
+  <li>
+    debugFlag(optional): Enable/disable debug message&nbsp;
+  </li>
+  <li>
+    errorFlag(optional): Enable/disable error message
+  </li>
+  <li>
+    trace_dir(optional): directory for the ouput log files&nbsp;
+  </li>
+</ul>
+<div>
+  <b>protocol&nbsp;</b>(list): general or by default parameter for the protocol&nbsp;
+</div>
+<ul>
+  <li>
+    type: rupported types: "bgp 4" "TrafficInspectionTool", "tcp_full"&nbsp;
+  </li>
+</ul>
+<div>
+  &nbsp;&nbsp; &nbsp;----------bgp 4----------
+</div>
+<ul>
+  <li>
+    <b><font color=#0000ff>parameters</font></b><font color=#0000ff>(unique):&nbsp;</font>
+  </li>
+  <ul>
+    <li>
+      <font color=#0000ff>rtlog(optional): enable/disable route table log (optional)</font>
+    </li>
+    <li>
+      <font color=#0000ff>dbglog(optional): enable/disable debug log</font>
+    </li>
+    <li>
+      <font color=#0000ff>tracelog(optional): enable/diable message log</font>
+    </li>
+    <li>
+      <font color=#0000ff>fsmlog(optional): enable/diable finite state machine log</font>
+    </li>
+    <li>
+      <font color=#0000ff>tie_breaking(optional): defalut tie braking value or not</font>
+    </li>
+    <li>
+      <font color=#0000ff>default_local_pref(optional): value for the attribute</font>
+    </li>
+    <li>
+      <font color=#0000ff>med(optional): always_compare_med to compare always the med attribute&nbsp;</font>
+    </li>
+    <li>
+      <font color=#0000ff>routes_compare_level(optional): level of this parameter (Level 5 by default)</font>
+    </li>
+    <li>
+      <font color=#0000ff>default_port(optional): 179 by default&nbsp;</font>
+    </li>
+  </ul>
+  <li>
+    <b><font color=#0000ff>policyList&nbsp;</font></b><font color=#0000ff>(unique - optional)</font>
+  </li>
+  <ul>
+    <li>
+      <font color=#0000ff><b>policy</b></font>
+    </li>
+    <ul>
+      <li>
+        <font color=#0000ff>permit (optional, true/false. true by default): permit or deny a announced</font>
+      </li>
+      <li>
+        <font color=#0000ff>id : id to reference the policy</font>
+      </li>
+      <li>
+        <b><font color=#0000ff>clause&nbsp;</font></b><font color=#0000ff>(list): if all of them is unsatisfied, the route is denied. If one of this is satisfied, the following clauses aren't checked</font>
+      </li>
+      <ul>
+        <li>
+          <font color=#0000ff>id (optional) : id to refenrece this clause</font>
+        </li>
+        <li>
+          <b><font color=#0000ff>predicate</font></b><font color=#0000ff>&nbsp;(unique - optional): condition to satisfied the clause. If this doesn't exist, clause is satisfied</font>
+        </li>
+        <ul>
+          <li>
+            <b><font color=#0000ff>atomicPredicate&nbsp;</font></b><font color=#0000ff>(list-optional): a condition to satisfied predicate. If this doen't exist, predicate is satisfied.&nbsp;</font>
+          </li>
+          <ul>
+            <li>
+              <font color=#0000ff>id (optional): id to reference the atomic predicate.</font>
+            </li>
+            <li>
+              <font color=#0000ff>attribute: attribute to compare. Attributes supported: "nlri", "origin", "as_path", "next_hop", "med", "local_pref", "community", "originator_id", "cluster_list"</font>
+            </li>
+            <li>
+              <font color=#0000ff>match_string: value of the attribute</font>
+            </li>
+          </ul>
+        </ul>
+        <li>
+          <b><font color=#0000ff>action&nbsp;</font></b><font color=#0000ff>(unique - optional). Actions to do with the route. If this doesn't exist, the route is permited</font>
+        </li>
+        <ul>
+          <li>
+            <font color=#0000ff>permit (optional true by default): true/false, if true permit the route and execute the atomic actions. If false not permit the route and the atomic actions aren't executed</font>
+          </li>
+          <li>
+            <b><font color=#0000ff>atomicAction&nbsp;</font></b><font color=#0000ff>(list - optional): a action to execute</font>
+          </li>
+          <ul>
+            <li>
+              <font color=#0000ff>id (optional): id to reference the atomic action.</font>
+            </li>
+            <li>
+              <font color=#0000ff>attribute: Attribute to execute action. Attributes supported: "as_path", "med", "local_pref", "community",&nbsp;</font>
+            </li>
+            <li>
+              <font color=#0000ff>action: ("set", "prepend", "append", "strip"). Action with the attribute</font>
+            </li>
+            <li>
+              <font color=#0000ff>values: values to actions. Values are separated with spaces.&nbsp;</font>
+            </li>
+          </ul>
+        </ul>
+      </ul>
+    </ul>
+  </ul>
+</ul>
+<br>
+<div>
+  &nbsp;&nbsp; &nbsp;--------/bgp 4-------------
+</div>
+&nbsp;<font color=#FF0000>&nbsp; &nbsp;---------TIT---------------<br>
+</font>
+<ul>
+  <li>
+    <font color=#FF0000>type: "trafficInspectionTool"</font>
+  </li>
+  <li>
+    <b><font color=#FF0000>parameters (unique)</font></b>
+  </li>
+  <ul>
+    <li>
+      <b><font color=#FF0000>consoleEnable: enable/disable</font></b>
+    </li>
+  </ul>
+</ul>
+<div>
+  <font color=#FF0000>&nbsp;&nbsp; &nbsp;--------/TIT---------------</font>
+</div>
+<div>
+  <b>components</b>(unique)
+</div>
+<ul>
+  <li>
+    <b>router</b>&nbsp;(list)
+  </li>
+  <ul>
+    <li>
+      <b>topology</b>&nbsp;(unique)
+    </li>
+    <ul>
+      <li>
+        <b>link</b>&nbsp;(list)
+      </li>
+      <ul>
+        <li>
+          id: id of the link
+        </li>
+      </ul>
+    </ul>
+    <li>
+      <b><font color=#FF0000>interface</font></b><font color=#FF0000>&nbsp;(list)</font>
+    </li>
+  </ul>
+  <ul>
+    <ul>
+      <li>
+        <font color=#FF0000>name: name of interface</font>
+      </li>
+      <li>
+        <font color=#FF0000>address: address of the interface</font>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <font color=#FF0000>type: "physical", "virtual static point to point" and "virtual multipoint"</font>
+      </li>
+      <li>
+        <i><font color=#FF0000>type: physical</font></i>
+      </li>
+      <li>
+        <b><font color=#FF0000>link</font></b><font color=#FF0000>&nbsp;list of the links that is used by the interface</font>
+      </li>
+      <ul>
+        <li>
+          <font color=#FF0000>id</font>
+        </li>
+      </ul>
+      <li>
+        <i><font color=#FF0000>end of type physical</font></i>
+      </li>
+      <li>
+        <i><font color=#FF0000>type virtual static point to point</font></i>
+      </li>
+      <li>
+        <font color=#FF0000>baseInterface= the interfaces is used by this virtual interface</font>
+      </li>
+      <li>
+        <font color=#FF0000>remoteHost=the address of the node with which will be create the virtual interface</font>
+      </li>
+      <li>
+        <font color=#FF0000>remoteAddress =virtual address of the node with which will be create the virtual interface/&gt;</font>
+      </li>
+      <li>
+        <i><font color=#FF0000>end of type virtual static point to point</font></i>
+      </li>
+      <li>
+        <i><font color=#FF0000>type: virtual multipoint</font></i><br>
+      </li>
+      <li>
+        <font color=#FF0000>baseInterface= the interfaces is used by this virtual interface</font>
+      </li>
+      <li>
+        <i><font color=#FF0000>end of type virtual multipoint</font><br>
+        </i>
+      </li>
+      <br>
+    </ul>
+    <li>
+      virtualInterface(list)
+    </li>
+    <ul>
+      <li>
+        name: the name of the interfaces i.e: "vi"&nbsp;
+      </li>
+      <li>
+        address= the address of interface i.e: "192.168.1.2"&nbsp;
+      </li>
+      <li>
+        baseInterface= the interfaces is used by this virtual interface
+      </li>
+      <li>
+        remoteHost=the address of the node with which will be create the virtual interface
+      </li>
+      <li>
+        remoteAddress =virtual address of the node with which will be create the virtual interface/&gt;
+      </li>
+    </ul>
+    <li>
+      <b>session</b>&nbsp;(list, optional) The order is relevant when a protocol uses another protocol.&nbsp;
+    </li>
+    <ul>
+      <li>
+        type: rupported types: "bgp 4" "TrafficInspectionTool", "tcp_full"&nbsp;
+      </li>
+    </ul>
+  </ul>
+</ul>
+<div>
+  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;----------bgp4-----------
+</div>
+<ul>
+  <ul>
+    <ul>
+      <li>
+        <b><font color=#0000FF>parameters</font></b><font color=#0000FF>(unique): for bgp 4 (bgp uses tcp_full)</font>
+      </li>
+      <ul>
+        <li>
+          <font color=#0000FF>as:</font>
+        </li>
+        <li>
+          <font color=#0000FF>port(optional):</font>
+        </li>
+        <li>
+          <font color=#0000FF>interface: interface used by protocol</font>
+        </li>
+        <li>
+          <font color=#0000FF>log_file_name(optional): name of output file&nbsp;</font>
+        </li>
+        <li>
+          <font color=#0000FF>tie_breaking(optional): defalut tie braking value or not (dafault/random)</font>
+        </li>
+        <li>
+          <font color=#0000FF>default_local_pref(optional): value for the attribute (Antes se llamaba local_pref)</font>
+        </li>
+        <li>
+          <font color=#0000FF>med_type(optional): always_compare_med to compare always the med attribute&nbsp;</font>
+        </li>
+        <li>
+          <font color=#0000FF>routes_compare_level(optional): level of this parameter</font>
+        </li>
+        <li>
+          <font color=#0000FF>kai(optional) keep alive interval.&nbsp;</font>
+        </li>
+        <li>
+          <b><font color=#0000FF>inPolicy</font></b><font color=#0000FF>: inbound policy</font>
+        </li>
+        <ul>
+          <li>
+            <font color=#0000FF>id: id of the policy</font>
+          </li>
+        </ul>
+        <li>
+          <b><font color=#0000FF>outPolicy</font></b>
+        </li>
+        <ul>
+          <li>
+            <font color=#0000FF>id: id of the policynext se</font>
+          </li>
+        </ul>
+        <li>
+          <b><font color=#0000FF>network</font></b><font color=#0000FF>&nbsp;(list):&nbsp;</font>
+        </li>
+        <ul>
+          <li>
+            <font color=#0000FF>address</font>
+          </li>
+        </ul>
+        <li>
+          <b><font color=#0000FF>neighbour</font></b><font color=#0000FF>&nbsp;(list):</font>
+        </li>
+        <ul>
+          <li>
+            <font color=#0000FF>med(optional): value for this attribute</font>
+          </li>
+          <li>
+            <font color=#0000FF>IP</font>
+          </li>
+          <li>
+            <font color=#0000FF>remote-as</font>
+          </li>
+          <li>
+            <font color=#0000FF>rrc (yes/no)</font>
+          </li>
+          <li>
+            <font color=#0000FF>local_pref(optional): Antes estaba en mayusculas (LOCAL_PREF)</font>
+          </li>
+          <li>
+            <b><font color=#0000FF>inPolicy</font></b><font color=#0000FF>&nbsp;(list): policy input</font>
+          </li>
+          <ul>
+            <li>
+              <font color=#0000FF>id: policy reference</font>
+            </li>
+          </ul>
+          <li>
+            <b><font color=#0000FF>outPolicy</font></b><font color=#0000FF>&nbsp;(list): policy input<br>
+            </font>
+          </li>
+          <ul>
+            <li>
+              <font color=#0000FF>id: policy reference</font><br>
+            </li>
+          </ul>
+        </ul>
+      </ul>
+    </ul>
+  </ul>
+</ul>
+<div>
+  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;--------------/bgp4--------
+</div>
+<div>
+  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;-------------TIT------------<br>
+</div>
+<ul>
+  <ul>
+    <ul>
+      <li>
+        <b><font color=#38761D>parameters </font></b><font color=#38761D>(unique)</font>
+      </li>
+      <ul>
+        <li>
+          <font color=#38761D>interface</font>
+        </li>
+        <li>
+          <font color=#38761D>peridicity</font>
+        </li>
+        <li>
+          <font color=#38761D>id (optional) = tit by default</font>
+        </li>
+        <li>
+          <font color=#38761D>interface: &nbsp;name of the interface used.&nbsp;</font>
+        </li>
+        <li>
+          <font color=#38761D>fileDebug (optional): disable if it has not value</font>
+        </li>
+        <li>
+          <font color=#38761D>consoleEnable (opt): enable by default</font>
+        </li>
+      </ul>
+      <li>
+        <b><font color=#38761D>traceRoute</font></b>
+      </li>
+      <ul>
+        <li>
+          <font color=#38761D>destiny: destiny of trace Route</font>
+        </li>
+        <li>
+          <font color=#38761D>consoleEnable (optional): take value of the protocol if it's not defined</font>
+        </li>
+        <li>
+          <font color=#38761D>fileDebug (optional): take value of the protocol if it's not defined</font>
+        </li>
+        <li>
+          <font color=#38761D>periodicity (optional): take value of the protocol if it's not defined</font>
+        </li>
+      </ul>
+    </ul>
+  </ul>
+</ul>
+<div>
+  &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;-------------/TIT------------<br>
+</div>
+<br>
+<br>
+<br>
+<br></body>
+</html>

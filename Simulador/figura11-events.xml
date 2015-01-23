@@ -1,0 +1,32 @@
+<!--
+SIMULATION (unique): 
+	- time: Simulate duration.
+	ENVENT (list) Events must be sorted by time!!!
+		-type: type of the event. Values DOWN and UP
+		-time: moment of the event
+		-message(optional): message for the event
+-->
+<JSimConfig >
+<events>
+	<event type="DOWN" id="Caida linea secundaria" message="Tirando la linea secundaria">
+		<component id="Router180_2Router3_4"/>
+	</event>
+	<event type="UP" id="Subida linea secundaria" message="Reanudando la linea secundaria">
+		<component id="Router180_2Router3_4"/>
+	</event>
+	<event type="DOWN" id="Caida linea principal" message="Tirando la linea principal">
+		<component id="Router1_3Router3_1"/>
+	</event>
+	<event type="UP" id="Subida linea principal" message="Reanudando la linea principal">
+		<component id="Router1_3Router3_1"/>
+	</event>
+</events>
+<simulation time="7000">
+<!-- 	<execute id="Caida linea secundaria" time="1000"/>
+	<execute id="Subida linea secundaria" time="2000"/>
+	<execute id="Caida linea principal" time="3000"/>
+	<execute id="Subida linea principal" time="4000"/>
+	<execute id="Caida linea secundaria" time="5000"/>
+	<execute id="Subida linea secundaria" time="6000"/> -->
+</simulation>
+</JSimConfig>

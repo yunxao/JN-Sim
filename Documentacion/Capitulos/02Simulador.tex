@@ -1,0 +1,345 @@
+\chapter{\acl{JSIM}}
+
+\acf{JSIM}\cite{JSIM} es un simulador basado en arquitectura de componentes. Se
+ha construido en base al modelo de componentes de programación autónoma. Al
+igual que el COM / COM +, JavaBeansTM, o CORBA, la entidad básica de \ac{JSIM}
+es el componente, pero a diferencia de otros paquetes de software basados en
+componentes y normas, los componentes de \ac{JSIM} son autónomos y representan
+circuitos integrados de software, \refSec{arqComponentes}.
+
+\ac{JSIM} está implementado en Java y proporciona una interfaz de secuencia de
+comandos que permite integrarse con el lenguaje de script \ac{TCL},
+\refSec{arqTcl}
+
+Para modelar las simulaciones de redes, \ac{JSIM} define un paquete de
+conmutación generalizada del modelo de redes, como una capa superior de la
+\ac{ACA}. Este modelo define la estructura jerárquica de los nodos y componentes
+genéricos de red, según la estructura en capas de J-Sim.
+
+\section{Arquitectura de \ac{JSIM}}
+
+La arquitectura de \ac{JSIM} sigue el modelo de capas de la \refFig{arqCapas}. 
+
+\newFigSize{arqCapas}{Arquitectura a capas de \ac{JSIM}}{1}
+
+\begin{enumerate}
+ \item La capa \acs{ACA} contiene los elementos
+Componente\footnote{\cod{drcl.comp.Component}} y
+Puerto\footnote{\cod{drcl.comp.Port}} de la \acl{ACA}
+ \item La capa NET contiene primitivas de simulación de red y herramientas tales
+  como Paquete\footnote{\cod{drcl.net.Packet}},
+Módulo\footnote{\cod{drcl.net.Module}},
+Dirección\footnote{\cod{drcl.net.Address}}, modelos de tráfico como
+CBR\footnote{\cod{drcl.net.traffic}} y monitores de controlar el
+tráfico\footnote{\cod{drcl.net.tool.TrafficMonitor}} y el generador de trazas
+NAM\footnote{\cod{drcl.net.tool.NamTrace}}.
+ \item La capa de INET contiene los componentes INET. En concreto, se definen 
+ \begin{itemize}
+  \item Los componentes básicos; red\footnote{\cod{drcl.inet.Net}},
+nodo\footnote{\cod{drcl.inet.Node}} y enlace\footnote{\cod{drcl.inet.Link}};
+para la construcción de redes jerárquicas en el simulador.
+  \item El componente protocolo\footnote{\cod{drcl.inet.Protocol}} que sirve
+como clase base para implementar módulos de protocolo.
+  \item La capa de servicios del
+núcleo\footnote{\cod{drcl.inet.CoreServideLayer}} y los componentes que la
+constituyen dicha capa.
+ \end{itemize}
+ \item Las arquitecturas especificas derivadas de la capa INET. 
+ \item Protocolos de módulos y/o algoritmos específicos de una arquitectura de
+  red se aplican en la parte superior de esa capa de arquitectura. 
+\end{enumerate}
+
+\subsection{\acl{ACA}\labelSec{arqComponentes}}
+
+La \acf{ACA} imita la arquitectura de componentes diseño de circuitos
+integrados. El comportamiento de estos componentes pueden ser implementado y
+probado forma individual y, posteriormente desplegados en un sistema. 
+
+Los elementos del paquete \cod{drcl.comp}, se encargan de la gestión de la
+arquitectura de componentes, la comunicación, control de tiempo de simulación,
+etc.
+
+\subsubsection*{Componente y Puerto}
+
+\newFigSize{arqComponenteNodoPuerto}{Arquitectura de componentes. Componentes
+y Puertos}{0.80}
+
+En la \ac{ACA} de \ac{JSIM} la entidad básica es el
+componente\footnote{\cod{drcl.comp.Component}}. Estos componentes poseen uno o
+más puertos\footnote{\cod{drcl.comp.Port}}. Los puertos pueden ser conectados
+entre si para que puedan comunicarse de tal manera que cada vez que llegan datos
+a través de uno de estos puertos, éstos son tratados en un nuevo contexto de
+ejecución o hilo y pueden generar a su vez salidas en otros puertos del
+componente. La \refFig{arqComponenteNodoPuerto} muestra un ejemplo de este tipo
+de arquitectura.
+
+\newFigSize{arqComponenteComposicion}{Arquitectura de componentes.
+Composición de componentes}{0.80}
+
+
+Los componentes soportan la composición de tal manera que un componente
+puede contener varios componentes como muestra la
+\refFig{arqComponenteComposicion}. 
+
+Por otro lado, se definen como componentes hermanos aquellos que pertenecen al
+mismo componente denominado componente padre y estos son componentes hijos de
+él. La comunicación entre componentes se da entre hermanos o entre padre e hijo.
+Un componente y todos sus hijos son tratados como una unidad por el resto de
+componentes del mismo sistema.
+
+\subsection{\acs{TCL} y su entorno gráfico \acs{TCL}/\acs{TK}\labelSec{arqTcl}}
+
+\ac{JSIM} está implementado en Java y no necesita ningún lenguaje de script
+para ejecutarse . Sin embargo puede  utiliza \acf{TCL}, para unificar los
+componentes del sistema. El entorno gráfico consiste en un terminal donde pueden
+ejecutar comandos y cargar Scripts de este lenguaje, y ver los resultados de los
+mismos como muestra la \refFig{arqTerminalTcl}. 
+
+\newFig{arqTerminalTcl}{Terminal \acs{TCL}/\acs{TK}}
+
+Además existe un sistema que hace referencia a la jerarquía de componentes
+y puertos. Ésta es muy similar al sistema de archivos de UNIX y se usa la misma
+notación representando los componentes y sus puertos como rutas, de la misma
+manera que se representan los archivos y directorios en UNIX.
+
+\subsection{Arquitectura de las mejoras\labelSec{arqMejoras}}
+
+La arquitectura de los cambios y mejoras ha seguido el mismo modelo que la
+arquitectura del simulador. Estos cambios por otro lado se han hecho en
+paquetes diferentes para conservar integro el programa original, por si sufre
+actualizaciones. Los paquetes son los siguientes:
+
+\begin{itemize}
+ \item \cod{tid.inet.InetUtil} Rutinas de automatización para la configuración
+de topologías en \ac{TCL}. \refSec{desarrolloInetUtil}
+ \item \cod{Infonet.javasim.bgp4} Desarrollo del protocolo \ac{BGP} para el
+simulador. \refSec{desarrolloBGP}
+ \item \cod{tid.inet} Sistema de abstracción de \ac{TCL} de la configuración
+de topologías. \refSec{desarrolloTopologias}
+ \item \cod{tid.inet.protocols} Protocolos y herramientas creadas para el
+simulador. \refSec{desarrolloExtraProtocolos}
+ \item \cod{tid.events} Sistema de abstracción de \ac{TCL} de los eventos de
+red. \refSec{desarrolloTopologias}
+\end{itemize}
+
+\section{Desarrollo}
+
+\subsection{Rutinas de automatización para la configuración de topologías en
+\acs{TCL}\labelSec{desarrolloInetUtil}}
+
+La clase InetUtil original\footnote{\cod{drcl.inet.InetUtil}} contiene métodos
+para la automatización que pueden ser utilizados por \ac{TCL}. 
+Se ha añadido mas funcionalidad en la clase homónima que se encuentra en el
+paquete \cod{tid.inet}. Estas funcionalidades se usan principalmente
+en la \refSec{desarrolloTopologias}.
+
+Estas rutinas representan operaciones básicas de red, gestionan interfaces
+virtuales, el comportamiento en caídas de elementos del sistema etc. 
+
+\subsection{Desarrollo del protocolo \ac{BGP}\labelSec{desarrolloBGP}}
+
+Partiendo del paquete original desarrollado por el grupo
+Infonet\cite{JSIMCONTRIBUTIONS} de la Universidad de Louvain-la-Neuve para dar
+soporte completo al protocolo \ac{BGP}. Este a su vez se basaba en la
+implementación hecha por SSFNET\cite{SSFNET}.  Esta paquete es una buena
+base para el desarrollo pero carece de gran parte de las funcionalidades del
+protocolo y tiene fallos importantes en el código.
+
+\subsubsection*{Correcciones al paquete}
+
+La lista completa de correciones del protocolo están en el registro de
+cambios de la implementación adjuntada. Las mejoras añadidas a la implementación
+original del equipo Infonet son de dos tipos, errores de implementación en la
+lógica interna de \ac{BGP} y funcionalidades que no están correctamente
+implementadas. 
+
+Los problemas de funcionalidad solucionados son:
+
+\begin{itemize}
+ \item Soporte de la reflexión de rutas. 
+ \item Soporte para el uso de atributos en las sesiones \ac{BGP}.
+ \item Soporte para el uso de de políticas en las sesiones \ac{BGP}.
+ \item Soporte de restablecimiento de conexión entre sesiones que han perdido la
+comunicación.
+\end{itemize}
+
+Los principales problemas de implementación solucionados son:
+
+\begin{itemize}
+ \item Un correcto soporte de recuperación de la conexión entre dos nodos en
+caso de que esta se pierda en algún momento.
+\end{itemize}
+
+
+\subsubsection{Cambios a nivel de implementación}
+
+Las modificaciones a nivel de implementación que se han hecho en el paquete
+original se han hecho para adaptar el protocolo a los requisitos de la
+\refSec{desarrolloTopologias}. Estos cambios afectan a: 
+
+\begin{itemize}
+ \item La forma en que el protocolo recibe la configuración de las diferentes
+sesiones \ac{BGP}. No solo cambia la forma en que recibe la configuración sino
+también la cantidad de parámetros que pueden ser configurados. 
+ \item Los procedimientos que gestionan las de caídas y
+restablecimiento de enlaces en una simulación.
+ \item La forma en que se crean los ficheros de trazas.
+\end{itemize}
+
+\subsubsection{Funcionalidades añadidas a \ac{BGP}}
+
+De manera experimental se han añadido modificaciones al protocolo no
+contempladas en la especificación inicial de \ac{BGP}. Las nuevas
+funcionalidades implementadas son opcionales y modifican ligeramente el
+comportamiento del protocolo: 
+
+\begin{itemize}
+ \item Soporte de \angl{Multipath} a nivel del protocolo. 
+ \item Se puede modificar el proceso de decisión de \ac{BGP} de tal manera que
+se puede cambiar el momento en que dicho proceso decide que dos rutas son
+equivalentes. 
+\end{itemize}
+
+\subsection{Abstracción de \acs{TCL} de la configuración de topologías y gestión
+de eventos \labelSec{desarrolloTopologias}}
+
+Una de las carencias del simulador consiste en la complejidad de crear
+escenarios. Las configuraciones se crean manualmente para cada nodo y
+protocolo utilizando sus primitivas. Realizar cambios sobre una topología
+suele ser bastante costoso y simular topologías de gran cantidad de tamaños
+resulta prácticamente imposible.
+
+El lenguaje de script \ac{TCL} facilita la creación de topologías. Utilizando
+sus rutinas de automatización se consigue un mayor grado de abstracción. Sin
+embargo es necesario conocer el lenguaje \ac{TCL} y aun así sigue siendo muy
+complejo y costoso realizar las configuraciones.
+
+Para conseguir un mayor grado de abstracción en la configuración de
+simulaciones se ha adaptado el simulador para que use el lenguaje
+\acs{XML}. \ac{XML} nos permite almacenar la información de la simulación de
+forma clara, sencilla y estructurada. La lectura de la información se realiza
+iniciando un Script \ac{TCL}, y no es necesario tener conocimientos de \ac{TCL}
+ni de la estructura interna del simulador.
+
+Estos ficheros de simulación nos permiten automatizar el proceso de
+creación de las configuraciones. Reduciendo la complejidad para crear nuevas
+simulaciones con un gran número de nodos y configuraciones más complejas.
+
+Los ficheros tienen estructuras definidas y claras que ayudan a su lectura y
+facilitan su reutilización en futuras simulaciones.
+
+Los ficheros de simulación son dos. El primero de los ficheros, la topología,
+contiene la información correspondiente a la configuración de la red. El
+segundo fichero, los eventos, almacena información acerca de lo que ocurre
+durante
+la simulación.
+
+El fichero de topología contiene: 
+
+\begin{itemize}
+ \item La configuración de la red.
+ \item La configuración de los nodos de una red, sus conexiones e interfaces. 
+ \item La configuración de los protocolos soportados. Estos implementan los
+requisitos descritos en la \refSec{requistosProtocolos}
+\end{itemize}
+
+El fichero de eventos contiene:
+
+\begin{itemize}
+ \item El tiempo de simulación. 
+ \item La configuración de los eventos y el momento en que ocurren.
+\end{itemize}
+
+El formato de los ficheros de configuración pueden ser consultado en
+la \refSec{estructuraXML}, en el se incluyen como tiene que ser escritos
+incluyendo todos los protocolos que actualmente son soportados. 
+
+\subsubsection{Nuevos requisitos para los
+protocolos\labelSec{requistosProtocolos}}
+
+Es necesario que el protocolo cumpla una serie de requisitos, estos son
+imprescindibles para que el sistema pueda leer la configuración tanto de los
+parámetros del protocolo como del registro de eventos, y sea capaz de iniciar la
+simulación del protocolo.
+
+\begin{itemize}
+ \item Implementar la interfaz del
+Protocolo\footnote{\cod{tid.inet.protocols.Protocol}}. Ésta contiene las
+primitivas de configuración del protocolo y las necesarias para iniciar la
+simulación. La documentación referente a dichas primitivas se puede consultar en
+el JavaDoc de la interfaz.
+\item Modificar las factorías que existen en el paquete de 
+factorías\footnote{\cod{tid.inet.protocols}}. Estas factorías realizan las
+llamadas a las primitivas de los protocolos que los configuran. Estas factorías
+son:
+ \begin{itemize}
+  \item \cod{doConfigFactory} que realiza las llamadas a
+las primitivas de configuración del protocolo.
+  \item \cod{GeneralParametersFactory} que realiza las
+llamadas a las primitivas de configuración de los parámetros generales del
+protocolo.
+  \item \cod{mapStringFactory} que realiza las llamadas para
+crear una cadena necesaria para configurar el entorno de simulación. El formato
+de dicha cadena viene explicado en el JavaDoc de la clase
+\cod{drcl.inet.InetUtil}.
+ \end{itemize}
+
+ \item En el fichero de configuración \ac{XML} hay dos secciones dedicadas a los
+protocolos. Ambas tienen que tener un atributo \cod{type} con el valor del id
+del protocolo para poder identificarlo en las factorías. Estas son: 
+ \begin{itemize}
+  \item Colgando directamente de la raíz del fichero de configuración, con la
+etiqueta \cod{protocol}, está sección opcional esta orientada a la
+configuración general del protocolo.
+  \item En la etiqueta \cod{router} se encuentra \cod{session} que contiene la
+configuración de la sesión de ese protocolo para ese nodo. Un protocolo con una.
+ \end{itemize}
+\end{itemize}
+
+
+\subsection{Protocolos y herramientas creadas para el \ac{JSIM}
+\labelSec{desarrolloExtraProtocolos}}
+
+\subsubsection{GP-BGP}
+
+El simulador a sido utilizado como soporte en el proyecto europeo
+4Ward\cite{4WARD} y para contrastar los resultados de un nuevo protocolo basado
+en \ac{BGP} llamado GP-BGP. La especificación del protocolo se encuentra en el
+entregable 5.2 \angl{Mechanisms for Generic Paths}. Los resultados obtenidos van
+a exponerse en el congreso Monami-2010\cite{MONAMI}.
+
+\subsubsection{TrafficInspectionTool}
+
+Este protocolo se ha creado para contener las herramientas inspección de
+tráfico configurables desde los archivos \ac{XML}. La herramienta que soporta
+es la traza de rutas
+
+\subsection{Correcciones del simulador}
+
+A lo largo del proyecto se han solucionado fallos y se han introducido
+pequeñas mejoras. Las más destacables son:
+
+\begin{itemize}
+ \item Las desconexiones de algunos componentes para simular caídas del sistema
+son tratadas por medio de excepciones. Éstas no siempre lo hacían de forma
+correcta y causaban que los hilos de ejecución de los componentes asociado
+a estas caídas terminara su ejecución. 
+ \item Cuando un mensajes era recibido en una interfaz virtual era tratada desde
+la \ac{CSL}. 
+ \item Existían discordancias en las constantes usadas por el simulador para
+algunas de sus herramientas y servicios. 
+ \item Se han creado funcionalidades en la clase \cod{drcl.inet.Node} para la
+gestión de direcciones del nodo y el estado de las conexiones con nodos
+adyacentes.
+\end{itemize}
+
+El historial de cambios esta disponible en el registro de cambios adjuntos al
+proyecto.
+
+\subsection{Fallos conocidos que no han sido corregidos}
+
+Existen problemas cuando dos nodos tienen interfaces de red con la misma de
+dirección aunque éstos no sean visibles entre ellos.
+
+El simulador no tiene soporte para IPv6. Se estudió la posibilidad de
+darle soporte pero se descartó por lo costoso que resultaba.

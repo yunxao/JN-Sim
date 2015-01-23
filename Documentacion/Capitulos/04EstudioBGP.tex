@@ -1,0 +1,537 @@
+\chapter{Estudio de \ac{BGP}}
+
+\section{Necesidad de estudio}
+
+\ac{BGP} es un protocolo utilizado para comunicar \acp{AS} e intercambiar
+información entre ellas. Esta comunicación es distinta a la que hay entre los
+nodos del \ac{AS} y ésta pensada para redes de nodos heterogéneas en
+donde los nodos no necesitan conocer toda la topología, solo sus nodos 
+vecinos.
+
+El objetivo es que la información sobre el acceso a las distintas redes
+llegue a cada uno de los nodos \ac{BGP} buscando una comunicación simple y
+eficiente. para conseguirlo la comunicación se realiza únicamente entre nodos
+vecinos. Busca evitar las posibles de oscilaciones , redundancia de información,
+ineficiencia de los mensajes etc. 
+
+El protocolo usa políticas y atributos en el proceso de decisión, el cual
+decide si la información recibida debe ser utilizada y transmitida a los nodos
+vecinos. 
+
+Este protocolo es usado para el intercambio de información sobre rutas a
+gran escala por la mayoría de \ac{ISP} y da acceso a los usuarios los contenidos
+de Internet. Esto le convierte a \ac{BGP} en un punto critico para el
+funcionamiento de Internet y la experiencia final de los usuarios en la red. 
+
+El estudio del protocolo ayuda a mejorar esta experiencia y permite
+prever posibles problemas y conflictos. 
+
+\section{Proceso de decisión}
+
+\newFigSize{grafoCostes1}{Ejemplo de topología \ac{BGP}}{0.6}
+
+\newFigSize{grafoCostes2}{Gráfico de Costes de la topología
+\refFig{grafoCostes1}}{0.6}
+
+El proceso de decisión es uno de los puntos críticos del protocolo ya que es el
+encargado de tomar las principales decisiones referentes a la información que
+tiene que ser trasmitida.
+Analizando el proceso de decisión se pueden entender mejor el comportamiento
+de \ac{BGP}
+
+Se define el grafo de costes como un grafo valuado y dirigido de una red
+relativa a una ruta. Los nodos son los propios nodos de la red, el flujo 
+de la información entre los diferentes nodos son las aristas y los pesos
+representan el
+coste de publicar la información sobre una red por ese camino a un vecino.
+
+El valor del coste viene determinado por los atributos de la información
+publicada que
+se trasmite  entre los nodos y que recopila información del camino que ha 
+visitado.
+
+
+El proceso de decisión de \ac{BGP} selecciona que información debe usar y
+publicar utilizando el grafo de costes para seleccionarla y controlarla.
+
+Los atributos que miden este coste son: 
+
+\begin{itemize}
+ \item \angl{Local Preference}: Es el valor que más peso tiene en el proceso.
+Suele tomar por defecto el valor de 100. Este valor es utilizado para dar
+preferencia a la información dependiendo del origen de la misma
+independientemente del número de \ac{AS} de distancia.
+ \item \angl{\acf{ASPATH}}: Este valor almacena los números de todos los
+\acp{AS} que ha recorrido la información hasta el momento. El peso de este valor
+viene determinado por la cantidad de los \acp{AS} recorridos. 
+\item \angl{\acf{MED}}: Este atributo toma valores numéricos. Cuanto
+mayor sea el valor, menor es el peso de la ruta. Es utilizado cuando la
+información entre dos \ac{AS} es recibida por dos caminos distintos dando
+prioridad a una de ellos.
+ \item \angl{Originator}: El siguiente nivel comprueba si el origen del anuncio
+es interno o externo. Llegados a este nivel, las rutas internas son preferidas a
+las que tienen origen externo.
+\item \angl{Tie Braking}: No es un atributo propiamente si no una forma de
+romper el empate en caso de que siga existiendo. El método para romperlo puede
+ser cualquiera
+como la dirección IP o de forma aleatoria.
+\end{itemize}
+
+El peso de la información se puede definir por tanto como una tupla con cinco
+campos: \angl{Local Preference, \ac{ASPATH}, \ac{MED}, Originator} and \angl{Tie
+Breaking}. Para la \refFig{grafoCostes1} su grafo de costes está reflejado en la
+\refFig{grafoCostes2}.
+
+
+Uno de los principales problemas del proceso de decisión de \ac{BGP} es que el
+grafo de costes puede no ser monótonamente creciente lo que causa que
+el protocolo no actúe como se espera. Dos ejemplos de este son los
+problemas de Oscilación y las \angl{Widgies}
+
+\subsection{Oscilación}
+
+Algunas de las configuraciones de redes \ac{BGP} se observa como el sistema
+oscila entre varios estados hasta que consigue llegar a un punto estable o
+incluso no llega a estabilizarse nunca.
+
+\subsubsection{Analisis}
+
+La \refFig{ciclar1} muestra una topología que esta continuamente 
+oscilando y no alcanza un estado estable en ningún momento. Los resultados de 
+la simulación se describen en el \refSec{apendiceEscenario5}.
+
+La topología mostrada en la \refFig{ciclar1} se compone de tres nodos. El Nodo
+A tiene el acceso a la red publicada y hace el primer anuncio a sus dos
+vecinos, los nodos B y C. Mediante el atributo \angl{local preference}, las
+rutas que son anunciadas desde el nodo A tienen menos preferencia para los
+nodos B y C. 
+
+\newFigSize{ciclar1}{Ejemplo de configuración \ac{BGP} que oscila}{0.6}
+
+\newFigSize{ciclar2}{Estado 1: Inicial}{0.6}
+
+\newFigSize{ciclar3}{Estado 2: Intercambio de información \ac{BGP} entre los
+Nodos B y C}{0.6}
+
+\newFigSize{ciclar4}{Estado 3: La información recibida es contrastada y añadida
+a la tabla de rutas}{0.6}
+
+En la situación inicial, los nodos B y C tienen sesión \ac{BGP} cerrada. cuando
+se estabilizan las sesiones \ac{BGP} para la ruta anunciada,
+los nodos B y C solo cuentan con la información que proviene del nodo A por lo
+que se convierte en la única ruta para acceder a los contenido y ésta es
+añadida en la tabla de rutas del nodo como muestra la \refFig{ciclar2}.
+
+En un momento determinado comienza la comunicación \ac{BGP} entre los nodos B y
+C. Cuando las sesiones se estabilizan comienzan a enviar la información que
+ambos poseen  relativa a la red anunciada en un primer momento por el nodo A,
+como muestra la \refFig{ciclar3}.
+
+La información es recibida por los nodos B y C. Cada uno de los nodos disponen
+de dos anuncios de la misma ruta, una que tiene el origen el nodo A y la que ha
+sido anunciada por B y C. La configuración de red hace que se prefiera la nueva
+a la antigua y, por lo tanto, ésta es utilizada en la tabla de rutas como
+muestra la \refFig{ciclar4}.
+
+El cambio en la tabla de rutas ocasiona a su vez un
+\angl{withdraw}\footnote{Mensaje enviado por una sesión \ac{BGP} para anular una
+ruta previamente anunciada}, a los nodos vecinos, \refFig{ciclar5},
+comunicándoles que la ruta a la red no se encuentra disponible a través de él.
+Éstos \angl{withdraw} son posteriores a la recepción de los anuncios siempre y
+cuando ambos nodos hayan conseguido realizar el anuncio inicial.
+
+\newFigSize{ciclar5}{Estado 4: Envío de \angl{withdraw} a los vecinos}{0.6}
+
+Cuando los \angl{withdraw} son recibidos se elimina la información que
+había sido anunciada anteriormente, \refFig{ciclar6}. Los nodos restauran la
+ruta original a la red a través del nodo A y vuelven a generarse nuevos anuncios
+de esta ruta. Comienza así el sistema a oscilar, ya que se vuelve al estado
+inicial, \refFig{ciclar2}.
+
+\newFigSize{ciclar6}{Estado 5: La información es eliminada y las rutas son
+borradas de la tabla de rutas.}{0.6}
+
+La causa de que el sistema cicle se debe a que el grafo de coste no es
+creciente, lo que produce que los nodos B y C prefieren la información de su
+compañero a la del nodo A. Esta situación finalizaría en un nodo si:
+
+\begin{itemize}
+ \item Procesa el anuncio de la ruta recibida del vecino entre la recepción
+ del \angl{withdraw} y el anuncio que este mensaje produce sea enviado. 
+\item Procesa el \angl{withdraw} de la ruta recibida del el vecino entre la
+recepción del anuncio y antes de que el \angl{withdraw} que produce este 
+anuncio sea enviado.
+\end{itemize}
+
+Si alguna de estas condiciones se diera en uno de los nodos, uno ellos tendría
+ambas informaciones para decidir cuál se queda y el otro no, no se crea
+conflicto y finalmente se consigue una situación estable. Sin embargo hay dos
+posibles estados finales igualmente probables, con lo cual aparecen también
+problemas de convergencia. Los posibles estados finales son la \refFig{ciclar7}
+y la \refFig{ciclar8}.
+
+\begin{figure}[!ht]
+  \centering
+  \subfloat[Posible estado estable][]{
+    \includegraphics[width=0.4\textwidth]{Imagenes/Fuentes/ciclar7}
+    \label{fig:ciclar7}
+  }
+  \subfloat[Posible estado estable][]{
+    \includegraphics[width=0.4\textwidth]{Imagenes/Fuentes/ciclar8}
+    \label{fig:ciclar8}
+  }
+  \label{fig:ciclarEstadosFinales}
+  \caption[Estados Finales]{Posibles estados finales de la \refFig{ciclar1}}
+\end{figure}
+
+Si se profundiza más en el análisis del escenario se observa que, si existe una
+primera iteración de la oscilación oscilación el sistema, éste no consigue
+estabilizarse. Se puede demostrar que
+en este escenario siempre ocurre. 
+
+Tomando como caso base que haya al menos una iteración de la oscilación,
+analizamos las dos condiciones:
+
+\begin{itemize}
+ \item Los dos anuncios son enviados en un primer momento sin recibir un
+anuncio que lo anule. Esto esta  implícito en la condición de que exista al
+menos una iteración. 
+\item El primer \angl{withdraw} se envía antes de recibir el primer
+\angl{withdraw} originado por el vecino al recibir el primer anuncio.
+Aunque esta implícito en la premisa de que exista una iteración, si ocurre
+la primera condición, el \angl{withdraw} nunca es recibido antes de que sea
+enviado el primero. Esto se debe a que el anuncio enviado por el vecino no
+puede haber ocurrido antes que el envío del \angl{withdraw}; es decir, si un
+nodo recibe un anuncio después de haber enviado su propio anuncio, el
+\angl{withdraw} que genera el anuncio recibido es enviado después del anuncio
+enviado y, debido a que TCP garantiza el orden de los mensajes recibidos, el
+orden de recepción se mantiene en el vecino. El anuncio es, por tanto, procesado
+y genera otro \angl{withdraw} antes de que el \angl{withdraw} recibido sea
+procesado.
+\end{itemize}. 
+
+El caso base no solo nos garantiza existe al menos una iteración, si
+no que el tipo de los mensajes siempre alterna entre anuncio y \angl{withdraw}
+tanto recibido como enviado. para el resto de casos realizamos una inducción
+fuerte para demostrar que siempre oscila. Los casos recursivos son dos:
+
+\begin{itemize}
+ \item Para todo ``M'' y ``N'' tal que m = n + 1 y que representan el orden de
+los anuncios o \angl{withdraws} enviados y procesados por un nodo, suponiendo
+que se mantiene el orden de los anuncios y \angl{withdraws} hasta el
+N-\angl{Withdraw} que genera el M-Anuncio en cada nodo. Por inducción podemos
+decir que el N-anuncio recibido por ambos nodos es procesado antes del
+N-\angl{Withdraw}. El N-Anuncio genera y envia el N-\angl{Withdraw},
+posteriormente se procesará el N-\angl{Withdraw} recibido que genera a su vez el
+M-Anuncio que, asumiendo que usamos TCP, será recibido y procesado después del
+N-\angl{Withdraw} evitando que \ac{BGP} se estabilice. Concretando para dos
+nodos B y C, el N-Anuncio-C recibido el nodo B es procesado antes que el
+N-\angl{Withdraw}-C, este ha sido generado por N-Anuncio-B, N-\angl{Withdraw}-C
+envía M-Anuncio-B que es posterior por tanto a N-Anuncio-B. Para el nodo C, el
+N-Anuncio-B recibido por este nodo es procesado antes que el
+N-\angl{Withdraw}-B, este ha sido generado por N-Anuncio-C, N-\angl{Withdraw}-B
+envía M-Anuncio-C que es posterior por tanto a N-Anuncio-C. Se entiende por
+N-Anuncio-C, el enésimo anuncio realizado por el nodo C.
+ \item Para todo ``M'', ``N'' tal que m = n + 1 y que representan el orden de
+los anuncios o \angl{withdraws} enviados y procesados por un nodo, suponiendo
+que se matiene el orden de los anuncios y \angl{withdraws} hasta el M-Anuncio
+que genera el M-\angl{Withdraw} en cada nodo. Por inducción  podemos decir que
+el N-\angl{Withdraws} recibido por ambos nodos es procesado antes del
+M-Anuncio. El N-\angl{Withdraw} genera y envia el M-Anuncio, posteriormente se
+procesará el M-Anuncio recibido que genera a su vez el M-\angl{Withdraw},
+asumiendo que usamos TCP, sera recibido y procesado despues del M-Anuncio,
+evitando que \ac{BGP} se estabilice. Para dos nodos B y C, el
+N-\angl{Withdraws}-C recibido recibido por el nodo B es procesado antes que el
+M-Anuncio-C. Este ha sido generado por N-\angl{Withdraw}-B, M-Anuncio-C envia
+el M-\angl{Withdraws}-B que es posterior por tanto a N-\angl{Withdraws}-C. Para
+el nodo C el N-\angl{Withdraws}-B recibido por este nodo es procesado antes que
+el M-\angl{Withdraw}-B, este ha sido generado por el N-Anuncio-C, M-Anuncio-B
+envia M-\angl{Withdraw}-C que es por tanto posterior a N-\angl{Withdraw}-C
+\end{itemize}
+
+Una de las condiciones de este razonamiento es que, en el proceso de decisión
+de un nodo, el mensaje es procesado en el momento en que se recibe. Si esta
+condición no se da y existe un tiempo entre la recepción y procesado, otro
+mensaje puede ser recepción y procesado en este periodo de tiempo y causar que
+el sistema deje de oscilar.
+
+En topologías más complejas, también puede ocurrir condiciones para que
+se estabilice \ac{BGP}, aunque no te garantizan que se
+produzcan oscilaciones. En estas topologías al menos uno de los \acp{AS} que
+causan que el sistema cicle, deben tener dos nodos o más y que las sesiones
+\ac{EBGP} se encuentren en distinto nodo. 
+
+\newFigSize{ciclar2-1}{Ejemplo de configuración \ac{BGP} que oscila}{0.7}
+
+La \refFig{ciclar2-1} muestra una topología en donde la oscilación de la
+red puede terminar. El periodo de tiempo entre la recepción del anuncio por
+parte B-2 a través desde el nodo C y el posterior \angl{withdraw} del nodo B-2
+al nodo C no es despreciable, puesto que el anuncio tiene que llegar hasta el
+nodo B-1 para que sea este el que genere el \angl{withdraw} a B-1 que
+posteriormente será enviado desde el nodo B-2 al nodo C. Si en este tiempo el
+nodo B-2 recibe el anuncio del nodo C con la ruta a través de él, el Nodo B-2 no
+retransmitirá el \angl{withdraw}. Lo mismo ocurre desde que el nodo B-2 recibe
+el \angl{withdraw} de el nodo C hasta que envía el anuncio desde el nodo B-2 al
+nodo C. Lo resultados de la simulación están en la \refSec{apendiceEscenario6}.
+
+Como conclusión se puede decir que toda conexión entre una pareja de nodos
+nodos es susceptible de sufrir oscilaciones si en una topología se puede acceder
+a una red por más de un camino y, por políticas o valores de a atributos, ambos
+prefieren las rutas que recorren el otro nodo de la pareja. Este efecto es
+inevitable ya que los nodos no tienen conciencia del problema, sin embargo si se
+introducen retardos aleatorios en el proceso de decisión puede reducir el número
+de iteraciones de la oscilación
+
+En escenarios grandes, en los puntos que, por causa del uso de atributos,
+se produzcan costes negativos en el grafo de costes, son susceptibles de
+sufrir este efectos. En la \refFig{ciclar3-1} se puede ver una topología y los
+puntos susceptibles a oscilar. La simulación de esa topología esta en el
+\refSec{apendiceEscenario7}.
+
+\newFigSize{ciclar3-1}{Ejemplo de configuración \ac{BGP} que oscila}{0.7}
+
+
+\subsubsection{Impacto de Oscilación en la Red}
+
+Cuando se producen oscilaciones en un sistema, los afectados son: 
+
+\begin{itemize}
+ \item Los nodos que no consiguen estabilizar sus
+sesiones \ac{BGP}. Se produce un aumento del tráfico de mensajes. y la
+información no se estabiliza hasta que la oscilación acaba.
+ \item El resto de nodos de la topología que reciben la información residual
+de la oscilación. Éstos también se ven afectados porque la información
+que están recibiendo constantemente de las rutas afectadas causa que la
+elección de la mejor ruta por el proceso de decisión sea distinto
+dependiendo de como cambie dicha información recibida y por tanto se produzcan
+oscilaciones en los nodos.
+
+\item Los usuarios finales que utilizan la información para acceder a los
+contenidos también se ven afectados, ya que durante el tiempo que dure la
+oscilación el acceso a las rutas publicadas por los nodos es intermitente. 
+\end{itemize}
+
+\subsubsection{Conclusión}
+
+La oscilación se produce cuando se empiezan compartir rutas entre dos nodos y
+el grafo de costes para esos nodos no es creciente.
+
+Si bien estas oscilaciones ocurren frecuentemente en sistemas de gran tamaño,
+éstas suelen estabilizarse tras un corto periodo de un tiempo y pueden
+ignorarse.
+
+Sin embargo en determinadas ocasiones puede ocurrir que el tiempo que tarda en
+estabilizarse un sistema que oscila sea mayor o incluso no consiga
+estabilizarse. Si esto sucede, las consecuencias no son triviales y, 
+durante el tiempo de oscilación, se pierde el acceso estable a la información 
+publicada
+
+Otros de los efectos negativos que produce la oscilación es que el sistema no
+converge. Ya que existen al menos dos estados finales distintos. 
+
+Las oscilaciones no se pueden evitar, ya que el uso de atributos produce que el
+grafos de costes no sea creciente. Sin embargo, introducir retardos aleatorios
+entre los anuncios, puede mitigar los efectos de las oscilaciones. 
+
+\subsection{Wedgies}
+
+\ac{BGP} es una herramienta determinista para compartir rutas. Sin embargo
+existen ciertas configuraciones para las cuales hay más de un posible estado
+final. Estos estados estables pueden ser alcanzados por \ac{BGP} de manera no
+determinista y son denominados \angl{BGP wedgie}. T. Griffin fue el primero en
+dectar este problema y  ha realizado muchos estudios sobre el impacto de las
+mismas\cite{rfc4264}.
+
+\subsubsection{Análisis}
+
+La \refFig{wedgie1} muestra una configuración BGP susceptible de sufrir una
+\angl{wedgie}. La topología centraliza el tráfico por el \angl{Primary Link} o
+enlace principal y dispone de un \angl{Backup link} o enlace de
+seguridad destinado a evitar perder el acceso a los contenidos debido a una
+caída del enlace principal. Para conseguir esto se aplican políticas de
+atributos en el \ac{AS} 32080 haciendo a las rutas anunciadas por ese enlace,
+menos preferibles. 
+
+\newFigSize{wedgie1}{Ejemplo de escenario que produce \angl{wedgie 3/4}}{0.6}
+
+\newFigSize{wedgie2}{Configuración buscada de la topología mostrada en la
+\refFig{wedgie1}}{0.6}
+
+\newFigSize{wedgie3}{Caída del enlace principal o \angl{Primary Link},
+\refFig{wedgie1}}{0.6}
+
+\newFigSize{wedgie4}{Se restablece enlace principal o \angl{Primary Link},
+\refFig{wedgie1}}{0.6}
+
+\newFigSize{wedgie5}{Caída del enlace de seguridad o \angl{Backup Link},
+\refFig{wedgie1}}{0.6}
+
+El \ac{AS} 1001 tiene preferencia por las rutas anunciadas por el \ac{AS}
+32080 y aplica políticas para ello en los nodos frontera.
+
+
+La \refFig{wedgie2} representa el estado estable final deseado. Las lineas
+representan el tráfico de datos canalizado por el enlace principal.
+
+En un momento determinado se pierde el acceso a los datos por una caída en el 
+enlace principal. Cuando se alcanza una estado estable, se observa como el
+acceso a los contenidos se hace mediante el enlace de seguridad,
+\refFig{wedgie3}.
+
+Al restablecerse en enlace principal los \acp{AS} 1001, 32080 y 43020 siguen
+usando el enlace de seguridad para acceder a los datos, \refFig{wedgie4}.
+
+Para volver al estado final deseado es necesario la caída del enlace de
+seguridad eliminando toda referencia a esa ruta, \refFig{wedgie5}. 
+
+En el estado representado por la \refFig{wedgie3}, el nodo frontera entre 
+los \acp{AS} 1001 y 6303 contiene la información de acceso de la ruta usando
+el enlace de seguridad. Se ha aumentado la prioridad de la información por 
+medio del atributo \angl{local preference}. En el momento de restablecer la
+conexión, \refFig{wedgie4}, la información publicada por el \ac{AS} 6303 es
+menos prioritaria y, por lo tanto, descartada. Para recuperar el estado
+deseado es necesario eliminar la información publicada por el enlace de
+seguridad cortando la comunicación por el enlace de seguridad. Esta
+\angl{Wedgie} se denomina \angl{Wedgie 3/4}.
+
+\newFigSize{wedgie2-1}{Ejemplo de escenario que produce \angl{full wedgie
+}}{0.6}
+\newFigSize{wedgie2-2}{Estado final estable buscado en la configuración
+mostrada en la \refFig{wedgie2-1}}{0.6}
+
+\newFigSize{wedgie2-3}{Caída del enlace principal o \angl{Primary Link},
+\refFig{wedgie2-1}}{0.6}
+
+\newFigSize{wedgie2-4}{Caída del enlace de seguridad o \angl{Backup Link},
+\refFig{wedgie2-1}}{0.6}
+
+\newFigSize{wedgie2-5}{Caída del enlace secundario de seguridad o
+\angl{Secondary Backup Link}, \refFig{wedgie2-1}}{0.6}
+
+La \refFig{wedgie2-1} Muestra un escenario donde hay más de un
+enlace de seguridad. Se quiere dirigir de nuevo todo el tráfico por el enlace
+principal, \refFig{wedgie2-2}, y se configuran el atributos \angl{local
+preference} para que esto ocurra. 
+
+Al perder la comunicación en el enlace principal, el tráfico se redirige por el
+enlace de seguridad.
+
+Al restablecerse el tráfico del enlace principal, el tráfico de los \acp{AS}
+1001, 3280 y 43020 siguen usando el enlace de seguridad, \refFig{wedgie2-3}, por
+el mismo motivo que el anterior ejemplo. Hasta este punto todo es igual que en
+el anterior ejemplo.
+
+Para eliminar las referencias al enlace de seguridad se corta su comunicación. 
+Sin embargo en esta ocasión el tráfico no vuelve a utilizar el
+enlace principal si no que usa el enlace de seguridad secundario
+\refFig{wedgie2-4}. 
+
+Al restablecerse la comunicación del enlace de seguridad, el \ac{AS} 1001, punto
+crítico del sistema, no utiliza la información facilitada por el \ac{AS} 6303 y
+no restablece la ruta atraviesa el enlace principal. La ruta que atraviesa el
+enlace de seguridad secundario es retirada cuando el \ac{AS} 43020 publica
+la ruta que atraviesa el enlace de seguridad y que atraviesa el \ac{AS} 43020.
+Esta ruta es preferida a que utiliza la que atraviesa en enlace principal.
+Simultáneamente, el \ac{AS} 32080 publica la su ruta que atraviesa enlace de
+seguridad, ya que es la mejor la información disponible, y es
+ésta la que finalmente se utiliza en el estado estable, \refFig{wedgie2-3}.
+Nótese que las rutas anunciadas por los \acp{AS} 43020 y 32080 son distintas ya
+que la primera atraviesa los \acp{AS} 1204, 32080 y 43020, y la segunda los
+\acp{AS} 1204 y 32080.
+
+Para conseguir la situación deseada, \refFig{wedgie2-2}, se debe cortar la 
+comunicación de todos los enlaces de seguridad, \refFig{wedgie2-5}, eliminando
+del \ac{AS} 1001 todas las referencias rutas de estos enlaces, y la ruta
+a través del enlace principal es publicada por todos el resto de \acp{AS}. Esta
+\angl{wedgie} se denomina \angl{full wedgie}
+
+En la \refSec{apendiceEscenario8} y la \refSec{apendiceEscenario9} se ven los
+resultados de simular la \refFig{wedgie1} y la \refFig{wedgie2-1}.
+
+\subsubsection{Situación real}
+
+Las topologías representadas por la \refFig{wedgie1} y la
+\refFig{wedgie2-1} pertenecen a escenarios teóricos, pero se basan en un
+modelo real cliente-proveedor de servicios de Internet. 
+
+En el modelo los \acp{AS} 32080 y 43020 representan \aclp{ISP} que ofrecen
+servicios de Internet a usuarios finales. Éstos se comunican entre si como
+iguales y a su vez son clientes del \ac{AS} 1001 el cual le ofrece acceso a los
+contenidos garantizando alta velocidad.
+
+Los \acp{AS} 1001 y 6303 representan proveedores de \ac{ISP} que los
+interconectan.
+Su política les permite también comunicarse como iguales, \angl{peer to peer
+connection}.
+
+Por último el sistema autónomo 1204 representa el lugar donde se encuentran los
+contenidos a los que queremos acceder.
+
+Los servidores de \ac{ISP} pueden tener enlaces de seguridad que garantizan el
+acceso a los datos si ocurre alguna caída de su acceso principal por medio del
+\ac{AS} 1001. Esto se ve reflejado en el atributo \angl{local preference} de los
+\acp{AS} 32080 y, solo para el caso de la \angl{full wedgie}, 43020 de los
+enlaces que le comunican con los contenidos, \ac{AS}1204. 
+
+Los \aclp{ISP} por su parte tienen la política de usar la
+conexiones con sus clientes que aquellas que tengan como iguales ya que les
+resulta más económica. Esto se ve reflejado en el atributo \angl{local
+preference} del \ac{AS} 1001, el cual da más preferencia a sus clientes.
+
+\subsubsection{Impacto de las \angl{wedgies}}
+
+El principal impacto sobre una red que sufre una \angl{wedgie} es que el
+tráfico es dirigido por enlaces que no están preparados para ello. 
+Las enlaces de seguridad están ideados para aceptar tráfico en situaciones
+criticas, y, por lo tanto, suelen tener menor capacidad. 
+
+Una \angl{wedgie} no se puede detectar por \ac{BGP} utilizando métodos
+tradicionales, y generalmente es necesario realizar operaciones complejas que
+no se pueden automatizar para estabilizar la situación y requiere conocimientos
+avanzados del protocolo. 
+
+El impacto de las \angl{wedgies} se ve agravado en redes como Internet donde
+es difícil disponer de un mapa de la red actualizado y donde los \acp{AS} son
+entidades distintas que se gestionan de forma independientemente, lo que
+ocasiona que para solucionar la \angl{wedgie} sea necesario contactar con dichas
+entidades. 
+
+\subsubsection{Conclusión}
+
+Las \angl{wedgies} son aparentemente fáciles de detectar y solucionar. Sin 
+embargo, si analizamos la red \ac{BGP} más importante, Internet, no resulta un
+problema trivial.
+
+Los problemas añadidos de Internet a la \angl{wedgies} dificultan su detección
+y, una vez detectados, puede ocurrir que la solución dependa de entidades
+distintas. Si alguna de estas entidades resulta ser una empresa de la
+competencia, el problema se agrava aún más.
+
+Una entidad puede enfrentarse en un determinado momento a un problema que sea
+incapaz de detectar y en caso de detectarlo, incapaz de solucionar.
+
+Extrapolando a empresas que dependan directamente del servicio que reciben o
+proveen, las consecuencias pueden ser muy graves y perdidas económicas. 
+
+\subsection{Proceso de decisión: Conclusión}
+
+El proceso de decisión es una parte compleja de \ac{BGP} y tiene que ser objeto
+de estudio para poder detectar fallos y problemas que pueda tener.
+
+Uno de los principales puntos críticos se encuentra en el peso que tiene cada
+ruta, éste depende de factores que hacen que los pesos puedan tomar valores
+negativos, lo que produce grafos de costes que no son crecientes.
+
+A consecuencia de esto se pueden producir efectos no deseables como oscilaciones
+y \angl{wedgies} en la red. Las consecuencias de las mismas pueden ser muy
+graves y las soluciones no son triviales. Muchas de estas soluciones requieren
+de personas cualificadas supervisen la red.
+
+Prevenir los problemas es complicado y en muchas ocasiones inevitable,
+debido a la naturaleza del grafo de costes. Platear soluciones más profundas
+conllevan modificar el proceso de decisión y, por lo tanto, la forma en que
+\ac{BGP} trabaja, lo que puede producir la perdida de las ventajas que este
+protocolo ofrece.
+
+
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JSimConfig>
+	<events>
+		<event id="downLink" type="DOWN" message="">
+			<component id=".link_NodeB_NodeC" />
+		</event>
+		<event id="upLink" type="UP" message="">
+			<component id=".link_NodeB_NodeC" />
+		</event>
+
+		<!--Format: Label: event; Atributes: id, type, message. -->
+	</events>
+	<simulation time="10000">
+		<execute id="downLink" time="0" />
+		<execute id="upLink" time="1000" />
+		<!--Format Label: execute; Atributes: id, time. -->
+	</simulation>
+</JSimConfig>
+

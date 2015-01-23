@@ -1,0 +1,118 @@
+\chapter{Validación de \ac{BGP}}
+
+Para comprobar que el simulador esta correctamente implementado se ha hecho un
+conjunto de simulaciones que prueben el correcto funcionamiento de \ac{BGP} en
+el simulador y las capacidades del mismo. 
+
+\section{Validación del simulador y BGP} 
+
+\subsection{Escenario básico \ac{BGP}}
+
+\subsubsection*{Objetivo}
+
+Validar el simulador y la implementación de \ac{BGP}. La configuración viene
+detallada en el \refSec{apendiceEscenario1}. 
+
+
+\subsubsection*{Características validadas}
+
+\begin{itemize}
+ \item El simulador en topologías pequeñas
+ \item Funcionamiento básico de \ac{BGP}. No incluye el uso de políticas ni
+atributos
+ \item Correcta creación de los archivos de trazas
+\end{itemize}
+
+\subsubsection*{Resultados}
+
+El simulador se ha comportado correctamente simulando correctamente la
+topología propuesta. 
+
+El tiempo que tarda la simulación en ejecutarse es aproximadamente 600
+milisegundos. 
+
+\subsection{Escenario complejo \ac{BGP}}
+
+\subsubsection*{Objetivo}
+
+Validar las características avanzadas del protocolo \ac{BGP} en escenarios de
+tamaño medio. La configuración puede verse y en la \refSec{apendiceEscenario2}.
+
+\subsubsection*{Características validadas}
+
+\begin{itemize}
+ \item Comportamiento del protocolo con un número de nodos inferior a 20
+ \item Configuración compleja de los parámetros de \ac{BGP} en lo que se
+incluye. Distinto nivel de decisión de rutas, puerto distinto al puerto por
+defecto
+ \item Características avanzadas de BGP. Entre las que se incluyen: \acl{RR},
+uso de atributos avanzados, políticas.
+ \item Características del simulador que consiste en la posibilidad de que las
+interfaces usen determinadas conexiones del simulador.
+ \item Eventos del simulador de caída y recuperación
+\end{itemize}
+
+\subsubsection*{Resultados}
+
+El simulador se ha comportado correctamente simulando correctamente la
+topología propuesta. 
+
+Los tiempos del simulador han sido: 
+
+\begin{itemize}
+ \item Tiempo de ejecución:  8745 ms
+ \item Tiempo de simulación: 7990 ms
+\end{itemize}
+
+\subsection{Escenarios Extensos \ac{BGP}\labelSec{simulacion3}}
+
+\subsubsection*{Objetivo}
+
+Comprobar la escalabilidad del simulador en escenarios de gran tamaño. La
+máquina usada para esta prueba tiene las siguientes características.
+
+\begin{itemize}
+ \item Procesador: Intel Pentium IV 2800 MHZ
+\item Memoria Ram: 1 GB
+\item Sistema operativo: Debian lenny 5.02
+\item Máquina virutal: JVM 1.6
+\item Memoria Maxima de la Máquina virtual: 512 Mb
+\end{itemize}
+
+\subsection*{Resultados}
+
+Las configuraciones planteadas son las descritas en \refSec{apendiceEscenario3}
+y \refSec{apendiceEscenario4}. \refSec{apendiceEscenario4} además de añadir más
+nodo al anterior, intenta ver el impacto del aumento de conexiones en el
+simulador.
+
+Tiempos de simulación 
+\begin{itemize}
+ \item Tiempo de simulación de \refSec{apendiceEscenario3}: 103022 ms
+ \item Tiempo de simulación de \refSec{apendiceEscenario4}: 346506 ms
+\end{itemize}
+
+\subsection*{Conclusiones}
+
+Las simulaciones con más de 100 nodos ya son difíciles de predecir y es una
+situación en donde se necesitan herramientas como simuladores para estudiar
+comportamiento del protocolo. 
+
+Ante un escenario de estas características la respuesta ha sido óptima,
+pese a la máquina utilizada no disponía de gran potencia, se ha conseguido
+simular más de 130 nodos. Los tiempos son más que aceptables, y los eventos que
+ha habido garantizan que los anuncios se han distribuido por todos los nodos del
+sistema.
+
+En la segunda simulación se observa un gran aumento del tiempo de simulación.
+Esto es debido a que la relación que existe entre el número de nodos simulados
+y el tiempo de simulación es exponencial.
+
+Partiendo de la segunda simulación; si se dividen los \acp{AS} en grupos, se
+pueden hacer tres, los pertenecientes al primer, segundo y tercer millar; los
+tiempos de simulación son 20 segundos para los dos primeros y 60 para el tercer
+grupo. Según estos datos, se puede deducir que penaliza más el número de
+conexiones entre nodos que el número de nodos en si. 
+
+Por lo tanto el simulador, pese a tener unos costes de exponenciales, es capaz
+de realizar simulaciones con un gran número de nodos.

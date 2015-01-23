@@ -1,0 +1,2458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JSimConfig>
+  <Topology nodesPerLink="2" />
+  <debug debugFlag="enable" errorFlag="enable" trace_dir="trace" />
+  <protocol type="bgp 4">
+    <parameters rtlog="enable" dbglog="enable" tracelog="enable" fsmlog="enable" />
+  </protocol>
+  <components>
+    <router id="nodo1001_1">
+      <interface type="physical" name="principal" address="192.168.1.1" />
+      <topology>
+        <link id=".link_nodo1001_1-nodo1001_2" />
+        <link id=".link_nodo1001_1-nodo1001_3" />
+        <link id=".link_nodo1001_1-nodo1001_4" />
+        <link id=".link_nodo1001_1-nodo1001_5" />
+        <link id=".link_nodo1001_1-nodo1001_6" />
+        <link id=".link_nodo1001_1-nodo1001_7" />
+        <link id=".link_nodo1001_1-nodo1001_8" />
+        <link id=".link_nodo1001_1-nodo1001_9" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1001" interface="principal" />
+        <neighbour IP="192.168.1.2" remote-as="1001" rrc="yes" />
+        <neighbour IP="192.168.1.3" remote-as="1001" rrc="yes" />
+        <neighbour IP="192.168.1.4" remote-as="1001" rrc="yes" />
+        <neighbour IP="192.168.1.5" remote-as="1001" rrc="yes" />
+        <neighbour IP="192.168.1.6" remote-as="1001" rrc="yes" />
+        <neighbour IP="192.168.1.7" remote-as="1001" rrc="yes" />
+        <neighbour IP="192.168.1.8" remote-as="1001" rrc="yes" />
+        <neighbour IP="192.168.1.9" remote-as="1001" rrc="yes" />
+      </session>
+    </router>
+    <router id="nodo1001_2">
+      <interface type="physical" name="principal" address="192.168.1.2" />
+      <topology>
+        <link id=".link_nodo1001_1-nodo1001_2" />
+        <link id=".link_nodo1001_2-nodo1001_3" />
+        <link id=".link_nodo1001_2-nodo1001_4" />
+        <link id=".link_nodo1001_2-nodo1001_5" />
+        <link id=".link_nodo1001_2-nodo1001_6" />
+        <link id=".link_nodo1001_2-nodo1001_7" />
+        <link id=".link_nodo1001_2-nodo1001_8" />
+        <link id=".link_nodo1001_2-nodo1001_9" />
+        <link id=".link_nodo1001_2-nodo1002_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1001" interface="principal" />
+        <neighbour IP="192.168.1.1" remote-as="1001" />
+        <neighbour IP="192.168.2.1" remote-as="1002" />
+      </session>
+    </router>
+    <router id="nodo1001_3">
+      <interface type="physical" name="principal" address="192.168.1.3" />
+      <topology>
+        <link id=".link_nodo1001_1-nodo1001_3" />
+        <link id=".link_nodo1001_2-nodo1001_3" />
+        <link id=".link_nodo1001_3-nodo1001_4" />
+        <link id=".link_nodo1001_3-nodo1001_5" />
+        <link id=".link_nodo1001_3-nodo1001_6" />
+        <link id=".link_nodo1001_3-nodo1001_7" />
+        <link id=".link_nodo1001_3-nodo1001_8" />
+        <link id=".link_nodo1001_3-nodo1001_9" />
+        <link id=".link_nodo1001_3-nodo1003_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1001" interface="principal" />
+        <neighbour IP="192.168.1.1" remote-as="1001" />
+        <neighbour IP="192.168.3.1" remote-as="1003" />
+      </session>
+    </router>
+    <router id="nodo1001_4">
+      <interface type="physical" name="principal" address="192.168.1.4" />
+      <topology>
+        <link id=".link_nodo1001_1-nodo1001_4" />
+        <link id=".link_nodo1001_2-nodo1001_4" />
+        <link id=".link_nodo1001_3-nodo1001_4" />
+        <link id=".link_nodo1001_4-nodo1001_5" />
+        <link id=".link_nodo1001_4-nodo1001_6" />
+        <link id=".link_nodo1001_4-nodo1001_7" />
+        <link id=".link_nodo1001_4-nodo1001_8" />
+        <link id=".link_nodo1001_4-nodo1001_9" />
+        <link id=".link_nodo1001_4-nodo1004_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1001" interface="principal" />
+        <neighbour IP="192.168.1.1" remote-as="1001" />
+        <neighbour IP="192.168.4.1" remote-as="1004" />
+      </session>
+    </router>
+    <router id="nodo1001_5">
+      <interface type="physical" name="principal" address="192.168.1.5" />
+      <topology>
+        <link id=".link_nodo1001_1-nodo1001_5" />
+        <link id=".link_nodo1001_2-nodo1001_5" />
+        <link id=".link_nodo1001_3-nodo1001_5" />
+        <link id=".link_nodo1001_4-nodo1001_5" />
+        <link id=".link_nodo1001_5-nodo1001_6" />
+        <link id=".link_nodo1001_5-nodo1001_7" />
+        <link id=".link_nodo1001_5-nodo1001_8" />
+        <link id=".link_nodo1001_5-nodo1001_9" />
+        <link id=".link_nodo1001_5-nodo1005_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1001" interface="principal" />
+        <neighbour IP="192.168.1.1" remote-as="1001" />
+        <neighbour IP="192.168.5.1" remote-as="1005" />
+      </session>
+    </router>
+    <router id="nodo1001_6">
+      <interface type="physical" name="principal" address="192.168.1.6" />
+      <topology>
+        <link id=".link_nodo1001_1-nodo1001_6" />
+        <link id=".link_nodo1001_2-nodo1001_6" />
+        <link id=".link_nodo1001_3-nodo1001_6" />
+        <link id=".link_nodo1001_4-nodo1001_6" />
+        <link id=".link_nodo1001_5-nodo1001_6" />
+        <link id=".link_nodo1001_6-nodo1001_7" />
+        <link id=".link_nodo1001_6-nodo1001_8" />
+        <link id=".link_nodo1001_6-nodo1001_9" />
+        <link id=".link_nodo1001_6-nodo1006_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1001" interface="principal" />
+        <neighbour IP="192.168.1.1" remote-as="1001" />
+        <neighbour IP="192.168.6.1" remote-as="1006" />
+      </session>
+    </router>
+    <router id="nodo1001_7">
+      <interface type="physical" name="principal" address="192.168.1.7" />
+      <topology>
+        <link id=".link_nodo1001_1-nodo1001_7" />
+        <link id=".link_nodo1001_2-nodo1001_7" />
+        <link id=".link_nodo1001_3-nodo1001_7" />
+        <link id=".link_nodo1001_4-nodo1001_7" />
+        <link id=".link_nodo1001_5-nodo1001_7" />
+        <link id=".link_nodo1001_6-nodo1001_7" />
+        <link id=".link_nodo1001_7-nodo1001_8" />
+        <link id=".link_nodo1001_7-nodo1001_9" />
+        <link id=".link_nodo1001_7-nodo1007_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1001" interface="principal" />
+        <neighbour IP="192.168.1.1" remote-as="1001" />
+        <neighbour IP="192.168.7.1" remote-as="1007" />
+      </session>
+    </router>
+    <router id="nodo1001_8">
+      <interface type="physical" name="principal" address="192.168.1.8" />
+      <topology>
+        <link id=".link_nodo1001_1-nodo1001_8" />
+        <link id=".link_nodo1001_2-nodo1001_8" />
+        <link id=".link_nodo1001_3-nodo1001_8" />
+        <link id=".link_nodo1001_4-nodo1001_8" />
+        <link id=".link_nodo1001_5-nodo1001_8" />
+        <link id=".link_nodo1001_6-nodo1001_8" />
+        <link id=".link_nodo1001_7-nodo1001_8" />
+        <link id=".link_nodo1001_8-nodo1001_9" />
+        <link id=".link_nodo1001_8-nodo1008_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1001" interface="principal" />
+        <neighbour IP="192.168.1.1" remote-as="1001" />
+        <neighbour IP="192.168.8.1" remote-as="1008" />
+      </session>
+    </router>
+    <router id="nodo1001_9">
+      <interface type="physical" name="principal" address="192.168.1.9" />
+      <topology>
+        <link id=".link_nodo1001_1-nodo1001_9" />
+        <link id=".link_nodo1001_2-nodo1001_9" />
+        <link id=".link_nodo1001_3-nodo1001_9" />
+        <link id=".link_nodo1001_4-nodo1001_9" />
+        <link id=".link_nodo1001_5-nodo1001_9" />
+        <link id=".link_nodo1001_6-nodo1001_9" />
+        <link id=".link_nodo1001_7-nodo1001_9" />
+        <link id=".link_nodo1001_8-nodo1001_9" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1001" interface="principal" />
+        <neighbour IP="192.168.1.1" remote-as="1001" />
+      </session>
+    </router>
+    <router id="nodo1002_1">
+      <interface type="physical" name="principal" address="192.168.2.1" />
+      <topology>
+        <link id=".link_nodo1002_1-nodo1002_2" />
+        <link id=".link_nodo1002_1-nodo1002_3" />
+        <link id=".link_nodo1002_1-nodo1002_4" />
+        <link id=".link_nodo1001_2-nodo1002_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1002" interface="principal" />
+        <neighbour IP="192.168.2.2" remote-as="1002" />
+        <neighbour IP="192.168.2.3" remote-as="1002" />
+        <neighbour IP="192.168.2.4" remote-as="1002" />
+        <neighbour IP="192.168.1.2" remote-as="1001" />
+      </session>
+    </router>
+    <router id="nodo1002_2">
+      <interface type="physical" name="principal" address="192.168.2.2" />
+      <topology>
+        <link id=".link_nodo1002_1-nodo1002_2" />
+        <link id=".link_nodo1002_2-nodo1002_3" />
+        <link id=".link_nodo1002_2-nodo1002_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1002" interface="principal" />
+        <neighbour IP="192.168.2.1" remote-as="1002" />
+        <neighbour IP="192.168.2.3" remote-as="1002" />
+        <neighbour IP="192.168.2.4" remote-as="1002" />
+      </session>
+    </router>
+    <router id="nodo1002_3">
+      <interface type="physical" name="principal" address="192.168.2.3" />
+      <topology>
+        <link id=".link_nodo1002_1-nodo1002_3" />
+        <link id=".link_nodo1002_2-nodo1002_3" />
+        <link id=".link_nodo1002_3-nodo1002_4" />
+        <link id=".link_nodo1002_3-nodo1010_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1002" interface="principal" />
+        <neighbour IP="192.168.2.1" remote-as="1002" />
+        <neighbour IP="192.168.2.2" remote-as="1002" />
+        <neighbour IP="192.168.2.4" remote-as="1002" />
+        <neighbour IP="192.168.10.1" remote-as="1010" />
+      </session>
+    </router>
+    <router id="nodo1002_4">
+      <interface type="physical" name="principal" address="192.168.2.4" />
+      <topology>
+        <link id=".link_nodo1002_1-nodo1002_4" />
+        <link id=".link_nodo1002_2-nodo1002_4" />
+        <link id=".link_nodo1002_3-nodo1002_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1002" interface="principal" />
+        <neighbour IP="192.168.2.1" remote-as="1002" />
+        <neighbour IP="192.168.2.2" remote-as="1002" />
+        <neighbour IP="192.168.2.3" remote-as="1002" />
+      </session>
+    </router>
+    <router id="nodo1003_1">
+      <interface type="physical" name="principal" address="192.168.3.1" />
+      <topology>
+        <link id=".link_nodo1003_1-nodo1003_2" />
+        <link id=".link_nodo1003_1-nodo1003_3" />
+        <link id=".link_nodo1003_1-nodo1003_4" />
+        <link id=".link_nodo1001_3-nodo1003_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1003" interface="principal" />
+        <neighbour IP="192.168.3.2" remote-as="1003" />
+        <neighbour IP="192.168.3.3" remote-as="1003" />
+        <neighbour IP="192.168.3.4" remote-as="1003" />
+        <neighbour IP="192.168.1.3" remote-as="1001" />
+      </session>
+    </router>
+    <router id="nodo1003_2">
+      <interface type="physical" name="principal" address="192.168.3.2" />
+      <topology>
+        <link id=".link_nodo1003_1-nodo1003_2" />
+        <link id=".link_nodo1003_2-nodo1003_3" />
+        <link id=".link_nodo1003_2-nodo1003_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1003" interface="principal" />
+        <neighbour IP="192.168.3.1" remote-as="1003" />
+        <neighbour IP="192.168.3.3" remote-as="1003" />
+        <neighbour IP="192.168.3.4" remote-as="1003" />
+      </session>
+    </router>
+    <router id="nodo1003_3">
+      <interface type="physical" name="principal" address="192.168.3.3" />
+      <topology>
+        <link id=".link_nodo1003_1-nodo1003_3" />
+        <link id=".link_nodo1003_2-nodo1003_3" />
+        <link id=".link_nodo1003_3-nodo1003_4" />
+        <link id=".link_nodo1003_3-nodo1009_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1003" interface="principal" />
+        <neighbour IP="192.168.3.1" remote-as="1003" />
+        <neighbour IP="192.168.3.2" remote-as="1003" />
+        <neighbour IP="192.168.3.4" remote-as="1003" />
+        <neighbour IP="192.168.9.1" remote-as="1009" />
+      </session>
+    </router>
+    <router id="nodo1003_4">
+      <interface type="physical" name="principal" address="192.168.3.4" />
+      <topology>
+        <link id=".link_nodo1003_1-nodo1003_4" />
+        <link id=".link_nodo1003_2-nodo1003_4" />
+        <link id=".link_nodo1003_3-nodo1003_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1003" interface="principal" />
+        <neighbour IP="192.168.3.1" remote-as="1003" />
+        <neighbour IP="192.168.3.2" remote-as="1003" />
+        <neighbour IP="192.168.3.3" remote-as="1003" />
+      </session>
+    </router>
+    <router id="nodo1004_1">
+      <interface type="physical" name="principal" address="192.168.4.1" />
+      <topology>
+        <link id=".link_nodo1004_1-nodo1004_2" />
+        <link id=".link_nodo1004_1-nodo1004_3" />
+        <link id=".link_nodo1004_1-nodo1004_4" />
+        <link id=".link_nodo1001_4-nodo1004_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1004" interface="principal" />
+        <neighbour IP="192.168.4.2" remote-as="1004" />
+        <neighbour IP="192.168.4.3" remote-as="1004" />
+        <neighbour IP="192.168.4.4" remote-as="1004" />
+        <neighbour IP="192.168.1.4" remote-as="1001" />
+      </session>
+    </router>
+    <router id="nodo1004_2">
+      <interface type="physical" name="principal" address="192.168.4.2" />
+      <topology>
+        <link id=".link_nodo1004_1-nodo1004_2" />
+        <link id=".link_nodo1004_2-nodo1004_3" />
+        <link id=".link_nodo1004_2-nodo1004_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1004" interface="principal" />
+        <neighbour IP="192.168.4.1" remote-as="1004" />
+        <neighbour IP="192.168.4.3" remote-as="1004" />
+        <neighbour IP="192.168.4.4" remote-as="1004" />
+      </session>
+    </router>
+    <router id="nodo1004_3">
+      <interface type="physical" name="principal" address="192.168.4.3" />
+      <topology>
+        <link id=".link_nodo1004_1-nodo1004_3" />
+        <link id=".link_nodo1004_2-nodo1004_3" />
+        <link id=".link_nodo1004_3-nodo1004_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1004" interface="principal" />
+        <neighbour IP="192.168.4.1" remote-as="1004" />
+        <neighbour IP="192.168.4.2" remote-as="1004" />
+        <neighbour IP="192.168.4.4" remote-as="1004" />
+      </session>
+    </router>
+    <router id="nodo1004_4">
+      <interface type="physical" name="principal" address="192.168.4.4" />
+      <topology>
+        <link id=".link_nodo1004_1-nodo1004_4" />
+        <link id=".link_nodo1004_2-nodo1004_4" />
+        <link id=".link_nodo1004_3-nodo1004_4" />
+        <link id=".link_nodo1004_4-nodo1009_2" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1004" interface="principal" />
+        <neighbour IP="192.168.4.1" remote-as="1004" />
+        <neighbour IP="192.168.4.2" remote-as="1004" />
+        <neighbour IP="192.168.4.3" remote-as="1004" />
+        <neighbour IP="192.168.9.2" remote-as="1009" />
+      </session>
+    </router>
+    <router id="nodo1005_1">
+      <interface type="physical" name="principal" address="192.168.5.1" />
+      <topology>
+        <link id=".link_nodo1005_1-nodo1005_2" />
+        <link id=".link_nodo1005_1-nodo1005_3" />
+        <link id=".link_nodo1005_1-nodo1005_4" />
+        <link id=".link_nodo1005_1-nodo1005_5" />
+        <link id=".link_nodo1001_5-nodo1005_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1005" interface="principal" />
+        <neighbour IP="192.168.5.2" remote-as="1005" />
+        <neighbour IP="192.168.5.3" remote-as="1005" />
+        <neighbour IP="192.168.5.4" remote-as="1005" />
+        <neighbour IP="192.168.5.5" remote-as="1005" />
+        <neighbour IP="192.168.1.5" remote-as="1001" />
+      </session>
+    </router>
+    <router id="nodo1005_2">
+      <interface type="physical" name="principal" address="192.168.5.2" />
+      <topology>
+        <link id=".link_nodo1005_1-nodo1005_2" />
+        <link id=".link_nodo1005_2-nodo1005_3" />
+        <link id=".link_nodo1005_2-nodo1005_4" />
+        <link id=".link_nodo1005_2-nodo1005_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1005" interface="principal" />
+        <neighbour IP="192.168.5.1" remote-as="1005" />
+        <neighbour IP="192.168.5.3" remote-as="1005" />
+        <neighbour IP="192.168.5.4" remote-as="1005" />
+        <neighbour IP="192.168.5.5" remote-as="1005" />
+      </session>
+    </router>
+    <router id="nodo1005_3">
+      <interface type="physical" name="principal" address="192.168.5.3" />
+      <topology>
+        <link id=".link_nodo1005_1-nodo1005_3" />
+        <link id=".link_nodo1005_2-nodo1005_3" />
+        <link id=".link_nodo1005_3-nodo1005_4" />
+        <link id=".link_nodo1005_3-nodo1005_5" />
+        <link id=".link_nodo1005_3-nodo1012_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1005" interface="principal" />
+        <neighbour IP="192.168.5.1" remote-as="1005" />
+        <neighbour IP="192.168.5.2" remote-as="1005" />
+        <neighbour IP="192.168.5.4" remote-as="1005" />
+        <neighbour IP="192.168.5.5" remote-as="1005" />
+        <neighbour IP="192.168.12.1" remote-as="1012" />
+      </session>
+    </router>
+    <router id="nodo1005_4">
+      <interface type="physical" name="principal" address="192.168.5.4" />
+      <topology>
+        <link id=".link_nodo1005_1-nodo1005_4" />
+        <link id=".link_nodo1005_2-nodo1005_4" />
+        <link id=".link_nodo1005_3-nodo1005_4" />
+        <link id=".link_nodo1005_4-nodo1005_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1005" interface="principal" />
+        <neighbour IP="192.168.5.1" remote-as="1005" />
+        <neighbour IP="192.168.5.2" remote-as="1005" />
+        <neighbour IP="192.168.5.3" remote-as="1005" />
+        <neighbour IP="192.168.5.5" remote-as="1005" />
+      </session>
+    </router>
+    <router id="nodo1005_5">
+      <interface type="physical" name="principal" address="192.168.5.5" />
+      <topology>
+        <link id=".link_nodo1005_1-nodo1005_5" />
+        <link id=".link_nodo1005_2-nodo1005_5" />
+        <link id=".link_nodo1005_3-nodo1005_5" />
+        <link id=".link_nodo1005_4-nodo1005_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1005" interface="principal" />
+        <neighbour IP="192.168.5.1" remote-as="1005" />
+        <neighbour IP="192.168.5.2" remote-as="1005" />
+        <neighbour IP="192.168.5.3" remote-as="1005" />
+        <neighbour IP="192.168.5.4" remote-as="1005" />
+      </session>
+    </router>
+    <router id="nodo1006_1">
+      <interface type="physical" name="principal" address="192.168.6.1" />
+      <topology>
+        <link id=".link_nodo1006_1-nodo1006_2" />
+        <link id=".link_nodo1006_1-nodo1006_3" />
+        <link id=".link_nodo1001_6-nodo1006_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1006" interface="principal" />
+        <neighbour IP="192.168.6.2" remote-as="1006" />
+        <neighbour IP="192.168.6.3" remote-as="1006" />
+        <neighbour IP="192.168.1.6" remote-as="1001" />
+      </session>
+    </router>
+    <router id="nodo1006_2">
+      <interface type="physical" name="principal" address="192.168.6.2" />
+      <topology>
+        <link id=".link_nodo1006_1-nodo1006_2" />
+        <link id=".link_nodo1006_2-nodo1006_3" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1006" interface="principal" />
+        <neighbour IP="192.168.6.1" remote-as="1006" />
+        <neighbour IP="192.168.6.3" remote-as="1006" />
+      </session>
+    </router>
+    <router id="nodo1006_3">
+      <interface type="physical" name="principal" address="192.168.6.3" />
+      <topology>
+        <link id=".link_nodo1006_1-nodo1006_3" />
+        <link id=".link_nodo1006_2-nodo1006_3" />
+        <link id=".link_nodo1006_3-nodo1013_3" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1006" interface="principal" />
+        <neighbour IP="192.168.6.1" remote-as="1006" />
+        <neighbour IP="192.168.6.2" remote-as="1006" />
+        <neighbour IP="192.168.13.3" remote-as="1013" />
+      </session>
+    </router>
+    <router id="nodo1007_1">
+      <interface type="physical" name="principal" address="192.168.7.1" />
+      <topology>
+        <link id=".link_nodo1007_1-nodo1007_2" />
+        <link id=".link_nodo1007_1-nodo1007_3" />
+        <link id=".link_nodo1007_1-nodo1007_4" />
+        <link id=".link_nodo1007_1-nodo1007_5" />
+        <link id=".link_nodo1001_7-nodo1007_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1007" interface="principal" />
+        <neighbour IP="192.168.7.2" remote-as="1007" />
+        <neighbour IP="192.168.7.3" remote-as="1007" />
+        <neighbour IP="192.168.7.4" remote-as="1007" />
+        <neighbour IP="192.168.7.5" remote-as="1007" />
+        <neighbour IP="192.168.1.7" remote-as="1001" />
+      </session>
+    </router>
+    <router id="nodo1007_2">
+      <interface type="physical" name="principal" address="192.168.7.2" />
+      <topology>
+        <link id=".link_nodo1007_1-nodo1007_2" />
+        <link id=".link_nodo1007_2-nodo1007_3" />
+        <link id=".link_nodo1007_2-nodo1007_4" />
+        <link id=".link_nodo1007_2-nodo1007_5" />
+        <link id=".link_nodo1007_2-nodo1013_3" />
+        <link id=".link_nodo1007_2-nodo1008_2" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1007" interface="principal" />
+        <neighbour IP="192.168.7.1" remote-as="1007" />
+        <neighbour IP="192.168.7.3" remote-as="1007" />
+        <neighbour IP="192.168.7.4" remote-as="1007" />
+        <neighbour IP="192.168.7.5" remote-as="1007" />
+        <neighbour IP="192.168.13.3" remote-as="1013" />
+        <neighbour IP="192.168.8.2" remote-as="1008" />
+      </session>
+    </router>
+    <router id="nodo1007_3">
+      <interface type="physical" name="principal" address="192.168.7.3" />
+      <topology>
+        <link id=".link_nodo1007_1-nodo1007_3" />
+        <link id=".link_nodo1007_2-nodo1007_3" />
+        <link id=".link_nodo1007_3-nodo1007_4" />
+        <link id=".link_nodo1007_3-nodo1007_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1007" interface="principal" />
+        <neighbour IP="192.168.7.1" remote-as="1007" />
+        <neighbour IP="192.168.7.2" remote-as="1007" />
+        <neighbour IP="192.168.7.4" remote-as="1007" />
+        <neighbour IP="192.168.7.5" remote-as="1007" />
+      </session>
+    </router>
+    <router id="nodo1007_4">
+      <interface type="physical" name="principal" address="192.168.7.4" />
+      <topology>
+        <link id=".link_nodo1007_1-nodo1007_4" />
+        <link id=".link_nodo1007_2-nodo1007_4" />
+        <link id=".link_nodo1007_3-nodo1007_4" />
+        <link id=".link_nodo1007_4-nodo1007_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1007" interface="principal" />
+        <neighbour IP="192.168.7.1" remote-as="1007" />
+        <neighbour IP="192.168.7.2" remote-as="1007" />
+        <neighbour IP="192.168.7.3" remote-as="1007" />
+        <neighbour IP="192.168.7.5" remote-as="1007" />
+      </session>
+    </router>
+    <router id="nodo1007_5">
+      <interface type="physical" name="principal" address="192.168.7.5" />
+      <topology>
+        <link id=".link_nodo1007_1-nodo1007_5" />
+        <link id=".link_nodo1007_2-nodo1007_5" />
+        <link id=".link_nodo1007_3-nodo1007_5" />
+        <link id=".link_nodo1007_4-nodo1007_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1007" interface="principal" />
+        <neighbour IP="192.168.7.1" remote-as="1007" />
+        <neighbour IP="192.168.7.2" remote-as="1007" />
+        <neighbour IP="192.168.7.3" remote-as="1007" />
+        <neighbour IP="192.168.7.4" remote-as="1007" />
+      </session>
+    </router>
+    <router id="nodo1008_1">
+      <interface type="physical" name="principal" address="192.168.8.1" />
+      <topology>
+        <link id=".link_nodo1008_1-nodo1008_2" />
+        <link id=".link_nodo1008_1-nodo1008_3" />
+        <link id=".link_nodo1008_1-nodo1008_4" />
+        <link id=".link_nodo1008_1-nodo1008_5" />
+        <link id=".link_nodo1008_1-nodo1008_6" />
+        <link id=".link_nodo1001_8-nodo1008_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1008" interface="principal" />
+        <neighbour IP="192.168.8.2" remote-as="1008" />
+        <neighbour IP="192.168.8.3" remote-as="1008" />
+        <neighbour IP="192.168.8.4" remote-as="1008" />
+        <neighbour IP="192.168.8.5" remote-as="1008" />
+        <neighbour IP="192.168.8.6" remote-as="1008" />
+        <neighbour IP="192.168.1.8" remote-as="1001" />
+      </session>
+    </router>
+    <router id="nodo1008_2">
+      <interface type="physical" name="principal" address="192.168.8.2" />
+      <topology>
+        <link id=".link_nodo1008_1-nodo1008_2" />
+        <link id=".link_nodo1008_2-nodo1008_3" />
+        <link id=".link_nodo1008_2-nodo1008_4" />
+        <link id=".link_nodo1008_2-nodo1008_5" />
+        <link id=".link_nodo1008_2-nodo1008_6" />
+        <link id=".link_nodo1007_2-nodo1008_2" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1008" interface="principal" />
+        <neighbour IP="192.168.8.1" remote-as="1008" />
+        <neighbour IP="192.168.8.3" remote-as="1008" />
+        <neighbour IP="192.168.8.4" remote-as="1008" />
+        <neighbour IP="192.168.8.5" remote-as="1008" />
+        <neighbour IP="192.168.8.6" remote-as="1008" />
+        <neighbour IP="192.168.7.2" remote-as="1007" />
+      </session>
+    </router>
+    <router id="nodo1008_3">
+      <interface type="physical" name="principal" address="192.168.8.3" />
+      <topology>
+        <link id=".link_nodo1008_1-nodo1008_3" />
+        <link id=".link_nodo1008_2-nodo1008_3" />
+        <link id=".link_nodo1008_3-nodo1008_4" />
+        <link id=".link_nodo1008_3-nodo1008_5" />
+        <link id=".link_nodo1008_3-nodo1008_6" />
+        <link id=".link_nodo1008_3-nodo1013_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1008" interface="principal" />
+        <neighbour IP="192.168.8.1" remote-as="1008" />
+        <neighbour IP="192.168.8.2" remote-as="1008" />
+        <neighbour IP="192.168.8.4" remote-as="1008" />
+        <neighbour IP="192.168.8.5" remote-as="1008" />
+        <neighbour IP="192.168.8.6" remote-as="1008" />
+        <neighbour IP="192.168.13.4" remote-as="1013" />
+      </session>
+    </router>
+    <router id="nodo1008_4">
+      <interface type="physical" name="principal" address="192.168.8.4" />
+      <topology>
+        <link id=".link_nodo1008_1-nodo1008_4" />
+        <link id=".link_nodo1008_2-nodo1008_4" />
+        <link id=".link_nodo1008_3-nodo1008_4" />
+        <link id=".link_nodo1008_4-nodo1008_5" />
+        <link id=".link_nodo1008_4-nodo1008_6" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1008" interface="principal" />
+        <neighbour IP="192.168.8.1" remote-as="1008" />
+        <neighbour IP="192.168.8.2" remote-as="1008" />
+        <neighbour IP="192.168.8.3" remote-as="1008" />
+        <neighbour IP="192.168.8.5" remote-as="1008" />
+        <neighbour IP="192.168.8.6" remote-as="1008" />
+      </session>
+    </router>
+    <router id="nodo1008_5">
+      <interface type="physical" name="principal" address="192.168.8.5" />
+      <topology>
+        <link id=".link_nodo1008_1-nodo1008_5" />
+        <link id=".link_nodo1008_2-nodo1008_5" />
+        <link id=".link_nodo1008_3-nodo1008_5" />
+        <link id=".link_nodo1008_4-nodo1008_5" />
+        <link id=".link_nodo1008_5-nodo1008_6" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1008" interface="principal" />
+        <neighbour IP="192.168.8.1" remote-as="1008" />
+        <neighbour IP="192.168.8.2" remote-as="1008" />
+        <neighbour IP="192.168.8.3" remote-as="1008" />
+        <neighbour IP="192.168.8.4" remote-as="1008" />
+        <neighbour IP="192.168.8.6" remote-as="1008" />
+        <network address="1.0.0.0/8" />
+      </session>
+    </router>
+    <router id="nodo1008_6">
+      <interface type="physical" name="principal" address="192.168.8.6" />
+      <topology>
+        <link id=".link_nodo1008_1-nodo1008_6" />
+        <link id=".link_nodo1008_2-nodo1008_6" />
+        <link id=".link_nodo1008_3-nodo1008_6" />
+        <link id=".link_nodo1008_4-nodo1008_6" />
+        <link id=".link_nodo1008_5-nodo1008_6" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1008" interface="principal" />
+        <neighbour IP="192.168.8.1" remote-as="1008" />
+        <neighbour IP="192.168.8.2" remote-as="1008" />
+        <neighbour IP="192.168.8.3" remote-as="1008" />
+        <neighbour IP="192.168.8.4" remote-as="1008" />
+        <neighbour IP="192.168.8.5" remote-as="1008" />
+      </session>
+    </router>
+    <router id="nodo1009_1">
+      <interface type="physical" name="principal" address="192.168.9.1" />
+      <topology>
+        <link id=".link_nodo1009_1-nodo1009_2" />
+        <link id=".link_nodo1009_1-nodo1009_3" />
+        <link id=".link_nodo1009_1-nodo1009_4" />
+        <link id=".link_nodo1003_3-nodo1009_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1009" interface="principal" />
+        <neighbour IP="192.168.9.2" remote-as="1009" />
+        <neighbour IP="192.168.9.3" remote-as="1009" />
+        <neighbour IP="192.168.9.4" remote-as="1009" />
+        <neighbour IP="192.168.3.3" remote-as="1003" />
+      </session>
+    </router>
+    <router id="nodo1009_2">
+      <interface type="physical" name="principal" address="192.168.9.2" />
+      <topology>
+        <link id=".link_nodo1009_1-nodo1009_2" />
+        <link id=".link_nodo1009_2-nodo1009_3" />
+        <link id=".link_nodo1009_2-nodo1009_4" />
+        <link id=".link_nodo1004_4-nodo1009_2" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1009" interface="principal" />
+        <neighbour IP="192.168.9.1" remote-as="1009" />
+        <neighbour IP="192.168.9.3" remote-as="1009" />
+        <neighbour IP="192.168.9.4" remote-as="1009" />
+        <neighbour IP="192.168.4.4" remote-as="1004" />
+        <network address="2.0.0.0/8"/>
+        
+      </session>
+    </router>
+    <router id="nodo1009_3">
+      <interface type="physical" name="principal" address="192.168.9.3" />
+      <topology>
+        <link id=".link_nodo1009_1-nodo1009_3" />
+        <link id=".link_nodo1009_2-nodo1009_3" />
+        <link id=".link_nodo1009_3-nodo1009_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1009" interface="principal" />
+        <neighbour IP="192.168.9.1" remote-as="1009" />
+        <neighbour IP="192.168.9.2" remote-as="1009" />
+        <neighbour IP="192.168.9.4" remote-as="1009" />
+      </session>
+    </router>
+    <router id="nodo1009_4">
+      <interface type="physical" name="principal" address="192.168.9.4" />
+      <topology>
+        <link id=".link_nodo1009_1-nodo1009_4" />
+        <link id=".link_nodo1009_2-nodo1009_4" />
+        <link id=".link_nodo1009_3-nodo1009_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1009" interface="principal" />
+        <neighbour IP="192.168.9.1" remote-as="1009" />
+        <neighbour IP="192.168.9.2" remote-as="1009" />
+        <neighbour IP="192.168.9.3" remote-as="1009" />
+      </session>
+    </router>
+    <router id="nodo1010_1">
+      <interface type="physical" name="principal" address="192.168.10.1" />
+      <topology>
+        <link id=".link_nodo1010_1-nodo1010_2" />
+        <link id=".link_nodo1002_3-nodo1010_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1010" interface="principal" />
+        <neighbour IP="192.168.10.2" remote-as="1010" rrc="yes" />
+        <neighbour IP="192.168.2.3" remote-as="1002" />
+      </session>
+    </router>
+    <router id="nodo1010_2">
+      <interface type="physical" name="principal" address="192.168.10.2" />
+      <topology>
+        <link id=".link_nodo1010_1-nodo1010_2" />
+        <link id=".link_nodo1010_2-nodo1011_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1010" interface="principal" />
+        <neighbour IP="192.168.10.1" remote-as="1010" />
+        <neighbour IP="192.168.11.1" remote-as="1011" />
+      </session>
+    </router>
+    <router id="nodo1011_1">
+      <interface type="physical" name="principal" address="192.168.11.1" />
+      <topology>
+        <link id=".link_nodo1011_1-nodo1011_2" />
+        <link id=".link_nodo1010_2-nodo1011_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1011" interface="principal" />
+        <neighbour IP="192.168.11.2" remote-as="1011" />
+        <neighbour IP="192.168.10.2" remote-as="1010" />
+      </session>
+    </router>
+    <router id="nodo1011_2">
+      <interface type="physical" name="principal" address="192.168.11.2" />
+      <topology>
+        <link id=".link_nodo1011_1-nodo1011_2" />
+        <link id=".link_nodo1011_2-nodo2002_3" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1011" interface="principal" />
+        <neighbour IP="192.168.11.1" remote-as="1011" />
+        <neighbour IP="10.0.2.3" remote-as="2002" />
+      </session>
+    </router>
+    <router id="nodo1012_1">
+      <interface type="physical" name="principal" address="192.168.12.1" />
+      <topology>
+        <link id=".link_nodo1012_1-nodo1012_2" />
+        <link id=".link_nodo1012_1-nodo1012_3" />
+        <link id=".link_nodo1005_3-nodo1012_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1012" interface="principal" />
+        <neighbour IP="192.168.12.2" remote-as="1012" />
+        <neighbour IP="192.168.12.3" remote-as="1012" />
+        <neighbour IP="192.168.5.3" remote-as="1005" />
+      </session>
+    </router>
+    <router id="nodo1012_2">
+      <interface type="physical" name="principal" address="192.168.12.2" />
+      <topology>
+        <link id=".link_nodo1012_1-nodo1012_2" />
+        <link id=".link_nodo1012_2-nodo1012_3" />
+        <link id=".link_nodo1012_2-nodo1013_2" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1012" interface="principal" />
+        <neighbour IP="192.168.12.1" remote-as="1012" />
+        <neighbour IP="192.168.12.3" remote-as="1012" />
+        <neighbour IP="192.168.13.2" remote-as="1013" />
+      </session>
+    </router>
+    <router id="nodo1012_3">
+      <interface type="physical" name="principal" address="192.168.12.3" />
+      <topology>
+        <link id=".link_nodo1012_1-nodo1012_3" />
+        <link id=".link_nodo1012_2-nodo1012_3" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1012" interface="principal" />
+        <neighbour IP="192.168.12.1" remote-as="1012" />
+        <neighbour IP="192.168.12.2" remote-as="1012" />
+      </session>
+    </router>
+    <router id="nodo1013_1">
+      <interface type="physical" name="principal" address="192.168.13.1" />
+      <topology>
+        <link id=".link_nodo1013_1-nodo1013_2" />
+        <link id=".link_nodo1013_1-nodo1013_3" />
+        <link id=".link_nodo1013_1-nodo1013_4" />
+        <link id=".link_nodo1013_1-nodo1013_5" />
+        <link id=".link_nodo1013_1-nodo1013_6" />
+        <link id=".link_nodo1013_1-nodo1013_7" />
+        <link id=".link_nodo1013_1-nodo1013_8" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1013" interface="principal" />
+        <neighbour IP="192.168.13.2" remote-as="1013" rrc="yes" />
+        <neighbour IP="192.168.13.3" remote-as="1013" rrc="yes" />
+        <neighbour IP="192.168.13.4" remote-as="1013" rrc="yes" />
+        <neighbour IP="192.168.13.5" remote-as="1013" rrc="yes" />
+        <neighbour IP="192.168.13.6" remote-as="1013" rrc="yes" />
+        <neighbour IP="192.168.13.7" remote-as="1013" rrc="yes" />
+        <neighbour IP="192.168.13.8" remote-as="1013" rrc="yes" />
+      </session>
+    </router>
+    <router id="nodo1013_2">
+      <interface type="physical" name="principal" address="192.168.13.2" />
+      <topology>
+        <link id=".link_nodo1013_1-nodo1013_2" />
+        <link id=".link_nodo1013_2-nodo1013_3" />
+        <link id=".link_nodo1013_2-nodo1013_4" />
+        <link id=".link_nodo1013_2-nodo1013_5" />
+        <link id=".link_nodo1013_2-nodo1013_6" />
+        <link id=".link_nodo1013_2-nodo1013_7" />
+        <link id=".link_nodo1013_2-nodo1013_8" />
+        <link id=".link_nodo1012_2-nodo1013_2" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1013" interface="principal" />
+        <neighbour IP="192.168.13.1" remote-as="1013" />
+        <neighbour IP="192.168.12.2" remote-as="1012" />
+      </session>
+    </router>
+    <router id="nodo1013_3">
+      <interface type="physical" name="principal" address="192.168.13.3" />
+      <topology>
+        <link id=".link_nodo1013_1-nodo1013_3" />
+        <link id=".link_nodo1013_2-nodo1013_3" />
+        <link id=".link_nodo1013_3-nodo1013_4" />
+        <link id=".link_nodo1013_3-nodo1013_5" />
+        <link id=".link_nodo1013_3-nodo1013_6" />
+        <link id=".link_nodo1013_3-nodo1013_7" />
+        <link id=".link_nodo1013_3-nodo1013_8" />
+        <link id=".link_nodo1006_3-nodo1013_3" />
+        <link id=".link_nodo1007_2-nodo1013_3" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1013" interface="principal" />
+        <neighbour IP="192.168.13.1" remote-as="1013" />
+        <neighbour IP="192.168.6.3" remote-as="1006" />
+        <neighbour IP="192.168.7.2" remote-as="1007" />
+      </session>
+    </router>
+    <router id="nodo1013_4">
+      <interface type="physical" name="principal" address="192.168.13.4" />
+      <topology>
+        <link id=".link_nodo1013_1-nodo1013_4" />
+        <link id=".link_nodo1013_2-nodo1013_4" />
+        <link id=".link_nodo1013_3-nodo1013_4" />
+        <link id=".link_nodo1013_4-nodo1013_5" />
+        <link id=".link_nodo1013_4-nodo1013_6" />
+        <link id=".link_nodo1013_4-nodo1013_7" />
+        <link id=".link_nodo1013_4-nodo1013_8" />
+        <link id=".link_nodo1008_3-nodo1013_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1013" interface="principal" />
+        <neighbour IP="192.168.13.1" remote-as="1013" />
+        <neighbour IP="192.168.8.3" remote-as="1008" />
+      </session>
+    </router>
+    <router id="nodo1013_5">
+      <interface type="physical" name="principal" address="192.168.13.5" />
+      <topology>
+        <link id=".link_nodo1013_1-nodo1013_5" />
+        <link id=".link_nodo1013_2-nodo1013_5" />
+        <link id=".link_nodo1013_3-nodo1013_5" />
+        <link id=".link_nodo1013_4-nodo1013_5" />
+        <link id=".link_nodo1013_5-nodo1013_6" />
+        <link id=".link_nodo1013_5-nodo1013_7" />
+        <link id=".link_nodo1013_5-nodo1013_8" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1013" interface="principal" />
+        <neighbour IP="192.168.13.1" remote-as="1013" />
+      </session>
+    </router>
+    <router id="nodo1013_6">
+      <interface type="physical" name="principal" address="192.168.13.6" />
+      <topology>
+        <link id=".link_nodo1013_1-nodo1013_6" />
+        <link id=".link_nodo1013_2-nodo1013_6" />
+        <link id=".link_nodo1013_3-nodo1013_6" />
+        <link id=".link_nodo1013_4-nodo1013_6" />
+        <link id=".link_nodo1013_5-nodo1013_6" />
+        <link id=".link_nodo1013_6-nodo1013_7" />
+        <link id=".link_nodo1013_6-nodo1013_8" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1013" interface="principal" />
+        <neighbour IP="192.168.13.1" remote-as="1013" />
+      </session>
+    </router>
+    <router id="nodo1013_7">
+      <interface type="physical" name="principal" address="192.168.13.7" />
+      <topology>
+        <link id=".link_nodo1013_1-nodo1013_7" />
+        <link id=".link_nodo1013_2-nodo1013_7" />
+        <link id=".link_nodo1013_3-nodo1013_7" />
+        <link id=".link_nodo1013_4-nodo1013_7" />
+        <link id=".link_nodo1013_5-nodo1013_7" />
+        <link id=".link_nodo1013_6-nodo1013_7" />
+        <link id=".link_nodo1013_7-nodo1013_8" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1013" interface="principal" />
+        <neighbour IP="192.168.13.1" remote-as="1013" />
+      </session>
+    </router>
+    <router id="nodo1013_8">
+      <interface type="physical" name="principal" address="192.168.13.8" />
+      <topology>
+        <link id=".link_nodo1013_1-nodo1013_8" />
+        <link id=".link_nodo1013_2-nodo1013_8" />
+        <link id=".link_nodo1013_3-nodo1013_8" />
+        <link id=".link_nodo1013_4-nodo1013_8" />
+        <link id=".link_nodo1013_5-nodo1013_8" />
+        <link id=".link_nodo1013_6-nodo1013_8" />
+        <link id=".link_nodo1013_7-nodo1013_8" />
+        <link id=".link_nodo1013_8-nodo2009_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="1013" interface="principal" />
+        <neighbour IP="192.168.13.1" remote-as="1013" />
+        <neighbour IP="10.0.9.5" remote-as="2009" />
+      </session>
+    </router>
+<router id="nodo2001_1">
+      <interface type="physical" name="principal" address="10.0.1.1" />
+      <topology>
+        <link id=".link_nodo2001_1-nodo2001_2" />
+        <link id=".link_nodo2001_1-nodo2001_3" />
+        <link id=".link_nodo2001_1-nodo2001_4" />
+        <link id=".link_nodo2001_1-nodo2001_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2001" interface="principal" />
+        <neighbour IP="10.0.1.2" remote-as="2001" />
+        <neighbour IP="10.0.1.3" remote-as="2001" />
+        <neighbour IP="10.0.1.4" remote-as="2001" />
+        <neighbour IP="10.0.1.5" remote-as="2001" />
+      </session>
+    </router>
+    <router id="nodo2001_2">
+      <interface type="physical" name="principal" address="10.0.1.2" />
+      <topology>
+        <link id=".link_nodo2001_1-nodo2001_2" />
+        <link id=".link_nodo2001_2-nodo2001_3" />
+        <link id=".link_nodo2001_2-nodo2001_4" />
+        <link id=".link_nodo2001_2-nodo2001_5" />
+        <link id=".link_nodo2001_2-nodo2002_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2001" interface="principal" />
+        <neighbour IP="10.0.1.1" remote-as="2001" />
+        <neighbour IP="10.0.1.3" remote-as="2001" />
+        <neighbour IP="10.0.1.4" remote-as="2001" />
+        <neighbour IP="10.0.1.5" remote-as="2001" />
+        <neighbour IP="10.0.2.1" remote-as="2002" />
+      </session>
+    </router>
+    <router id="nodo2001_3">
+      <interface type="physical" name="principal" address="10.0.1.3" />
+      <topology>
+        <link id=".link_nodo2001_1-nodo2001_3" />
+        <link id=".link_nodo2001_2-nodo2001_3" />
+        <link id=".link_nodo2001_3-nodo2001_4" />
+        <link id=".link_nodo2001_3-nodo2001_5" />
+        <link id=".link_nodo2001_3-nodo2003_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2001" interface="principal" />
+        <neighbour IP="10.0.1.1" remote-as="2001" />
+        <neighbour IP="10.0.1.2" remote-as="2001" />
+        <neighbour IP="10.0.1.4" remote-as="2001" />
+        <neighbour IP="10.0.1.5" remote-as="2001" />
+        <neighbour IP="10.0.3.1" remote-as="2003" />
+      </session>
+    </router>
+    <router id="nodo2001_4">
+      <interface type="physical" name="principal" address="10.0.1.4" />
+      <topology>
+        <link id=".link_nodo2001_1-nodo2001_4" />
+        <link id=".link_nodo2001_2-nodo2001_4" />
+        <link id=".link_nodo2001_3-nodo2001_4" />
+        <link id=".link_nodo2001_4-nodo2001_5" />
+        <link id=".link_nodo2001_4-nodo2004_2" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2001" interface="principal" />
+        <neighbour IP="10.0.1.1" remote-as="2001" />
+        <neighbour IP="10.0.1.2" remote-as="2001" />
+        <neighbour IP="10.0.1.3" remote-as="2001" />
+        <neighbour IP="10.0.1.5" remote-as="2001" />
+        <neighbour IP="10.0.4.2" remote-as="2004" />
+      </session>
+    </router>
+    <router id="nodo2001_5">
+      <interface type="physical" name="principal" address="10.0.1.5" />
+      <topology>
+        <link id=".link_nodo2001_1-nodo2001_5" />
+        <link id=".link_nodo2001_2-nodo2001_5" />
+        <link id=".link_nodo2001_3-nodo2001_5" />
+        <link id=".link_nodo2001_4-nodo2001_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2001" interface="principal" />
+        <neighbour IP="10.0.1.1" remote-as="2001" />
+        <neighbour IP="10.0.1.2" remote-as="2001" />
+        <neighbour IP="10.0.1.3" remote-as="2001" />
+        <neighbour IP="10.0.1.4" remote-as="2001" />
+      </session>
+    </router>
+    <router id="nodo2002_1">
+      <interface type="physical" name="principal" address="10.0.2.1" />
+      <topology>
+        <link id=".link_nodo2002_1-nodo2002_2" />
+        <link id=".link_nodo2002_1-nodo2002_3" />
+        <link id=".link_nodo2002_1-nodo2002_4" />
+        <link id=".link_nodo2002_1-nodo2002_5" />
+        <link id=".link_nodo2001_2-nodo2002_1" />
+        <link id=".link_nodo2002_1-nodo2004_3" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2002" interface="principal" />
+        <neighbour IP="10.0.2.2" remote-as="2002" />
+        <neighbour IP="10.0.2.3" remote-as="2002" />
+        <neighbour IP="10.0.2.4" remote-as="2002" />
+        <neighbour IP="10.0.2.5" remote-as="2002" />
+        <neighbour IP="10.0.1.2" remote-as="2001" />
+        <neighbour IP="10.0.4.3" remote-as="2004" />
+      </session>
+    </router>
+    <router id="nodo2002_2">
+      <interface type="physical" name="principal" address="10.0.2.2" />
+      <topology>
+        <link id=".link_nodo2002_1-nodo2002_2" />
+        <link id=".link_nodo2002_2-nodo2002_3" />
+        <link id=".link_nodo2002_2-nodo2002_4" />
+        <link id=".link_nodo2002_2-nodo2002_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2002" interface="principal" />
+        <neighbour IP="10.0.2.1" remote-as="2002" />
+        <neighbour IP="10.0.2.3" remote-as="2002" />
+        <neighbour IP="10.0.2.4" remote-as="2002" />
+        <neighbour IP="10.0.2.5" remote-as="2002" />
+        <network address="4.0.0.0/8"/>
+      </session>
+    </router>
+    <router id="nodo2002_3">
+      <interface type="physical" name="principal" address="10.0.2.3" />
+      <topology>
+        <link id=".link_nodo2002_1-nodo2002_3" />
+        <link id=".link_nodo2002_2-nodo2002_3" />
+        <link id=".link_nodo2002_3-nodo2002_4" />
+        <link id=".link_nodo2002_3-nodo2002_5" />
+        <link id=".link_nodo1011_2-nodo2002_3" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2002" interface="principal" />
+        <neighbour IP="10.0.2.1" remote-as="2002" />
+        <neighbour IP="10.0.2.2" remote-as="2002" />
+        <neighbour IP="10.0.2.4" remote-as="2002" />
+        <neighbour IP="10.0.2.5" remote-as="2002" />
+        <neighbour IP="192.168.11.2" remote-as="1011" />
+      </session>
+    </router>
+    <router id="nodo2002_4">
+      <interface type="physical" name="principal" address="10.0.2.4" />
+      <topology>
+        <link id=".link_nodo2002_1-nodo2002_4" />
+        <link id=".link_nodo2002_2-nodo2002_4" />
+        <link id=".link_nodo2002_3-nodo2002_4" />
+        <link id=".link_nodo2002_4-nodo2002_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2002" interface="principal" />
+        <neighbour IP="10.0.2.1" remote-as="2002" />
+        <neighbour IP="10.0.2.2" remote-as="2002" />
+        <neighbour IP="10.0.2.3" remote-as="2002" />
+        <neighbour IP="10.0.2.5" remote-as="2002" />
+      </session>
+    </router>
+    <router id="nodo2002_5">
+      <interface type="physical" name="principal" address="10.0.2.5" />
+      <topology>
+        <link id=".link_nodo2002_1-nodo2002_5" />
+        <link id=".link_nodo2002_2-nodo2002_5" />
+        <link id=".link_nodo2002_3-nodo2002_5" />
+        <link id=".link_nodo2002_4-nodo2002_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2002" interface="principal" />
+        <neighbour IP="10.0.2.1" remote-as="2002" />
+        <neighbour IP="10.0.2.2" remote-as="2002" />
+        <neighbour IP="10.0.2.3" remote-as="2002" />
+        <neighbour IP="10.0.2.4" remote-as="2002" />
+      </session>
+    </router>
+    <router id="nodo2003_1">
+      <interface type="physical" name="principal" address="10.0.3.1" />
+      <topology>
+        <link id=".link_nodo2003_1-nodo2003_2" />
+        <link id=".link_nodo2003_1-nodo2003_3" />
+        <link id=".link_nodo2003_1-nodo2003_4" />
+        <link id=".link_nodo2003_1-nodo2003_5" />
+        <link id=".link_nodo2001_3-nodo2003_1" />
+        <link id=".link_nodo2003_1-nodo2004_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2003" interface="principal" />
+        <neighbour IP="10.0.3.2" remote-as="2003" />
+        <neighbour IP="10.0.3.3" remote-as="2003" />
+        <neighbour IP="10.0.3.4" remote-as="2003" />
+        <neighbour IP="10.0.3.5" remote-as="2003" />
+        <neighbour IP="10.0.1.3" remote-as="2001" />
+        <neighbour IP="10.0.4.4" remote-as="2004" />
+      </session>
+    </router>
+    <router id="nodo2003_2">
+      <interface type="physical" name="principal" address="10.0.3.2" />
+      <topology>
+        <link id=".link_nodo2003_1-nodo2003_2" />
+        <link id=".link_nodo2003_2-nodo2003_3" />
+        <link id=".link_nodo2003_2-nodo2003_4" />
+        <link id=".link_nodo2003_2-nodo2003_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2003" interface="principal" />
+        <neighbour IP="10.0.3.1" remote-as="2003" />
+        <neighbour IP="10.0.3.3" remote-as="2003" />
+        <neighbour IP="10.0.3.4" remote-as="2003" />
+        <neighbour IP="10.0.3.5" remote-as="2003" />
+      </session>
+    </router>
+    <router id="nodo2003_3">
+      <interface type="physical" name="principal" address="10.0.3.3" />
+      <topology>
+        <link id=".link_nodo2003_1-nodo2003_3" />
+        <link id=".link_nodo2003_2-nodo2003_3" />
+        <link id=".link_nodo2003_3-nodo2003_4" />
+        <link id=".link_nodo2003_3-nodo2003_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2003" interface="principal" />
+        <neighbour IP="10.0.3.1" remote-as="2003" />
+        <neighbour IP="10.0.3.2" remote-as="2003" />
+        <neighbour IP="10.0.3.4" remote-as="2003" />
+        <neighbour IP="10.0.3.5" remote-as="2003" />
+      </session>
+    </router>
+    <router id="nodo2003_4">
+      <interface type="physical" name="principal" address="10.0.3.4" />
+      <topology>
+        <link id=".link_nodo2003_1-nodo2003_4" />
+        <link id=".link_nodo2003_2-nodo2003_4" />
+        <link id=".link_nodo2003_3-nodo2003_4" />
+        <link id=".link_nodo2003_4-nodo2003_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2003" interface="principal" />
+        <neighbour IP="10.0.3.1" remote-as="2003" />
+        <neighbour IP="10.0.3.2" remote-as="2003" />
+        <neighbour IP="10.0.3.3" remote-as="2003" />
+        <neighbour IP="10.0.3.5" remote-as="2003" />
+      </session>
+    </router>
+    <router id="nodo2003_5">
+      <interface type="physical" name="principal" address="10.0.3.5" />
+      <topology>
+        <link id=".link_nodo2003_1-nodo2003_5" />
+        <link id=".link_nodo2003_2-nodo2003_5" />
+        <link id=".link_nodo2003_3-nodo2003_5" />
+        <link id=".link_nodo2003_4-nodo2003_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2003" interface="principal" />
+        <neighbour IP="10.0.3.1" remote-as="2003" />
+        <neighbour IP="10.0.3.2" remote-as="2003" />
+        <neighbour IP="10.0.3.3" remote-as="2003" />
+        <neighbour IP="10.0.3.4" remote-as="2003" />
+      </session>
+    </router>
+    <router id="nodo2004_1">
+      <interface type="physical" name="principal" address="10.0.4.1" />
+      <topology>
+        <link id=".link_nodo2004_1-nodo2004_2" />
+        <link id=".link_nodo2004_1-nodo2004_3" />
+        <link id=".link_nodo2004_1-nodo2004_4" />
+        <link id=".link_nodo2004_1-nodo2004_5" />
+        <link id=".link_nodo2004_1-nodo2004_6" />
+        <link id=".link_nodo2004_1-nodo2004_7" />
+        <link id=".link_nodo2004_1-nodo2004_8" />
+        <link id=".link_nodo2004_1-nodo2004_9" />
+        <link id=".link_nodo2004_1-nodo2004_10" />
+        <link id=".link_nodo2004_1-nodo2004_11" />
+        <link id=".link_nodo2004_1-nodo2004_12" />
+        <link id=".link_nodo2004_1-nodo2004_13" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2004" interface="principal" />
+        <neighbour IP="10.0.4.2" remote-as="2004" rrc="yes" />
+        <neighbour IP="10.0.4.3" remote-as="2004" rrc="yes" />
+        <neighbour IP="10.0.4.4" remote-as="2004" rrc="yes" />
+        <neighbour IP="10.0.4.5" remote-as="2004" rrc="yes" />
+        <neighbour IP="10.0.4.6" remote-as="2004" rrc="yes" />
+        <neighbour IP="10.0.4.7" remote-as="2004" rrc="yes" />
+        <neighbour IP="10.0.4.8" remote-as="2004" rrc="yes" />
+        <neighbour IP="10.0.4.9" remote-as="2004" rrc="yes" />
+        <neighbour IP="10.0.4.10" remote-as="2004" rrc="yes" />
+        <neighbour IP="10.0.4.11" remote-as="2004" rrc="yes" />
+        <neighbour IP="10.0.4.12" remote-as="2004" rrc="yes" />
+        <neighbour IP="10.0.4.13" remote-as="2004" rrc="yes" />
+      </session>
+    </router>
+    <router id="nodo2004_2">
+      <interface type="physical" name="principal" address="10.0.4.2" />
+      <topology>
+        <link id=".link_nodo2004_1-nodo2004_2" />
+        <link id=".link_nodo2004_2-nodo2004_3" />
+        <link id=".link_nodo2004_2-nodo2004_4" />
+        <link id=".link_nodo2004_2-nodo2004_5" />
+        <link id=".link_nodo2004_2-nodo2004_6" />
+        <link id=".link_nodo2004_2-nodo2004_7" />
+        <link id=".link_nodo2004_2-nodo2004_8" />
+        <link id=".link_nodo2004_2-nodo2004_9" />
+        <link id=".link_nodo2004_10-nodo2004_2" />
+        <link id=".link_nodo2004_11-nodo2004_2" />
+        <link id=".link_nodo2004_12-nodo2004_2" />
+        <link id=".link_nodo2004_13-nodo2004_2" />
+        <link id=".link_nodo2001_4-nodo2004_2" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2004" interface="principal" />
+        <neighbour IP="10.0.4.1" remote-as="2004" />
+        <neighbour IP="10.0.1.4" remote-as="2001" />
+      </session>
+    </router>
+    <router id="nodo2004_3">
+      <interface type="physical" name="principal" address="10.0.4.3" />
+      <topology>
+        <link id=".link_nodo2004_1-nodo2004_3" />
+        <link id=".link_nodo2004_2-nodo2004_3" />
+        <link id=".link_nodo2004_3-nodo2004_4" />
+        <link id=".link_nodo2004_3-nodo2004_5" />
+        <link id=".link_nodo2004_3-nodo2004_6" />
+        <link id=".link_nodo2004_3-nodo2004_7" />
+        <link id=".link_nodo2004_3-nodo2004_8" />
+        <link id=".link_nodo2004_3-nodo2004_9" />
+        <link id=".link_nodo2004_10-nodo2004_3" />
+        <link id=".link_nodo2004_11-nodo2004_3" />
+        <link id=".link_nodo2004_12-nodo2004_3" />
+        <link id=".link_nodo2004_13-nodo2004_3" />
+        <link id=".link_nodo2002_1-nodo2004_3" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2004" interface="principal" />
+        <neighbour IP="10.0.4.1" remote-as="2004" />
+        <neighbour IP="10.0.2.1" remote-as="2002" />
+      </session>
+    </router>
+    <router id="nodo2004_4">
+      <interface type="physical" name="principal" address="10.0.4.4" />
+      <topology>
+        <link id=".link_nodo2004_1-nodo2004_4" />
+        <link id=".link_nodo2004_2-nodo2004_4" />
+        <link id=".link_nodo2004_3-nodo2004_4" />
+        <link id=".link_nodo2004_4-nodo2004_5" />
+        <link id=".link_nodo2004_4-nodo2004_6" />
+        <link id=".link_nodo2004_4-nodo2004_7" />
+        <link id=".link_nodo2004_4-nodo2004_8" />
+        <link id=".link_nodo2004_4-nodo2004_9" />
+        <link id=".link_nodo2004_10-nodo2004_4" />
+        <link id=".link_nodo2004_11-nodo2004_4" />
+        <link id=".link_nodo2004_12-nodo2004_4" />
+        <link id=".link_nodo2004_13-nodo2004_4" />
+        <link id=".link_nodo2003_1-nodo2004_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2004" interface="principal" />
+        <neighbour IP="10.0.4.1" remote-as="2004" />
+        <neighbour IP="10.0.3.1" remote-as="2003" />
+      </session>
+    </router>
+    <router id="nodo2004_5">
+      <interface type="physical" name="principal" address="10.0.4.5" />
+      <topology>
+        <link id=".link_nodo2004_1-nodo2004_5" />
+        <link id=".link_nodo2004_2-nodo2004_5" />
+        <link id=".link_nodo2004_3-nodo2004_5" />
+        <link id=".link_nodo2004_4-nodo2004_5" />
+        <link id=".link_nodo2004_5-nodo2004_6" />
+        <link id=".link_nodo2004_5-nodo2004_7" />
+        <link id=".link_nodo2004_5-nodo2004_8" />
+        <link id=".link_nodo2004_5-nodo2004_9" />
+        <link id=".link_nodo2004_10-nodo2004_5" />
+        <link id=".link_nodo2004_11-nodo2004_5" />
+        <link id=".link_nodo2004_12-nodo2004_5" />
+        <link id=".link_nodo2004_13-nodo2004_5" />
+        <link id=".link_nodo2004_5-nodo2005_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2004" interface="principal" />
+        <neighbour IP="10.0.4.1" remote-as="2004" />
+        <neighbour IP="10.0.5.1" remote-as="2005" />
+      </session>
+    </router>
+    <router id="nodo2004_6">
+      <interface type="physical" name="principal" address="10.0.4.6" />
+      <topology>
+        <link id=".link_nodo2004_1-nodo2004_6" />
+        <link id=".link_nodo2004_2-nodo2004_6" />
+        <link id=".link_nodo2004_3-nodo2004_6" />
+        <link id=".link_nodo2004_4-nodo2004_6" />
+        <link id=".link_nodo2004_5-nodo2004_6" />
+        <link id=".link_nodo2004_6-nodo2004_7" />
+        <link id=".link_nodo2004_6-nodo2004_8" />
+        <link id=".link_nodo2004_6-nodo2004_9" />
+        <link id=".link_nodo2004_10-nodo2004_6" />
+        <link id=".link_nodo2004_11-nodo2004_6" />
+        <link id=".link_nodo2004_12-nodo2004_6" />
+        <link id=".link_nodo2004_13-nodo2004_6" />
+        <link id=".link_nodo2004_6-nodo2006_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2004" interface="principal" />
+        <neighbour IP="10.0.4.1" remote-as="2004" />
+        <neighbour IP="10.0.6.1" remote-as="2006" />
+      </session>
+    </router>
+    <router id="nodo2004_7">
+      <interface type="physical" name="principal" address="10.0.4.7" />
+      <topology>
+        <link id=".link_nodo2004_1-nodo2004_7" />
+        <link id=".link_nodo2004_2-nodo2004_7" />
+        <link id=".link_nodo2004_3-nodo2004_7" />
+        <link id=".link_nodo2004_4-nodo2004_7" />
+        <link id=".link_nodo2004_5-nodo2004_7" />
+        <link id=".link_nodo2004_6-nodo2004_7" />
+        <link id=".link_nodo2004_7-nodo2004_8" />
+        <link id=".link_nodo2004_7-nodo2004_9" />
+        <link id=".link_nodo2004_10-nodo2004_7" />
+        <link id=".link_nodo2004_11-nodo2004_7" />
+        <link id=".link_nodo2004_12-nodo2004_7" />
+        <link id=".link_nodo2004_13-nodo2004_7" />
+        <link id=".link_nodo2004_7-nodo2007_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2004" interface="principal" />
+        <neighbour IP="10.0.4.1" remote-as="2004" />
+        <neighbour IP="10.0.7.1" remote-as="2007" />
+      </session>
+    </router>
+    <router id="nodo2004_8">
+      <interface type="physical" name="principal" address="10.0.4.8" />
+      <topology>
+        <link id=".link_nodo2004_1-nodo2004_8" />
+        <link id=".link_nodo2004_2-nodo2004_8" />
+        <link id=".link_nodo2004_3-nodo2004_8" />
+        <link id=".link_nodo2004_4-nodo2004_8" />
+        <link id=".link_nodo2004_5-nodo2004_8" />
+        <link id=".link_nodo2004_6-nodo2004_8" />
+        <link id=".link_nodo2004_7-nodo2004_8" />
+        <link id=".link_nodo2004_8-nodo2004_9" />
+        <link id=".link_nodo2004_10-nodo2004_8" />
+        <link id=".link_nodo2004_11-nodo2004_8" />
+        <link id=".link_nodo2004_12-nodo2004_8" />
+        <link id=".link_nodo2004_13-nodo2004_8" />
+        <link id=".link_nodo2004_8-nodo2008_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2004" interface="principal" />
+        <neighbour IP="10.0.4.1" remote-as="2004" />
+        <neighbour IP="10.0.8.1" remote-as="2008" />
+      </session>
+    </router>
+    <router id="nodo2004_9">
+      <interface type="physical" name="principal" address="10.0.4.9" />
+      <topology>
+        <link id=".link_nodo2004_1-nodo2004_9" />
+        <link id=".link_nodo2004_2-nodo2004_9" />
+        <link id=".link_nodo2004_3-nodo2004_9" />
+        <link id=".link_nodo2004_4-nodo2004_9" />
+        <link id=".link_nodo2004_5-nodo2004_9" />
+        <link id=".link_nodo2004_6-nodo2004_9" />
+        <link id=".link_nodo2004_7-nodo2004_9" />
+        <link id=".link_nodo2004_8-nodo2004_9" />
+        <link id=".link_nodo2004_10-nodo2004_9" />
+        <link id=".link_nodo2004_11-nodo2004_9" />
+        <link id=".link_nodo2004_12-nodo2004_9" />
+        <link id=".link_nodo2004_13-nodo2004_9" />
+        <link id=".link_nodo2004_9-nodo2009_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2004" interface="principal" />
+        <neighbour IP="10.0.4.1" remote-as="2004" />
+        <neighbour IP="10.0.9.1" remote-as="2009" />
+      </session>
+    </router>
+    <router id="nodo2004_10">
+      <interface type="physical" name="principal" address="10.0.4.10" />
+      <topology>
+        <link id=".link_nodo2004_1-nodo2004_10" />
+        <link id=".link_nodo2004_10-nodo2004_2" />
+        <link id=".link_nodo2004_10-nodo2004_3" />
+        <link id=".link_nodo2004_10-nodo2004_4" />
+        <link id=".link_nodo2004_10-nodo2004_5" />
+        <link id=".link_nodo2004_10-nodo2004_6" />
+        <link id=".link_nodo2004_10-nodo2004_7" />
+        <link id=".link_nodo2004_10-nodo2004_8" />
+        <link id=".link_nodo2004_10-nodo2004_9" />
+        <link id=".link_nodo2004_10-nodo2004_11" />
+        <link id=".link_nodo2004_10-nodo2004_12" />
+        <link id=".link_nodo2004_10-nodo2004_13" />
+        <link id=".link_nodo2004_10-nodo2010_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2004" interface="principal" />
+        <neighbour IP="10.0.4.1" remote-as="2004" />
+        <neighbour IP="10.0.10.1" remote-as="2010" />
+      </session>
+    </router>
+    <router id="nodo2004_11">
+      <interface type="physical" name="principal" address="10.0.4.11" />
+      <topology>
+        <link id=".link_nodo2004_1-nodo2004_11" />
+        <link id=".link_nodo2004_11-nodo2004_2" />
+        <link id=".link_nodo2004_11-nodo2004_3" />
+        <link id=".link_nodo2004_11-nodo2004_4" />
+        <link id=".link_nodo2004_11-nodo2004_5" />
+        <link id=".link_nodo2004_11-nodo2004_6" />
+        <link id=".link_nodo2004_11-nodo2004_7" />
+        <link id=".link_nodo2004_11-nodo2004_8" />
+        <link id=".link_nodo2004_11-nodo2004_9" />
+        <link id=".link_nodo2004_10-nodo2004_11" />
+        <link id=".link_nodo2004_11-nodo2004_12" />
+        <link id=".link_nodo2004_11-nodo2004_13" />
+        <link id=".link_nodo2004_11-nodo2011_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2004" interface="principal" />
+        <neighbour IP="10.0.4.1" remote-as="2004" />
+        <neighbour IP="10.0.11.1" remote-as="2011" />
+      </session>
+    </router>
+    <router id="nodo2004_12">
+      <interface type="physical" name="principal" address="10.0.4.12" />
+      <topology>
+        <link id=".link_nodo2004_1-nodo2004_12" />
+        <link id=".link_nodo2004_12-nodo2004_2" />
+        <link id=".link_nodo2004_12-nodo2004_3" />
+        <link id=".link_nodo2004_12-nodo2004_4" />
+        <link id=".link_nodo2004_12-nodo2004_5" />
+        <link id=".link_nodo2004_12-nodo2004_6" />
+        <link id=".link_nodo2004_12-nodo2004_7" />
+        <link id=".link_nodo2004_12-nodo2004_8" />
+        <link id=".link_nodo2004_12-nodo2004_9" />
+        <link id=".link_nodo2004_10-nodo2004_12" />
+        <link id=".link_nodo2004_11-nodo2004_12" />
+        <link id=".link_nodo2004_12-nodo2004_13" />
+        <link id=".link_nodo2004_12-nodo2012_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2004" interface="principal" />
+        <neighbour IP="10.0.4.1" remote-as="2004" />
+        <neighbour IP="10.0.12.1" remote-as="2012" />
+      </session>
+    </router>
+    <router id="nodo2004_13">
+      <interface type="physical" name="principal" address="10.0.4.13" />
+      <topology>
+        <link id=".link_nodo2004_1-nodo2004_13" />
+        <link id=".link_nodo2004_13-nodo2004_2" />
+        <link id=".link_nodo2004_13-nodo2004_3" />
+        <link id=".link_nodo2004_13-nodo2004_4" />
+        <link id=".link_nodo2004_13-nodo2004_5" />
+        <link id=".link_nodo2004_13-nodo2004_6" />
+        <link id=".link_nodo2004_13-nodo2004_7" />
+        <link id=".link_nodo2004_13-nodo2004_8" />
+        <link id=".link_nodo2004_13-nodo2004_9" />
+        <link id=".link_nodo2004_10-nodo2004_13" />
+        <link id=".link_nodo2004_11-nodo2004_13" />
+        <link id=".link_nodo2004_12-nodo2004_13" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2004" interface="principal" />
+        <neighbour IP="10.0.4.1" remote-as="2004" />
+      </session>
+    </router>
+    <router id="nodo2005_1">
+      <interface type="physical" name="principal" address="10.0.5.1" />
+      <topology>
+        <link id=".link_nodo2005_1-nodo2005_2" />
+        <link id=".link_nodo2005_1-nodo2005_3" />
+        <link id=".link_nodo2005_1-nodo2005_4" />
+        <link id=".link_nodo2005_1-nodo2005_5" />
+        <link id=".link_nodo2004_5-nodo2005_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2005" interface="principal" />
+        <neighbour IP="10.0.5.2" remote-as="2005" />
+        <neighbour IP="10.0.5.3" remote-as="2005" />
+        <neighbour IP="10.0.5.4" remote-as="2005" />
+        <neighbour IP="10.0.5.5" remote-as="2005" />
+        <neighbour IP="10.0.4.5" remote-as="2004" />
+      </session>
+    </router>
+    <router id="nodo2005_2">
+      <interface type="physical" name="principal" address="10.0.5.2" />
+      <topology>
+        <link id=".link_nodo2005_1-nodo2005_2" />
+        <link id=".link_nodo2005_2-nodo2005_3" />
+        <link id=".link_nodo2005_2-nodo2005_4" />
+        <link id=".link_nodo2005_2-nodo2005_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2005" interface="principal" />
+        <neighbour IP="10.0.5.1" remote-as="2005" />
+        <neighbour IP="10.0.5.3" remote-as="2005" />
+        <neighbour IP="10.0.5.4" remote-as="2005" />
+        <neighbour IP="10.0.5.5" remote-as="2005" />
+      </session>
+    </router>
+    <router id="nodo2005_3">
+      <interface type="physical" name="principal" address="10.0.5.3" />
+      <topology>
+        <link id=".link_nodo2005_1-nodo2005_3" />
+        <link id=".link_nodo2005_2-nodo2005_3" />
+        <link id=".link_nodo2005_3-nodo2005_4" />
+        <link id=".link_nodo2005_3-nodo2005_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2005" interface="principal" />
+        <neighbour IP="10.0.5.1" remote-as="2005" />
+        <neighbour IP="10.0.5.2" remote-as="2005" />
+        <neighbour IP="10.0.5.4" remote-as="2005" />
+        <neighbour IP="10.0.5.5" remote-as="2005" />
+      </session>
+    </router>
+    <router id="nodo2005_4">
+      <interface type="physical" name="principal" address="10.0.5.4" />
+      <topology>
+        <link id=".link_nodo2005_1-nodo2005_4" />
+        <link id=".link_nodo2005_2-nodo2005_4" />
+        <link id=".link_nodo2005_3-nodo2005_4" />
+        <link id=".link_nodo2005_4-nodo2005_5" />
+        <link id=".link_nodo2005_4-nodo2014_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2005" interface="principal" />
+        <neighbour IP="10.0.5.1" remote-as="2005" />
+        <neighbour IP="10.0.5.2" remote-as="2005" />
+        <neighbour IP="10.0.5.3" remote-as="2005" />
+        <neighbour IP="10.0.5.5" remote-as="2005" />
+        <neighbour IP="10.0.14.1" remote-as="2014" />
+      </session>
+    </router>
+    <router id="nodo2005_5">
+      <interface type="physical" name="principal" address="10.0.5.5" />
+      <topology>
+        <link id=".link_nodo2005_1-nodo2005_5" />
+        <link id=".link_nodo2005_2-nodo2005_5" />
+        <link id=".link_nodo2005_3-nodo2005_5" />
+        <link id=".link_nodo2005_4-nodo2005_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2005" interface="principal" />
+        <neighbour IP="10.0.5.1" remote-as="2005" />
+        <neighbour IP="10.0.5.2" remote-as="2005" />
+        <neighbour IP="10.0.5.3" remote-as="2005" />
+        <neighbour IP="10.0.5.4" remote-as="2005" />
+      </session>
+    </router>
+    <router id="nodo2006_1">
+      <interface type="physical" name="principal" address="10.0.6.1" />
+      <topology>
+        <link id=".link_nodo2006_1-nodo2006_2" />
+        <link id=".link_nodo2006_1-nodo2006_3" />
+        <link id=".link_nodo2006_1-nodo2006_4" />
+        <link id=".link_nodo2006_1-nodo2006_5" />
+        <link id=".link_nodo2004_6-nodo2006_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2006" interface="principal" />
+        <neighbour IP="10.0.6.2" remote-as="2006" />
+        <neighbour IP="10.0.6.3" remote-as="2006" />
+        <neighbour IP="10.0.6.4" remote-as="2006" />
+        <neighbour IP="10.0.6.5" remote-as="2006" />
+        <neighbour IP="10.0.4.6" remote-as="2004" />
+      </session>
+    </router>
+    <router id="nodo2006_2">
+      <interface type="physical" name="principal" address="10.0.6.2" />
+      <topology>
+        <link id=".link_nodo2006_1-nodo2006_2" />
+        <link id=".link_nodo2006_2-nodo2006_3" />
+        <link id=".link_nodo2006_2-nodo2006_4" />
+        <link id=".link_nodo2006_2-nodo2006_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2006" interface="principal" />
+        <neighbour IP="10.0.6.1" remote-as="2006" />
+        <neighbour IP="10.0.6.3" remote-as="2006" />
+        <neighbour IP="10.0.6.4" remote-as="2006" />
+        <neighbour IP="10.0.6.5" remote-as="2006" />
+      </session>
+    </router>
+    <router id="nodo2006_3">
+      <interface type="physical" name="principal" address="10.0.6.3" />
+      <topology>
+        <link id=".link_nodo2006_1-nodo2006_3" />
+        <link id=".link_nodo2006_2-nodo2006_3" />
+        <link id=".link_nodo2006_3-nodo2006_4" />
+        <link id=".link_nodo2006_3-nodo2006_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2006" interface="principal" />
+        <neighbour IP="10.0.6.1" remote-as="2006" />
+        <neighbour IP="10.0.6.2" remote-as="2006" />
+        <neighbour IP="10.0.6.4" remote-as="2006" />
+        <neighbour IP="10.0.6.5" remote-as="2006" />
+      </session>
+    </router>
+    <router id="nodo2006_4">
+      <interface type="physical" name="principal" address="10.0.6.4" />
+      <topology>
+        <link id=".link_nodo2006_1-nodo2006_4" />
+        <link id=".link_nodo2006_2-nodo2006_4" />
+        <link id=".link_nodo2006_3-nodo2006_4" />
+        <link id=".link_nodo2006_4-nodo2006_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2006" interface="principal" />
+        <neighbour IP="10.0.6.1" remote-as="2006" />
+        <neighbour IP="10.0.6.2" remote-as="2006" />
+        <neighbour IP="10.0.6.3" remote-as="2006" />
+        <neighbour IP="10.0.6.5" remote-as="2006" />
+      </session>
+    </router>
+    <router id="nodo2006_5">
+      <interface type="physical" name="principal" address="10.0.6.5" />
+      <topology>
+        <link id=".link_nodo2006_1-nodo2006_5" />
+        <link id=".link_nodo2006_2-nodo2006_5" />
+        <link id=".link_nodo2006_3-nodo2006_5" />
+        <link id=".link_nodo2006_4-nodo2006_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2006" interface="principal" />
+        <neighbour IP="10.0.6.1" remote-as="2006" />
+        <neighbour IP="10.0.6.2" remote-as="2006" />
+        <neighbour IP="10.0.6.3" remote-as="2006" />
+        <neighbour IP="10.0.6.4" remote-as="2006" />
+      </session>
+    </router>
+    <router id="nodo2007_1">
+      <interface type="physical" name="principal" address="10.0.7.1" />
+      <topology>
+        <link id=".link_nodo2007_1-nodo2007_2" />
+        <link id=".link_nodo2007_1-nodo2007_3" />
+        <link id=".link_nodo2007_1-nodo2007_4" />
+        <link id=".link_nodo2004_7-nodo2007_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2007" interface="principal" />
+        <neighbour IP="10.0.7.2" remote-as="2007" />
+        <neighbour IP="10.0.7.3" remote-as="2007" />
+        <neighbour IP="10.0.7.4" remote-as="2007" />
+        <neighbour IP="10.0.4.7" remote-as="2004" />
+      </session>
+    </router>
+    <router id="nodo2007_2">
+      <interface type="physical" name="principal" address="10.0.7.2" />
+      <topology>
+        <link id=".link_nodo2007_1-nodo2007_2" />
+        <link id=".link_nodo2007_2-nodo2007_3" />
+        <link id=".link_nodo2007_2-nodo2007_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2007" interface="principal" />
+        <neighbour IP="10.0.7.1" remote-as="2007" />
+        <neighbour IP="10.0.7.3" remote-as="2007" />
+        <neighbour IP="10.0.7.4" remote-as="2007" />
+      </session>
+    </router>
+    <router id="nodo2007_3">
+      <interface type="physical" name="principal" address="10.0.7.3" />
+      <topology>
+        <link id=".link_nodo2007_1-nodo2007_3" />
+        <link id=".link_nodo2007_2-nodo2007_3" />
+        <link id=".link_nodo2007_3-nodo2007_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2007" interface="principal" />
+        <neighbour IP="10.0.7.1" remote-as="2007" />
+        <neighbour IP="10.0.7.2" remote-as="2007" />
+        <neighbour IP="10.0.7.4" remote-as="2007" />
+      </session>
+    </router>
+    <router id="nodo2007_4">
+      <interface type="physical" name="principal" address="10.0.7.4" />
+      <topology>
+        <link id=".link_nodo2007_1-nodo2007_4" />
+        <link id=".link_nodo2007_2-nodo2007_4" />
+        <link id=".link_nodo2007_3-nodo2007_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2007" interface="principal" />
+        <neighbour IP="10.0.7.1" remote-as="2007" />
+        <neighbour IP="10.0.7.2" remote-as="2007" />
+        <neighbour IP="10.0.7.3" remote-as="2007" />
+      </session>
+    </router>
+    <router id="nodo2008_1">
+      <interface type="physical" name="principal" address="10.0.8.1" />
+      <topology>
+        <link id=".link_nodo2008_1-nodo2008_2" />
+        <link id=".link_nodo2008_1-nodo2008_3" />
+        <link id=".link_nodo2008_1-nodo2008_4" />
+        <link id=".link_nodo2004_8-nodo2008_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2008" interface="principal" />
+        <neighbour IP="10.0.8.2" remote-as="2008" />
+        <neighbour IP="10.0.8.3" remote-as="2008" />
+        <neighbour IP="10.0.8.4" remote-as="2008" />
+        <neighbour IP="10.0.4.8" remote-as="2004" />
+      </session>
+    </router>
+    <router id="nodo2008_2">
+      <interface type="physical" name="principal" address="10.0.8.2" />
+      <topology>
+        <link id=".link_nodo2008_1-nodo2008_2" />
+        <link id=".link_nodo2008_2-nodo2008_3" />
+        <link id=".link_nodo2008_2-nodo2008_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2008" interface="principal" />
+        <neighbour IP="10.0.8.1" remote-as="2008" />
+        <neighbour IP="10.0.8.3" remote-as="2008" />
+        <neighbour IP="10.0.8.4" remote-as="2008" />
+      </session>
+    </router>
+    <router id="nodo2008_3">
+      <interface type="physical" name="principal" address="10.0.8.3" />
+      <topology>
+        <link id=".link_nodo2008_1-nodo2008_3" />
+        <link id=".link_nodo2008_2-nodo2008_3" />
+        <link id=".link_nodo2008_3-nodo2008_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2008" interface="principal" />
+        <neighbour IP="10.0.8.1" remote-as="2008" />
+        <neighbour IP="10.0.8.2" remote-as="2008" />
+        <neighbour IP="10.0.8.4" remote-as="2008" />
+      </session>
+    </router>
+    <router id="nodo2008_4">
+      <interface type="physical" name="principal" address="10.0.8.4" />
+      <topology>
+        <link id=".link_nodo2008_1-nodo2008_4" />
+        <link id=".link_nodo2008_2-nodo2008_4" />
+        <link id=".link_nodo2008_3-nodo2008_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2008" interface="principal" />
+        <neighbour IP="10.0.8.1" remote-as="2008" />
+        <neighbour IP="10.0.8.2" remote-as="2008" />
+        <neighbour IP="10.0.8.3" remote-as="2008" />
+      </session>
+    </router>
+    <router id="nodo2009_1">
+      <interface type="physical" name="principal" address="10.0.9.1" />
+      <topology>
+        <link id=".link_nodo2009_1-nodo2009_2" />
+        <link id=".link_nodo2009_1-nodo2009_3" />
+        <link id=".link_nodo2009_1-nodo2009_4" />
+        <link id=".link_nodo2009_1-nodo2009_5" />
+        <link id=".link_nodo2004_9-nodo2009_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2009" interface="principal" />
+        <neighbour IP="10.0.9.2" remote-as="2009" />
+        <neighbour IP="10.0.9.3" remote-as="2009" />
+        <neighbour IP="10.0.9.4" remote-as="2009" />
+        <neighbour IP="10.0.9.5" remote-as="2009" />
+        <neighbour IP="10.0.4.9" remote-as="2004" />
+      </session>
+    </router>
+    <router id="nodo2009_2">
+      <interface type="physical" name="principal" address="10.0.9.2" />
+      <topology>
+        <link id=".link_nodo2009_1-nodo2009_2" />
+        <link id=".link_nodo2009_2-nodo2009_3" />
+        <link id=".link_nodo2009_2-nodo2009_4" />
+        <link id=".link_nodo2009_2-nodo2009_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2009" interface="principal" />
+        <neighbour IP="10.0.9.1" remote-as="2009" />
+        <neighbour IP="10.0.9.3" remote-as="2009" />
+        <neighbour IP="10.0.9.4" remote-as="2009" />
+        <neighbour IP="10.0.9.5" remote-as="2009" />
+      </session>
+    </router>
+    <router id="nodo2009_3">
+      <interface type="physical" name="principal" address="10.0.9.3" />
+      <topology>
+        <link id=".link_nodo2009_1-nodo2009_3" />
+        <link id=".link_nodo2009_2-nodo2009_3" />
+        <link id=".link_nodo2009_3-nodo2009_4" />
+        <link id=".link_nodo2009_3-nodo2009_5" />
+        <link id=".link_nodo2009_3-nodo2013_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2009" interface="principal" />
+        <neighbour IP="10.0.9.1" remote-as="2009" />
+        <neighbour IP="10.0.9.2" remote-as="2009" />
+        <neighbour IP="10.0.9.4" remote-as="2009" />
+        <neighbour IP="10.0.9.5" remote-as="2009" />
+        <neighbour IP="10.0.13.1" remote-as="2013" />
+      </session>
+    </router>
+    <router id="nodo2009_4">
+      <interface type="physical" name="principal" address="10.0.9.4" />
+      <topology>
+        <link id=".link_nodo2009_1-nodo2009_4" />
+        <link id=".link_nodo2009_2-nodo2009_4" />
+        <link id=".link_nodo2009_3-nodo2009_4" />
+        <link id=".link_nodo2009_4-nodo2009_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2009" interface="principal" />
+        <neighbour IP="10.0.9.1" remote-as="2009" />
+        <neighbour IP="10.0.9.2" remote-as="2009" />
+        <neighbour IP="10.0.9.3" remote-as="2009" />
+        <neighbour IP="10.0.9.5" remote-as="2009" />
+      </session>
+    </router>
+    <router id="nodo2009_5">
+      <interface type="physical" name="principal" address="10.0.9.5" />
+      <topology>
+        <link id=".link_nodo2009_1-nodo2009_5" />
+        <link id=".link_nodo2009_2-nodo2009_5" />
+        <link id=".link_nodo2009_3-nodo2009_5" />
+        <link id=".link_nodo2009_4-nodo2009_5" />
+        <link id=".link_nodo1013_8-nodo2009_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2009" interface="principal" />
+        <neighbour IP="10.0.9.1" remote-as="2009" />
+        <neighbour IP="10.0.9.2" remote-as="2009" />
+        <neighbour IP="10.0.9.3" remote-as="2009" />
+        <neighbour IP="10.0.9.4" remote-as="2009" />
+        <neighbour IP="192.168.13.8" remote-as="1013" />
+      </session>
+    </router>
+    <router id="nodo2010_1">
+      <interface type="physical" name="principal" address="10.0.10.1" />
+      <topology>
+        <link id=".link_nodo2010_1-nodo2010_2" />
+        <link id=".link_nodo2004_10-nodo2010_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2010" interface="principal" />
+        <neighbour IP="10.0.10.2" remote-as="2010" />
+        <neighbour IP="10.0.4.10" remote-as="2004" />
+      </session>
+    </router>
+    <router id="nodo2010_2">
+      <interface type="physical" name="principal" address="10.0.10.2" />
+      <topology>
+        <link id=".link_nodo2010_1-nodo2010_2" />
+        <link id=".link_nodo2010_2-nodo2016_2" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2010" interface="principal" />
+        <neighbour IP="10.0.10.1" remote-as="2010" />
+        <neighbour IP="10.0.16.2" remote-as="2016" />
+      </session>
+    </router>
+    <router id="nodo2011_1">
+      <interface type="physical" name="principal" address="10.0.11.1" />
+      <topology>
+        <link id=".link_nodo2011_1-nodo2011_2" />
+        <link id=".link_nodo2011_1-nodo2011_3" />
+        <link id=".link_nodo2004_11-nodo2011_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2011" interface="principal" />
+        <neighbour IP="10.0.11.2" remote-as="2011" />
+        <neighbour IP="10.0.11.3" remote-as="2011" />
+        <neighbour IP="10.0.4.11" remote-as="2004" />
+      </session>
+    </router>
+    <router id="nodo2011_2">
+      <interface type="physical" name="principal" address="10.0.11.2" />
+      <topology>
+        <link id=".link_nodo2011_1-nodo2011_2" />
+        <link id=".link_nodo2011_2-nodo2011_3" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2011" interface="principal" />
+        <neighbour IP="10.0.11.1" remote-as="2011" />
+        <neighbour IP="10.0.11.3" remote-as="2011" />
+      </session>
+    </router>
+    <router id="nodo2011_3">
+      <interface type="physical" name="principal" address="10.0.11.3" />
+      <topology>
+        <link id=".link_nodo2011_1-nodo2011_3" />
+        <link id=".link_nodo2011_2-nodo2011_3" />
+        <link id=".link_nodo2011_3-nodo2017_2" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2011" interface="principal" />
+        <neighbour IP="10.0.11.1" remote-as="2011" />
+        <neighbour IP="10.0.11.2" remote-as="2011" />
+        <neighbour IP="10.0.17.2" remote-as="2017" />
+      </session>
+    </router>
+    <router id="nodo2012_1">
+      <interface type="physical" name="principal" address="10.0.12.1" />
+      <topology>
+        <link id=".link_nodo2012_1-nodo2012_2" />
+        <link id=".link_nodo2012_1-nodo2012_3" />
+        <link id=".link_nodo2004_12-nodo2012_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2012" interface="principal" />
+        <neighbour IP="10.0.12.2" remote-as="2012" />
+        <neighbour IP="10.0.12.3" remote-as="2012" />
+        <neighbour IP="10.0.4.12" remote-as="2004" />
+      </session>
+    </router>
+    <router id="nodo2012_2">
+      <interface type="physical" name="principal" address="10.0.12.2" />
+      <topology>
+        <link id=".link_nodo2012_1-nodo2012_2" />
+        <link id=".link_nodo2012_2-nodo2012_3" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2012" interface="principal" />
+        <neighbour IP="10.0.12.1" remote-as="2012" />
+        <neighbour IP="10.0.12.3" remote-as="2012" />
+      </session>
+    </router>
+    <router id="nodo2012_3">
+      <interface type="physical" name="principal" address="10.0.12.3" />
+      <topology>
+        <link id=".link_nodo2012_1-nodo2012_3" />
+        <link id=".link_nodo2012_2-nodo2012_3" />
+        <link id=".link_nodo2012_3-nodo2018_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2012" interface="principal" />
+        <neighbour IP="10.0.12.1" remote-as="2012" />
+        <neighbour IP="10.0.12.2" remote-as="2012" />
+        <neighbour IP="10.0.18.1" remote-as="2018" />
+      </session>
+    </router>
+    <router id="nodo2013_1">
+      <interface type="physical" name="principal" address="10.0.13.1" />
+      <topology>
+        <link id=".link_nodo2013_1-nodo2013_2" />
+        <link id=".link_nodo2013_1-nodo2013_3" />
+        <link id=".link_nodo2013_1-nodo2013_4" />
+        <link id=".link_nodo2009_3-nodo2013_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2013" interface="principal" />
+        <neighbour IP="10.0.13.2" remote-as="2013" />
+        <neighbour IP="10.0.13.3" remote-as="2013" />
+        <neighbour IP="10.0.13.4" remote-as="2013" />
+        <neighbour IP="10.0.9.3" remote-as="2009" />
+      </session>
+    </router>
+    <router id="nodo2013_2">
+      <interface type="physical" name="principal" address="10.0.13.2" />
+      <topology>
+        <link id=".link_nodo2013_1-nodo2013_2" />
+        <link id=".link_nodo2013_2-nodo2013_3" />
+        <link id=".link_nodo2013_2-nodo2013_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2013" interface="principal" />
+        <neighbour IP="10.0.13.1" remote-as="2013" />
+        <neighbour IP="10.0.13.3" remote-as="2013" />
+        <neighbour IP="10.0.13.4" remote-as="2013" />
+      </session>
+    </router>
+    <router id="nodo2013_3">
+      <interface type="physical" name="principal" address="10.0.13.3" />
+      <topology>
+        <link id=".link_nodo2013_1-nodo2013_3" />
+        <link id=".link_nodo2013_2-nodo2013_3" />
+        <link id=".link_nodo2013_3-nodo2013_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2013" interface="principal" />
+        <neighbour IP="10.0.13.1" remote-as="2013" />
+        <neighbour IP="10.0.13.2" remote-as="2013" />
+        <neighbour IP="10.0.13.4" remote-as="2013" />
+      </session>
+    </router>
+    <router id="nodo2013_4">
+      <interface type="physical" name="principal" address="10.0.13.4" />
+      <topology>
+        <link id=".link_nodo2013_1-nodo2013_4" />
+        <link id=".link_nodo2013_2-nodo2013_4" />
+        <link id=".link_nodo2013_3-nodo2013_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2013" interface="principal" />
+        <neighbour IP="10.0.13.1" remote-as="2013" />
+        <neighbour IP="10.0.13.2" remote-as="2013" />
+        <neighbour IP="10.0.13.3" remote-as="2013" />
+      </session>
+    </router>
+    <router id="nodo2014_1">
+      <interface type="physical" name="principal" address="10.0.14.1" />
+      <topology>
+        <link id=".link_nodo2014_1-nodo2014_2" />
+        <link id=".link_nodo2014_1-nodo2014_3" />
+        <link id=".link_nodo2014_1-nodo2014_4" />
+        <link id=".link_nodo2014_1-nodo2014_5" />
+        <link id=".link_nodo2005_4-nodo2014_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2014" interface="principal" />
+        <neighbour IP="10.0.14.2" remote-as="2014" />
+        <neighbour IP="10.0.14.3" remote-as="2014" />
+        <neighbour IP="10.0.14.4" remote-as="2014" />
+        <neighbour IP="10.0.14.5" remote-as="2014" />
+        <neighbour IP="10.0.5.4" remote-as="2005" />
+      </session>
+    </router>
+    <router id="nodo2014_2">
+      <interface type="physical" name="principal" address="10.0.14.2" />
+      <topology>
+        <link id=".link_nodo2014_1-nodo2014_2" />
+        <link id=".link_nodo2014_2-nodo2014_3" />
+        <link id=".link_nodo2014_2-nodo2014_4" />
+        <link id=".link_nodo2014_2-nodo2014_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2014" interface="principal" />
+        <neighbour IP="10.0.14.1" remote-as="2014" />
+        <neighbour IP="10.0.14.3" remote-as="2014" />
+        <neighbour IP="10.0.14.4" remote-as="2014" />
+        <neighbour IP="10.0.14.5" remote-as="2014" />
+      </session>
+    </router>
+    <router id="nodo2014_3">
+      <interface type="physical" name="principal" address="10.0.14.3" />
+      <topology>
+        <link id=".link_nodo2014_1-nodo2014_3" />
+        <link id=".link_nodo2014_2-nodo2014_3" />
+        <link id=".link_nodo2014_3-nodo2014_4" />
+        <link id=".link_nodo2014_3-nodo2014_5" />
+        <link id=".link_nodo2014_3-nodo2015_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2014" interface="principal" />
+        <neighbour IP="10.0.14.1" remote-as="2014" />
+        <neighbour IP="10.0.14.2" remote-as="2014" />
+        <neighbour IP="10.0.14.4" remote-as="2014" />
+        <neighbour IP="10.0.14.5" remote-as="2014" />
+        <neighbour IP="10.0.15.1" remote-as="2015" />
+      </session>
+    </router>
+    <router id="nodo2014_4">
+      <interface type="physical" name="principal" address="10.0.14.4" />
+      <topology>
+        <link id=".link_nodo2014_1-nodo2014_4" />
+        <link id=".link_nodo2014_2-nodo2014_4" />
+        <link id=".link_nodo2014_3-nodo2014_4" />
+        <link id=".link_nodo2014_4-nodo2014_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2014" interface="principal" />
+        <neighbour IP="10.0.14.1" remote-as="2014" />
+        <neighbour IP="10.0.14.2" remote-as="2014" />
+        <neighbour IP="10.0.14.3" remote-as="2014" />
+        <neighbour IP="10.0.14.5" remote-as="2014" />
+      </session>
+    </router>
+    <router id="nodo2014_5">
+      <interface type="physical" name="principal" address="10.0.14.5" />
+      <topology>
+        <link id=".link_nodo2014_1-nodo2014_5" />
+        <link id=".link_nodo2014_2-nodo2014_5" />
+        <link id=".link_nodo2014_3-nodo2014_5" />
+        <link id=".link_nodo2014_4-nodo2014_5" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2014" interface="principal" />
+        <neighbour IP="10.0.14.1" remote-as="2014" />
+        <neighbour IP="10.0.14.2" remote-as="2014" />
+        <neighbour IP="10.0.14.3" remote-as="2014" />
+        <neighbour IP="10.0.14.4" remote-as="2014" />
+      </session>
+    </router>
+    <router id="nodo2015_1">
+      <interface type="physical" name="principal" address="10.0.15.1" />
+      <topology>
+        <link id=".link_nodo2015_1-nodo2015_2" />
+        <link id=".link_nodo2014_3-nodo2015_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2015" interface="principal" />
+        <neighbour IP="10.0.15.2" remote-as="2015" />
+        <neighbour IP="10.0.14.3" remote-as="2014" />
+      </session>
+    </router>
+    <router id="nodo2015_2">
+      <interface type="physical" name="principal" address="10.0.15.2" />
+      <topology>
+        <link id=".link_nodo2015_1-nodo2015_2" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2015" interface="principal" />
+        <neighbour IP="10.0.15.1" remote-as="2015" />
+      </session>
+    </router>
+    <router id="nodo2016_1">
+      <interface type="physical" name="principal" address="10.0.16.1" />
+      <topology>
+        <link id=".link_nodo2016_1-nodo2016_2" />
+        <link id=".link_nodo2016_1-nodo2016_3" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2016" interface="principal" />
+        <neighbour IP="10.0.16.2" remote-as="2016" />
+        <neighbour IP="10.0.16.3" remote-as="2016" />
+      </session>
+    </router>
+    <router id="nodo2016_2">
+      <interface type="physical" name="principal" address="10.0.16.2" />
+      <topology>
+        <link id=".link_nodo2016_1-nodo2016_2" />
+        <link id=".link_nodo2016_2-nodo2016_3" />
+        <link id=".link_nodo2010_2-nodo2016_2" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2016" interface="principal" />
+        <neighbour IP="10.0.16.1" remote-as="2016" />
+        <neighbour IP="10.0.16.3" remote-as="2016" />
+        <neighbour IP="10.0.10.2" remote-as="2010" />
+      </session>
+    </router>
+    <router id="nodo2016_3">
+      <interface type="physical" name="principal" address="10.0.16.3" />
+      <topology>
+        <link id=".link_nodo2016_1-nodo2016_3" />
+        <link id=".link_nodo2016_2-nodo2016_3" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2016" interface="principal" />
+        <neighbour IP="10.0.16.1" remote-as="2016" />
+        <neighbour IP="10.0.16.2" remote-as="2016" />
+        <network address="3.0.0.0/8"/>
+        
+      </session>
+    </router>
+    <router id="nodo2017_1">
+      <interface type="physical" name="principal" address="10.0.17.1" />
+      <topology>
+        <link id=".link_nodo2017_1-nodo2017_2" />
+        <link id=".link_nodo2017_1-nodo2017_3" />
+        <link id=".link_nodo2017_1-nodo2017_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2017" interface="principal" />
+        <neighbour IP="10.0.17.2" remote-as="2017" />
+        <neighbour IP="10.0.17.3" remote-as="2017" />
+        <neighbour IP="10.0.17.4" remote-as="2017" />
+      </session>
+    </router>
+    <router id="nodo2017_2">
+      <interface type="physical" name="principal" address="10.0.17.2" />
+      <topology>
+        <link id=".link_nodo2017_1-nodo2017_2" />
+        <link id=".link_nodo2017_2-nodo2017_3" />
+        <link id=".link_nodo2017_2-nodo2017_4" />
+        <link id=".link_nodo2011_3-nodo2017_2" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2017" interface="principal" />
+        <neighbour IP="10.0.17.1" remote-as="2017" />
+        <neighbour IP="10.0.17.3" remote-as="2017" />
+        <neighbour IP="10.0.17.4" remote-as="2017" />
+        <neighbour IP="10.0.11.3" remote-as="2011" />
+      </session>
+    </router>
+    <router id="nodo2017_3">
+      <interface type="physical" name="principal" address="10.0.17.3" />
+      <topology>
+        <link id=".link_nodo2017_1-nodo2017_3" />
+        <link id=".link_nodo2017_2-nodo2017_3" />
+        <link id=".link_nodo2017_3-nodo2017_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2017" interface="principal" />
+        <neighbour IP="10.0.17.1" remote-as="2017" />
+        <neighbour IP="10.0.17.2" remote-as="2017" />
+        <neighbour IP="10.0.17.4" remote-as="2017" />
+      </session>
+    </router>
+    <router id="nodo2017_4">
+      <interface type="physical" name="principal" address="10.0.17.4" />
+      <topology>
+        <link id=".link_nodo2017_1-nodo2017_4" />
+        <link id=".link_nodo2017_2-nodo2017_4" />
+        <link id=".link_nodo2017_3-nodo2017_4" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2017" interface="principal" />
+        <neighbour IP="10.0.17.1" remote-as="2017" />
+        <neighbour IP="10.0.17.2" remote-as="2017" />
+        <neighbour IP="10.0.17.3" remote-as="2017" />
+      </session>
+    </router>
+    <router id="nodo2018_1">
+      <interface type="physical" name="principal" address="10.0.18.1" />
+      <topology>
+        <link id=".link_nodo2018_1-nodo2018_2" />
+        <link id=".link_nodo2018_1-nodo2018_3" />
+        <link id=".link_nodo2012_3-nodo2018_1" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2018" interface="principal" />
+        <neighbour IP="10.0.18.2" remote-as="2018" />
+        <neighbour IP="10.0.18.3" remote-as="2018" />
+        <neighbour IP="10.0.12.3" remote-as="2012" />
+      </session>
+    </router>
+    <router id="nodo2018_2">
+      <interface type="physical" name="principal" address="10.0.18.2" />
+      <topology>
+        <link id=".link_nodo2018_1-nodo2018_2" />
+        <link id=".link_nodo2018_2-nodo2018_3" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2018" interface="principal" />
+        <neighbour IP="10.0.18.1" remote-as="2018" />
+        <neighbour IP="10.0.18.3" remote-as="2018" />
+      </session>
+    </router>
+    <router id="nodo2018_3">
+      <interface type="physical" name="principal" address="10.0.18.3" />
+      <topology>
+        <link id=".link_nodo2018_1-nodo2018_3" />
+        <link id=".link_nodo2018_2-nodo2018_3" />
+      </topology>
+      <session type="tcp_full" />
+      <session type="bgp 4">
+        <parameters as="2018" interface="principal" />
+        <neighbour IP="10.0.18.1" remote-as="2018" />
+        <neighbour IP="10.0.18.2" remote-as="2018" />
+      </session>
+    </router>
+  </components>
+</JSimConfig>
+

@@ -1,0 +1,28 @@
+<JSimConfig>
+	<events>
+		<event type="DOWN" id="CaidaRouter180_2Router3_4"
+			message="Cortando la comunicacion entre entre Router180_2 Router3_4">
+			<component id="Router180_2Router3_4" />
+		</event>
+		<event type="UP" id="RecuperacionRouter180_2Router3_4"
+			message="Reanudando la comunicación entre Router180_2Router3_4">
+			<component id="Router180_2Router3_4" />
+		</event>
+		<event type="DOWN" id="CaidaRouter1_3Router3_1"
+			message="Cortando la comunicacion entre Router1_3 Router3_1">
+			<component id="Router1_3Router3_1" />
+		</event>
+		<event type="UP" id="RecuperacionRouter1_3Router3_1"
+			message="Reanudando la comunicación Router1_3 Router3_1">
+			<component id="Router1_3Router3_1" />
+		</event>
+	</events>
+	<simulation time="10000">
+		<execute id="CaidaRouter180_2Router3_4" time="1000" />
+		<execute id="RecuperacionRouter180_2Router3_4" time="2000" />
+		<execute id="CaidaRouter1_3Router3_1" time="3000" />
+		<execute id="RecuperacionRouter1_3Router3_1" time="4000" />
+		<execute id="CaidaRouter180_2Router3_4" time="5000" />
+		<execute id="RecuperacionRouter180_2Router3_4" time="6000" />
+	</simulation>
+</JSimConfig>

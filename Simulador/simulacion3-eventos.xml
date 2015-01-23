@@ -1,0 +1,27 @@
+<JSimConfig>
+	<events>
+		<event type="DOWN" id="Down1013-2009"
+			message="Cortando la comunicacion entre Los sistemas autonomos 1013 y 2009">
+			<component id=".link_nodo1013_8-nodo2009_5" />
+		</event>
+		<event type="UP" id="Up1013-2009"
+			message="Recuperando la comunicacion entre Los sistemas autonomos 1013 y 2009">
+			<component id=".link_nodo1013_8-nodo2009_5" />
+		</event>
+		<event type="DOWN" id="Down1011-2002"
+			message="Cortando la comunicacion entre Los sistemas autonomos 1011 y 2002">
+			<component id=".link_nodo1011_2-nodo2002_3" />
+		</event>
+		<event type="UP" id="Up1011-2002"
+			message="Recuperando la comunicacion entre Los sistemas autonomos 1011 y 2002">
+			<component id=".link_nodo1011_2-nodo2002_3" />
+		</event>
+
+	</events>
+	<simulation time="10000">
+		<execute id="Down1013-2009" time="2000"/>
+		<execute id="Up1013-2009" time="4000"/>
+		<execute id="Down1011-2002" time="6000"/>
+		<execute id="Up1011-2002" time="8000"/>
+	</simulation>
+</JSimConfig>
